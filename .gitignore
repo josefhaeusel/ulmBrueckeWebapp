@@ -1,8 +1,7 @@
 # compiled output
-/dist
-/node_modules
-/build
-/frontend/soundlogo/test
+/dist/
+/node_modules/
+/build/
 
 # uploaded files
 /temp_uploads/audio/*
