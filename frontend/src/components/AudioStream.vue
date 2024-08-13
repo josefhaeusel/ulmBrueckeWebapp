@@ -1,7 +1,7 @@
 <template>
     <div>
       <audio controls>
-        <source src="http://ulm-smart-bridge.de/stream"/>
+        <source src="http://ulm-smart-bridge.de:8000/stream"/>
       </audio>
     </div>
   </template>
