@@ -1,6 +1,6 @@
 <template>
-  <v-parallax :src="require('../assets/uhd-bridge.jpg')" height="100vmin" class="extreme-parallax">
-    <div style="background: rgba(0,0,0, 0.3); position:absolute" class="h-100 w-100">
+  <v-parallax :src="require('../assets/smart-circular-bridge.jpg')" height="100vmin">
+    <div style="background: rgba(0,0,0, 0.5); position:absolute" class="h-100 w-100">
       <div class="d-flex flex-column fill-height justify-center align-center text-white">
           <h1 class="text-h2 mb-4">
             Smart Circular Bridge
@@ -52,23 +52,5 @@
   </script>
   
   <style scoped>
-  /* Increase the parallax effect */
-.extreme-parallax .v-parallax__image-container {
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-}
-
-.extreme-parallax .v-parallax__image-container {
-  animation: extremeParallaxAnimation 20s infinite linear;
-}
-
-@keyframes extremeParallaxAnimation {
-  from {
-    transform: translate3d(0, -30%, 0);
-  }
-  to {
-    transform: translate3d(0, 30%, 0);
-  }
-}
   </style>
   
