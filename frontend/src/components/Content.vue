@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div style="margin-top:1000px">
 
     </div>
   </template>
   
   <script>
   export default {
-    name: 'AudioStream',
+    name: 'ContentMiddle',
     data() {
       return {
         message: 'Hello from MyComponent!'

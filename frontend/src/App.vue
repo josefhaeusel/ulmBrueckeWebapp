@@ -1,40 +1,45 @@
 <template>
   <div id="app">
-    <header>
-      <h1>Live Audio Stream</h1>
-    </header>
     <main>
-      <AudioPlayer />
+      <ParallaxBackground />
+      <ContentMiddle />
+      <FooterBottom/>
     </main>
+
   </div>
 </template>
 
 <script>
-import AudioPlayer from './components/AudioStream.vue';
+import ParallaxBackground from './components/Parallax.vue';
+import FooterBottom from './components/Footer.vue'
+import ContentMiddle from './components/Content.vue'
 
 export default {
   name: 'App',
   components: {
-    AudioPlayer
+    ParallaxBackground,
+    ContentMiddle,
+    FooterBottom
   }
 };
+
 </script>
 
+
 <style>
+body {
+  font-family: Arial;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 header {
   background: #42b983;
   color: white;
   padding: 20px;
 }
-main {
-  padding: 20px;
-}
+
 </style>
