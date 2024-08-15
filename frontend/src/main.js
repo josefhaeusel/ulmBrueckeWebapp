@@ -9,8 +9,6 @@ import { AVPlugin } from "vue-audio-visual";
 
 
 
-// Components
-
 const vuetify = createVuetify({
   components,
   directives,
@@ -19,6 +17,8 @@ const vuetify = createVuetify({
   },
 
 })
+
+
 
 createApp(App).use(AVPlugin).use(vuetify).mount('#app')
 
