@@ -84,7 +84,7 @@ export default {
       const offsetTop = containerRect.top + scrollTop;
 
       // Adjust the translateY value based on scroll position
-      const parallaxSpeed = 0.9; // Adjust this value for more or less parallax effect
+      const parallaxSpeed = 0.5; // Adjust this value for more or less parallax effect
       const translateY = (scrollTop - offsetTop) * parallaxSpeed;
 
       video.style.transform = `translate3d(-50%, ${translateY}px, 0)`;
