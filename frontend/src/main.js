@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
-// Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-import '@mdi/font/css/materialdesignicons.css'; // Import Material Design Icons CSS
+import '@mdi/font/css/materialdesignicons.css';
+import { AVPlugin } from "vue-audio-visual";
+
 
 
 // Components
@@ -20,5 +20,5 @@ const vuetify = createVuetify({
 
 })
 
-createApp(App).use(vuetify).mount('#app')
+createApp(App).use(AVPlugin).use(vuetify).mount('#app')
 

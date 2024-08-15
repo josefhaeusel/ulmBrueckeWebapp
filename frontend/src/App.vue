@@ -27,9 +27,6 @@ export default {
 
 
 <style>
-body {
-  font-family: Arial;
-}
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
