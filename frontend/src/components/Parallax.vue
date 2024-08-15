@@ -10,16 +10,16 @@
             <v-icon icon="mdi-cast-audio-variant"></v-icon>
           </h2>
 
-          <div class="pt-10" >
-            <v-icon v-if="!audioIsPlaying && !audioIsLoading" @click="audioPlayer.play()" :icon="playIconActive" style="font-size: 5rem" @mouseover="playIconActive = 'mdi-motion-play'" @mouseleave="playIconActive = 'mdi-motion-play-outline'"></v-icon>
+          <div class="d-flex pt-10 align-center" style="height:80px">
+            <v-icon v-if="!audioIsPlaying && !audioIsLoading" @click="startStream" :icon="playIconActive" style="font-size: 5rem" @mouseover="playIconActive = 'mdi-motion-play'" @mouseleave="playIconActive = 'mdi-motion-play-outline'"></v-icon>
             <v-icon v-if="audioIsPlaying && !audioIsLoading" @click="audioPlayer.pause()"  :icon="playIconActive" style="font-size: 5rem" @mouseover="playIconActive = 'mdi-motion-pause'" @mouseleave="playIconActive = 'mdi-motion-pause-outline'"></v-icon>
-            <v-progress-circular v-if="audioIsLoading" color="primary" indeterminate size="40"></v-progress-circular>
+            <v-progress-circular v-if="audioIsLoading" color="primary" indeterminate size="50"></v-progress-circular>
           </div>
           <!-- <img :src="require('../assets/motion-play-outline.svg')" alt="play" style="width: 100px" class="pt-5"> -->
           <audio id="audioPlayer">
             <source src="http://ulm-smart-bridge.de:8000/stream"/>
           </audio>
-          <av-line :line-width="2" line-color="blue" src="http://ulm-smart-bridge.de:8000/stream"></av-line>
+          <!-- <av-line :line-width="2" line-color="blue" src="http://ulm-smart-bridge.de:8000/stream"></av-line> -->
 
           <!-- timeline, waveform... -->
         </div>
@@ -35,7 +35,7 @@
     mounted() {
       this.audioPlayer = document.getElementById("audioPlayer")
       console.log(this.audioPlayer)
-      this.audioPlayer.addEventListener("paused", () => {
+      this.audioPlayer.addEventListener("pause", () => {
         this.audioIsPlaying = false
         this.audioIsLoading = false
       })
@@ -43,15 +43,9 @@
         this.audioIsPlaying = false
         this.audioIsLoading = true
       })
-      this.audioPlayer.addEventListener("loading", () => {
-        this.audioIsPlaying = false
-        this.audioIsLoading = true
-
-      })
       this.audioPlayer.addEventListener("playing", () => {
         this.audioIsPlaying = true
         this.audioIsLoading = false
-        //loading  ui logic
       })
 
     },
@@ -66,14 +60,19 @@
       }
     },
     methods: {
+      startStream(){
+        console.log(this.audioPlayer.currentTime)
+        const buffered = this.audioPlayer.buffered
+        if(buffered.length > 0) {
+          this.audioPlayer.currentTime = buffered.end(buffered.length-1)
+        }
+        this.audioPlayer.play()
+      }
     }
   }
   </script>
   
   <style scoped>
-   audio{
-    display:none
-   }
   </style>
 
   
