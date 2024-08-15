@@ -29,7 +29,7 @@
 <script>
 import ParallaxBackground from './components/Parallax.vue'
 import FooterBottom from './components/Footer.vue'
-import SlideCards from './components/slideCards.vue'
+import SlideCards from './components/SlideCards.vue'
 
 
 export default {
