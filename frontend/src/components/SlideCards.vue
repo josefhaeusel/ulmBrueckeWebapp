@@ -1,5 +1,5 @@
 <template>
-  <v-card
+  <v-card 
     theme="bright"
     flat
     class="rounded-lg"
