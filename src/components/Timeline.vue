@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-coloumn justify-center">
+  <div class="main-container">
     <!-- <div v-show="timeline.showTimeline" class="scrolling-line" :style="backgroundStyle"></div> -->
 
     <v-card
@@ -274,7 +274,11 @@
   </script>
 
   <style>
-
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .timeline {
       max-width: 1000px;
       transition: 
