@@ -3,6 +3,7 @@
     <main>
       <ParallaxBackground />
       <TimelineComponent />
+      <AudioSiteComponent />
       <v-divider></v-divider>
       <div class="text-left mx-10 my-6">
         <h1 class="text-h4 py-2">
