@@ -1,84 +1,6 @@
 <template>
   <div class="main-container">
     <!-- <div v-show="timeline.showTimeline" class="scrolling-line" :style="backgroundStyle"></div> -->
-
-    <div class="audio-abstract">
-    <h1 style="padding-bottom: 15px;">
-      Die Smart Circular Bridge als Musikinstrument
-    </h1>
-
-    <p style="text-align: center;">
-      Ist Flachs das Material der Zukunft? Die nachhaltige Smart Circular Bridge in Ulm soll weitere Erkenntnisse liefern. Sie hat hierfür verschiedenste Sensoren eingebaut, welche das Material und dessen Auslastung im realen Raum überwachen. Unser Audio-Konzept soll eine <b>spielerische Auseinandersetzung mit der Brücke und den Überwachungs-Sensoriken</b> bieten und ein Bewusstsein für nachhaltiges Bauen fördern. Die Audioverarbeitung der Sensoren basiert auf einem von <a href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a> speziell für das Projekt angefertigtem Tool und wird zum einen auf den <b>vor Ort installierten Lautsprechern (4)</b> und via <b>Audio-Livestream über das Internet</b> wiedergegeben.<br> <br> <b>Im Nachfolgenden werden die einzelnen Sensoren und ihre Sonifikationen genaustens beschrieben und jeweils isoliert erlebbar:</b> 
-    </p>
-  </div>
-   
-  <div class="audio-box">
-    <!-- Accel. -->
-    <v-card 
-      class="mx-auto my-10"
-      subtitle="Wie klingen Schritte?"
-    >
-      <template v-slot:title>
-        <span class="font-weight-black">Die Accelerometer</span>
-      </template>
-
-      <v-card-text class="bg-surface-light pt-4">
-        Durch die Accelometer-Werte können wir durch rechnerische Ableitungen einzelne Peaks/ Schritte ablesen und in Echtzeit sonifizieren. Hierbei unterscheiden wir zwischen <b> 7 verschiedenen Schrittstärken</b>, damit die Verklanglichung nie Langweilig wird. Zum Beispiel klingt auch ein Hund anders wie ein Erwachsener Mensch. 
-      </v-card-text>
-      <video controls="controls" class="accel.-video" ref="parallaxVideo">
-          <source :src="require('../assets/accel._video.mp4')" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-    </v-card>    
-    
-
-     <!-- Strain. -->
-     <v-card 
-      class="mx-auto my-10"
-      subtitle="Strain als Identifikator für die Beugung"
-    >
-      <template v-slot:title>
-        <span class="font-weight-black">Strain/ Beugung</span>
-      </template>
-
-      <v-card-text class="bg-surface-light pt-4">
-        Des Weiteren nutzen wir die Strain-Sensoren, sprich die Beugungswerte der Brücke. Diese beeinflussen die Klangdichte der im Hintergrund erklingenden Soundscape. Hierbei handelt es sich um ein Streicher-Ensemble mit Tremolo-Effektierung.
-      </v-card-text>
-      <video controls="controls" class="strain.-video" ref="parallaxVideo">
-          <source :src="require('../assets/strain_video.mp4')" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-    </v-card>    
-
-    <!-- Temperatur -->
-    <v-card 
-      class="mx-auto my-10"
-      subtitle="Das Wetter als Soundscape-Creator"
-    >
-      <template v-slot:title>
-        <span class="font-weight-black">Temperatur</span>
-      </template>
-
-      <v-card-text class="bg-surface-light pt-4">
-        Der Schritt-Sonifizierung liegt eine modulare Soundscape unter. Diese basiert auf den Wetterdaten, welche auch durch die Brücke getrackt wird. Dadurch ergibt sich zu jeder Zeit eine mit der Natur im reinen passende Atmosphäre. Durch diese Grundlage ermöglichen wir es auch, mittels der Skalentheorie, ohne welche zum Beispiel Filmmusik undenkbar wäre, weitere Einfüsse auf die Stimmungen zu nehmen. 
-      </v-card-text>
-      <video controls="controls" class="accel.-video" ref="parallaxVideo">
-          <source :src="require('../assets/temperatur_video.mp4')" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-    </v-card>  
-  </div>
-
-  <div class="audioSpecials">
-    <h1 style="padding-bottom: 15px;">
-      Ein Hüpfspiel für wirklich jede und jeden! Um 12, 15 und 18 Uhr
-    </h1>
-
-    <p style="text-align: center;">
-      Uhrzeitenabhängig gibt es spezielle unterschiedliche Special-Modi um alle Generationen und Interessengruppen der Stadt anzusprechen. Neben einem GameSound, welche die jüngere Gaming Kultur aufgreift, erstellten <a href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a> auch eine experimentellere Atmosphäre mit Percussion-Instrumenten. Bei allen synthetisch erzeugten Klängen ersetzten wir die Transienten durch Holzsounds, um die Natürlichkeit, welche die Brücke ausstrahlt nicht zu verlieren.
-    </p>
-  </div>
-  
   
     <v-timeline class="timeline mx-5 my-6" side="end" line-inset="20"
     :style='`transform: translateX(${timeline.timelinePositionX}); display: ${timeline.timelineDisplay}; opacity: ${timeline.timelineOpacity}`'>
@@ -350,7 +272,7 @@
 .audio-box {
       display: flex;
       align-items: top;
-      flex-direction: row;
+      flex-direction: column;
       padding: 10px 100px 10px 100px;
       justify-content:space-between;
   }
@@ -364,8 +286,8 @@
 }
 
   .audio-box video {
-    max-width: 100%;
-    max-height: auto;
+    width: 100%;
+    /* height: 100%; */
     
   }
 
@@ -377,6 +299,10 @@
       margin-top: 10px;
       margin-bottom: 50px;
 }
+
+    .accel.-video{
+      width: 20px
+    }
 
     .main-container {
       display: flex;
