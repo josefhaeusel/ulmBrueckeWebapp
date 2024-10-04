@@ -42,7 +42,7 @@
                   <div class="text-video">
                     <v-card-text class="textLayout" v-html="expansionCard.text">
                     </v-card-text>
-                    <video controls="controls" class="videobox" ref="parallaxVideo">
+                    <video controls="controls" loop class="videobox" ref="parallaxVideo">
                       <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -73,8 +73,9 @@
         Ein Hüpfspiel für wirklich jede und jeden! Um 12, 15 und 18 Uhr
       </h1>
 
+    <div></div>
       <div class="hüpfspiel-div">
-      <p style="text-align: center;">
+      <p style="text-align: center; padding-bottom: 30px;">
         Uhrzeitenabhängig gibt es spezielle unterschiedliche Special-Modi um alle Generationen und Interessengruppen der
         Stadt anzusprechen. Neben einem GameSound, welche die jüngere Gaming Kultur aufgreift, erstellten <a
           href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a> auch eine experimentellere Atmosphäre mit
@@ -83,7 +84,8 @@
         die Natürlichkeit, welche die Brücke ausstrahlt nicht zu verlieren.
       </p>
         <v-img
-        style="width: 40%"
+        style="width: 50%"
+        min-width="300px"
         src="../assets/brueckenbild.png"
         ></v-img>
       </div>
@@ -217,10 +219,9 @@ export default {
 
 .hüpfspiel-div {
   display: flex;
-  flex-direction: row;
-  padding-inline: 500px;
-  align-content: center;
-  justify-content: space-between;
+  flex-direction: column;
+  padding-inline: 400px;
+  align-items:  center;
 }
 
 
