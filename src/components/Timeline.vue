@@ -1,7 +1,16 @@
 <template>
   <div class="main-container">
-    <!-- <div v-show="timeline.showTimeline" class="scrolling-line" :style="backgroundStyle"></div> -->
-  
+
+    <div class="Information-abstract">
+      <h1 style="padding-bottom: 15px;">
+        Allgemeine Informationen
+      </h1>
+
+      <p style="text-align: center;">
+        Über die folgenden Rider können Sie genaueres über die verwendeten Materialien herausfinden
+      </p>
+    </div>
+
     <v-timeline class="timeline mx-5 my-6" side="end" line-inset="20"
     :style='`transform: translateX(${timeline.timelinePositionX}); display: ${timeline.timelineDisplay}; opacity: ${timeline.timelineOpacity}`'>
       <v-timeline-item
@@ -260,7 +269,7 @@
   </script>
 
   <style>  
-  .audio-abstract {
+  .Information-abstract {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -268,41 +277,6 @@
       margin-top: 30px;
       margin-bottom: 10px;
 }
-
-.audio-box {
-      display: flex;
-      align-items: top;
-      flex-direction: column;
-      padding: 10px 100px 10px 100px;
-      justify-content:space-between;
-  }
-
-.audio-box .v-card {
-    display: flex;
-    flex-direction:column;
-    justify-content: space-between;
-    padding: 10px 20px 50px 20px;
-    
-}
-
-  .audio-box video {
-    width: 100%;
-    /* height: 100%; */
-    
-  }
-
-  .audioSpecials {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-inline: 100px;
-      margin-top: 10px;
-      margin-bottom: 50px;
-}
-
-    .accel.-video{
-      width: 20px
-    }
 
     .main-container {
       display: flex;

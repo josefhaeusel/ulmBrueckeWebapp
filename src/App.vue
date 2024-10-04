@@ -2,8 +2,26 @@
   <div id="app">
     <main>
       <ParallaxBackground />
-      <AudioInfoComponent />
-      <TimelineComponent />
+      <v-card>
+      <v-tabs
+        v-model="tab"
+        align-tabs="center"
+        color="blue"
+      >
+        <v-tab :value="1">Sound-Konzept</v-tab>
+        <v-tab :value="2">Brücken-Informationen</v-tab>
+      </v-tabs>
+
+      <v-tabs-window v-model="tab">
+        <v-tabs-window-item :value="1">
+        <AudioInfoComponent />
+        </v-tabs-window-item>
+        <v-tabs-window-item :value="2">
+          <TimelineComponent />
+        </v-tabs-window-item>
+      </v-tabs-window>
+    </v-card>
+
       <v-divider></v-divider>
       <div class="text-left mx-10 my-6">
         <h1 class="text-h4 py-2">
@@ -37,8 +55,12 @@ import SlideCards from './components/SlideCards.vue'
 import TimelineComponent from './components/Timeline.vue'
 import AudioInfoComponent from './components/AudioInfo.vue'
 
+   
 
 export default {
+  data: () => ({
+      tab: 1,
+    }),
   name: 'App',
   components: {
     ParallaxBackground,

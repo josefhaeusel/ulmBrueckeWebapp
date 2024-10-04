@@ -168,10 +168,11 @@ export default {
 <style scoped>
 .audio-abstract {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-  margin-bottom: 10px;
+      flex-direction: column;
+      align-items: center;
+      margin-inline: 120px;
+      margin-top: 30px;
+      margin-bottom: 10px;
 }
 
 .Sensor-Boxes {
