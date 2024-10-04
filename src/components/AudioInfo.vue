@@ -73,14 +73,20 @@
         Ein Hüpfspiel für wirklich jede und jeden! Um 12, 15 und 18 Uhr
       </h1>
 
+      <div class="hüpfspiel-div">
       <p style="text-align: center;">
         Uhrzeitenabhängig gibt es spezielle unterschiedliche Special-Modi um alle Generationen und Interessengruppen der
         Stadt anzusprechen. Neben einem GameSound, welche die jüngere Gaming Kultur aufgreift, erstellten <a
           href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a> auch eine experimentellere Atmosphäre mit
-        Percussion-Instrumenten. Bei allen synthetisch erzeugten Klängen ersetzten wir die Transienten durch Holzsounds,
+        Percussion-Instrumenten. Bei allen synthetisch erzeugten Klängen ersetzten Sie die Transienten durch Holzsounds,
         um
         die Natürlichkeit, welche die Brücke ausstrahlt nicht zu verlieren.
       </p>
+        <v-img
+        style="width: 40%"
+        src="../assets/brueckenbild.png"
+        ></v-img>
+      </div>
     </div>
 
 
@@ -118,7 +124,7 @@ export default {
             video: 'accel_video.mp4',
           },
           {
-            title: 'Strain/ Beugung',
+            title: 'Strain',
             subtitle: 'Strain als Identifikator für die Beugung',
             text: 'Des Weiteren nutzen wir die Strain-Sensoren, sprich die Beugungswerte der Brücke. Diese beeinflussen die Klangdichte der im Hintergrund erklingenden Soundscape. Hierbei handelt es sich um ein Streicher-Ensemble mit Tremolo-Effektierung.',
             video: 'strain_video.mp4',
@@ -194,7 +200,6 @@ export default {
     }
 
 
-
 .Sensor-Boxes video {
   max-width: 60%;
   height: 100%;
@@ -210,19 +215,19 @@ export default {
   margin-bottom: 50px;
 }
 
+.hüpfspiel-div {
+  display: flex;
+  flex-direction: row;
+  padding-inline: 500px;
+  align-content: center;
+  justify-content: space-between;
+}
+
 
 .main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.timeline {
-  max-width: 1000px;
-  transition:
-    transform 0.2s ease,
-    opacity 0.1s ease;
-
 }
 
 .expansion {
