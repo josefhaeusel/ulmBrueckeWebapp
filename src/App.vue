@@ -35,7 +35,7 @@ import ParallaxBackground from './components/Parallax.vue'
 import FooterBottom from './components/Footer.vue'
 import SlideCards from './components/SlideCards.vue'
 import TimelineComponent from './components/Timeline.vue'
-import AudioInfoComponent from './components/AudioInfos.vue'
+import AudioInfoComponent from './components/AudioInfo.vue'
 
 
 export default {
