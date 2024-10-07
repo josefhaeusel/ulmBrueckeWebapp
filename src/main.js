@@ -19,6 +19,5 @@ const vuetify = createVuetify({
 })
 
 
-
 createApp(App).use(AVPlugin).use(vuetify).mount('#app')
 
