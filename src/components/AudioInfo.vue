@@ -29,17 +29,18 @@
               <!-- untergeordnete Slides -->
               <v-card class="audioinfo-boxes" elevation="4" style="max-width: 1000px">
                 <div class="Sensor-Boxes">
-                  <v-card-title :class="['text-h4', 'text-white']" text-color="white">
+                  <v-card-title :class="['text-h4', `bg-cyan`, 'text-white']" text-color="white">
                     {{ expansionCard.title }}
                   </v-card-title>
 
-                  <v-card-subtitle>
-                    {{ expansionCard.subtitle }}
-                  </v-card-subtitle>
-
                   <div class="text-video">
-                    <v-card-text class="textLayout" v-html="expansionCard.text">
-                    </v-card-text>
+                    <div class="untertitel-titel">
+                      <v-card-subtitle style="font-size: 18px; font-weight: 600;">
+                    {{ expansionCard.subtitle }}
+                      </v-card-subtitle>
+                      <v-card-text class="textLayout" v-html="expansionCard.text">
+                     </v-card-text>
+                  </div>
                     <video controls loop class="videobox" :id="`soundVideo-${n}`">
                       <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
                       Your browser does not support the video tag.
@@ -195,6 +196,12 @@ export default {
   justify-content: space-between;
   padding: 10px 20px 50px 20px;
 }
+
+
+.untertitel-titel {
+  padding-top: 20px;
+}
+
 
 .text-video {
   display: flex;
