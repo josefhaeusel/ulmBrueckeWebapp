@@ -44,7 +44,7 @@
       </v-timeline-item>
     </v-timeline>
 
-    <div class="expansion-container d-flex mx-1">
+    <div class="d-flex mx-1 mt-5">
 
       <div 
         v-for="(module, i) in content_modules"
@@ -274,12 +274,6 @@
     align-self: center;
   }
 
-    .main-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      /* justify-items: center; */
-    }
     .timeline {
       max-width: 1000px;
       transition: 

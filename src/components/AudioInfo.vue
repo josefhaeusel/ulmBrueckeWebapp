@@ -35,7 +35,7 @@
                   {{ expansionCard.title }}
                 </v-card-title>
 
-                <div class="text-video">
+                <div class="text-video mb-5">
                   <div class="untertitel-titel">
                     <v-card-subtitle style="font-size: 18px">
                       {{ expansionCard.subtitle }}
@@ -43,7 +43,7 @@
                     <v-card-text class="textLayout" v-html="expansionCard.text">
                     </v-card-text>
                   </div>
-                  <video controls loop :id="`soundVideo-${n}`">
+                  <video controls loop :id="`soundVideo-${n}`" class="rounded elevation-4	">
                     <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -209,7 +209,7 @@ export default {
   width: 100%;
   height: 100%;
   max-width: 500px;
-  align-self: center
+  align-self: center;
 
 }
 
@@ -229,13 +229,6 @@ export default {
   align-items: center;
 }
 
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  /* max-width: 1000px; */
-}
 
 
 .scrolling-line {
