@@ -5,7 +5,7 @@
       <v-card>
         <v-tabs v-model="tab" align-tabs="center" color="blue">
           <v-tab :value="1">Sound-Konzept</v-tab>
-          <v-tab :value="2">Brücken-Informationen</v-tab>
+          <v-tab :value="2">Smart Circular Bridge</v-tab>
         </v-tabs>
 
         <v-tabs-window v-model="tab">
@@ -27,10 +27,12 @@
             Weitere Brücken geplant
           </h1>
           <p class="pb-2">
-            Im Sommer 2023 soll im Rahmen des Projekts zunächst eine Brücke aus Flachs in Ulm errichtet werden. Ein Jahr
-            später soll die dritte und letzte Brücke in Bergen op Zoom in den Niederlanden eröffnet werden. Dabei wollen
-            die Forscherinnen und Forscher jeweils die bereits gewonnenen Daten und Erkenntnisse aus dem vorherigen
-            Brückenbau berücksichtigen – und so Schritt für Schritt einen Baustoff der Zukunft entwickeln.
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet.
           </p>
         </div>
       </div>

@@ -3,10 +3,11 @@
 
     <div class="text-left info-abstract mx-5">
       <h1 style="padding-bottom: 15px;">
-        Allgemeine Informationen
+        Lorem ipsum
       </h1>
       <p>
-        Über die folgenden Rider können Sie genaueres über die verwendeten Materialien herausfinden
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua.
       </p>
     </div>
 
