@@ -1,92 +1,97 @@
 <template>
-  <div class="main-container">
+  <div class="main-container mt-5 mx-5 mb-10">
 
-    <div class="audio-abstract">
+    <div class="info-abstract mx-5">
       <h1 style="padding-bottom: 15px;">
         Die Smart Circular Bridge als Musikinstrument
       </h1>
 
-      <p style="text-align: center;">
-        Ist Flachs das Material der Zukunft? Die nachhaltige Smart Circular Bridge in Ulm soll weitere Erkenntnisse
+      <p>
+        <!-- Ist Flachs das Material der Zukunft? Die nachhaltige Smart Circular Bridge in Ulm soll weitere Erkenntnisse
         liefern. Sie hat hierfür verschiedenste Sensoren eingebaut, welche das Material und dessen Auslastung im realen
         Raum überwachen. Unser Audio-Konzept soll eine <b>spielerische Auseinandersetzung mit der Brücke und den
           Überwachungs-Sensoriken</b> bieten und ein Bewusstsein für nachhaltiges Bauen fördern. Die Audioverarbeitung
         der Sensoren basiert auf einem von <a href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a>
         speziell für das Projekt angefertigtem Tool und wird zum einen auf den <b>vor Ort installierten Lautsprechern
           (4)</b> und via <b>Audio-Livestream über das Internet</b> wiedergegeben.<br> <br> <b>Im Nachfolgenden werden
-          die einzelnen Sensoren und ihre Sonifikationen genaustens beschrieben und jeweils isoliert erlebbar:</b>
+          die einzelnen Sensoren und ihre Sonifikationen genaustens beschrieben und jeweils isoliert erlebbar:</b> -->
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet.
       </p>
     </div>
 
-    <div class="expansion-container d-flex mx-5 my-6">
+    <div class="d-flex my-6">
+      <div>
+        <v-window v-model="content.expansionOnboarding">
+          <v-window-item v-for="(expansionCard, n) in content.expansionCards" :key="`card-${n}`" :value="n">
 
-      <div class="expansion">
+            <!-- untergeordnete Slides -->
+            <v-card class="audio-cards my-2 mx-2" elevation="4" >
+                <v-card-title class="text-h4 bg-cyan text-white" text-color="white">
+                  {{ expansionCard.title }}
+                </v-card-title>
 
-        <div>
-          <v-window v-model="content.expansionOnboarding">
-            <v-window-item v-for="(expansionCard, n) in content.expansionCards" :key="`card-${n}`" :value="n">
-
-              <!-- untergeordnete Slides -->
-              <v-card class="audioinfo-boxes" elevation="4" style="max-width: 1000px">
-                <div class="Sensor-Boxes">
-                  <v-card-title :class="['text-h4', `bg-cyan`, 'text-white']" text-color="white">
-                    {{ expansionCard.title }}
-                  </v-card-title>
-
-                  <div class="text-video">
-                    <div class="untertitel-titel">
-                      <v-card-subtitle style="font-size: 18px; font-weight: 600;">
-                    {{ expansionCard.subtitle }}
-                      </v-card-subtitle>
-                      <v-card-text class="textLayout" v-html="expansionCard.text">
-                     </v-card-text>
+                <div class="text-video">
+                  <div class="untertitel-titel">
+                    <v-card-subtitle style="font-size: 18px">
+                      {{ expansionCard.subtitle }}
+                    </v-card-subtitle>
+                    <v-card-text class="textLayout" v-html="expansionCard.text">
+                    </v-card-text>
                   </div>
-                    <video controls loop class="videobox" :id="`soundVideo-${n}`">
-                      <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                  <video controls loop :id="`soundVideo-${n}`">
+                    <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+              </div>
+            </v-card>
+          </v-window-item>
+        </v-window>
 
-                  </div>
-                </div>
-              </v-card>
-            </v-window-item>
-          </v-window>
-
-          <v-card-actions class="justify-space-between">
-            <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(content); stopVideo()"></v-btn>
-            <v-item-group v-model="content.expansionOnboarding" class="text-center" mandatory @click=stopVideo>
-              <v-item v-for="(card, i) in content.expansionCards" :key="`btn-${i}`" v-slot="{ isSelected, toggle }"
-                :value="i">
-                <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
-              </v-item>
-            </v-item-group>
-            <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(content); stopVideo()"></v-btn>
-          </v-card-actions>
-        </div>
-
+        <v-card-actions class="justify-space-between" >
+          <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(content); stopVideo()"></v-btn>
+          <v-item-group v-model="content.expansionOnboarding" class="text-center" mandatory @click=stopVideo>
+            <v-item v-for="(card, i) in content.expansionCards" :key="`btn-${i}`" v-slot="{ isSelected, toggle }"
+              :value="i">
+              <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
+            </v-item>
+          </v-item-group>
+          <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(content); stopVideo()"></v-btn>
+        </v-card-actions>
       </div>
+
     </div>
 
-    <div class="audioSpecials">
+    <div class="info-abstract">
       <h1 style="padding-bottom: 15px;">
-        Ein Hüpfspiel für wirklich jede und jeden! Um 12, 15 und 18 Uhr
+        Sound-Modi und Hüpfspiel
       </h1>
 
-      <div></div>
-      <div class="hüpfspiel-div">
-        <p style="text-align: center; padding-bottom: 30px;">
-          Uhrzeitenabhängig gibt es spezielle unterschiedliche Special-Modi um alle Generationen und Interessengruppen
+        <p>
+          <!-- Uhrzeitenabhängig gibt es spezielle unterschiedliche Special-Modi um alle Generationen und Interessengruppen
           der
           Stadt anzusprechen. Neben einem GameSound, welche die jüngere Gaming Kultur aufgreift, erstellten <a
             href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a> auch eine experimentellere Atmosphäre mit
           Percussion-Instrumenten. Bei allen synthetisch erzeugten Klängen ersetzten Sie die Transienten durch
           Holzsounds,
           um
-          die Natürlichkeit, welche die Brücke ausstrahlt nicht zu verlieren.
+          die Natürlichkeit, welche die Brücke ausstrahlt nicht zu verlieren. -->
+          
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+          clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+          consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+          diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+          takimata sanctus est Lorem ipsum dolor sit amet.
         </p>
-        <v-img style="width: 50%" min-width="300px" src="../assets/brueckenbild.png"></v-img>
-      </div>
+      <!-- <v-img style="width: 50%" min-width="300px" src="../assets/brueckenbild.png"></v-img> -->
+
     </div>
+
 
 
   </div>
@@ -162,16 +167,16 @@ export default {
     stopVideo() {
 
       var n = this.content.expansionCards.length
-      for (let i = 0; i <= (n-1); i++) {
+      for (let i = 0; i <= (n - 1); i++) {
         const soundVideo = document.getElementById(`soundVideo-${i}`)
         console.log(soundVideo)
         try {
           soundVideo.pause()
           soundVideo.currentTime = 0
-        } catch (error) { 
+        } catch (error) {
           console.warn(error)
         }
-      }      
+      }
 
       // soundVideo-${videoAnzahl}.pause()
       // soundVideo=${videoAnzahl}.currentTime = 0
@@ -181,20 +186,8 @@ export default {
 </script>
 
 <style scoped>
-.audio-abstract {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-inline: 120px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-
-.Sensor-Boxes {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 10px 20px 50px 20px;
+.info-abstract {
+  max-width: 1000px;
 }
 
 
@@ -205,19 +198,18 @@ export default {
 
 .text-video {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 
-.textLayout {
-  font-size: 1.2rem !important
+.audio-cards {
+  max-width: 1000px
 }
-
-
-.Sensor-Boxes video {
-  max-width: 60%;
+.audio-cards video {
+  width: 100%;
   height: 100%;
+  max-width: 500px;
+  align-self: center
 
 }
 
@@ -241,14 +233,10 @@ export default {
 .main-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; 
+  /* max-width: 1000px; */
 }
 
-.expansion {
-  transition:
-    transform 0.2s ease,
-    opacity 0.1s ease;
-}
 
 .scrolling-line {
   /* position: absolute */

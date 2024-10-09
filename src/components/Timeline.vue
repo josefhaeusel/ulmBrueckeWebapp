@@ -1,17 +1,16 @@
 <template>
-  <div class="main-container">
+  <div class="main-container mt-5 mx-5 mb-10">
 
-    <div class="Information-abstract">
+    <div class="text-left info-abstract mx-5">
       <h1 style="padding-bottom: 15px;">
         Allgemeine Informationen
       </h1>
-
-      <p style="text-align: center;">
+      <p>
         Über die folgenden Rider können Sie genaueres über die verwendeten Materialien herausfinden
       </p>
     </div>
 
-    <v-timeline class="timeline mx-5 my-6" side="end" line-inset="20"
+    <v-timeline class="timeline mx-1 my-6" side="end" line-inset="20"
     :style='`transform: translateX(${timeline.timelinePositionX}); display: ${timeline.timelineDisplay}; opacity: ${timeline.timelineOpacity}`'>
       <v-timeline-item
         v-for="(module, i) in content_modules"
@@ -45,7 +44,7 @@
       </v-timeline-item>
     </v-timeline>
 
-    <div class="expansion-container d-flex mx-5 my-6">
+    <div class="expansion-container d-flex mx-1">
 
       <div 
         v-for="(module, i) in content_modules"
@@ -269,19 +268,17 @@
   </script>
 
   <style>  
-  .Information-abstract {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-inline: 100px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-}
+  .info-abstract {
+    max-width: 1000px;
+    width: 100%;
+    align-self: center;
+  }
 
     .main-container {
       display: flex;
       flex-direction: column;
       align-items: center;
+      /* justify-items: center; */
     }
     .timeline {
       max-width: 1000px;
