@@ -7,26 +7,59 @@
       </h1>
 
       <p>
-        <!-- Ist Flachs das Material der Zukunft? Die nachhaltige Smart Circular Bridge in Ulm soll weitere Erkenntnisse
+        Ist Flachs das Material der Zukunft? Die nachhaltige Smart Circular Bridge in Ulm soll weitere Erkenntnisse
         liefern. Sie hat hierfür verschiedenste Sensoren eingebaut, welche das Material und dessen Auslastung im realen
-        Raum überwachen. Unser Audio-Konzept soll eine <b>spielerische Auseinandersetzung mit der Brücke und den
-          Überwachungs-Sensoriken</b> bieten und ein Bewusstsein für nachhaltiges Bauen fördern. Die Audioverarbeitung
-        der Sensoren basiert auf einem von <a href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a>
-        speziell für das Projekt angefertigtem Tool und wird zum einen auf den <b>vor Ort installierten Lautsprechern
-          (4)</b> und via <b>Audio-Livestream über das Internet</b> wiedergegeben.<br> <br> <b>Im Nachfolgenden werden
-          die einzelnen Sensoren und ihre Sonifikationen genaustens beschrieben und jeweils isoliert erlebbar:</b> -->
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-        dolore magna aliquyam erat, sed diam voluptua. 
+        Raum überwachen. Das von <a href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a> entwickelte
+        Audio-Konzept soll eine spielerische Auseinandersetzung mit der Brücke und den
+        Überwachungs-Sensoriken bieten und ein Bewusstsein für nachhaltiges Bauen fördern. <b>Nachfolgend können Sie
+          verschiedene Szenarien hören:</b>
       </p>
-    </div>
 
-    <div class="d-flex my-6">
-      <div>
-        <v-window v-model="content.expansionOnboarding">
-          <v-window-item v-for="(expansionCard, n) in content.expansionCards" :key="`card-${n}`" :value="n">
+      <div class="fragezeichenContainer rounded elevation-4">
+        <h1 style="padding-bottom: 15px; text-align: center; ">
+          Wie klingt...?
+        </h1>
 
-            <!-- untergeordnete Slides -->
-            <v-card class="audio-cards my-2 mx-2" elevation="4" >
+        <div class="d-flex flex-lg-wrap	justify-space-evenly" >
+          <v-card color="grey-lighten-3" v-for="(beispiel, index) in klangbeispieleModules.klangbeispielInfos"
+            :key="index" class="beispielContainer rounded-pill elevation-24 mx-5"
+            :image="beispiel.vImg" 
+            >
+            <div>
+               <div class="beispielkreise">
+                <div style="display: flex; color: white; flex-direction: column; align-items: center;">
+                  <v-card-title class="text-h8">
+                    {{ beispiel.title }}
+                  </v-card-title>
+                  <v-icon :icon="beispiel.icon"></v-icon>
+                </div>
+
+
+                <!-- <v-card-actions>
+                      <audio controls style="display: flex; padding: 4px 50px 0px 50px;">
+                    <source :src="require(`../assets/${beispiel.audio}`)" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                    </audio>
+                    </v-card-actions> -->
+                <v-card-actions style="display: flex; justify-content: center;">
+                  <v-btn class="ms-2" icon="mdi-play" variant="text" color="white" base-color="white"></v-btn>
+                </v-card-actions>
+              </div>
+            </div>
+          </v-card>
+        </div>
+      </div>
+
+
+
+
+      <div class="d-flex my-6">
+        <div>
+          <v-window v-model="content.expansionOnboarding">
+            <v-window-item v-for="(expansionCard, n) in content.expansionCards" :key="`card-${n}`" :value="n">
+
+              <!-- untergeordnete Slides -->
+              <v-card class="audio-cards my-2 mx-2" elevation="4">
                 <v-card-title class="text-h4 bg-cyan text-white" text-color="white">
                   {{ expansionCard.title }}
                 </v-card-title>
@@ -43,23 +76,23 @@
                     <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
-              </div>
-            </v-card>
-          </v-window-item>
-        </v-window>
+                </div>
+              </v-card>
+            </v-window-item>
+          </v-window>
 
-        <v-card-actions class="justify-space-between" >
-          <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(content); stopVideo()"></v-btn>
-          <v-item-group v-model="content.expansionOnboarding" class="text-center" mandatory @click=stopVideo>
-            <v-item v-for="(card, i) in content.expansionCards" :key="`btn-${i}`" v-slot="{ isSelected, toggle }"
-              :value="i">
-              <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
-            </v-item>
-          </v-item-group>
-          <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(content); stopVideo()"></v-btn>
-        </v-card-actions>
+          <v-card-actions class="justify-space-between">
+            <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(content); stopVideo()"></v-btn>
+            <v-item-group v-model="content.expansionOnboarding" class="text-center" mandatory @click=stopVideo>
+              <v-item v-for="(card, i) in content.expansionCards" :key="`btn-${i}`" v-slot="{ isSelected, toggle }"
+                :value="i">
+                <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
+              </v-item>
+            </v-item-group>
+            <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(content); stopVideo()"></v-btn>
+          </v-card-actions>
+        </div>
       </div>
-
     </div>
 
     <div class="info-abstract">
@@ -67,8 +100,8 @@
         Sound-Modi und Hüpfspiel
       </h1>
 
-        <p>
-          <!-- Uhrzeitenabhängig gibt es spezielle unterschiedliche Special-Modi um alle Generationen und Interessengruppen
+      <p>
+        <!-- Uhrzeitenabhängig gibt es spezielle unterschiedliche Special-Modi um alle Generationen und Interessengruppen
           der
           Stadt anzusprechen. Neben einem GameSound, welche die jüngere Gaming Kultur aufgreift, erstellten <a
             href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a> auch eine experimentellere Atmosphäre mit
@@ -76,14 +109,14 @@
           Holzsounds,
           um
           die Natürlichkeit, welche die Brücke ausstrahlt nicht zu verlieren. -->
-          
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-          clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-          consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-          diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
+
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet.
+      </p>
       <!-- <v-img style="width: 50%" min-width="300px" src="../assets/brueckenbild.png"></v-img> -->
 
     </div>
@@ -137,6 +170,31 @@ export default {
         },
       ],
     },
+    klangbeispieleModules: {
+      klangbeispielInfos: [
+        {
+          title: 'Gewitter',
+          bgopacity: 0.3,
+          vImg: require('../assets/gewitter.png'),
+          icon: "mdi-weather-lightning",
+          audio: 'soundscape.mp3',
+        },
+        {
+          title: 'Sonne',
+          bgopacity: 0.3,
+          vImg: require('../assets/sonne.png'),
+          icon: "mdi-white-balance-sunny",
+          audio: 'soundscape.mp3',
+        },
+        {
+          title: 'Hund',
+          bgopacity: 0.3,
+          vImg: require('../assets/hund.png'),
+          icon: "mdi-dog",
+          audio: 'soundscape.mp3',
+        },
+      ],
+    }
 
   }),
   computed: {
@@ -147,7 +205,9 @@ export default {
     }
   },
   methods: {
-
+    changeOpacity(beispiel) {
+      beispiel.bgopacity=0.1
+    },
     nextCard(module) {
       console.log()
       module.expansionOnboarding = module.expansionOnboarding + 1 > module.expansionCards.length - 1
@@ -174,8 +234,19 @@ export default {
         }
       }
 
-      // soundVideo-${videoAnzahl}.pause()
-      // soundVideo=${videoAnzahl}.currentTime = 0
+      const audio = document.querySelector("audio");
+
+
+      const playButton = document.getElementById("play-button");
+      const pauseButton = document.getElementById("pause-button");
+
+      playButton.addEventListener("click", () => {
+        audio.play();
+      });
+
+      pauseButton.addEventListener("click", () => {
+        audio.pause();
+      });
     },
   },
 }
@@ -186,6 +257,34 @@ export default {
   max-width: 1000px;
 }
 
+.fragezeichenContainer {
+  padding: 20px 10px 20px 10px;
+  margin: 20px 7px 20px 7px;
+  background-color: rgb(236, 176, 251);
+}
+
+.beispielContainer {
+  margin: 10px 14px;
+  box-shadow: 10px;
+  transition: 0.2s;
+  min-width: 190px;
+}
+
+.beispielContainer:hover {
+  transform: scale(1.1);
+}
+
+
+
+.beispielkreise {
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+}
+
+
+.beispielkreise:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
 
 .untertitel-titel {
   padding-top: 20px;
@@ -201,6 +300,7 @@ export default {
 .audio-cards {
   max-width: 1000px
 }
+
 .audio-cards video {
   width: 100%;
   height: 100%;
