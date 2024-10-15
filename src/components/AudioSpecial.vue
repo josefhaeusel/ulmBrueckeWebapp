@@ -24,14 +24,6 @@
               </v-card-text>
             </div>
   
-            <!-- Falls man wieder mit unterOrdnern arbeiten möchte, folgende Zeilen reatkrivieren -->
-            <!-- <v-list-item
-              link
-              @click="showExpansions(module)"
-              :class="[`bg-${getStyle(module.topic).color}-lighten-5`, 'text-white']"
-            >
-              <v-icon icon="mdi-chevron-right-circle" size="x-large" :color="getStyle(module.topic).color"></v-icon>
-            </v-list-item> -->
           </v-card>
         </v-timeline-item>
       </v-timeline>

@@ -16,17 +16,27 @@
       </p>
 
       <div class="fragezeichenContainer rounded elevation-4">
-        <h1 style="padding-bottom: 15px; text-align: center; ">
-          Wie klingt...?
-        </h1>
+        <div style="display: flex; flex-grow: 1;">
+          <div style="flex-grow: 1; text-align: center;">
+            <h1 style="padding-bottom: 15px; padding-left: 150px;">
+              Wie klingt...?
+            </h1>
+          </div>
 
-        <div class="d-flex flex-lg-wrap	justify-space-evenly" >
+          <div style="min-width: 140px;">
+            <div class="text-caption">Lautstärke</div>
+            <v-slider v-model="media" :min="0" :max="1" step="0.01" prepend-icon="mdi-volume-high"
+              @input="logSliderValue">
+            </v-slider>
+          </div>
+
+        </div>
+
+        <div class="d-flex flex-lg-wrap	justify-space-evenly">
           <v-card color="grey-lighten-3" v-for="(beispiel, index) in klangbeispieleModules.klangbeispielInfos"
-            :key="index" class="beispielContainer rounded-pill elevation-24 mx-5"
-            :image="beispiel.vImg" 
-            >
+            :key="index" class="beispielContainer rounded-pill elevation-24 mx-5" :image="beispiel.vImg">
             <div>
-               <div class="beispielkreise">
+              <div class="beispielkreise">
                 <div style="display: flex; color: white; flex-direction: column; align-items: center;">
                   <v-card-title class="text-h8">
                     {{ beispiel.title }}
@@ -35,14 +45,11 @@
                 </div>
 
 
-                <!-- <v-card-actions>
-                      <audio controls style="display: flex; padding: 4px 50px 0px 50px;">
-                    <source :src="require(`../assets/${beispiel.audio}`)" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                    </audio>
-                    </v-card-actions> -->
                 <v-card-actions style="display: flex; justify-content: center;">
-                  <v-btn class="ms-2" icon="mdi-play" variant="text" color="white" base-color="white"></v-btn>
+                  <v-btn :id="'play-button-' + index" class="ms-2"
+                    :icon="playingIndex === index ? 'mdi-pause' : 'mdi-play'" variant="text" color="white"
+                    base-color="white" @click="toggleAudio(index, beispiel.audio)">
+                  </v-btn>
                 </v-card-actions>
               </div>
             </div>
@@ -130,6 +137,7 @@
 export default {
   name: "AudioInfoComponent",
   data: () => ({
+    media: 1,
     timeline: {
       showTimeline: true,
       timelinePositionX: '-15px',
@@ -143,7 +151,6 @@ export default {
       showSoundInformation: false,
     },
     content: {
-
       topic: 'Accelerometer',
       title: 'Informationen zu den Sensoren-Sonifikationen',
       text: 'Im Nachfolgenden können Sie durch die einzelnen Sensoren klicken und diese mit ihrer Verklanglichung auch isoliert erleben!',
@@ -153,7 +160,7 @@ export default {
         {
           title: 'Accelerometer',
           subtitle: 'Wie klingen Schritte?',
-          text: 'Durch die Accelometer-Werte können wir durch rechnerische Ableitungen einzelne Peaks/ Schritte ablesen und in Echtzeit sonifizieren. Hierbei unterscheiden wir zwischen <b> 7 verschiedenen Schrittstärken</b>, damit die Verklanglichung nie Langweilig wird. Zum Beispiel klingt auch ein Hund anders wie ein Erwachsener Mensch.',
+          text: 'Durch die Accelometer-Werte können wir durch rechnerische Ableitungen einzelne Peaks/ Schritte ablesen und in Echtzeit sonifizieren. Hierbei unterscheiden wir zwischen <b> 7 verschiedenen Schrittstärken</b>, damit die Verklanglichung nie langweilig wird. Zum Beispiel klingt auch ein Hund anders wie ein Erwachsener Mensch.',
           video: 'accel_video.mp4',
         },
         {
@@ -165,11 +172,13 @@ export default {
         {
           title: 'Temperatur',
           subtitle: 'Das Wetter als Soundscape-Creator',
-          text: 'Der Schritt-Sonifizierung liegt eine modulare Soundscape unter. Diese basiert auf den Wetterdaten, welche auch durch die Brücke getrackt wird. Dadurch ergibt sich zu jeder Zeit eine mit der Natur im reinen passende Atmosphäre. Durch diese Grundlage ermöglichen wir es auch, mittels der Skalentheorie, ohne welche zum Beispiel Filmmusik undenkbar wäre, weitere Einfüsse auf die Stimmungen zu nehmen.',
-          video: 'temperatur_video.mp4'
+          text: 'Der Schritt-Sonifizierung liegt eine modulare Soundscape unter. Diese basiert auf den Wetterdaten, welche auch durch die Brücke getrackt wird. Dadurch ergibt sich zu jeder Zeit eine mit der Natur im reinen passende Atmosphäre. Durch diese Grundlage ermöglichen wir es auch, mittels der Skalentheorie, ohne welche zum Beispiel Filmmusik undenkbar wäre, weitere Einflüsse auf die Stimmungen zu nehmen.',
+          video: 'temperatur_video.mp4',
         },
       ],
     },
+    playingIndex: null,
+    currentAudio: null,
     klangbeispieleModules: {
       klangbeispielInfos: [
         {
@@ -197,58 +206,57 @@ export default {
     }
 
   }),
-  computed: {
-    backgroundStyle() {
-      return {
-        backgroundImage: `url(${require('../assets/rope2_wood.jpg')})`
-      };
-    }
-  },
   methods: {
     changeOpacity(beispiel) {
-      beispiel.bgopacity=0.1
+      beispiel.bgopacity = 0.1;
     },
     nextCard(module) {
-      console.log()
       module.expansionOnboarding = module.expansionOnboarding + 1 > module.expansionCards.length - 1
         ? 0
-        : module.expansionOnboarding + 1
+        : module.expansionOnboarding + 1;
     },
     prevCard(module) {
       module.expansionOnboarding = module.expansionOnboarding - 1 < 0
         ? module.expansionCards.length - 1
-        : module.expansionOnboarding - 1
+        : module.expansionOnboarding - 1;
     },
-
     stopVideo() {
-
-      var n = this.content.expansionCards.length
+      var n = this.content.expansionCards.length;
       for (let i = 0; i <= (n - 1); i++) {
-        const soundVideo = document.getElementById(`soundVideo-${i}`)
-        console.log(soundVideo)
+        const soundVideo = document.getElementById(`soundVideo-${i}`);
         try {
-          soundVideo.pause()
-          soundVideo.currentTime = 0
+          soundVideo.pause();
+          soundVideo.currentTime = 0;
         } catch (error) {
-          console.warn(error)
+          console.warn(error);
         }
       }
-
-      const audio = document.querySelector("audio");
-
-
-      const playButton = document.getElementById("play-button");
-      const pauseButton = document.getElementById("pause-button");
-
-      playButton.addEventListener("click", () => {
-        audio.play();
-      });
-
-      pauseButton.addEventListener("click", () => {
-        audio.pause();
-      });
     },
-  },
+
+    updateVolume() {
+      if (this.currentAudio) {
+        this.currentAudio.volume = this.media;  // Falls ein Audio läuft, wird die Lautstärke angepasst
+      }
+    },
+    toggleAudio(index, audioSrc) {
+      if (this.playingIndex === index && this.currentAudio) {
+        this.currentAudio.pause();
+        this.currentAudio.currentTime = 0;
+        this.playingIndex = null;
+        this.currentAudio = null;
+      } else {
+        if (this.currentAudio) {
+          this.currentAudio.pause();
+          this.currentAudio.currentTime = 0;
+        }
+
+        this.currentAudio = new Audio(require(`../assets/${audioSrc}`));
+        this.currentAudio.volume = this.media;
+        this.currentAudio.play();
+        this.playingIndex = index;
+      }
+    }
+  }
 }
 </script>
 
@@ -260,7 +268,7 @@ export default {
 .fragezeichenContainer {
   padding: 20px 10px 20px 10px;
   margin: 20px 7px 20px 7px;
-  background-color: rgb(236, 176, 251);
+  background-color: rgb(138, 199, 209, 0.9);
 }
 
 .beispielContainer {
@@ -306,7 +314,6 @@ export default {
   height: 100%;
   max-width: 500px;
   align-self: center;
-
 }
 
 .audioSpecials {
