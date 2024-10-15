@@ -24,10 +24,9 @@
           </div>
 
           <div style="min-width: 140px;">
-            <div class="text-caption">Lautstärke</div>
-            <v-slider v-model="media" :min="0" :max="1" step="0.01" prepend-icon="mdi-volume-high"
-              @input="logSliderValue">
-            </v-slider>
+            <div class="text-caption">Lautstärke {{  }}</div>
+            <v-slider v-model="volume" :min="0" :max="1" step="0.01" prepend-icon="mdi-volume-high"
+              @click="updateAllVolumes"></v-slider>
           </div>
 
         </div>
@@ -71,6 +70,7 @@
                   {{ expansionCard.title }}
                 </v-card-title>
 
+
                 <div class="text-video mb-5">
                   <div class="untertitel-titel">
                     <v-card-subtitle style="font-size: 18px">
@@ -108,14 +108,6 @@
       </h1>
 
       <p>
-        <!-- Uhrzeitenabhängig gibt es spezielle unterschiedliche Special-Modi um alle Generationen und Interessengruppen
-          der
-          Stadt anzusprechen. Neben einem GameSound, welche die jüngere Gaming Kultur aufgreift, erstellten <a
-            href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a> auch eine experimentellere Atmosphäre mit
-          Percussion-Instrumenten. Bei allen synthetisch erzeugten Klängen ersetzten Sie die Transienten durch
-          Holzsounds,
-          um
-          die Natürlichkeit, welche die Brücke ausstrahlt nicht zu verlieren. -->
 
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
@@ -124,7 +116,6 @@
         diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
         takimata sanctus est Lorem ipsum dolor sit amet.
       </p>
-      <!-- <v-img style="width: 50%" min-width="300px" src="../assets/brueckenbild.png"></v-img> -->
 
     </div>
 
@@ -137,7 +128,6 @@
 export default {
   name: "AudioInfoComponent",
   data: () => ({
-    media: 1,
     timeline: {
       showTimeline: true,
       timelinePositionX: '-15px',
@@ -177,8 +167,10 @@ export default {
         },
       ],
     },
+    volume: 1,
     playingIndex: null,
     currentAudio: null,
+    audios: [],
     klangbeispieleModules: {
       klangbeispielInfos: [
         {
@@ -233,31 +225,43 @@ export default {
       }
     },
 
-    updateVolume() {
-      if (this.currentAudio) {
-        this.currentAudio.volume = this.media;  // Falls ein Audio läuft, wird die Lautstärke angepasst
-      }
-    },
-    toggleAudio(index, audioSrc) {
-      if (this.playingIndex === index && this.currentAudio) {
-        this.currentAudio.pause();
-        this.currentAudio.currentTime = 0;
-        this.playingIndex = null;
-        this.currentAudio = null;
-      } else {
-        if (this.currentAudio) {
-          this.currentAudio.pause();
-          this.currentAudio.currentTime = 0;
-        }
 
-        this.currentAudio = new Audio(require(`../assets/${audioSrc}`));
-        this.currentAudio.volume = this.media;
-        this.currentAudio.play();
-        this.playingIndex = index;
-      }
+    // Update volume of all audio files in real-time
+    updateAllVolumes() {
+      this.audios.forEach(audio => {
+        if (audio) {
+          audio.volume = this.volume; // Set volume for all active audios
+        }
+      });
+    },
+
+    // Play/pause audio and dynamically adjust volume
+    toggleAudio(index, audioSrc) {
+  // Wenn das aktuelle Audio bereits abgespielt wird, pausiere es
+  if (this.playingIndex === index && this.currentAudio) {
+    this.currentAudio.pause();
+    this.currentAudio.currentTime = 0;
+    this.playingIndex = null;
+    this.currentAudio = null;
+  } else {
+    // Falls ein anderes Audio spielt, pausiere es
+    if (this.currentAudio) {
+      this.currentAudio.pause();
+      this.currentAudio.currentTime = 0;
     }
+
+    // Neues Audio erstellen und abspielen
+    this.currentAudio = new Audio(require(`../assets/${audioSrc}`));
+    this.currentAudio.volume = this.volume; // Setze die aktuelle Lautstärke vom Slider
+    this.currentAudio.play();
+    this.playingIndex = index;
+
+    // Füge das aktuelle Audio in das `audios`-Array ein
+    this.audios[index] = this.currentAudio;
   }
 }
+  }
+};
 </script>
 
 <style scoped>
