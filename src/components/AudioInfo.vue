@@ -226,16 +226,14 @@ export default {
     },
 
 
-    // Update volume of all audio files in real-time
     updateAllVolumes() {
       this.audios.forEach(audio => {
         if (audio) {
-          audio.volume = this.volume; // Set volume for all active audios
+          audio.volume = this.volume;
         }
       });
     },
 
-    // Play/pause audio and dynamically adjust volume
     toggleAudio(index, audioSrc) {
   // Wenn das aktuelle Audio bereits abgespielt wird, pausiere es
   if (this.playingIndex === index && this.currentAudio) {
@@ -252,7 +250,7 @@ export default {
 
     // Neues Audio erstellen und abspielen
     this.currentAudio = new Audio(require(`../assets/${audioSrc}`));
-    this.currentAudio.volume = this.volume; // Setze die aktuelle Lautstärke vom Slider
+    this.currentAudio.volume = this.volume;
     this.currentAudio.play();
     this.playingIndex = index;
 
