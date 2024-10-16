@@ -25,7 +25,7 @@
 
           <div style="min-width: 140px;">
             <div class="text-caption">Lautstärke {{  }}</div>
-            <v-slider v-model="volume" :min="0" :max="1" step="0.01" prepend-icon="mdi-volume-high"
+            <v-slider v-model="volume" :min="-0" :max="1" step="0.01" prepend-icon="mdi-volume-high"
               @click="updateAllVolumes"></v-slider>
           </div>
 
@@ -227,12 +227,31 @@ export default {
 
 
     updateAllVolumes() {
-      this.audios.forEach(audio => {
-        if (audio) {
-          audio.volume = this.volume;
-        }
-      });
-    },
+    this.audios.forEach(audio => {
+      if (audio) {
+        this.fadeAudio(audio, this.volume, 200); // 200ms für smoothere volume-steuerung
+      }
+    });
+  },
+
+  fadeAudio(audio, targetVolume, duration) {
+  const startVolume = audio.volume;
+  const volumeChange = targetVolume - startVolume;
+  const startTime = performance.now();
+
+  const fadeStep = (currentTime) => {
+    const elapsedTime = currentTime - startTime;
+    const progress = Math.min(elapsedTime / duration, 1);
+    audio.volume = Math.max(0, Math.min(1, startVolume + (volumeChange * progress)));
+
+    if (progress < 1) {
+      requestAnimationFrame(fadeStep);
+    }
+  };
+
+  requestAnimationFrame(fadeStep);
+},
+
 
     toggleAudio(index, audioSrc) {
   // Wenn das aktuelle Audio bereits abgespielt wird, pausiere es
