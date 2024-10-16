@@ -174,25 +174,25 @@ export default {
     klangbeispieleModules: {
       klangbeispielInfos: [
         {
-          title: 'Gewitter',
+          title: 'Winter',
           bgopacity: 0.3,
-          vImg: require('../assets/gewitter.png'),
-          icon: "mdi-weather-lightning",
-          audio: 'soundscape.mp3',
+          vImg: require('../assets/Winter.jpg'),
+          icon: "mdi mdi-snowflake",
+          audio: 'Winter.wav',
         },
         {
           title: 'Sonne',
           bgopacity: 0.3,
           vImg: require('../assets/sonne.png'),
           icon: "mdi-white-balance-sunny",
-          audio: 'soundscape.mp3',
+          audio: 'Sonne.wav',
         },
         {
           title: 'Hund',
           bgopacity: 0.3,
           vImg: require('../assets/hund.png'),
           icon: "mdi-dog",
-          audio: 'soundscape.mp3',
+          audio: 'Hund.wav',
         },
       ],
     }
@@ -270,8 +270,9 @@ export default {
 .fragezeichenContainer {
   padding: 20px 10px 20px 10px;
   margin: 20px 7px 20px 7px;
-  background-color: rgb(138, 199, 209, 0.9);
+  background-color: rgba(172, 204, 181, 0.9);
 }
+
 
 .beispielContainer {
   margin: 10px 14px;
