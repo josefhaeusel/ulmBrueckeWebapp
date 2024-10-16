@@ -15,26 +15,26 @@
           verschiedene Szenarien hören:</b>
       </p>
 
-      <div class="fragezeichenContainer rounded elevation-4">
+      <div class="fragezeichenContainer rounded elevation-4 my-10 bg-cyan-lighten-4 ">
         <div style="display: flex; flex-grow: 1;">
           <div style="flex-grow: 1; text-align: center;">
-            <h1 style="padding-bottom: 15px; padding-left: 150px;">
+            <h1  style="padding-bottom: 15px; padding-left: 150px;">
               Wie klingt...?
             </h1>
           </div>
 
-          <div style="min-width: 140px;">
-            <div class="text-caption">Lautstärke {{  }}</div>
+          <div style="min-width: 140px;" class="mr-3">
             <v-slider v-model="volume" :min="-0" :max="1" step="0.01" prepend-icon="mdi-volume-high"
               @click="updateAllVolumes"></v-slider>
           </div>
 
         </div>
 
-        <div class="d-flex flex-lg-wrap	justify-space-evenly">
+        <div class="d-flex flex-wrap	justify-space-evenly">
           <v-card color="grey-lighten-3" v-for="(beispiel, index) in klangbeispieleModules.klangbeispielInfos"
             :key="index" class="beispielContainer rounded-pill elevation-24 mx-5" :image="beispiel.vImg">
             <div>
+
               <div class="beispielkreise">
                 <div style="display: flex; color: white; flex-direction: column; align-items: center;">
                   <v-card-title class="text-h8">
@@ -282,14 +282,10 @@ export default {
 </script>
 
 <style scoped>
-.info-abstract {
-  max-width: 1000px;
-}
-
 .fragezeichenContainer {
   padding: 20px 10px 20px 10px;
   margin: 20px 7px 20px 7px;
-  background-color: rgba(172, 204, 181, 0.9);
+  /* background-color: rgba(172, 204, 181, 0.9); */
 }
 
 

@@ -19,6 +19,7 @@
         <v-hover v-slot="{ isHovering, props }">
           <v-card class="my-8 cursor-pointer d-flex" @click="showExpansions(module)" :elevation="isHovering ? 16 : 2"
             v-bind="props">
+            <!-- -->
             <div>
               <v-card-title :class="['text-h4', `bg-${getStyle(module.topic).color}`, `text-white`]" text-color="white">
                 {{ module.title }}
@@ -29,7 +30,7 @@
 
 
               <v-parallax :src="require(`../assets/${module.cover}`)" class="align-end card-parallax"
-                gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.5)" :height="isHovering ? '340px' : '300px'">
+                :gradient="['rgba(0,0,0,0)', 'rgba(0,0,0,.2)', 'rgba(0,0,0,1)']" :height="isHovering ? '340px' : '300px'">
                 <v-card-text class="text-white mt-4">
                   <p>{{ module.text }}</p>
                 </v-card-text>
@@ -236,17 +237,14 @@ export default {
       module.expansionOnboarding = module.expansionOnboarding - 1 < 0
         ? module.expansionCards.length - 1
         : module.expansionOnboarding - 1
-    }
+    },
+
+
   },
 }
 </script>
 
 <style>
-.info-abstract {
-  max-width: 1000px;
-  width: 100%;
-  align-self: center;
-}
 
 .timeline {
   max-width: 1000px;
@@ -274,7 +272,7 @@ export default {
 
 .card-parallax {
   transition:
-    height 0.6s ease
+    height 0.5s ease
 }
 
 .timeline-card {
