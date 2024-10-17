@@ -285,7 +285,6 @@ export default {
 .fragezeichenContainer {
   padding: 20px 20px 20px 20px;
   margin: 20px 7px 20px 7px;
-  /* background-color: rgba(172, 204, 181, 0.9); */
 }
 
 .titelUndSlider {
@@ -301,6 +300,7 @@ export default {
 .volumeSlider {
   display: flex;
   justify-content: right;
+  padding-right: 40px;
   grid-column: 3 / 3;
   grid-row: 1
 }
@@ -309,6 +309,7 @@ export default {
   .volumeSlider {
     display: flex;
     justify-content: center;
+    padding-left: 10px;
     grid-column: 2 / 3;
     grid-row: 2
   }
@@ -368,6 +369,9 @@ export default {
   margin-top: 10px;
   margin-bottom: 50px;
 }
+
+
+
 
 .hüpfspiel-div {
   display: flex;
