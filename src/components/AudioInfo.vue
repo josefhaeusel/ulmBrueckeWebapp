@@ -16,15 +16,15 @@
       </p>
 
       <div class="fragezeichenContainer rounded elevation-4 my-10 bg-cyan-lighten-4 ">
-        <div style="display: flex; flex-grow: 1;">
-          <div style="flex-grow: 1; text-align: center;">
-            <h1  style="padding-bottom: 15px; padding-left: 150px;">
+        <div class="titelUndSlider">
+          <div class="wieklingt" style="flex-grow: 1; text-align: center;">
+            <h1 style="padding-bottom: 15px;">
               Wie klingt...?
             </h1>
           </div>
 
-          <div style="min-width: 140px;" class="mr-3">
-            <v-slider v-model="volume" :min="-0" :max="1" step="0.01" prepend-icon="mdi-volume-high"
+          <div class="volumeSlider">
+            <v-slider v-model="volume" :min="-0" :max="1" step="0.01" max-width="160" prepend-icon="mdi-volume-high"
               @click="updateAllVolumes"></v-slider>
           </div>
 
@@ -227,65 +227,91 @@ export default {
 
 
     updateAllVolumes() {
-    this.audios.forEach(audio => {
-      if (audio) {
-        this.fadeAudio(audio, this.volume, 200); // 200ms für smoothere volume-steuerung
-      }
-    });
-  },
+      this.audios.forEach(audio => {
+        if (audio) {
+          this.fadeAudio(audio, this.volume, 200); // 200ms für smoothere volume-steuerung
+        }
+      });
+    },
 
-  fadeAudio(audio, targetVolume, duration) {
-  const startVolume = audio.volume;
-  const volumeChange = targetVolume - startVolume;
-  const startTime = performance.now();
+    fadeAudio(audio, targetVolume, duration) {
+      const startVolume = audio.volume;
+      const volumeChange = targetVolume - startVolume;
+      const startTime = performance.now();
 
-  const fadeStep = (currentTime) => {
-    const elapsedTime = currentTime - startTime;
-    const progress = Math.min(elapsedTime / duration, 1);
-    audio.volume = Math.max(0, Math.min(1, startVolume + (volumeChange * progress)));
+      const fadeStep = (currentTime) => {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1);
+        audio.volume = Math.max(0, Math.min(1, startVolume + (volumeChange * progress)));
 
-    if (progress < 1) {
+        if (progress < 1) {
+          requestAnimationFrame(fadeStep);
+        }
+      };
+
       requestAnimationFrame(fadeStep);
-    }
-  };
-
-  requestAnimationFrame(fadeStep);
-},
+    },
 
 
     toggleAudio(index, audioSrc) {
-  // Wenn das aktuelle Audio bereits abgespielt wird, pausiere es
-  if (this.playingIndex === index && this.currentAudio) {
-    this.currentAudio.pause();
-    this.currentAudio.currentTime = 0;
-    this.playingIndex = null;
-    this.currentAudio = null;
-  } else {
-    // Falls ein anderes Audio spielt, pausiere es
-    if (this.currentAudio) {
-      this.currentAudio.pause();
-      this.currentAudio.currentTime = 0;
+      // Wenn das aktuelle Audio bereits abgespielt wird, pausiere es
+      if (this.playingIndex === index && this.currentAudio) {
+        this.currentAudio.pause();
+        this.currentAudio.currentTime = 0;
+        this.playingIndex = null;
+        this.currentAudio = null;
+      } else {
+        // Falls ein anderes Audio spielt, pausiere es
+        if (this.currentAudio) {
+          this.currentAudio.pause();
+          this.currentAudio.currentTime = 0;
+        }
+
+        // Neues Audio erstellen und abspielen
+        this.currentAudio = new Audio(require(`../assets/${audioSrc}`));
+        this.currentAudio.volume = this.volume;
+        this.currentAudio.play();
+        this.playingIndex = index;
+
+        // Füge das aktuelle Audio in das `audios`-Array ein
+        this.audios[index] = this.currentAudio;
+      }
     }
-
-    // Neues Audio erstellen und abspielen
-    this.currentAudio = new Audio(require(`../assets/${audioSrc}`));
-    this.currentAudio.volume = this.volume;
-    this.currentAudio.play();
-    this.playingIndex = index;
-
-    // Füge das aktuelle Audio in das `audios`-Array ein
-    this.audios[index] = this.currentAudio;
-  }
-}
   }
 };
 </script>
 
 <style scoped>
 .fragezeichenContainer {
-  padding: 20px 10px 20px 10px;
+  padding: 20px 20px 20px 20px;
   margin: 20px 7px 20px 7px;
   /* background-color: rgba(172, 204, 181, 0.9); */
+}
+
+.titelUndSlider {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wieklingt {
+  grid-column: 2 / 3;
+  grid-row: 1
+}
+
+.volumeSlider {
+  display: flex;
+  justify-content: right;
+  grid-column: 3 / 3;
+  grid-row: 1
+}
+
+@media screen and (max-width: 980px) {
+  .volumeSlider {
+    display: flex;
+    justify-content: center;
+    grid-column: 2 / 3;
+    grid-row: 2
+  }
 }
 
 
