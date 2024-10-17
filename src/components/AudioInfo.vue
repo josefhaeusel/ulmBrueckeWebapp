@@ -18,7 +18,7 @@
       <div class="fragezeichenContainer rounded elevation-4 my-10 bg-cyan-lighten-4 ">
         <div style="display: flex; flex-grow: 1;">
           <div style="flex-grow: 1; text-align: center;">
-            <h1  style="padding-bottom: 15px; padding-left: 150px;">
+            <h1 style="padding-bottom: 15px; padding-left: 150px;">
               Wie klingt...?
             </h1>
           </div>
@@ -227,56 +227,56 @@ export default {
 
 
     updateAllVolumes() {
-    this.audios.forEach(audio => {
-      if (audio) {
-        this.fadeAudio(audio, this.volume, 200); // 200ms für smoothere volume-steuerung
-      }
-    });
-  },
+      this.audios.forEach(audio => {
+        if (audio) {
+          this.fadeAudio(audio, this.volume, 200); // 200ms für smoothere volume-steuerung
+        }
+      });
+    },
 
-  fadeAudio(audio, targetVolume, duration) {
-  const startVolume = audio.volume;
-  const volumeChange = targetVolume - startVolume;
-  const startTime = performance.now();
+    fadeAudio(audio, targetVolume, duration) {
+      const startVolume = audio.volume;
+      const volumeChange = targetVolume - startVolume;
+      const startTime = performance.now();
 
-  const fadeStep = (currentTime) => {
-    const elapsedTime = currentTime - startTime;
-    const progress = Math.min(elapsedTime / duration, 1);
-    audio.volume = Math.max(0, Math.min(1, startVolume + (volumeChange * progress)));
+      const fadeStep = (currentTime) => {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1);
+        audio.volume = Math.max(0, Math.min(1, startVolume + (volumeChange * progress)));
 
-    if (progress < 1) {
+        if (progress < 1) {
+          requestAnimationFrame(fadeStep);
+        }
+      };
+
       requestAnimationFrame(fadeStep);
-    }
-  };
-
-  requestAnimationFrame(fadeStep);
-},
+    },
 
 
     toggleAudio(index, audioSrc) {
-  // Wenn das aktuelle Audio bereits abgespielt wird, pausiere es
-  if (this.playingIndex === index && this.currentAudio) {
-    this.currentAudio.pause();
-    this.currentAudio.currentTime = 0;
-    this.playingIndex = null;
-    this.currentAudio = null;
-  } else {
-    // Falls ein anderes Audio spielt, pausiere es
-    if (this.currentAudio) {
-      this.currentAudio.pause();
-      this.currentAudio.currentTime = 0;
+      // Wenn das aktuelle Audio bereits abgespielt wird, pausiere es
+      if (this.playingIndex === index && this.currentAudio) {
+        this.currentAudio.pause();
+        this.currentAudio.currentTime = 0;
+        this.playingIndex = null;
+        this.currentAudio = null;
+      } else {
+        // Falls ein anderes Audio spielt, pausiere es
+        if (this.currentAudio) {
+          this.currentAudio.pause();
+          this.currentAudio.currentTime = 0;
+        }
+
+        // Neues Audio erstellen und abspielen
+        this.currentAudio = new Audio(require(`../assets/${audioSrc}`));
+        this.currentAudio.volume = this.volume;
+        this.currentAudio.play();
+        this.playingIndex = index;
+
+        // Füge das aktuelle Audio in das `audios`-Array ein
+        this.audios[index] = this.currentAudio;
+      }
     }
-
-    // Neues Audio erstellen und abspielen
-    this.currentAudio = new Audio(require(`../assets/${audioSrc}`));
-    this.currentAudio.volume = this.volume;
-    this.currentAudio.play();
-    this.playingIndex = index;
-
-    // Füge das aktuelle Audio in das `audios`-Array ein
-    this.audios[index] = this.currentAudio;
-  }
-}
   }
 };
 </script>
