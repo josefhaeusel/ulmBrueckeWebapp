@@ -25,7 +25,8 @@
 
           <div class="volumeSlider">
             <v-slider v-model="volume" :min="-0" :max="1" step="0.01" max-width="160" prepend-icon="mdi-volume-high"
-              @click="updateAllVolumes"></v-slider>
+            
+            @mousemove="updateAllVolumes">></v-slider>
           </div>
 
         </div>
