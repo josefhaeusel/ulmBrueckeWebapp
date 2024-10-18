@@ -227,6 +227,7 @@ export default {
 .Uhrzeit {
   color: black;
   font-weight: 800;
+  justify-content: center;
 }
 
 .expansion {
