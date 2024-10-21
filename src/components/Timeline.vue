@@ -12,7 +12,7 @@
     </div>
 
 
-    <v-timeline class="timeline mx-1 my-6" side="end" line-inset="20"
+    <v-timeline class="timeline mx-1 my-6" side="end"
       :style='`transform: translateX(${timeline.timelinePositionX}); display: ${timeline.timelineDisplay}; opacity: ${timeline.timelineOpacity}`'>
       <v-timeline-item v-for="(module, i) in content_modules" :key="i" :dot-color="getStyle(module.topic).color"
         fill-dot :icon="getStyle(module.topic).icon" icon-color="white">

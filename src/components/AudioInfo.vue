@@ -18,7 +18,7 @@
       <div class="fragezeichenContainer rounded elevation-4 my-10 bg-cyan-lighten-4 ">
         <div class="titelUndSlider">
           <div class="wieklingt" style="flex-grow: 1; text-align: center;">
-            <h1 style="padding-bottom: 15px;">
+            <h1>
               Wie klingt...?
             </h1>
           </div>
@@ -30,12 +30,13 @@
 
         </div>
 
-        <div class="d-flex flex-wrap	justify-space-evenly">
+        <div class="d-flex flex-wrap justify-space-evenly">
           <v-card color="grey-lighten-3" v-for="(beispiel, index) in klangbeispieleModules.klangbeispielInfos"
             :key="index" class="beispielContainer rounded-pill elevation-24 mx-5" :image="beispiel.vImg">
             <div>
 
-              <div class="beispielkreise">
+              <v-parallax :src=beispiel.vImg scale="0.7" height="150px">              
+                <div class="beispielkreise">
                 <div style="display: flex; color: white; flex-direction: column; align-items: center;">
                   <v-card-title class="text-h8">
                     {{ beispiel.title }}
@@ -51,6 +52,7 @@
                   </v-btn>
                 </v-card-actions>
               </div>
+            </v-parallax>
             </div>
           </v-card>
         </div>
@@ -233,7 +235,7 @@ export default {
     updateAllVolumes() {
       this.audios.forEach(audio => {
         if (audio) {
-          this.fadeAudio(audio, this.volume, 20); // Anpassen des Volumens
+          this.fadeAudio(audio, this.volume, 50); // Anpassen des Volumens
         }
       });
     },
@@ -294,6 +296,7 @@ export default {
 .titelUndSlider {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 20px;
 }
 
 .wieklingt {
@@ -320,6 +323,7 @@ export default {
     display: flex;
     justify-content: center;
     padding-left: 10px;
+    padding-top: 10px;
     grid-column: 2 / 3;
     grid-row: 2
   }
@@ -342,6 +346,12 @@ export default {
 .beispielkreise {
   background-color: rgba(0, 0, 0, 0.4);
   transition: 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
 }
 
 
@@ -379,8 +389,6 @@ export default {
   margin-top: 10px;
   margin-bottom: 50px;
 }
-
-
 
 
 .hüpfspiel-div {

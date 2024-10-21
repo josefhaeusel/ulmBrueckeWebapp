@@ -1,7 +1,7 @@
 <template>
   <div class="AudioSpecials mt-5 mx-5 mb-10">
 
-    <v-timeline class="timeline mx-1 my-6" side="end" line-inset="20" :direction="timelineDirection"
+    <v-timeline class="timeline mx-1 my-6" side="end" :direction="timelineDirection"
       :style='`transform: translateX(${timeline.timelinePositionX}); display: ${timeline.timelineDisplay}; opacity: ${timeline.timelineOpacity}`'>
       <v-timeline-item v-for="(module, i) in content_modules" :key="i" :dot-color="getStyle(module.topic).color" fill-dot>
         <template v-slot:opposite>
