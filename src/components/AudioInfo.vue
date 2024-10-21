@@ -24,9 +24,8 @@
           </div>
 
           <div class="volumeSlider">
-            <v-slider v-model="volume" :min="-0" :max="1" step="0.01" max-width="160" prepend-icon="mdi-volume-high"
-            
-            @mousemove="updateAllVolumes">></v-slider>
+            <v-icon icon="mdi-volume-high"></v-icon>
+            <input type="range" min="0" max="1" value="1" step="0.01" class="slider" id="myRange" @input="updateVolume">
           </div>
 
         </div>
@@ -227,15 +226,19 @@ export default {
     },
 
 
+    updateVolume(event) {
+      this.volume = event.target.value;  // Den Slider-Wert speichern
+      this.updateAllVolumes();  // Optional: Volumen für alle Audios aktualisieren
+    },
     updateAllVolumes() {
       this.audios.forEach(audio => {
         if (audio) {
-          this.fadeAudio(audio, this.volume, 200); // 200ms für smoothere volume-steuerung
+          this.fadeAudio(audio, this.volume, 20); // Anpassen des Volumens
         }
       });
     },
-
     fadeAudio(audio, targetVolume, duration) {
+      // Funktion zum stufenlosen Anpassen des Volumens
       const startVolume = audio.volume;
       const volumeChange = targetVolume - startVolume;
       const startTime = performance.now();
@@ -298,9 +301,15 @@ export default {
   grid-row: 1
 }
 
+.slider::-webkit-slider-thumb {
+  appearance: none;
+ color: black;
+}
+
 .volumeSlider {
   display: flex;
   justify-content: right;
+  align-items: center;
   padding-right: 40px;
   grid-column: 3 / 3;
   grid-row: 1
