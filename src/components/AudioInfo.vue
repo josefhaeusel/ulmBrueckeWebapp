@@ -15,7 +15,7 @@
           verschiedene Szenarien hören:</b>
       </p>
 
-      <div class="fragezeichenContainer rounded elevation-4 my-10 bg-cyan-lighten-4 ">
+      <div class="fragezeichenContainer elevation-20 my-10 bg-cyan-lighten-4 ">
         <div class="titelUndSlider">
           <div class="wieklingt" style="flex-grow: 1; text-align: center;">
             <h1>
@@ -291,6 +291,10 @@ export default {
 .fragezeichenContainer {
   padding: 20px 20px 20px 20px;
   margin: 20px 7px 20px 7px;
+  border-radius: 90px;
+  border-style: dashed;
+  border-color: gray;
+  border-width: 1px;
 }
 
 .titelUndSlider {
@@ -380,6 +384,7 @@ export default {
   max-width: 500px;
   align-self: center;
 }
+
 
 .audioSpecials {
   display: flex;
