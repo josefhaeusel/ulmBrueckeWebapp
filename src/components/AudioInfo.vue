@@ -15,7 +15,7 @@
           verschiedene Szenarien hören:</b>
       </p>
 
-      <div class="fragezeichenContainer elevation-20 my-10 bg-cyan-lighten-4 ">
+      <div class="fragezeichenContainer elevation-20 border-thin my-10 bg-cyan-lighten-4 ">
         <div class="titelUndSlider">
           <div class="wieklingt" style="flex-grow: 1; text-align: center;">
             <h1>
@@ -35,24 +35,24 @@
             :key="index" class="beispielContainer rounded-pill elevation-24 mx-5" :image="beispiel.vImg">
             <div>
 
-              <v-parallax :src=beispiel.vImg scale="0.7" height="150px">              
+              <v-parallax :src=beispiel.vImg scale="0.7" height="150px">
                 <div class="beispielkreise">
-                <div style="display: flex; color: white; flex-direction: column; align-items: center;">
+
                   <v-card-title class="text-h8">
                     {{ beispiel.title }}
                   </v-card-title>
+
+                  <v-card-actions style="display: flex; justify-content: center; align-items: center;">
+                    <v-btn style="display: flex; justify-content: center; align-items: center;" :id="'play-button-' + index" color="white" base-color="white"
+                      @click="toggleAudio(index, beispiel.audio)">
+                      <v-icon :size="playingIndex === index ? '56px' : '56px'">
+                        {{ playingIndex === index ? 'mdi-pause' : 'mdi-play' }}
+                      </v-icon>
+                    </v-btn>
+                  </v-card-actions>
                   <v-icon :icon="beispiel.icon"></v-icon>
                 </div>
-
-
-                <v-card-actions style="display: flex; justify-content: center;">
-                  <v-btn :id="'play-button-' + index" class="ms-2"
-                    :icon="playingIndex === index ? 'mdi-pause' : 'mdi-play'" variant="text" color="white"
-                    base-color="white" @click="toggleAudio(index, beispiel.audio)">
-                  </v-btn>
-                </v-card-actions>
-              </div>
-            </v-parallax>
+              </v-parallax>
             </div>
           </v-card>
         </div>
@@ -292,7 +292,6 @@ export default {
   padding: 20px 20px 20px 20px;
   margin: 20px 7px 20px 7px;
   border-radius: 90px;
-  border-style: dashed;
   border-color: gray;
   border-width: 1px;
 }
@@ -310,7 +309,7 @@ export default {
 
 .slider::-webkit-slider-thumb {
   appearance: none;
- color: black;
+  color: black;
 }
 
 .volumeSlider {
@@ -351,11 +350,16 @@ export default {
   background-color: rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 2;
+  color: white;
+  align-items: center;
 }
 
 
