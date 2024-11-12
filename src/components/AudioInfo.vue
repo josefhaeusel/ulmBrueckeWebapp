@@ -208,6 +208,8 @@ export default {
       module.expansionOnboarding = module.expansionOnboarding + 1 > module.expansionCards.length - 1
         ? 0
         : module.expansionOnboarding + 1;
+        console.log("NEXT", module.expansionOnboarding)
+
     },
     prevCard(module) {
       module.expansionOnboarding = module.expansionOnboarding - 1 < 0
