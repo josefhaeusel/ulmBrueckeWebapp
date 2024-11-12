@@ -379,7 +379,8 @@ export default {
 
 
 .audio-cards {
-  max-width: 1000px
+  max-width: 1000px;
+  min-height: 700px;
 }
 
 .audio-cards video {
