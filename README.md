@@ -1,5 +1,15 @@
 # ulm-bruecke-frontend
 
+```
+ssh root@65.109.168.160
+```
+
+nginx
+
+```
+
+```
+
 ## Project setup
 ```
 npm install
