@@ -90,16 +90,17 @@
                     <!-- Adaptive Content -->
 
                     <v-card-text v-if="content_block.type === 'text'" :style="content_block.style"
-                      :class="content_block.class">
-                      <p v-if="content_block.type === 'text'" v-html="content_block.data"></p>
+                      :class="content_block.class" :elevation="content_block.elevation">
+                      <p v-html="content_block.data"></p>
                     </v-card-text>
 
                     <img v-if="content_block.type === 'img'" :src="content_block.data" :style="content_block.style"
                       :class="content_block.class">
 
                     <video v-if="content_block.type === 'video'" :src="content_block.data" controls :style="content_block.style"
-                    :class="content_block.class">
+                      :class="content_block.class">
                     </video>
+
                   </div>
                 </div>
 
@@ -157,21 +158,19 @@ export default {
           {
             class: "d-flex align-center architektur-3", content_blocks: [
               { type: 'img', data: require('../assets/architekt/4 (c) FibR.jpg'), parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 400px", class: 'gelaender-3' },
-              { type: 'text', style: "max-width:500px", data: '... die Idee, so ein besonderes Geländer in Ulm einzusetzen. Die Streben des Geländers bestehen auch aus Flachsfasern. Zum Schutz sind sie mit einem speziellen biobasierten Harz ummantelt. <br><br>Diese Idee wiederum stammt…' }]
+              { type: 'text', style: "max-width:500px", data: '... von Kollegen an der Uni in Stuttgart. Sie entwickelten ein neues Herstellungsverfahren für das Bauen mit Fasern. <br><br> Diese Idee wiederum fanden mehrere Leute spannend und gründeten ein Start-up: FibR. Das junge Unternehmen hat das Brückengeländer in Ulm hergestellt.' }]
           },
           {
             class: "d-flex align-center architektur-4", content_blocks: [
               { type: 'img', data: require('../assets/architekt/5-1 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
-              { type: 'text', style: "max-width:500px", data: '... die Idee, so ein besonderes Geländer in Ulm einzusetzen. Die Streben des Geländers bestehen auch aus Flachsfasern. Zum Schutz sind sie mit einem speziellen biobasierten Harz ummantelt. <br><br>Diese Idee wiederum stammt…' },
+              { type: 'text', style: "max-width:500px", data: 'Mit diesem neuen Herstellungsverfahren lassen sich Gebäude mit einer ganz eigenen Ästhetik gestalten, wie hier in Wangen auf dem Gelände der Landesgartenschau 2024.' },
               { type: 'img', data: require('../assets/architekt/5-2 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },]
           },
           { 
             title: "Material und Formensprache",
             class: "d-flex align-center architektur-5", content_blocks: [
             { type: 'img',  data: require('../assets/architekt/6 STACKING CLOUD (c) unklar.jpg'), parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%"},
-            { type: 'text', style: "max-width: 500px",data: 'Biobasierte Werkstoffe erlauben Designern und Architekten vielseitige Formen. <br> Alle Materialien, egal ob Beton, Stahl oder Holz, haben typische Eigenschaften. Diese Eigenschaften führen bei jeder Materialart zu ganz bestimmten Formen beim Bauen. So sehen Brücken aus Stahl anders aus als Brücken aus Beton. <br> Die Formensprache dieser Materialien wurde vor über hundert Jahren entwickelt.'  },
-
-          
+            { type: 'text', style: "max-width: 500px",data: 'Biobasierte Werkstoffe erlauben Designern und Architekten vielseitige Formen. <br><br> Alle Materialien, egal ob Beton, Stahl oder Holz, haben typische Eigenschaften. Diese Eigenschaften führen bei jeder Materialart zu ganz bestimmten Formen beim Bauen. So sehen Brücken aus Stahl anders aus als Brücken aus Beton. <br><br> Die Formensprache dieser Materialien wurde vor über hundert Jahren entwickelt.'  },
           ]},
           { 
             title: "Die Formensprache der Biokomposite",
