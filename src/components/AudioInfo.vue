@@ -71,8 +71,6 @@
                 <v-card-title class="text-h4 bg-cyan text-white" text-color="white">
                   {{ expansionCard.title }}
                 </v-card-title>
-<!--  -->
-
                 <div class="text-video mb-5">
                   <div class="untertitel-titel">
                     <v-card-subtitle style="font-size: 18px">
