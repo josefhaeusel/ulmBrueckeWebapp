@@ -21,7 +21,6 @@
 
       <v-divider></v-divider>
 
-
       <div class="main-container mx-5">
         <div class="info-abstract text-left my-6">
           <h1 class="py-2">

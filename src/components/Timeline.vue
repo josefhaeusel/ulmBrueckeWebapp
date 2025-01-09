@@ -83,7 +83,8 @@
                   {{ expansionCard.title }}
                 </v-card-title>
 
-                <v-card-subtitle v-if="expansionCard.subtitle" :class="[`bg-${getStyle(module.topic).color}`, 'text-white']" text-color="white">
+                <v-card-subtitle v-if="expansionCard.subtitle"
+                  :class="[`bg-${getStyle(module.topic).color}`, 'text-white']" text-color="white">
                   {{ expansionCard.subtitle }}
                 </v-card-subtitle>
 
@@ -98,8 +99,24 @@
                       <p v-html="content_block.data"></p>
                     </v-card-text>
 
-                    <img v-if="content_block.type === 'img'" :src="content_block.data" :style="content_block.style"
+
+                    <!-- <div v-if="content_block.type === 'img'" :style="content_block.lazyStyle"
                       :class="content_block.class">
+                      <div class="timelineBilder">
+                        <img v-if="content_block.type === 'img'" :style="content_block.style"
+                          :class="content_block.class" :src="content_block.data">
+                      </div>
+                    </div> -->
+
+
+
+                    <div class="bilderGruppe">
+                        <img v-if="content_block.type === 'img'" :style="content_block.style"
+                          :class="content_block.class" :src="content_block.data">
+                        <img v-if="content_block.type === 'img'" :style="content_block.style"
+                          :class="content_block.class" :src="content_block.lazyData">
+                    </div>
+
 
                     <video v-if="content_block.type === 'video'" :src="content_block.data" controls
                       :style="content_block.style" :class="content_block.class">
@@ -150,18 +167,18 @@ export default {
           {
             title: 'Prof. Dr. Hanaa Dahy',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: require('../assets/architekt/2_Platzhalter Portrait Hanaa.png'), style: "margin-bottom: -10px; max-width: 500px", class: 'hanna-portrait' },
+            content_blocks: [{ type: 'img', data: require('../assets/architekt/2_Platzhalter Portrait Hanaa.png'), style: `width:100%; max-width: 800px;`, lazyStyle: `width:100%; max-width: 800px; background-image: url(${require('@/assets/architekt/FibR-small.jpeg')}); background-size: cover; background-position: center; position: static`, class: '' },
             { type: 'text', data: 'Seit vielen Jahren entwickelt die Architektin Hanaa Dahy biobasierte Werkstoffe für das Bauen. Mit vielen Partnern aus Wissenschaft und Industrie erforscht die Architektin immer neue Anwendungen vom Möbelbau bis zur Fassade. Sie hat auch die Ulmer Brücke mitgeprägt.' },
             ]
           },
           {
             title: 'Von Hanaa stammt übrigens auch ...', class: "d-flex flex-column", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/3 BioMat.jpg'), parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
+              { type: 'img', data: require('../assets/architekt/3 BioMat.jpg'), lazyData: require('../assets/architekt/3 BioMat-small.jpg'), parentstyle: "", style: `opacity: 0.5; width:100%; max-width: 700px; position: static`, lazyStyle: `width:100%; max-width: 800px; background-image: url(${require('@/assets/architekt/3 BioMat-small.jpg')}); background-size: cover; background-position: center;`, class: '' },
               { type: 'text', style: "max-width:700px", data: '... die Idee, so ein besonderes Geländer in Ulm einzusetzen. Die Streben des Geländers bestehen auch aus Flachsfasern. Zum Schutz sind sie mit einem speziellen biobasierten Harz ummantelt. <br><br>Diese Idee wiederum stammt…' }]
           },
           {
             class: "d-flex align-center architektur-3", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/4 (c) FibR.jpg'), parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 400px", class: 'gelaender-3' },
+              { type: 'img', data: require('../assets/architekt/4 (c) FibR.jpg'), parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 400px; background-image: url(${require('../assets/architekt/FibR-small.jpeg')}); background-size: cover; background-position: center;`, class: 'gelaender-3' },
               { type: 'text', style: "max-width:500px", data: '... von Kollegen an der Uni in Stuttgart. Sie entwickelten ein neues Herstellungsverfahren für das Bauen mit Fasern. <br><br> Diese Idee wiederum fanden mehrere Leute spannend und gründeten ein Start-up: FibR. Das junge Unternehmen hat das Brückengeländer in Ulm hergestellt.' }]
           },
           {
@@ -173,7 +190,7 @@ export default {
           {
             title: "Material und Formensprache",
             class: "d-flex align-center architektur-5", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/6 STACKING CLOUD (c) unklar.jpg'), parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%" },
+              { type: 'img', data: require('../assets/architekt/6STACKINGCLOUD(c)unklar.jpg'), parentstyle: "display: flex; justify-content:center", style: `width:100%; width: 500px; background-image: url(${require('@/assets/architekt/6STACKINGCLOUD(c)unklar-small.jpeg')}); background-size: cover; background-position: center;` },
               { type: 'text', style: "max-width: 500px", data: 'Biobasierte Werkstoffe erlauben Designern und Architekten vielseitige Formen. <br><br> Alle Materialien, egal ob Beton, Stahl oder Holz, haben typische Eigenschaften. Diese Eigenschaften führen bei jeder Materialart zu ganz bestimmten Formen beim Bauen. So sehen Brücken aus Stahl anders aus als Brücken aus Beton. <br><br> Die Formensprache dieser Materialien wurde vor über hundert Jahren entwickelt.' },
             ]
           },
@@ -182,7 +199,6 @@ export default {
             class: "d-flex align-center architektur-6", content_blocks: [
               { type: 'img', data: require('../assets/architekt/7-1 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), parentstyle: "display: flex; justify-content:center", style: "max-width: 350px; width: 100%" },
               { type: 'text', style: "max-width: 350px", data: 'Hier ein Beispiel von Hanaa: Was aussieht wie Metall, ist in Wirklichkeit ein Werkstoff aus Pflanzenfasern und synthetischem Harz: elegant, leicht und äußerst stabil!' },
-              { type: 'img', data: require('../assets/architekt/7-2 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), parentstyle: "display: flex; justify-content:center", style: "max-width: 350px;  width: 100%" },
             ]
           },
           {
@@ -245,7 +261,7 @@ export default {
             subtitle: "Technische Universität Eindhoven, Niederlande",
             class: 'architektur-1',
             content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/Platzhalter 1 zu 1.png'), style: "margin-bottom: -10px; max-width: 500px", class: 'aart-portrait' },
-              { type: 'text', data: 'Wouter, der Konstrukteur der Ulmer Brücke, ging mit seinem Team die nächsten Schritte. Er macht die Tests an den großen Bauteilen der Brücke.' },
+            { type: 'text', data: 'Wouter, der Konstrukteur der Ulmer Brücke, ging mit seinem Team die nächsten Schritte. Er macht die Tests an den großen Bauteilen der Brücke.' },
             ]
           },
           {
@@ -289,13 +305,13 @@ export default {
           },
           {
             title: 'Schritt für Schritt und Bauteil für Bauteil', class: "d-flex flex-column", content_blocks: [
-            { type: 'video', data: require('../assets/brueckenbau/2_Bridge Hanging.mp4'), parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
+              { type: 'video', data: require('../assets/brueckenbau/2_Bridge Hanging.mp4'), parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
             ]
           },
           {
             title: "Von der Produktionshalle geht's mit dem Schwertransport nach Ulm./ Der fertige Brückenkörper wird dann transportiert und platziert.",
             class: "d-flex align-center architektur-5 justify-center", content_blocks: [
-            { type: 'video', data: require('../assets/brueckenbau/2_Bridge Hanging.mp4'), parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
+              { type: 'video', data: require('../assets/brueckenbau/2_Bridge Hanging.mp4'), parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
             ]
           },
           {
@@ -307,19 +323,19 @@ export default {
           {
             class: 'architektur-1',
             content_blocks: [
-            { type: 'img', data: require('../assets/brueckenbau/4_Geleander innen.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+              { type: 'img', data: require('../assets/brueckenbau/4_Geleander innen.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
             ]
           },
           {
             class: 'architektur-1',
             content_blocks: [
-            { type: 'img', data: require('../assets/brueckenbau/5_Geleander innen closeup.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+              { type: 'img', data: require('../assets/brueckenbau/5_Geleander innen closeup.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
             ]
           },
           {
             title: 'Und fertig!',
             class: 'architektur-1 justify-center',
-            content_blocks: [   { type: 'img', data: require('../assets/brueckenbau/3_Geleander_aussen.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+            content_blocks: [{ type: 'img', data: require('../assets/brueckenbau/3_Geleander_aussen.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
             ]
           },
 
@@ -533,6 +549,9 @@ export default {
 
   max-width: 500px
 }
+
+
+
 
 @media (max-width: 700px) {
   .v-card .v-card-title {
