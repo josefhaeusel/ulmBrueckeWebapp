@@ -100,22 +100,25 @@
                     </v-card-text>
 
 
-                    <!-- <div v-if="content_block.type === 'img'" :style="content_block.lazyStyle"
-                      :class="content_block.class">
-                      <div class="timelineBilder">
+                 
                         <img v-if="content_block.type === 'img'" :style="content_block.style"
                           :class="content_block.class" :src="content_block.data">
+                   
+
+
+<!-- 
+                    <div v-if="content_block.type === 'img'" class="image-container" :style="content_block.lazyStyle">
+                      <div class="timelineBilder">
+                        <div :style="content_block.ContainerStyle"></div>
+                        <img :style="content_block.style" :class="content_block.class" :src="content_block.data" />
                       </div>
                     </div> -->
 
+                    <!-- <div v-if="content_block.type === 'img'" class="placeholder" :data-large="content_block.data">
+                      <img :src="content_block.data">
+                      <div style="padding-bottom: 50%;"></div>
+                    </div> -->
 
-
-                    <div class="bilderGruppe">
-                        <img v-if="content_block.type === 'img'" :style="content_block.style"
-                          :class="content_block.class" :src="content_block.data">
-                        <img v-if="content_block.type === 'img'" :style="content_block.style"
-                          :class="content_block.class" :src="content_block.lazyData">
-                    </div>
 
 
                     <video v-if="content_block.type === 'video'" :src="content_block.data" controls
@@ -167,13 +170,15 @@ export default {
           {
             title: 'Prof. Dr. Hanaa Dahy',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: require('../assets/architekt/2_Platzhalter Portrait Hanaa.png'), style: `width:100%; max-width: 800px;`, lazyStyle: `width:100%; max-width: 800px; background-image: url(${require('@/assets/architekt/FibR-small.jpeg')}); background-size: cover; background-position: center; position: static`, class: '' },
+            content_blocks: [{ type: 'img', data: require('../assets/architekt/2_Platzhalter Portrait Hanaa.png'), style: `margin-bottom: -10px; width:100%; max-width: 800px; position: static`, lazyStyle: `width:100%; max-width: 800px; background-image: url(${require('@/assets/architekt/FibR-small.jpeg')}); background-size: cover; background-position: center; position: static`, class: '' },
             { type: 'text', data: 'Seit vielen Jahren entwickelt die Architektin Hanaa Dahy biobasierte Werkstoffe für das Bauen. Mit vielen Partnern aus Wissenschaft und Industrie erforscht die Architektin immer neue Anwendungen vom Möbelbau bis zur Fassade. Sie hat auch die Ulmer Brücke mitgeprägt.' },
             ]
           },
           {
             title: 'Von Hanaa stammt übrigens auch ...', class: "d-flex flex-column", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/3 BioMat.jpg'), lazyData: require('../assets/architekt/3 BioMat-small.jpg'), parentstyle: "", style: `opacity: 0.5; width:100%; max-width: 700px; position: static`, lazyStyle: `width:100%; max-width: 800px; background-image: url(${require('@/assets/architekt/3 BioMat-small.jpg')}); background-size: cover; background-position: center;`, class: '' },
+              {
+                type: 'img', data: require('../assets/architekt/3 BioMat.jpg'), lazyData: require('../assets/architekt/3 BioMat-small.jpg'), parentstyle: "", style: `opacity: 1; width:100%; max-width: 700px;`, class: ''
+              },
               { type: 'text', style: "max-width:700px", data: '... die Idee, so ein besonderes Geländer in Ulm einzusetzen. Die Streben des Geländers bestehen auch aus Flachsfasern. Zum Schutz sind sie mit einem speziellen biobasierten Harz ummantelt. <br><br>Diese Idee wiederum stammt…' }]
           },
           {
@@ -223,13 +228,13 @@ export default {
             subtitle: "Katholieke Universität Leuven, Belgien",
             class: 'architektur-1',
             content_blocks: [
-              { type: 'img', data: require('../assets/learningByDoing/Platzhalter 1 zu 1.png'), style: "margin-bottom: -10px; max-width: 500px" },
+              { type: 'img', data: require('../assets/learningByDoing/Platzhalter 1 zu 1.png'), parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 800px; position: static` },
               { type: 'text', data: 'Aart ist einer der führenden Experten für neue basierte Materialien in Europa. Seine Vision ist es, diese Werkstoffe weiterzuentwickeln, die leicht und hochleistungsfähig sind.' },
             ]
           },
           {
             title: 'Zerreißprobe!', class: "d-flex flex-column", content_blocks: [
-              { type: 'img', data: require('../assets/learningByDoing/6_Platzhalter.png'), parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
+              { type: 'img', data: require('../assets/learningByDoing/6_Platzhalter.png'), parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 700px"`, class: '' },
             ]
           },
           {
@@ -241,13 +246,13 @@ export default {
           {
             title: "Wind und Wetter trotzen",
             class: "d-flex align-center architektur-5", content_blocks: [
-              { type: 'img', data: require('../assets/learningByDoing/6_Platzhalter.png'), parentstyle: "display: flex; justify-content: center", style: "max-width: 500px; width: 100%" },
+              { type: 'img', data: require('../assets/learningByDoing/6_Platzhalter.png'), parentstyle: "display: flex; justify-content: center", style: `max-width: 500px; width: 100%` },
             ]
           },
           {
             title: "Materialproben werden auf den Millimeter genau untersucht",
             class: "d-flex justify-center", content_blocks: [
-              { type: 'img', data: require('../assets/learningByDoing/6_Platzhalter.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%" },
+              { type: 'img', data: require('../assets/learningByDoing/6_Platzhalter.png'), parentstyle: "display: flex; justify-content:center", style: `max-width: 500px; width: 100%` },
             ]
           },
           {
@@ -260,14 +265,14 @@ export default {
             title: 'Wouter Claassen',
             subtitle: "Technische Universität Eindhoven, Niederlande",
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/Platzhalter 1 zu 1.png'), style: "margin-bottom: -10px; max-width: 500px", class: 'aart-portrait' },
+            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/Platzhalter 1 zu 1.png'), style: `margin-bottom: -10px; width:100%; max-width: 500px; position: static`, },
             { type: 'text', data: 'Wouter, der Konstrukteur der Ulmer Brücke, ging mit seinem Team die nächsten Schritte. Er macht die Tests an den großen Bauteilen der Brücke.' },
             ]
           },
           {
             title: 'Bei den Tests geht es rau zu: Wie viel hält ein tragender Balken aus? Wann bricht er?',
             class: 'architektur-1 justify-center d-flex',
-            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/9_Platzhalter_Belastungstest Balken (c) SCB.jpg'), style: "margin-bottom: -10px; max-width: 500px ", class: 'aart-portrait' },
+            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/9_Platzhalter_Belastungstest Balken (c) SCB.jpg'), style: `margin-bottom: -10px; width:100%; max-width: 500px; position: static`, class: 'aart-portrait' },
             ]
           },
           {
@@ -280,7 +285,7 @@ export default {
           {
             title: 'Das Ergebnis: Die Ulmer Brücke glänzt beim Belastungstest!',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/11_Belastungstest.jpg'), style: "margin-bottom: -10px; max-width: 500px", class: 'aart-portrait' },
+            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/11_Belastungstest.jpg'), style: `margin-bottom: -10px; width:100%; max-width: 900px; position: static`, class: 'aart-portrait' },
             { type: 'text', data: '24 Tonnen (bzw. 320 Menschen) hält sie aus - und erfüllt damit die Anforderungen an Fahrrad- und Fußgängerbrücken in Europa. Und noch mehr: Sie ist weltweit die erste Brücke dieser Art, die auch Fahrzeuge der Stadtverwaltung überqueren können.' },
             ]
           },
@@ -299,7 +304,7 @@ export default {
           {
             title: 'Wie wurde die Brücke gebaut?',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/Platzhalter 1 zu 1.png'), style: "margin-bottom: -10px; max-width: 500px" },
+            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/Platzhalter 1 zu 1.png'), style: `margin-bottom: -10px; width:100%; max-width: 500px; position: static` },
             { type: 'text', data: 'a + b +c ... + z = Brücke' },
             ]
           },
@@ -347,50 +352,7 @@ export default {
 
 
 
-    // },
 
-    // {
-    //   topic: 'Technologie',
-    //   title: 'Lorem',
-    //   text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.',
-    //   showExpansion: false,
-    //   expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-    //   expansionOnboarding: 0,
-    //   expansionCards: [
-    //     { title: 'Lorem', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.' },
-    //     { title: 'Lorem', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.' },
-    //     { title: 'Lorem', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.' },
-    //   ],
-    //   cover: 'card1.jpg'
-    // },
-    // {
-    //   topic: 'Mensch',
-    //   title: 'Lorem',
-    //   text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.',
-    //   showExpansion: false,
-    //   expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-    //   expansionOnboarding: 0,
-    //   expansionCards: [
-    //     { title: 'Lorem', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.' },
-    //     { title: 'Lorem', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.' },
-    //     { title: 'Lorem', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.' },
-    //   ],
-    //   cover: 'flax-matten-crop.jpg'
-    // },
-    // {
-    //   topic: 'Natur',
-    //   title: 'Lorem',
-    //   text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.',
-    //   showExpansion: false,
-    //   expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-    //   expansionOnboarding: 0,
-    //   expansionCards: [
-    //     { title: 'Lorem', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.' },
-    //     { title: 'Lorem', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.' },
-    //     { title: 'Lorem', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.' },
-    //   ],
-    //   cover: 'flax-matten.jpg'
-    // },
 
     topicStyles: {
       Natur: {
@@ -469,9 +431,67 @@ export default {
 
   },
 }
+
+
+window.onload = function () {
+  var placeholders = document.querySelectorAll('.placeholder');
+  for (var i = 0; i < placeholders.length; i++) {
+    loadImage(placeholders[i]);
+  }
+
+  function loadImage(placeholder) {
+    var small = placeholder.children[0];
+
+    // 1: load small image and show it
+    var img = new Image();
+    img.src = small.src;
+    img.onload = function () {
+      small.classList.add('loaded');
+    };
+
+    // 2: load large image
+    var imgLarge = new Image();
+    imgLarge.src = placeholder.dataset.large;
+    imgLarge.onload = function () {
+      imgLarge.classList.add('loaded');
+    };
+    placeholder.appendChild(imgLarge);
+  }
+}
 </script>
 
 <style>
+.placeholder {
+  background-color: #f6f6f6;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder img {
+  position: absolute;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s linear;
+}
+
+.placeholder img.loaded {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
 .timeline {
   max-width: 1000px;
   transition:
@@ -495,7 +515,6 @@ export default {
 }
 
 .scrolling-line {
-  /* position: absolute */
   transform: translateX(30dvw);
   background-repeat: repeat-Y;
   background-size: contain;
@@ -549,7 +568,6 @@ export default {
 
   max-width: 500px
 }
-
 
 
 
