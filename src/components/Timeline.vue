@@ -27,7 +27,6 @@
                 {{ module.title }}
               </v-card-title>
 
-
               <v-parallax :src="require(`../assets/${module.cover}`)" class="align-end card-parallax w-100" scale="0.7"
                 :gradient="['rgba(0,0,0,0)', 'rgba(0,0,0,.2)', 'rgba(0,0,0,1)']"
                 :height="isHovering ? '350px' : '300px'">
@@ -99,25 +98,13 @@
                       <p v-html="content_block.data"></p>
                     </v-card-text>
 
+                    <!-- <img v-if="content_block.type === 'img'" :style="content_block.style" :class="content_block.class"
+                      :src="content_block.data"> -->
 
-                 
-                        <img v-if="content_block.type === 'img'" :style="content_block.style"
-                          :class="content_block.class" :src="content_block.data">
-                   
-
-
-<!-- 
-                    <div v-if="content_block.type === 'img'" class="image-container" :style="content_block.lazyStyle">
-                      <div class="timelineBilder">
-                        <div :style="content_block.ContainerStyle"></div>
-                        <img :style="content_block.style" :class="content_block.class" :src="content_block.data" />
-                      </div>
-                    </div> -->
-
-                    <!-- <div v-if="content_block.type === 'img'" class="placeholder" :data-large="content_block.data">
-                      <img :src="content_block.data">
-                      <div style="padding-bottom: 50%;"></div>
-                    </div> -->
+                    <a v-if="content_block.type === 'img'" :class="`${content_block.class} progressive replace`"
+                      :href="content_block.data" :style="`margin-bottom:-10px; ${content_block.style}`">
+                      <img :src="content_block.data_small?content_block.data_small:content_block.data" class="preview" alt="image" />
+                    </a>
 
 
 
@@ -140,9 +127,10 @@
 
   </div>
 </template>
-<script>
 
+<script>
 export default {
+
   name: "TimelineComponent",
   data: () => ({
     timeline: {
@@ -170,40 +158,39 @@ export default {
           {
             title: 'Prof. Dr. Hanaa Dahy',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: require('../assets/architekt/2_Platzhalter Portrait Hanaa.png'), style: `margin-bottom: -10px; width:100%; max-width: 800px; position: static`, lazyStyle: `width:100%; max-width: 800px; background-image: url(${require('@/assets/architekt/FibR-small.jpeg')}); background-size: cover; background-position: center; position: static`, class: '' },
+            content_blocks: [{ type: 'img', data: require('../assets/architekt/2_Platzhalter Portrait Hanaa.png'), data_small: require('../assets/architekt/comp/2_Platzhalter Portrait Hanaa.png'), style: "max-width: 500px", class: 'hanna-portrait' },
             { type: 'text', data: 'Seit vielen Jahren entwickelt die Architektin Hanaa Dahy biobasierte Werkstoffe für das Bauen. Mit vielen Partnern aus Wissenschaft und Industrie erforscht die Architektin immer neue Anwendungen vom Möbelbau bis zur Fassade. Sie hat auch die Ulmer Brücke mitgeprägt.' },
             ]
           },
           {
             title: 'Von Hanaa stammt übrigens auch ...', class: "d-flex flex-column", content_blocks: [
-              {
-                type: 'img', data: require('../assets/architekt/3 BioMat.jpg'), lazyData: require('../assets/architekt/3 BioMat-small.jpg'), parentstyle: "", style: `opacity: 1; width:100%; max-width: 700px;`, class: ''
-              },
+              { type: 'img', data: require('../assets/architekt/3 BioMat.jpg'), data_small: require('../assets/architekt/comp/3 BioMat.jpg'), parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
               { type: 'text', style: "max-width:700px", data: '... die Idee, so ein besonderes Geländer in Ulm einzusetzen. Die Streben des Geländers bestehen auch aus Flachsfasern. Zum Schutz sind sie mit einem speziellen biobasierten Harz ummantelt. <br><br>Diese Idee wiederum stammt…' }]
           },
           {
             class: "d-flex align-center architektur-3", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/4 (c) FibR.jpg'), parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 400px; background-image: url(${require('../assets/architekt/FibR-small.jpeg')}); background-size: cover; background-position: center;`, class: 'gelaender-3' },
+              { type: 'img', data: require('../assets/architekt/4 (c) FibR.jpg'), data_small: require('../assets/architekt/comp/4 (c) FibR.jpg'),  parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 400px", class: 'gelaender-3' },
               { type: 'text', style: "max-width:500px", data: '... von Kollegen an der Uni in Stuttgart. Sie entwickelten ein neues Herstellungsverfahren für das Bauen mit Fasern. <br><br> Diese Idee wiederum fanden mehrere Leute spannend und gründeten ein Start-up: FibR. Das junge Unternehmen hat das Brückengeländer in Ulm hergestellt.' }]
           },
           {
             class: "d-flex align-center architektur-4", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/5-1 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
+              { type: 'img', data: require('../assets/architekt/5-1 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'),  data_small: require('../assets/architekt/comp/5-1 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
               { type: 'text', style: "max-width:500px", data: 'Mit diesem neuen Herstellungsverfahren lassen sich Gebäude mit einer ganz eigenen Ästhetik gestalten, wie hier in Wangen auf dem Gelände der Landesgartenschau 2024.' },
               { type: 'img', data: require('../assets/architekt/5-2 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },]
           },
           {
             title: "Material und Formensprache",
             class: "d-flex align-center architektur-5", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/6STACKINGCLOUD(c)unklar.jpg'), parentstyle: "display: flex; justify-content:center", style: `width:100%; width: 500px; background-image: url(${require('@/assets/architekt/6STACKINGCLOUD(c)unklar-small.jpeg')}); background-size: cover; background-position: center;` },
+              { type: 'img', data: require('../assets/architekt/6STACKINGCLOUD(c)unklar.jpg'), data_small: require('../assets/architekt/comp/6STACKINGCLOUD(c)unklar.jpg'), parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%" },
               { type: 'text', style: "max-width: 500px", data: 'Biobasierte Werkstoffe erlauben Designern und Architekten vielseitige Formen. <br><br> Alle Materialien, egal ob Beton, Stahl oder Holz, haben typische Eigenschaften. Diese Eigenschaften führen bei jeder Materialart zu ganz bestimmten Formen beim Bauen. So sehen Brücken aus Stahl anders aus als Brücken aus Beton. <br><br> Die Formensprache dieser Materialien wurde vor über hundert Jahren entwickelt.' },
             ]
           },
           {
             title: "Die Formensprache der Biokomposite",
             class: "d-flex align-center architektur-6", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/7-1 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), parentstyle: "display: flex; justify-content:center", style: "max-width: 350px; width: 100%" },
+              { type: 'img', data: require('../assets/architekt/7-1 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), data_small: require('../assets/architekt/comp/7-1 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'),parentstyle: "display: flex; justify-content:center", style: "max-width: 350px; width: 100%" },
               { type: 'text', style: "max-width: 350px", data: 'Hier ein Beispiel von Hanaa: Was aussieht wie Metall, ist in Wirklichkeit ein Werkstoff aus Pflanzenfasern und synthetischem Harz: elegant, leicht und äußerst stabil!' },
+              { type: 'img', data: require('../assets/architekt/7-2 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), data_small: require('../assets/architekt/comp/7-2 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), parentstyle: "display: flex; justify-content:center", style: "max-width: 350px;  width: 100%" },
             ]
           },
           {
@@ -212,6 +199,7 @@ export default {
               { type: 'text', data: 'Hanaas Projekte zeigen das große Potenzial biobasierter Materialien.', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
             ]
           },
+
         ]
       },
       {
@@ -431,64 +419,9 @@ export default {
 
   },
 }
-
-
-window.onload = function () {
-  var placeholders = document.querySelectorAll('.placeholder');
-  for (var i = 0; i < placeholders.length; i++) {
-    loadImage(placeholders[i]);
-  }
-
-  function loadImage(placeholder) {
-    var small = placeholder.children[0];
-
-    // 1: load small image and show it
-    var img = new Image();
-    img.src = small.src;
-    img.onload = function () {
-      small.classList.add('loaded');
-    };
-
-    // 2: load large image
-    var imgLarge = new Image();
-    imgLarge.src = placeholder.dataset.large;
-    imgLarge.onload = function () {
-      imgLarge.classList.add('loaded');
-    };
-    placeholder.appendChild(imgLarge);
-  }
-}
 </script>
 
 <style>
-.placeholder {
-  background-color: #f6f6f6;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  overflow: hidden;
-}
-
-.placeholder img {
-  position: absolute;
-  opacity: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity 1s linear;
-}
-
-.placeholder img.loaded {
-  opacity: 1;
-}
-
-
-
-
-
-
-
 
 
 
@@ -612,8 +545,4 @@ window.onload = function () {
 
 }
 
-.hanna-portrait {
-  max-width: none;
-  width: 100%;
-}
 </style>
