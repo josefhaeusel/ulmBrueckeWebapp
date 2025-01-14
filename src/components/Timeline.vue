@@ -100,13 +100,13 @@
                     </v-card-text>
 
 
-                 
-                        <img v-if="content_block.type === 'img'" :style="content_block.style"
-                          :class="content_block.class" :src="content_block.data">
-                   
+
+                    <img v-if="content_block.type === 'img'" :style="content_block.style" :class="content_block.class"
+                      :src="content_block.data">
 
 
-<!-- 
+
+                    <!-- 
                     <div v-if="content_block.type === 'img'" class="image-container" :style="content_block.lazyStyle">
                       <div class="timelineBilder">
                         <div :style="content_block.ContainerStyle"></div>
@@ -161,6 +161,7 @@ export default {
       {
         topic: 'Technologie',
         title: 'Die Architektin',
+        position: '490',
         text: '<em>"Diese Materialentwicklung ist der Anfang einer neuen Art zu bauen."</em> - Hanaa Dahy',
         showExpansion: false,
         cover: 'architekt/2_Platzhalter Portrait Hanaa.png',
@@ -217,6 +218,7 @@ export default {
       {
         topic: 'Natur',
         title: 'Learning by Doing',
+        position: '1000',
         text: 'test test tst test test test test',
         showExpansion: false,
         cover: 'learningByDoing/Platzhalter 1 zu 1.png',
@@ -295,6 +297,7 @@ export default {
       {
         topic: 'Mensch',
         title: 'Brückenbau',
+        position: '1500',
         text: '...',
         showExpansion: false,
         cover: 'learningByDoing/Platzhalter 1 zu 1.png',
@@ -400,6 +403,13 @@ export default {
       this.timeline.expansionPositionX = '0%'
 
 
+      window.scrollTo({
+        top: 490,
+        left: 0,
+        behavior: "smooth",
+      });
+
+
     },
     async hideExpansion(module) {
 
@@ -414,6 +424,14 @@ export default {
 
       await new Promise(resolve => setTimeout(resolve, 50));
       this.timeline.timelinePositionX = '-15px'
+
+
+      window.scrollTo({
+        top: module.position || 0,
+        left: 0,
+        behavior: "smooth",
+      });
+
 
 
     },
