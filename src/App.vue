@@ -7,6 +7,9 @@
           <v-tab :value="1">Sound-Konzept</v-tab>
           <v-tab :value="2">Smart Circular Bridge</v-tab>
         </v-tabs>
+        <!-- <a :href="require('./assets/architekt/3 BioMat.jpg')" class="progressive replace">
+          <img :src="require('./assets/architekt/3 BioMat-small.jpg')" class="preview" alt="image" />
+        </a> -->
 
         <v-tabs-window v-model="tab">
           <v-tabs-window-item :value="1">
@@ -28,11 +31,12 @@
           </h1>
           <p class="pb-2">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-        takimata sanctus est Lorem ipsum dolor sit amet.
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed
+            diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+            takimata sanctus est Lorem ipsum dolor sit amet.
           </p>
         </div>
       </div>
