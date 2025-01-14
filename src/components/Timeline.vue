@@ -1,7 +1,7 @@
 <template>
   <div class="main-container mt-5 mx-5 mb-10">
 
-    <div class="text-left info-abstract mx-5">
+    <!--div class="text-left info-abstract mx-5">
       <h1 style="padding-bottom: 15px;">
         Lorem ipsum
       </h1>
@@ -9,7 +9,7 @@
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         dolore magna aliquyam erat, sed diam voluptua.
       </p>
-    </div>
+    </div-->
 
 
     <v-timeline class="timeline mx-1 my-6 w-100" side="end"
@@ -100,24 +100,11 @@
                     </v-card-text>
 
 
-                 
-                        <img v-if="content_block.type === 'img'" :style="content_block.style"
-                          :class="content_block.class" :src="content_block.data">
-                   
-
-
-<!-- 
-                    <div v-if="content_block.type === 'img'" class="image-container" :style="content_block.lazyStyle">
-                      <div class="timelineBilder">
-                        <div :style="content_block.ContainerStyle"></div>
-                        <img :style="content_block.style" :class="content_block.class" :src="content_block.data" />
-                      </div>
-                    </div> -->
-
-                    <!-- <div v-if="content_block.type === 'img'" class="placeholder" :data-large="content_block.data">
-                      <img :src="content_block.data">
-                      <div style="padding-bottom: 50%;"></div>
-                    </div> -->
+                    <a v-if="content_block.type === 'img'" :class="`${content_block.class} progressive replace`"
+                      :href="content_block.data" :style="`margin-bottom:-10px; ${content_block.style}`">
+                      <img :src="content_block.data_small ? content_block.data_small : content_block.data" class="preview"
+                        alt="image" />
+                    </a>
 
 
 
@@ -161,7 +148,6 @@ export default {
       {
         topic: 'Technologie',
         title: 'Die Architektin',
-        position: '490',
         text: '<em>"Diese Materialentwicklung ist der Anfang einer neuen Art zu bauen."</em> - Hanaa Dahy',
         showExpansion: false,
         cover: 'architekt/2_Platzhalter Portrait Hanaa.png',
@@ -184,12 +170,12 @@ export default {
           },
           {
             class: "d-flex align-center architektur-3", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/4 (c) FibR.jpg'), parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 400px; background-image: url(${require('../assets/architekt/FibR-small.jpeg')}); background-size: cover; background-position: center;`, class: 'gelaender-3' },
+              { type: 'img', data: require('../assets/architekt/4 (c) FibR.jpg'), data_small: require('../assets/architekt/comp/4 (c) FibR.jpg'), parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 400px", class: 'gelaender-3' },
               { type: 'text', style: "max-width:500px", data: '... von Kollegen an der Uni in Stuttgart. Sie entwickelten ein neues Herstellungsverfahren für das Bauen mit Fasern. <br><br> Diese Idee wiederum fanden mehrere Leute spannend und gründeten ein Start-up: FibR. Das junge Unternehmen hat das Brückengeländer in Ulm hergestellt.' }]
           },
           {
             class: "d-flex align-center architektur-4", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/5-1 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
+              { type: 'img', data: require('../assets/architekt/5-1 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), data_small: require('../assets/architekt/comp/5-1 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
               { type: 'text', style: "max-width:500px", data: 'Mit diesem neuen Herstellungsverfahren lassen sich Gebäude mit einer ganz eigenen Ästhetik gestalten, wie hier in Wangen auf dem Gelände der Landesgartenschau 2024.' },
               { type: 'img', data: require('../assets/architekt/5-2 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },]
           },
@@ -203,7 +189,7 @@ export default {
           {
             title: "Die Formensprache der Biokomposite",
             class: "d-flex align-center architektur-6", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/7-1 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), parentstyle: "display: flex; justify-content:center", style: "max-width: 350px; width: 100%" },
+              { type: 'img', data: require('../assets/architekt/7-1 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), data_small: require('../assets/architekt/comp/7-1 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), parentstyle: "display: flex; justify-content:center", style: "max-width: 350px; width: 100%" },
               { type: 'text', style: "max-width: 350px", data: 'Hier ein Beispiel von Hanaa: Was aussieht wie Metall, ist in Wirklichkeit ein Werkstoff aus Pflanzenfasern und synthetischem Harz: elegant, leicht und äußerst stabil!' },
             ]
           },
@@ -387,6 +373,13 @@ export default {
 
     },
     async showExpansions(module) {
+
+      window.scrollTo({
+        top: 500,
+        left: 0,
+        behavior: "smooth",
+      });
+
       this.timeline.timelinePositionX = '-120%'
       this.timeline.timelineOpacity = '0'
 
@@ -413,6 +406,13 @@ export default {
     },
     async hideExpansion(module) {
 
+      const position = this.getPosition(module)
+      window.scrollTo({
+        top: position || 0,
+        left: 0,
+        behavior: "smooth",
+      });
+
       this.timeline.expansionPositionX = '120%'
       this.timeline.expansionOpacity = '0'
 
@@ -426,14 +426,17 @@ export default {
       this.timeline.timelinePositionX = '-15px'
 
 
-      window.scrollTo({
-        top: module.position || 0,
-        left: 0,
-        behavior: "smooth",
-      });
 
 
-
+    },
+    getPosition(module){
+      for (let x=0; x<=this.content_modules.length; x++){
+        const isModule = module == this.content_modules[x]
+        if (isModule) {
+          const position = 500 + (x*500)
+          return position
+        }
+      }
     },
     nextCard(module) {
       module.expansionOnboarding = module.expansionOnboarding + 1 > module.expansionCards.length - 1
@@ -479,37 +482,6 @@ window.onload = function () {
 </script>
 
 <style>
-.placeholder {
-  background-color: #f6f6f6;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  overflow: hidden;
-}
-
-.placeholder img {
-  position: absolute;
-  opacity: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity 1s linear;
-}
-
-.placeholder img.loaded {
-  opacity: 1;
-}
-
-
-
-
-
-
-
-
-
-
 .timeline {
   max-width: 1000px;
   transition:
@@ -628,10 +600,5 @@ window.onload = function () {
 
   }
 
-}
-
-.hanna-portrait {
-  max-width: none;
-  width: 100%;
 }
 </style>
