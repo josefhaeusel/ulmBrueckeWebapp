@@ -21,7 +21,7 @@
 
       <v-divider></v-divider>
 
-      <!-- <div class="main-container mx-5">
+      <div class="main-container mx-5">
         <div class="info-abstract text-left my-6">
           <h1 class="py-2">
             Weitere Brücken geplant
@@ -35,7 +35,7 @@
         takimata sanctus est Lorem ipsum dolor sit amet.
           </p>
         </div>
-      </div> -->
+      </div>
 
 
       <SlideCards />
@@ -52,7 +52,7 @@
 <script>
 import ParallaxBackground from './components/Parallax.vue'
 import FooterBottom from './components/Footer.vue'
-import SlideCards from './components/SlideCards.vue'
+// import SlideCards from './components/SlideCards.vue'
 import TimelineComponent from './components/Timeline.vue'
 import AudioInfoComponent from './components/AudioInfo.vue'
 import AudioSpecialComponent from './components/AudioSpecial.vue'
@@ -69,7 +69,7 @@ export default {
     TimelineComponent,
     AudioInfoComponent,
     FooterBottom,
-    SlideCards,
+    // SlideCards,
     AudioSpecialComponent
   }
 };
