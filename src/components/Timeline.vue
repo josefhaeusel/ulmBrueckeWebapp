@@ -1,17 +1,6 @@
 <template>
   <div class="main-container mt-5 mx-5 mb-10">
 
-    <!--div class="text-left info-abstract mx-5">
-      <h1 style="padding-bottom: 15px;">
-        Lorem ipsum
-      </h1>
-      <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-        dolore magna aliquyam erat, sed diam voluptua.
-      </p>
-    </div-->
-
-
     <v-timeline class="timeline mx-1 my-6 w-100" side="end"
       :style='`transform: translateX(${timeline.timelinePositionX}); display: ${timeline.timelineDisplay}; opacity: ${timeline.timelineOpacity}`'>
       <v-timeline-item v-for="(module, i) in content_modules" :key="i" :dot-color="getStyle(module.topic).color"
@@ -101,15 +90,15 @@
 
 
                     <a v-if="content_block.type === 'img'" :class="`${content_block.class} progressive replace`"
-                      :href="content_block.data" :style="`margin-bottom:-10px; ${content_block.style}`">
-                      <img :src="content_block.data_small ? content_block.data_small : content_block.data" class="preview"
-                        alt="image" />
+                      :href="require(`../assets/${content_block.data}`)"
+                      :style="`margin-bottom:-10px; ${content_block.style}`">
+                      <img :src="require(`../assets/comp/${content_block.data}`)" class="preview" alt="image" />
                     </a>
 
 
 
-                    <video v-if="content_block.type === 'video'" :src="content_block.data" controls
-                      :style="content_block.style" :class="content_block.class">
+                    <video v-if="content_block.type === 'video'" :src="require(`../assets/${content_block.data}`)"
+                      controls :style="content_block.style" :class="content_block.class">
                     </video>
 
                   </div>
@@ -157,45 +146,44 @@ export default {
           {
             title: 'Prof. Dr. Hanaa Dahy',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: require('../assets/architekt/2_Platzhalter Portrait Hanaa.png'), style: `margin-bottom: -10px; width:100%; max-width: 800px; position: static`, lazyStyle: `width:100%; max-width: 800px; background-image: url(${require('@/assets/architekt/FibR-small.jpeg')}); background-size: cover; background-position: center; position: static`, class: '' },
+            content_blocks: [{ type: 'img', data: 'architekt/2_Platzhalter Portrait Hanaa.png', style: "max-width: 500px", class: 'hanna-portrait' },
             { type: 'text', data: 'Seit vielen Jahren entwickelt die Architektin Hanaa Dahy biobasierte Werkstoffe für das Bauen. Mit vielen Partnern aus Wissenschaft und Industrie erforscht die Architektin immer neue Anwendungen vom Möbelbau bis zur Fassade. Sie hat auch die Ulmer Brücke mitgeprägt.' },
             ]
           },
           {
             title: 'Von Hanaa stammt übrigens auch ...', class: "d-flex flex-column", content_blocks: [
-              {
-                type: 'img', data: require('../assets/architekt/3 BioMat.jpg'), lazyData: require('../assets/architekt/3 BioMat-small.jpg'), parentstyle: "", style: `opacity: 1; width:100%; max-width: 700px;`, class: ''
-              },
+              { type: 'img', data: 'architekt/3 BioMat.jpg', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
               { type: 'text', style: "max-width:700px", data: '... die Idee, so ein besonderes Geländer in Ulm einzusetzen. Die Streben des Geländers bestehen auch aus Flachsfasern. Zum Schutz sind sie mit einem speziellen biobasierten Harz ummantelt. <br><br>Diese Idee wiederum stammt…' }]
           },
           {
             class: "d-flex align-center architektur-3", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/4 (c) FibR.jpg'), data_small: require('../assets/architekt/comp/4 (c) FibR.jpg'), parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 400px", class: 'gelaender-3' },
+              { type: 'img', data: 'architekt/4 (c) FibR.jpg', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 400px", class: 'gelaender-3' },
               { type: 'text', style: "max-width:500px", data: '... von Kollegen an der Uni in Stuttgart. Sie entwickelten ein neues Herstellungsverfahren für das Bauen mit Fasern. <br><br> Diese Idee wiederum fanden mehrere Leute spannend und gründeten ein Start-up: FibR. Das junge Unternehmen hat das Brückengeländer in Ulm hergestellt.' }]
           },
           {
             class: "d-flex align-center architektur-4", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/5-1 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), data_small: require('../assets/architekt/comp/5-1 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
+              { type: 'img', data: 'architekt/5-1 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg', parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
               { type: 'text', style: "max-width:500px", data: 'Mit diesem neuen Herstellungsverfahren lassen sich Gebäude mit einer ganz eigenen Ästhetik gestalten, wie hier in Wangen auf dem Gelände der Landesgartenschau 2024.' },
-              { type: 'img', data: require('../assets/architekt/5-2 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg'), parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },]
+              { type: 'img', data: 'architekt/5-2 (c) ICD-ITKE-IntCDC Universität Stuttgart.jpg', parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },]
           },
           {
             title: "Material und Formensprache",
             class: "d-flex align-center architektur-5", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/6STACKINGCLOUD(c)unklar.jpg'), parentstyle: "display: flex; justify-content:center", style: `width:100%; width: 500px; background-image: url(${require('@/assets/architekt/6STACKINGCLOUD(c)unklar-small.jpeg')}); background-size: cover; background-position: center;` },
+              { type: 'img', data: 'architekt/6STACKINGCLOUD(c)unklar.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%" },
               { type: 'text', style: "max-width: 500px", data: 'Biobasierte Werkstoffe erlauben Designern und Architekten vielseitige Formen. <br><br> Alle Materialien, egal ob Beton, Stahl oder Holz, haben typische Eigenschaften. Diese Eigenschaften führen bei jeder Materialart zu ganz bestimmten Formen beim Bauen. So sehen Brücken aus Stahl anders aus als Brücken aus Beton. <br><br> Die Formensprache dieser Materialien wurde vor über hundert Jahren entwickelt.' },
             ]
           },
           {
             title: "Die Formensprache der Biokomposite",
             class: "d-flex align-center architektur-6", content_blocks: [
-              { type: 'img', data: require('../assets/architekt/7-1 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), data_small: require('../assets/architekt/comp/7-1 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg'), parentstyle: "display: flex; justify-content:center", style: "max-width: 350px; width: 100%" },
+              { type: 'img', data: 'architekt/7-1 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 350px; width: 100%" },
               { type: 'text', style: "max-width: 350px", data: 'Hier ein Beispiel von Hanaa: Was aussieht wie Metall, ist in Wirklichkeit ein Werkstoff aus Pflanzenfasern und synthetischem Harz: elegant, leicht und äußerst stabil!' },
+              { type: 'img', data: 'architekt/7-2 LightPRO-Shell_BioMat-itke (C) BioMat am ITKE.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 350px;  width: 100%" },
             ]
           },
           {
             class: "d-flex align-center flex-column", content_blocks: [
-              { type: 'video', data: require('../assets/architekt/platzhalter.mp4'), parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
+              { type: 'video', data: 'architekt/platzhalter.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
               { type: 'text', data: 'Hanaas Projekte zeigen das große Potenzial biobasierter Materialien.', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
             ]
           },
@@ -204,7 +192,6 @@ export default {
       {
         topic: 'Natur',
         title: 'Learning by Doing',
-        position: '1000',
         text: 'test test tst test test test test',
         showExpansion: false,
         cover: 'learningByDoing/Platzhalter 1 zu 1.png',
@@ -216,13 +203,13 @@ export default {
             subtitle: "Katholieke Universität Leuven, Belgien",
             class: 'architektur-1',
             content_blocks: [
-              { type: 'img', data: require('../assets/learningByDoing/Platzhalter 1 zu 1.png'), parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 800px; position: static` },
+              { type: 'img', data: 'learningByDoing/Platzhalter 1 zu 1.png', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 800px` },
               { type: 'text', data: 'Aart ist einer der führenden Experten für neue basierte Materialien in Europa. Seine Vision ist es, diese Werkstoffe weiterzuentwickeln, die leicht und hochleistungsfähig sind.' },
             ]
           },
           {
             title: 'Zerreißprobe!', class: "d-flex flex-column", content_blocks: [
-              { type: 'img', data: require('../assets/learningByDoing/6_Platzhalter.png'), parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 700px"`, class: '' },
+              { type: 'img', data: 'learningByDoing/6_Platzhalter.png', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 700px"`, class: '' },
             ]
           },
           {
@@ -234,13 +221,13 @@ export default {
           {
             title: "Wind und Wetter trotzen",
             class: "d-flex align-center architektur-5", content_blocks: [
-              { type: 'img', data: require('../assets/learningByDoing/6_Platzhalter.png'), parentstyle: "display: flex; justify-content: center", style: `max-width: 500px; width: 100%` },
+              { type: 'img', data: 'learningByDoing/6_Platzhalter.png', parentstyle: "display: flex; justify-content: center", style: `max-width: 500px; width: 100%` },
             ]
           },
           {
             title: "Materialproben werden auf den Millimeter genau untersucht",
             class: "d-flex justify-center", content_blocks: [
-              { type: 'img', data: require('../assets/learningByDoing/6_Platzhalter.png'), parentstyle: "display: flex; justify-content:center", style: `max-width: 500px; width: 100%` },
+              { type: 'img', data: 'learningByDoing/6_Platzhalter.png', parentstyle: "display: flex; justify-content:center", style: `max-width: 500px; width: 100%` },
             ]
           },
           {
@@ -253,14 +240,14 @@ export default {
             title: 'Wouter Claassen',
             subtitle: "Technische Universität Eindhoven, Niederlande",
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/Platzhalter 1 zu 1.png'), style: `margin-bottom: -10px; width:100%; max-width: 500px; position: static`, },
+            content_blocks: [{ type: 'img', data: 'learningByDoing/Platzhalter 1 zu 1.png', style: `margin-bottom: -10px; width:100%; max-width: 500px`, },
             { type: 'text', data: 'Wouter, der Konstrukteur der Ulmer Brücke, ging mit seinem Team die nächsten Schritte. Er macht die Tests an den großen Bauteilen der Brücke.' },
             ]
           },
           {
             title: 'Bei den Tests geht es rau zu: Wie viel hält ein tragender Balken aus? Wann bricht er?',
             class: 'architektur-1 justify-center d-flex',
-            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/9_Platzhalter_Belastungstest Balken (c) SCB.jpg'), style: `margin-bottom: -10px; width:100%; max-width: 500px; position: static`, class: 'aart-portrait' },
+            content_blocks: [{ type: 'img', data: 'learningByDoing/9_Platzhalter_Belastungstest Balken (c) SCB.jpg', style: `margin-bottom: -10px; width:100%; max-width: 500px`, class: 'aart-portrait' },
             ]
           },
           {
@@ -273,7 +260,7 @@ export default {
           {
             title: 'Das Ergebnis: Die Ulmer Brücke glänzt beim Belastungstest!',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/11_Belastungstest.jpg'), style: `margin-bottom: -10px; width:100%; max-width: 900px; position: static`, class: 'aart-portrait' },
+            content_blocks: [{ type: 'img', data: 'learningByDoing/11_Belastungstest.jpg', style: `margin-bottom: -10px; width:100%; max-width: 900px`, class: 'aart-portrait' },
             { type: 'text', data: '24 Tonnen (bzw. 320 Menschen) hält sie aus - und erfüllt damit die Anforderungen an Fahrrad- und Fußgängerbrücken in Europa. Und noch mehr: Sie ist weltweit die erste Brücke dieser Art, die auch Fahrzeuge der Stadtverwaltung überqueren können.' },
             ]
           },
@@ -293,43 +280,43 @@ export default {
           {
             title: 'Wie wurde die Brücke gebaut?',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: require('../assets/learningByDoing/Platzhalter 1 zu 1.png'), style: `margin-bottom: -10px; width:100%; max-width: 500px; position: static` },
+            content_blocks: [{ type: 'img', data: 'learningByDoing/Platzhalter 1 zu 1.png', style: `margin-bottom: -10px; width:100%; max-width: 500px` },
             { type: 'text', data: 'a + b +c ... + z = Brücke' },
             ]
           },
           {
             title: 'Schritt für Schritt und Bauteil für Bauteil', class: "d-flex flex-column", content_blocks: [
-              { type: 'video', data: require('../assets/brueckenbau/2_Bridge Hanging.mp4'), parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
+              { type: 'video', data: 'brueckenbau/2_Bridge Hanging.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
             ]
           },
           {
             title: "Von der Produktionshalle geht's mit dem Schwertransport nach Ulm./ Der fertige Brückenkörper wird dann transportiert und platziert.",
             class: "d-flex align-center architektur-5 justify-center", content_blocks: [
-              { type: 'video', data: require('../assets/brueckenbau/2_Bridge Hanging.mp4'), parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
+              { type: 'video', data: 'brueckenbau/2_Bridge Hanging.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
             ]
           },
           {
             title: "Jetzt noch das Geländer dran.",
             class: "d-flex align-center architektur-6", content_blocks: [
-              { type: 'img', data: require('../assets/brueckenbau/3_Geleander_aussen.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+              { type: 'img', data: 'brueckenbau/3_Geleander_aussen.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
             ]
           },
           {
             class: 'architektur-1',
             content_blocks: [
-              { type: 'img', data: require('../assets/brueckenbau/4_Geleander innen.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+              { type: 'img', data: 'brueckenbau/4_Geleander innen.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
             ]
           },
           {
             class: 'architektur-1',
             content_blocks: [
-              { type: 'img', data: require('../assets/brueckenbau/5_Geleander innen closeup.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+              { type: 'img', data: 'brueckenbau/5_Geleander innen closeup.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
             ]
           },
           {
             title: 'Und fertig!',
             class: 'architektur-1 justify-center',
-            content_blocks: [{ type: 'img', data: require('../assets/brueckenbau/3_Geleander_aussen.png'), parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+            content_blocks: [{ type: 'img', data: 'brueckenbau/3_Geleander_aussen.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
             ]
           },
 
@@ -372,13 +359,19 @@ export default {
     slideEffect() {
 
     },
+    getCompPath(filePath) {
+
+      const parsedPath = filePath.split('/');
+      const fileName = parsedPath.pop();
+      const parentDir = parsedPath.pop();
+      const newPath = [...parsedPath, parentDir, 'comp', fileName].join('/');
+      console.log(newPath)
+
+      return newPath;
+    },
     async showExpansions(module) {
 
-      window.scrollTo({
-        top: 500,
-        left: 0,
-        behavior: "smooth",
-      });
+
 
       this.timeline.timelinePositionX = '-120%'
       this.timeline.timelineOpacity = '0'
@@ -395,23 +388,15 @@ export default {
       await new Promise(resolve => setTimeout(resolve, 50));
       this.timeline.expansionPositionX = '0%'
 
-
       window.scrollTo({
-        top: 490,
+        top: 500,
         left: 0,
         behavior: "smooth",
       });
-
 
     },
     async hideExpansion(module) {
 
-      const position = this.getPosition(module)
-      window.scrollTo({
-        top: position || 0,
-        left: 0,
-        behavior: "smooth",
-      });
 
       this.timeline.expansionPositionX = '120%'
       this.timeline.expansionOpacity = '0'
@@ -425,15 +410,21 @@ export default {
       await new Promise(resolve => setTimeout(resolve, 50));
       this.timeline.timelinePositionX = '-15px'
 
+      const position = this.getPosition(module)
+      window.scrollTo({
+        top: position || 0,
+        left: 0,
+        behavior: "smooth",
+      });
 
 
 
     },
-    getPosition(module){
-      for (let x=0; x<=this.content_modules.length; x++){
+    getPosition(module) {
+      for (let x = 0; x <= this.content_modules.length; x++) {
         const isModule = module == this.content_modules[x]
         if (isModule) {
-          const position = 500 + (x*500)
+          const position = 500 + (x * 400)
           return position
         }
       }
@@ -560,7 +551,6 @@ window.onload = function () {
 }
 
 
-
 @media (max-width: 700px) {
   .v-card .v-card-title {
     font-size: 30px !important;
@@ -600,5 +590,48 @@ window.onload = function () {
 
   }
 
+}
+
+
+
+
+/* Lazy Load */
+.progressive {
+  display: block;
+  outline: none;
+  overflow: hidden;
+  position: relative
+}
+
+.progressive img {
+  border: 0;
+  display: block;
+  height: auto;
+  max-width: none;
+  width: 100%
+}
+
+.progressive img.preview {
+  filter: blur(2vw);
+  transform: scale(1.05)
+}
+
+.progressive img.reveal {
+  animation: progressiveReveal 0.5s linear;
+  left: 0;
+  position: absolute;
+  top: 0
+}
+
+@keyframes progressiveReveal {
+  0% {
+    opacity: 0;
+    transform: scale(1.05)
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1)
+  }
 }
 </style>
