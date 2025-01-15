@@ -576,8 +576,13 @@ export default {
         ? module.expansionCards.length - 1
         : module.expansionOnboarding - 1
     },
-
-
+    scrollFunktion() {
+      window.scrollTo({
+        top: 500,
+        left: 0,
+        behavior: "smooth",
+      });
+    },
   },
 }
 
