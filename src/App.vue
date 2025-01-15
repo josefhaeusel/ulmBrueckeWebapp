@@ -3,7 +3,7 @@
     <main>
       <ParallaxBackground />
       <v-card>
-        <v-tabs v-model="tab" align-tabs="center" color="blue">
+        <v-tabs v-model="tab" align-tabs="center" color="#97B28A">
           <v-tab :value="1">Sound-Konzept</v-tab>
           <v-tab :value="2">Smart Circular Bridge</v-tab>
         </v-tabs>
@@ -86,7 +86,7 @@ export default {
 }
 
 header {
-  background: #42b983;
+  background: #97B28A;
   color: white;
   padding: 20px;
 }

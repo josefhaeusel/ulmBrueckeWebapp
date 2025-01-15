@@ -15,7 +15,7 @@
           verschiedene Szenarien hören:</b>
       </p>
 
-      <div class="fragezeichenContainer elevation-20 border-thin my-10 bg-cyan-lighten-4 ">
+      <div class="fragezeichenContainer elevation-20 border-thin my-10" style="background-color: #97B28A;">
         <div class="titelUndSlider">
           <div class="wieklingt" style="flex-grow: 1; text-align: center;">
             <h1>
@@ -68,7 +68,7 @@
 
               <!-- untergeordnete Slides -->
               <v-card class="audio-cards my-2 mx-2" elevation="4">
-                <v-card-title class="text-h4 bg-cyan text-white" text-color="white">
+                <v-card-title class="text-h4 text-white" text-color="white" style="background-color: #97B28A;">
                   {{ expansionCard.title }}
                 </v-card-title>
                 <div class="text-video mb-5">

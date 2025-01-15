@@ -1,6 +1,6 @@
 <template>
     <v-footer class="d-flex flex-column pa0 ma0">
-      <div class="bg-green-lighten-4 d-flex w-100 align-center px-4">
+      <div class="d-flex w-100 align-center px-4" style="color: black; background-color: #97B28A">
         <strong>Connect with us!</strong>
   
         <v-spacer></v-spacer>

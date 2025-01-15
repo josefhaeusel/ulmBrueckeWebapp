@@ -1,6 +1,6 @@
 #!/bin/bash
 # Directory containing images
-FOLDER_NAME=learningByDoing
+FOLDER_NAME=brueckenbau
 INPUT_DIR="./src/assets/${FOLDER_NAME}"
 OUTPUT_DIR="./src/assets/comp/${FOLDER_NAME}"
 # Create output directory if it doesn't exist
