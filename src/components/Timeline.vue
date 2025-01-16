@@ -47,14 +47,14 @@
       </v-btn>
       <v-card-actions class="justify-space-between w-100" v-for="(module, i) in content_modules" :key="i"
         v-show=module.showExpansion>
-        <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(module)"></v-btn>
+        <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(module); scrollFunktion()"></v-btn>
         <v-item-group v-model="module.expansionOnboarding" class="text-center" mandatory>
           <v-item v-for="(card, n) in module.expansionCards" :key="`btn-${n}`" v-slot="{ isSelected, toggle }"
             :value="n">
             <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
           </v-item>
         </v-item-group>
-        <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(module)"></v-btn>
+        <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(module); scrollFunktion()"></v-btn>
       </v-card-actions>
     </div>
 
@@ -467,12 +467,12 @@ export default {
       Ursprung: {
         color: '#68272A',
         hintergrundColor: '#CC797D',
-        icon: 'mdi-arm-flex',
+        icon: 'mdi-head-lightbulb-outline',
       },
       Ermöglicher: {
         color: '#97B28A',
         hintergrundColor: '#CBD8C4',
-        icon: 'mdi-home-lightning-bolt',
+        icon: 'mdi-account-group-outline',
       },    
       Brücke: {
         color: '#D67B2A',
