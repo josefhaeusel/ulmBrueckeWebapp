@@ -132,7 +132,7 @@ export default {
         color: '#D67B2A',
       },
       Experimental: {
-        color: '#208AA7',
+        color: '#97B28A',
       },
     },
       windowWidth: window.innerWidth,  
