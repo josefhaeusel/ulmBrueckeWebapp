@@ -347,7 +347,7 @@ export default {
 
 
 .beispielkreise {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   position: absolute;
   display: flex;
@@ -364,7 +364,7 @@ export default {
 
 
 .beispielkreise:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .untertitel-titel {

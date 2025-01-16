@@ -3,7 +3,7 @@
 
     <v-timeline class="timeline mx-1 my-6" side="end" :direction="timelineDirection"
       :style='`transform: translateX(${timeline.timelinePositionX}); display: ${timeline.timelineDisplay}; opacity: ${timeline.timelineOpacity}`'>
-      <v-timeline-item v-for="(module, i) in content_modules" :key="i" :dot-color="getStyle(module.topic).color" fill-dot>
+      <v-timeline-item v-for="(module, i) in content_modules" :key="i" :dot-color="getStyle(module.topic).color" fill-dot :size="module.size">
         <template v-slot:opposite>
           <span class="Uhrzeit">{{ module.timelineText }}</span>
         </template>
@@ -70,7 +70,7 @@ export default {
   data: () => ({
     timeline: {
       showTimeline: true,
-      timelinePositionX: '-15px',
+      timelinePositionX: '-10px',
       timelineDisplay: '',
       timelineOpacity: '1',
       expansionPositionX: '100%',
@@ -80,12 +80,14 @@ export default {
     },
     content_modules: [
     { topic: 'Experimental',
+    size: "x-small",
     timelineText: ''},
       {
         topic: 'Gaming',
         title: 'Gamingsounds',
         text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire.',
         timelineText: '15-16 Uhr',
+        size: "default",
         // showExpansion: false,
         // expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         // expansionOnboarding: 0,
@@ -100,6 +102,8 @@ export default {
         title: 'Nature',
         text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire.',
         timelineText: 'durchgängig',
+        size: "default",
+
         // showExpansion: false,
         // expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         // expansionOnboarding: 0,
@@ -113,16 +117,12 @@ export default {
         title: 'Percussions',
         text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire.',
         timelineText: '18-19 Uhr',
-        // showExpansion: false,
-        // expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-        // expansionOnboarding: 0,
-        // expansionCards: [
-        //   { title: 'Percussion', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.' },
-        // ],
+        size: "default",
         cover: 'card1.jpg'
       },
       { topic: 'Experimental',
-      timelineText: ''},
+      timelineText: '',
+    size: "x-small"},
     ],
     topicStyles: {
       Gaming: {
@@ -216,7 +216,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 40px !important;
 }
 
 

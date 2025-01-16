@@ -6,7 +6,7 @@
       <v-timeline-item v-for="(module, i) in content_modules" :key="i" :dot-color="getStyle(module.topic).color"
         fill-dot :icon="getStyle(module.topic).icon" icon-color="white" class="w-100">
         <v-hover v-slot="{ isHovering, props }">
-          <v-card class="my-8 cursor-pointer d-flex w-100" style="width: 60vw !important; max-width: 850px"
+          <v-card class="my-8 cursor-pointer d-flex w-100" style="width: 70vw !important; max-width: 850px"
             @click="showExpansions(module)" :elevation="isHovering ? 16 : 2" v-bind="props">
             <!-- -->
             <div class="w-100">
@@ -18,7 +18,7 @@
               </v-card-title>
 
 
-              <v-parallax :src="require(`../assets/${module.cover}`)" class="align-end card-parallax w-100" scale="0.7"
+              <v-parallax :src="require(`../assets/${module.cover}`)" class="align-end card-parallax w-100" scale="0.9"
                 :gradient="['rgba(0,0,0,0)', 'rgba(0,0,0,.2)', 'rgba(0,0,0,1)']"
                 :height="isHovering ? '350px' : '300px'">
                 <v-card-text class="text-white mt-4 w-100">
@@ -197,7 +197,7 @@ export default {
       {
         topic: 'Learning',
         title: 'Learning by Doing',
-        text: 'test test tst test test test test',
+        text: '',
         showExpansion: false,
         cover: 'learningByDoing/Test Test Ups.png',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
@@ -220,8 +220,7 @@ export default {
           {
             title: 'Mit seinem Team hat Aart in den Laboren der Uni unzählige Versuche durchgeführt und die Vorarbeiten zur Ulmer Brücke begleitet.',
             class: 'architektur-1',
-            content_blocks: [{ type: 'text', data: 'Weiter klicken und Einblicke bekommen:' },
-            ]
+            //content_blocks: [{ type: 'text', data: 'Weiter klicken und Einblicke bekommen:' }]
           },
           {
             title: "Wind und Wetter trotzen",
@@ -617,9 +616,11 @@ window.onload = function () {
 <style>
 .timeline {
   max-width: 1000px;
+  width: 100%;
   transition:
     transform 0.2s ease,
     opacity 0.1s ease;
+  padding-inline: 0 !important
 }
 
 
