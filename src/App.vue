@@ -10,6 +10,7 @@
 
         <v-tabs-window v-model="tab">
           <v-tabs-window-item :value="1">
+            <InteractiveComponent />
             <AudioInfoComponent />
             <AudioSpecialComponent />
           </v-tabs-window-item>
@@ -56,6 +57,7 @@ import FooterBottom from './components/Footer.vue'
 import TimelineComponent from './components/Timeline.vue'
 import AudioInfoComponent from './components/AudioInfo.vue'
 import AudioSpecialComponent from './components/AudioSpecial.vue'
+import InteractiveComponent from './components/InteractiveComponent.vue'
 
 
 
@@ -69,6 +71,7 @@ export default {
     TimelineComponent,
     AudioInfoComponent,
     FooterBottom,
+    InteractiveComponent,
     // SlideCards,
     AudioSpecialComponent
   }
