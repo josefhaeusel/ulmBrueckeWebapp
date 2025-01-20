@@ -20,7 +20,7 @@
 
         <v-spacer></v-spacer>
 
-        <img :src="require('../assets/logo_ulm.jpg')" style="height: 50px; margin-top: -5px;"/>
+        <img :src="require('../assets/logo_ulm.jpg')" style="height: 50px; margin-top: -5px; padding-right: 20px"/>
 
       </div>
 
