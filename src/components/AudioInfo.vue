@@ -15,7 +15,7 @@
           verschiedene Szenarien hören:</b>
       </p>
 
-      <div class="fragezeichenContainer elevation-20 border-thin my-10" style="background-color: #97B28A;">
+      <div class="fragezeichenContainer rounded-xl elevation-10 border-thin my-10" style="background-color: #97B28A;">
         <div class="titelUndSlider">
           <div class="wieklingt" style="flex-grow: 1; text-align: center;">
             <h1>
