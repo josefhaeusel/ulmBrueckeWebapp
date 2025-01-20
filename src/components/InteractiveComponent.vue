@@ -5,7 +5,7 @@
         <div v-if="!hasBeenClicked" class="overlay" id="overlay" @click="hasBeenClicked = true">
         </div>
 
-        <div v-if="!hasBeenClicked" @click="hasBeenClicked = true"  id="overlay-icons"
+        <div v-if="!hasBeenClicked" @click="hasBeenClicked = true" id="overlay-icons"
             class="d-flex align-center justify-center position-absolute flex-column cursor-pointer">
             <p style="z-index:10; color: white; margin-bottom: 15px;">Press to play</p>
             <v-icon size="100" color="white" style="z-index:11" icon="mdi-music-clef-treble">
@@ -63,6 +63,7 @@ let crossFades = {
     weight: null
 }
 
+
 export default {
     name: 'InteractiveComponent',
     data: () => ({
@@ -85,6 +86,34 @@ export default {
             //     ]
             // }
         },
+        keyCentMap: {
+            'C': 0,
+            'C#': 100,
+            'D': 200,
+            'D#': 300,
+            'E': 400,
+            'F': 500,
+            'F#': 600,
+            'G': 700,
+            'G#': -400,
+            'A': -300,
+            'A#': -200,
+            'B': -100
+        },
+        notes: [
+            'C',
+            // 'C#',
+            'D',
+            // 'D#',
+            'E',
+            'F',
+            // 'F#',
+            'G',
+            // 'G#',
+            'A',
+            'A#',
+            // 'B',
+        ],
         buttons: [0, 1, 2, 3, 4, 5, 6, 7, 8],
         activePlayer: { name: "experimentalPlayer" },
         buttonColor: {
@@ -141,7 +170,6 @@ export default {
                 const delay = new Tone.PingPongDelay(0.2, 0.15).toDestination()
                 delay.wet.value = 0.2
 
-
                 let i = 0
                 for (const player in instrumentPlayers) {
                     let bufferObject = {}
@@ -150,8 +178,18 @@ export default {
                         bufferObject[x] = require(`../assets/samples/instruments/${this.samplePaths.instruments[i]}/${x}.wav`)
                     }
 
-                    instrumentPlayers[player] = new Tone.Players(bufferObject)
-                    instrumentPlayers[player].connect(delay)
+                    instrumentPlayers[player] = {};
+
+                    for (const [velocity, buffer] of Object.entries(bufferObject)) {
+                        instrumentPlayers[player][velocity] = new Tone.GrainPlayer({
+                            url: buffer,
+                            // loop: false,
+                            playbackRate: 1,
+                            volume: 0,
+                            // grainSize: 0.2,
+                            // overlap: 0.1
+                        }).connect(delay);
+                    }
                     i++
                 }
                 console.log("Instrument Players Loaded", instrumentPlayers)
@@ -171,16 +209,16 @@ export default {
                     crossFades[this.samplePaths.soundscapes[i]] = new Tone.CrossFade().toDestination()
 
                     for (let x = 0; x < 2; x++) {
-                        
+
                         let buffer = require(`../assets/samples/${this.samplePaths.soundscapes[i]}/${x}.wav`)
-                        soundscapePlayers[player][x] = await new Tone.Player({url: buffer, loop: true, autostart: true, volume: -10})
+                        soundscapePlayers[player][x] = await new Tone.Player({ url: buffer, loop: true, autostart: true, volume: -28 })
 
                         soundscapePlayers[player][x].connect(
                             x === 0
                                 ? crossFades[this.samplePaths.soundscapes[i]].a
                                 : crossFades[this.samplePaths.soundscapes[i]].b
                         );
-                        
+
                     }
                     i++
                 }
@@ -194,17 +232,27 @@ export default {
             const crossFade = crossFades[name]
             console.log(fade, name, crossFade)
             crossFade.fade.value = fade
-
-            
         },
         playInstrument(id) {
+            const player = instrumentPlayers[this.activePlayer.name][id];
+            let cents
+            this.activePlayer.name == 'percussionPlayer'
+                ? cents = (Math.random()*200)-100
+                : cents = this.randomNote()
 
-            console.log(this.activePlayer.name)
-            const player = instrumentPlayers[this.activePlayer.name].player(`${id}`)
-            console.log(player)
-            player.start(0)
-
-            // TODO Pitch Random
+            console.log(cents)
+            if (player) {
+                player.detune = cents;
+                player.start();
+            } else {
+                console.error(`No player found for id ${id}`);
+            }
+        },
+        randomNote() {
+            const id = parseInt(Math.random() * (this.notes.length - 1))
+            const note = this.notes[id]
+            const cents = this.keyCentMap[note]
+            return cents
         },
         getStyle(topic) {
             return this.topicStyles[topic]
