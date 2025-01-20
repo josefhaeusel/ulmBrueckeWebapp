@@ -10,10 +10,8 @@
             @click="showExpansions(module)" :elevation="isHovering ? 16 : 2" v-bind="props">
             <!-- -->
             <div class="w-100">
-              <v-card-title
-              :style="{ backgroundColor: getStyle(module.topic).color }"
-                :class="['text-h4', `text-white`, 'w-100', 'text-wrap']"
-                text-color="white">
+              <v-card-title :style="{ backgroundColor: getStyle(module.topic).color }"
+                :class="['text-h4', `text-white`, 'w-100', 'text-wrap']" text-color="white">
                 {{ module.title }}
               </v-card-title>
 
@@ -30,8 +28,7 @@
             </div>
 
             <v-list-item link @click="showExpansions(module)"
-             :style="{ backgroundColor: getStyle(module.topic).hintergrundColor}"
-              :class="['text-white']">
+              :style="{ backgroundColor: getStyle(module.topic).hintergrundColor }" :class="['text-white']">
               <v-icon icon="mdi-chevron-right-circle" size="large" :color="getStyle(module.topic).color"></v-icon>
             </v-list-item>
           </v-card>
@@ -39,24 +36,15 @@
       </v-timeline-item>
     </v-timeline>
 
+
     <div class="w-100 mt-4" style="max-width:1000px !important">
       <v-btn v-for="(module, i) in content_modules" :key="i" v-show=module.showExpansion
         prepend-icon="mdi-chevron-left-circle" @click="hideExpansion(module)" size="large" rounded="xl" elevation=10
         class="my-3 ml-2" style="z-index:100; width: 280px" :color="getStyle(module.topic).color" variant="tonal">
         Zurück zur Timeline
       </v-btn>
-      <v-card-actions class="justify-space-between w-100" v-for="(module, i) in content_modules" :key="i"
-        v-show=module.showExpansion>
-        <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(module); scrollFunktion()"></v-btn>
-        <v-item-group v-model="module.expansionOnboarding" class="text-center" mandatory>
-          <v-item v-for="(card, n) in module.expansionCards" :key="`btn-${n}`" v-slot="{ isSelected, toggle }"
-            :value="n">
-            <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
-          </v-item>
-        </v-item-group>
-        <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(module); scrollFunktion()"></v-btn>
-      </v-card-actions>
     </div>
+
 
     <div style="max-width:1000px !important">
 
@@ -68,16 +56,13 @@
           <v-window v-model="module.expansionOnboarding">
             <v-window-item v-for="(expansionCard, n) in module.expansionCards" :key="`card-${n}`" :value="n">
               <v-card class="flex-column my-5 mx-5 expansion-card" elevation="4" style="max-width: 1000px">
-                <v-card-title v-if="expansionCard.title"
-                 :style="{ backgroundColor: getStyle(module.topic).color }"
-                  :class="['text-h4', 'text-white', 'text-wrap']"
-                  text-color="white">
+                <v-card-title v-if="expansionCard.title" :style="{ backgroundColor: getStyle(module.topic).color }"
+                  :class="['text-h4', 'text-white', 'text-wrap']" text-color="white">
                   {{ expansionCard.title }}
                 </v-card-title>
 
                 <v-card-subtitle v-if="expansionCard.subtitle"
-                 :style="{ backgroundColor: getStyle(module.topic).color }"
-                  :class="['text-white']" text-color="white">
+                  :style="{ backgroundColor: getStyle(module.topic).color }" :class="['text-white']" text-color="white">
                   {{ expansionCard.subtitle }}
                 </v-card-subtitle>
 
@@ -116,6 +101,25 @@
         </div>
 
       </div>
+    </div>
+
+
+
+
+
+    <div class="w-100 mt-4" style="max-width:1000px !important">
+      <v-card-actions class="justify-space-between w-100" v-for="(module, i) in content_modules" :key="i"
+        v-show=module.showExpansion>
+        <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(module); scrollFunktion()"></v-btn>
+        <v-item-group v-model="module.expansionOnboarding" class="text-center" mandatory  @click=scrollFunktion() >
+          <v-item v-for="(card, n) in module.expansionCards" :key="`btn-${n}`" v-slot="{ isSelected, toggle }"
+            :value="n">
+            <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
+          </v-item>
+        </v-item-group>
+        <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(module); scrollFunktion()"></v-btn>
+      </v-card-actions>
+
     </div>
 
   </div>
@@ -361,7 +365,7 @@ export default {
           {
             title: "Rückschläge und…",
             class: "d-flex align-center architektur-5", content_blocks: [
-            { type: 'video', data: 'Moeglichmacher/4_Animation_Rueckschlaege.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
+              { type: 'video', data: 'Moeglichmacher/4_Animation_Rueckschlaege.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
               { type: 'text', data: 'Doch dann kam es beim Bau des Brückenkörpers zu einem Problem. Aufgrund der neuen Materialmischung wurde das Harz beim Aushärten zu warm – und die Naturfasern deshalb zu spröde. <br><br> Der Brückenkörper musste neu gebaut werden. Das heißt: zeitliche Verzögerung und höherer Aufwand. <br><br> Aber zugleich gab es…', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
             ]
           },
@@ -376,7 +380,7 @@ export default {
             title: '',
             class: 'architektur-1',
             content_blocks: [
-            { type: 'text', data: 'Dank der Leichtbauweise wiegt die Brücke deutlich weniger als eine konventionelle Konstruktion. Sie wiegt nur 5 Tonnen, kann aber mehr als 24 Tonnen tragen – und das geringe Gewicht reduziert den CO2-Fußabdruck. <br><br> Die Brücke in Ulm zeigt die hohe Leistungsfähigkeit von Biokompositen – und deren Potenziale für den Klimaschutz! <br><br> Mit der neuen Version der Smart Circular Bridge hat die Stadt Ulm den Weg bereitet für ganz neue Einsatzmöglichkeiten von Biokompositen. Aus dem Material können künftig auch Häuser gebaut werden oder andere anspruchsvolle Bauwerke.' },
+              { type: 'text', data: 'Dank der Leichtbauweise wiegt die Brücke deutlich weniger als eine konventionelle Konstruktion. Sie wiegt nur 5 Tonnen, kann aber mehr als 24 Tonnen tragen – und das geringe Gewicht reduziert den CO2-Fußabdruck. <br><br> Die Brücke in Ulm zeigt die hohe Leistungsfähigkeit von Biokompositen – und deren Potenziale für den Klimaschutz! <br><br> Mit der neuen Version der Smart Circular Bridge hat die Stadt Ulm den Weg bereitet für ganz neue Einsatzmöglichkeiten von Biokompositen. Aus dem Material können künftig auch Häuser gebaut werden oder andere anspruchsvolle Bauwerke.' },
             ]
           },
           {
@@ -472,13 +476,13 @@ export default {
         color: '#97B28A',
         hintergrundColor: '#CBD8C4',
         icon: 'mdi-account-group-outline',
-      },    
+      },
       Brücke: {
         color: '#D67B2A',
         hintergrundColor: '#EABD94',
         icon: 'mdi-bridge'
       },
-      
+
     }
   }),
   computed: {
@@ -575,12 +579,15 @@ export default {
         ? module.expansionCards.length - 1
         : module.expansionOnboarding - 1
     },
-    scrollFunktion() {
+    async scrollFunktion() {
+
+      await new Promise(resolve => setTimeout(resolve, 100));
+
       window.scrollTo({
-        top: 500,
+        top: 10000,
         left: 0,
-        behavior: "smooth",
-      });
+      })
+
     },
   },
 }

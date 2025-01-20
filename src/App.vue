@@ -10,7 +10,7 @@
 
         <v-tabs-window v-model="tab">
           <v-tabs-window-item :value="1">
-            <InteractiveComponent />
+            <!-- <InteractiveComponent /> -->
             <AudioInfoComponent />
             <AudioSpecialComponent />
           </v-tabs-window-item>
@@ -22,7 +22,7 @@
 
       <v-divider></v-divider>
 
-      <div class="main-container mx-5">
+      <!-- <div class="main-container mx-5">
         <div class="info-abstract text-left my-6">
           <h1 class="py-2">
             Weitere Brücken geplant
@@ -36,7 +36,7 @@
         takimata sanctus est Lorem ipsum dolor sit amet.
           </p>
         </div>
-      </div>
+      </div> -->
 
 
       <SlideCards />
@@ -57,7 +57,7 @@ import FooterBottom from './components/Footer.vue'
 import TimelineComponent from './components/Timeline.vue'
 import AudioInfoComponent from './components/AudioInfo.vue'
 import AudioSpecialComponent from './components/AudioSpecial.vue'
-import InteractiveComponent from './components/InteractiveComponent.vue'
+// import InteractiveComponent from './components/InteractiveComponent.vue'
 
 
 
@@ -71,7 +71,7 @@ export default {
     TimelineComponent,
     AudioInfoComponent,
     FooterBottom,
-    InteractiveComponent,
+    // InteractiveComponent,
     // SlideCards,
     AudioSpecialComponent
   }

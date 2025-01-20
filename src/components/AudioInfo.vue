@@ -6,6 +6,8 @@
         Die Smart Circular Bridge als Musikinstrument
       </h1>
 
+      <InteractiveComponent />
+
       <p>
         Ist Flachs das Material der Zukunft? Die nachhaltige Smart Circular Bridge in Ulm soll weitere Erkenntnisse
         liefern. Sie hat hierfür verschiedenste Sensoren eingebaut, welche das Material und dessen Auslastung im realen
@@ -124,9 +126,14 @@
   </div>
 </template>
 <script>
+import InteractiveComponent from './InteractiveComponent.vue';
 
+ 
 export default {
   name: "AudioInfoComponent",
+  components: {
+    InteractiveComponent,
+  },
   data: () => ({
     timeline: {
       showTimeline: true,
