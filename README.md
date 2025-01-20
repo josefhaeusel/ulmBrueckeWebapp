@@ -4,10 +4,10 @@
 ssh root@65.109.168.160
 ```
 
-nginx
+
 
 ```
-
+ICECAST2 Port http://ulm-smart-bridge.de:8000
 ```
 
 ## Project setup
