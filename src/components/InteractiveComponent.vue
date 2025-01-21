@@ -32,8 +32,6 @@
                     :icon="temperature.playIconActive" style="font-size: 3rem"
                     @mouseover="temperature.playIconActive = 'mdi-motion-pause'"
                     @mouseleave="temperature.playIconActive = 'mdi-motion-pause-outline'"></v-icon>
-                <!-- <v-progress-circular v-if="audioIsLoading" color="primary" indeterminate size="50"></v-progress-circular> -->
-
                 <v-icon color="blue" class="slider-icon" icon="mdi-snowflake"></v-icon>
                 <v-slider @update:model-value="(event) => updateVolume(event, 'temperature')"></v-slider>
                 <v-icon color="orange" class="slider-icon" icon="mdi-white-balance-sunny"></v-icon>
