@@ -6,18 +6,29 @@
         Die Smart Circular Bridge als Musikinstrument
       </h1>
 
-      <InteractiveComponent />
 
       <p>
+        <strong>Die Sensordaten von Brücken bieten Potential zur klang-ästhetischen Verarbeitung</strong> <br>
+        <strong>Aufruf zum Live-Stream, hör mal rein.</strong> <br>
+        <strong>Kurybeschreibung des Systems: Wie von Sensordaten zu Sounds?</strong> <br>
+        <strong>Übergang zu Karte mit Klangmodulen: Hört mal rein, wie sich die Brücke bei X anhört</strong> <br>
+        <strong>Wie hört sich die Brücke an bei starkter Sonne? Danach begründung, wie jede Brücke funktioniert</strong> <br>
+
+
+
+<!-- 
         Ist Flachs das Material der Zukunft? Die nachhaltige Smart Circular Bridge in Ulm soll weitere Erkenntnisse
         liefern. Sie hat hierfür verschiedenste Sensoren eingebaut, welche das Material und dessen Auslastung im realen
         Raum überwachen. Das von <a href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a> entwickelte
         Audio-Konzept soll eine spielerische Auseinandersetzung mit der Brücke und den
         Überwachungs-Sensoriken bieten und ein Bewusstsein für nachhaltiges Bauen fördern. <b>Nachfolgend können Sie
-          verschiedene Szenarien hören:</b>
+          verschiedene Szenarien hören:
+        </b> -->
       </p>
 
-      <div class="fragezeichenContainer rounded-xl elevation-10 border-thin my-10" style="background-color: #97B28A;">
+
+
+      <!-- <div class="fragezeichenContainer rounded-xl elevation-10 border-thin my-10" style="background-color: #97B28A;">
         <div class="titelUndSlider">
           <div class="wieklingt" style="flex-grow: 1; text-align: center;">
             <h1>
@@ -31,6 +42,13 @@
           </div>
 
         </div>
+
+        <h1>
+             Bei starker Sonneneinstrahlung?
+            
+            </h1>
+
+            <v-slider></v-slider>
 
         <div class="d-flex flex-wrap justify-space-evenly">
           <v-card color="grey-lighten-3" v-for="(beispiel, index) in klangbeispieleModules.klangbeispielInfos"
@@ -58,8 +76,9 @@
             </div>
           </v-card>
         </div>
-      </div>
+      </div> -->
 
+      <InteractiveComponent />
 
 
 

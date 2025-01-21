@@ -1,45 +1,88 @@
 <template>
 
-    <div class="main-container my-5 mb-10 d-flex align-center justify-center" style="position: relative"
+    <div class="main-container my-5 mb-10d-flex align-center justify-center" style="position: relative"
         id="interactive-container">
-        <div v-if="!hasBeenClicked" class="overlay" id="overlay" @click="hasBeenClicked = true">
+
+
+        <!-- <div v-if="!hasBeenClicked" class="overlay" id="overlay" @click="hasBeenClicked = true">
         </div>
+
+
 
         <div v-if="!hasBeenClicked" @click="hasBeenClicked = true" id="overlay-icons"
             class="d-flex align-center justify-center position-absolute flex-column cursor-pointer">
             <p style="z-index:10; color: white; margin-bottom: 15px;">Press to play</p>
             <v-icon size="100" color="white" style="z-index:11" icon="mdi-music-clef-treble">
             </v-icon>
-        </div>
+        </div> -->
+
+        <div class="d-flex flex-column justify-center elevation-10 rounded-xl component-content">
+
+            <h1>Wie klingt die Brücke an einem warmen Sonnentag?</h1>
+            <p>Drücke auf Play, ziehe den Regler zur Sonne und finde es heraus!</p>
+
+            <div class="soundscape-slider border-thin">
 
 
+                <v-icon v-if="!temperature.isPlaying" @click="startPlayback('temperature')"
+                    :icon="temperature.playIconActive" style="font-size: 3rem"
+                    @mouseover="temperature.playIconActive = 'mdi-motion-play'"
+                    @mouseleave="temperature.playIconActive = 'mdi-motion-play-outline'"></v-icon>
+                <v-icon v-if="temperature.isPlaying" @click="stopPlayback('temperature')"
+                    :icon="temperature.playIconActive" style="font-size: 3rem"
+                    @mouseover="temperature.playIconActive = 'mdi-motion-pause'"
+                    @mouseleave="temperature.playIconActive = 'mdi-motion-pause-outline'"></v-icon>
+                <!-- <v-progress-circular v-if="audioIsLoading" color="primary" indeterminate size="50"></v-progress-circular> -->
 
-        <div class="d-flex flex-column justify-center elevation-10 rounded-xl component-content px-5"
-            style="margin-inline:24px">
-            <div class="soundscape-slider pt-3">
                 <v-icon color="blue" class="slider-icon" icon="mdi-snowflake"></v-icon>
                 <v-slider @update:model-value="(event) => updateVolume(event, 'temperature')"></v-slider>
                 <v-icon color="orange" class="slider-icon" icon="mdi-white-balance-sunny"></v-icon>
+
             </div>
-            <div class="soundscape-slider">
+
+            <p>Wärmere Temperatur korreliert mit einer höheren Anspannung der Brücke. Diese Anspannung wird mit
+                "Strain-sensoren" gemessen und in Klang verarbeitet.</p>
+
+            <h1>Was passiert bei einer hohen Gewichtsbelastung der Brücke?</h1>
+            <p> Drücke auf Play, ziehe den Regler zum Gewicht und finde es heraus!</p>
+
+
+            <div class="soundscape-slider border-thin">
+                <v-icon v-if="!weight.isPlaying" @click="startPlayback('weight')" :icon="weight.playIconActive"
+                    style="font-size: 3rem" @mouseover="weight.playIconActive = 'mdi-motion-play'"
+                    @mouseleave="weight.playIconActive = 'mdi-motion-play-outline'"></v-icon>
+                <v-icon v-if="weight.isPlaying" @click="stopPlayback('weight')" :icon="weight.playIconActive"
+                    style="font-size: 3rem" @mouseover="weight.playIconActive = 'mdi-motion-pause'"
+                    @mouseleave="weight.playIconActive = 'mdi-motion-pause-outline'"></v-icon>
                 <v-icon color class="slider-icon" icon="mdi-feather"></v-icon>
                 <v-slider @update:model-value="(event) => updateVolume(event, 'weight')"></v-slider>
                 <v-icon class="slider-icon" icon="mdi-weight"></v-icon>
             </div>
+
+            <h1>Wie hören sich Schritte an?</h1>
+            <p>Alles möglich durch Acceletometer. Verschiedene Instrumente zu verschiedenen Zeiten</p>
+
             <!-- <v-slider></v-slider> -->
 
-            <div class="button-container rounded-2 mb-5 mt-3 " elevation="5">
-                <v-btn v-for="(id, n) in buttons" :key="n" class="rounded-pill" @click=playInstrument(id)
-                    style="min-width: 0px; padding: 0" :width="id * 10" :height="id * 10"
-                    :color="buttonColor[activePlayer.name].color">
-                </v-btn>
+            <div class="border-thin instrument-component">
+                <div class="button-container rounded-2 mb-5 mt-3 " elevation="5">
+                    <v-btn v-for="(id, n) in buttons" :key="n" class="rounded-pill" @click=playInstrument(id)
+                        style="min-width: 0px; padding: 0" :width="id * 10" :height="id * 10"
+                        :color="buttonColor[activePlayer.name].color">
+                    </v-btn>
+                </div>
+
+                <v-tabs v-model="activePlayer.name" fixed-tabs :color="buttonColor[activePlayer.name].color">
+                    <v-tab :value="'experimentalPlayer'">Experimental</v-tab>
+                    <v-tab :value="'percussionPlayer'">Percussion</v-tab>
+                    <v-tab :value="'gamePlayer'">Game</v-tab>
+                </v-tabs>
             </div>
 
-            <v-tabs v-model="activePlayer.name" fixed-tabs :color="buttonColor[activePlayer.name].color">
-                <v-tab :value="'experimentalPlayer'">Experimental</v-tab>
-                <v-tab :value="'percussionPlayer'">Percussion</v-tab>
-                <v-tab :value="'gamePlayer'">Game</v-tab>
-            </v-tabs>
+            <h1>Höre nun alles gleichzeitig an!</h1>
+            <p>Erstelle deinen Brückensoundtrack!</p>
+            <!-- <p>Großer Playbutton, um alle Soundscapes nochmal zu triggern?</p> -->
+
         </div>
     </div>
 
@@ -86,6 +129,20 @@ export default {
             //     ]
             // }
         },
+        temperature: {
+            isPlaying: false,
+            playIconActive: 'mdi-motion-play-outline',
+            isLoaded: false,
+            time: 0,
+        },
+        weight: {
+            isPlaying: false,
+            isLoaded: false,
+            playIconActive: 'mdi-motion-play-outline',
+            time: 0,
+        },
+        soundscapesLoaded: false,
+        audioStarted: false,
         keyCentMap: {
             'C': 0,
             'C#': 100,
@@ -134,12 +191,12 @@ export default {
     methods: {
         async setup() {
             if (Tone.getContext().state == "running") {
-                await this.setupAudioContextAndNodes();
+                // await this.setupAudioContextAndNodes();
             } else {
 
                 const setupHandler = async () => {
                     try {
-                        await this.setupAudioContextAndNodes();
+                        // await this.setupAudioContextAndNodes();
                         document.getElementById("overlay").removeEventListener('click', setupHandler);
                         document.getElementById("overlay-icons").removeEventListener('click', setupHandler);
                     } catch (error) {
@@ -161,7 +218,59 @@ export default {
             await Tone.start();
             await Tone.getContext().resume();
             await this.loadInstrumentPlayers()
-            await this.loadSoundscapePlayers()
+            this.audioStarted = true
+            console.log("LOADED")
+
+        },
+        async stopPlayback(type) {
+            if (type == 'temperature') {
+                soundscapePlayers.temperaturePlayers[0].stop()
+                soundscapePlayers.temperaturePlayers[1].stop()
+                this.temperature.isPlaying = false
+                // this.temperature.time = soundscapePlayers.temperaturePlayers.
+
+            }
+            else if (type == 'weight') {
+                soundscapePlayers.weightPlayers[0].stop()
+                soundscapePlayers.weightPlayers[1].stop()
+                this.weight.isPlaying = false
+
+            }
+
+            console.log('stop', type)
+
+        },
+        async startPlayback(type) {
+
+            console.log('start', type)
+
+            if (!this.audioStarted) {
+                await this.setupAudioContextAndNodes()
+            }
+
+            if (this.soundscapesLoaded == false) {
+                await this.loadSoundscapePlayers(type)
+                this.soundscapesLoaded = true
+                if (type == 'temperature') {
+                    this.temperature.isPlaying = true
+                } else if (type == 'weight') {
+                    this.weight.isPlaying = true
+                }
+            } else {
+
+                if (type == 'temperature') {
+                    soundscapePlayers.temperaturePlayers[0].start(this.temperature.time)
+                    soundscapePlayers.temperaturePlayers[1].start(this.temperature.time)
+                    this.temperature.isPlaying = true
+
+                }
+                else if (type == 'weight') {
+                    soundscapePlayers.weightPlayers[0].start(this.weight.time)
+                    soundscapePlayers.weightPlayers[1].start(this.weight.time)
+                    this.weight.isPlaying = true
+
+                }
+            }
 
         },
         async loadInstrumentPlayers() {
@@ -198,7 +307,7 @@ export default {
             }
         },
 
-        async loadSoundscapePlayers() {
+        async loadSoundscapePlayers(type) {
             try {
                 let i = 0
                 // eslint-disable-next-line
@@ -210,8 +319,15 @@ export default {
 
                     for (let x = 0; x < 2; x++) {
 
-                        let buffer = require(`../assets/samples/${this.samplePaths.soundscapes[i]}/${x}.wav`)
-                        soundscapePlayers[player][x] = await new Tone.Player({ url: buffer, loop: true, autostart: true, volume: -28 })
+                        let buffer = require(`../assets/samples/${this.samplePaths.soundscapes[i]}/${x}.mp3`)
+                        let autostart = false
+
+                        if (type == this.samplePaths.soundscapes[i] && type == 'temperature') {
+                            autostart = true
+                        } else if (type == this.samplePaths.soundscapes[i] && type == 'weight') {
+                            autostart = true
+                        }
+                        soundscapePlayers[player][x] = await new Tone.Player({ url: buffer, loop: true, autostart: autostart, volume: -12 })
 
                         soundscapePlayers[player][x].connect(
                             x === 0
@@ -220,6 +336,7 @@ export default {
                         );
 
                     }
+                    crossFades[this.samplePaths.soundscapes[i]].fade.value = 0
                     i++
                 }
                 console.log("Soundscape Players Loaded", soundscapePlayers)
@@ -233,11 +350,17 @@ export default {
             console.log(fade, name, crossFade)
             crossFade.fade.value = fade
         },
-        playInstrument(id) {
+        async playInstrument(id) {
+
+            if (!this.audioStarted) {
+                await this.setupAudioContextAndNodes()
+                return
+            }
+
             const player = instrumentPlayers[this.activePlayer.name][id];
             let cents
             this.activePlayer.name == 'percussionPlayer'
-                ? cents = (Math.random()*200)-100
+                ? cents = (Math.random() * 200) - 100
                 : cents = this.randomNote()
 
             console.log(cents)
@@ -272,13 +395,29 @@ export default {
 
 .soundscape-slider {
     max-width: 400px;
+    align-self: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
     width: 100%;
-    margin: 20px 0
+    padding: 15px;
+
+    margin: 15px 0;
+    border-radius: 20px
+}
+
+.instrument-component {
+    /* max-width: 800px; */
+    padding: 15px 15px 0 15px;
+    margin: 15px 0;
+    border-radius: 20px;
+    align-self: center;
+}
+
+h1 {
+    padding-bottom: 1rem
 }
 
 .slider-icon {
@@ -294,7 +433,7 @@ export default {
     /* top: 0;x
     left: 0; */
     width: 100%;
-    max-width: 427px;
+    /* max-width: 427px; */
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     /* background: linear-gradient(0.25turn, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 5% 95%, rgba(0, 0, 0, 0) 100%); */
@@ -307,11 +446,9 @@ export default {
     /* border-radius: inherit; */
 }
 
-/* Disabled state for the component content */
 
-.component-content.disabled {
-    pointer-events: none;
-    opacity: 0.5;
+.component-content {
+    padding: 2rem !important
 }
 
 .v-slider {

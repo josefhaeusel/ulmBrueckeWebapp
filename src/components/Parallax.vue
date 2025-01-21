@@ -10,16 +10,16 @@
       <div class="parallax-content">
         <div class="d-flex flex-column fill-height justify-center align-center text-white">
             <h1 class="text-h2 mb-4">
-              Smart Circular Bridge
+              Smart Circular Bridge Ulm
             </h1>
             <h2 class="subheading font-weight-thin">
-              Listen to Live-Sound
-              <v-icon icon="mdi-cast-audio-variant"></v-icon>
+              Listen to the Live-Sound!
+              <!-- <v-icon icon="mdi-cast-audio-variant"></v-icon> -->
             </h2>
 
             <div class="d-flex pt-10 align-center" style="height:80px">
-              <v-icon v-if="!audioIsPlaying && !audioIsLoading" @click="startStream" :icon="playIconActive" style="font-size: 5rem" @mouseover="playIconActive = 'mdi-motion-play'" @mouseleave="playIconActive = 'mdi-motion-play-outline'"></v-icon>
-              <v-icon v-if="audioIsPlaying && !audioIsLoading" @click="audioPlayer.pause()" :icon="playIconActive" style="font-size: 5rem" @mouseover="playIconActive = 'mdi-motion-pause'" @mouseleave="playIconActive = 'mdi-motion-pause-outline'"></v-icon>
+              <v-icon v-if="!audioIsPlaying && !audioIsLoading" @click="startStream" :icon="playIconActive" style="font-size: 6rem" @mouseover="playIconActive = 'mdi-motion-play'" @mouseleave="playIconActive = 'mdi-motion-play-outline'"></v-icon>
+              <v-icon v-if="audioIsPlaying && !audioIsLoading" @click="audioPlayer.pause()" :icon="playIconActive" style="font-size: 6rem" @mouseover="playIconActive = 'mdi-motion-pause'" @mouseleave="playIconActive = 'mdi-motion-pause-outline'"></v-icon>
               <v-progress-circular v-if="audioIsLoading" color="primary" indeterminate size="50"></v-progress-circular>
             </div>
             <audio id="audioPlayer">

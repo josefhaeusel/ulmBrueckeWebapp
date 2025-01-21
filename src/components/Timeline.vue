@@ -582,12 +582,13 @@ export default {
     },
     async scrollFunktion() {
 
-      await new Promise(resolve => setTimeout(resolve, 100));
+      // await new Promise(resolve => setTimeout(resolve, 100));
 
-      window.scrollTo({
-        top: 10000,
-        left: 0,
-      })
+      
+      // window.scrollTo({
+      //   top: 10000,
+      //   left: 0,
+      // })
 
     },
   },
@@ -637,6 +638,7 @@ window.onload = function () {
     transform 0.2s ease,
     opacity 0.1s ease;
 }
+
 
 .timeline-item {
   display: flex;
