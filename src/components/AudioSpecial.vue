@@ -85,7 +85,7 @@ export default {
       {
         topic: 'Gaming',
         title: 'Gamingsounds',
-        text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire.',
+        text: 'Tauchen Sie in die Welt des Gamings ein!',
         timelineText: '15-16 Uhr',
         size: "default",
         // showExpansion: false,
@@ -100,8 +100,8 @@ export default {
       {
         topic: 'Experimental',
         title: 'Nature',
-        text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire.',
-        timelineText: 'durchgängig',
+        text: 'Erleben Sie eine natürliche Klangfarbe, kombiniert mit subtilen technischen Akzenten.',
+        timelineText: 'außerhalb der Specials',
         size: "default",
 
         // showExpansion: false,
@@ -115,7 +115,7 @@ export default {
       {
         topic: 'Percussion',
         title: 'Percussions',
-        text: 'Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire.',
+        text: 'Kreieren Sie rhythmische Patterns mit Percussion-Instrumenten.',
         timelineText: '18-19 Uhr',
         size: "default",
         cover: 'card1.jpg'

@@ -3,27 +3,19 @@
 
     <div class="info-abstract mx-5">
       <h1 style="padding-bottom: 15px;">
-        Die Smart Circular Bridge als Musikinstrument
+        Die Smart Circular Bridge ist ein Musikinstrument
       </h1>
 
 
       <p>
-        <strong>Die Sensordaten von Brücken bieten Potential zur klang-ästhetischen Verarbeitung</strong> <br>
+
+        Haben Sie sich schon einmal gefragt, welchen Klang eine Brücke haben könnte? <br> Das Team des Stuttgarter Ateliers für auditive Kommunikation - KLANGERFINDER - hat diese Frage beantwortet. <br> Basierend auf den eigebauten Überwachungssensoren der nachhaltigen Brücke konnten Sie durch mathematische Berechnungen neben den Schritten der Passanten auch das dadurch ausübende Gewicht sowie die auf der Temperatur basierende Ausdehnung zur Sonifikation nutzbar machen. Hierbei entstand ein einzigartiges Klangkonzept, das die Brücke zum Leben erweckt. <br> Auf dieser Seite können Sie diese Klänge isoliert erleben und sogar interaktiv Ihre eigene auditive Brückensituation zusammenbasteln. Neben der Temperatur und der davon abhängigen Brückenausdehnung können Sie auch darüber entscheiden, wie viele Personen sich gleichzitig auf der Brücke befinden und entlocken dadurch im Geiste der Gemeinschaft eine stark emotionale Soundscape. <br> <strong> Nichts wie los - Viel Spaß beim Erkunden des weltweit ersten interaktiven Klangkonzeptes einer nachhaltigen Brücke! </strong> 
+
+        <!-- <strong>Die Sensordaten von Brücken bieten Potential zur klang-ästhetischen Verarbeitung</strong> <br>
         <strong>Aufruf zum Live-Stream, hör mal rein.</strong> <br>
         <strong>Kurybeschreibung des Systems: Wie von Sensordaten zu Sounds?</strong> <br>
         <strong>Übergang zu Karte mit Klangmodulen: Hört mal rein, wie sich die Brücke bei X anhört</strong> <br>
-        <strong>Wie hört sich die Brücke an bei starkter Sonne? Danach begründung, wie jede Brücke funktioniert</strong> <br>
-
-
-
-<!-- 
-        Ist Flachs das Material der Zukunft? Die nachhaltige Smart Circular Bridge in Ulm soll weitere Erkenntnisse
-        liefern. Sie hat hierfür verschiedenste Sensoren eingebaut, welche das Material und dessen Auslastung im realen
-        Raum überwachen. Das von <a href="https://www.klangerfinder.de/de/home.html">KLANGERFINDER</a> entwickelte
-        Audio-Konzept soll eine spielerische Auseinandersetzung mit der Brücke und den
-        Überwachungs-Sensoriken bieten und ein Bewusstsein für nachhaltiges Bauen fördern. <b>Nachfolgend können Sie
-          verschiedene Szenarien hören:
-        </b> -->
+        <strong>Wie hört sich die Brücke an bei starkter Sonne? Danach begründung, wie jede Brücke funktioniert</strong> <br> -->
       </p>
 
 
@@ -100,7 +92,7 @@
                     <v-card-text class="textLayout" v-html="expansionCard.text">
                     </v-card-text>
                   </div>
-                  <video controls loop :id="`soundVideo-${n}`" class="rounded elevation-4	">
+                  <video controls loop :id="`soundVideo-${n}`" class="rounded">
                     <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -129,13 +121,11 @@
       </h1>
 
       <p>
-
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-        takimata sanctus est Lorem ipsum dolor sit amet.
+        Neben dem Hauptinstrument für die Schritte wurden zwei zusätzliche klangliche Modi entwickelt, die zu bestimmten Zeiten jeden Tag erlebbar sind. Zwischen <b> 15 und 16 Uhr</b> taucht die Brücke in die <b>Welt des Gamings ein</b>: Schritte und Bewegungen erzeugen lebendige Spielsounds, die an digitale Abenteuer erinnern.
+      </p>
+      <br>
+      <p>
+        Am Abend, von <b>18 bis 19 Uhr </b>, verwandelt sich die Brücke in eine <b> Bühne für Percussion-Instrumente.</b> Hier können Nutzer:innen durch ihre Bewegungen rhythmische Klänge erzeugen und eine dynamische Klanglandschaft gestalten. <br> <br> Diese zeitlich abgestimmten Modi laden dazu ein, die Brücke auf immer neue, kreative Weise zu entdecken und zu erleben.
       </p>
 
     </div>
@@ -174,22 +164,22 @@ export default {
       expansionOnboarding: 0,
       expansionCards: [
         {
-          title: 'Accelerometer',
-          subtitle: 'Wie klingen Schritte?',
-          text: 'Durch die Accelometer-Werte können wir durch rechnerische Ableitungen einzelne Peaks/ Schritte ablesen und in Echtzeit sonifizieren. Hierbei unterscheiden wir zwischen <b> 7 verschiedenen Schrittstärken</b>, damit die Verklanglichung nie langweilig wird. Zum Beispiel klingt auch ein Hund anders wie ein Erwachsener Mensch.',
-          video: 'accel_video.mp4',
-        },
-        {
-          title: 'Strain',
-          subtitle: 'Strain als Identifikator für die Beugung',
-          text: 'Des Weiteren nutzen wir die Strain-Sensoren, sprich die Beugungswerte der Brücke. Diese beeinflussen die Klangdichte der im Hintergrund erklingenden Soundscape. Hierbei handelt es sich um ein Streicher-Ensemble mit Tremolo-Effektierung.',
+          title: 'Spannung/ Temperatur',
+          subtitle: 'Strain-Sensoren: Die Spannung der Brücke hörbar machen',
+          text: 'Die Strain-Sensoren der Brücke erfassen die Spannung, die durch Belastung und Temperaturschwankungen im Material entsteht. Diese Messwerte spiegeln wider, wie stark die Brücke beansprucht wird, und werden direkt auf die Klangdichte sowie Klangfarbe der Hintergrund-Soundscape übertragen. Das akustische Ergebnis ist eine warme und stark bewegende bzw. kältere und recht konstante Komposition. Dieses Konzept verbindet technische Präzision mit künstlerischer Ausdruckskraft und macht die subtilen Veränderungen in der Brückenspannung für alle erlebbar – sowohl akustisch als auch emotional. So wird die Brücke nicht nur sichtbar, sondern auch spürbar lebendig.',
           video: 'strain_video.mp4',
         },
         {
-          title: 'Temperatur',
-          subtitle: 'Das Wetter als Soundscape-Creator',
-          text: 'Der Schritt-Sonifizierung liegt eine modulare Soundscape unter. Diese basiert auf den Wetterdaten, welche auch durch die Brücke getrackt wird. Dadurch ergibt sich zu jeder Zeit eine mit der Natur im reinen passende Atmosphäre. Durch diese Grundlage ermöglichen wir es auch, mittels der Skalentheorie, ohne welche zum Beispiel Filmmusik undenkbar wäre, weitere Einflüsse auf die Stimmungen zu nehmen.',
+          title: 'Belastung/ Gewicht',
+          subtitle: 'Strain-Sensoren: Indikator für kurzzeitige Belastung”',
+          text: 'Mit zunehmender Belastung oder steigendem Gewicht auf der Brücke verändert sich die Soundscape: Sie wird dichter, voller und entfaltet eine stärkere emotionale Wirkung. Diese Emotionalität entsteht durch das gezielte Harmonisieren der sonst neutralen Komposition und wird durch die Anwendung der Skalentheorie verstärkt – ein Prinzip, das auch in der Filmmusik essenziell ist, um Stimmungen gezielt zu beeinflussen. Durch die Wahl spezifischer Tonleitern passt sich die Soundscape an die Belastung an. Leichte, spielerische Klänge dominieren bei geringer Spannung, während bei stärkerer Belastung kraftvolle, intensive Klangwelten entstehen. Diese musikalische Flexibilität macht die Brücke zu einem Erlebnis, das nicht nur sichtbar, sondern auch emotional spürbar ist.',
           video: 'temperatur_video.mp4',
+        },
+        {
+          title: 'Schritte',
+          subtitle: 'Mathematik als Schlüssel zur Interpretation von Accelerometer-Daten ',
+          text: 'Die Accelerometer-Sensoren der Brücke messen Bewegungen präzise und wandeln sie in Klang um. Durch mathematische Ableitungen werden einzelne Peaks – also Schritte oder Bewegungen – identifiziert und in Echtzeit sonifiziert. Dabei werden sieben verschiedene Schrittstärken unterschieden, um ein dynamisches und abwechslungsreiches Klangerlebnis zu schaffen. Ein leichter, schneller Hundeschritt klingt zierlich, während der kraftvolle Schritt eines Erwachsenen eine tiefere und resonantere Klangfarbe erzeugt. Diese Vielfalt sorgt dafür, dass die Klanglandschaft stets spannend bleibt. Wenn mehrere Personen oder Lebewesen gleichzeitig über die Brücke gehen, entsteht ein harmonisches und sich ständig veränderndes Klangbild. Egal ob leichtes Trippeln, gemächliches Gehen oder kräftige Sprünge – jede Bewegung trägt dazu bei, die Brücke in ein einzigartiges, lebendiges Musikstück zu verwandeln.',
+          video: 'accel_video.mp4',
         },
       ],
     },

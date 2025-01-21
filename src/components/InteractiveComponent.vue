@@ -18,8 +18,8 @@
 
         <div class="d-flex flex-column justify-center elevation-10 rounded-xl component-content">
 
-            <h1>Wie klingt die Brücke an einem warmen Sonnentag?</h1>
-            <p>Drücke auf Play, ziehe den Regler zur Sonne und finde es heraus!</p>
+            <h1>Welchen Klang entfaltet die Brücke im Sonnenlicht?</h1>
+            <strong>Drücke Sie auf Play und bewegen Sie den Regler zur Sonne - Hätten Sie das erwartet?</strong>
 
             <div class="soundscape-slider border-thin">
 
@@ -38,11 +38,15 @@
 
             </div>
 
-            <p>Wärmere Temperatur korreliert mit einer höheren Anspannung der Brücke. Diese Anspannung wird mit
-                "Strain-sensoren" gemessen und in Klang verarbeitet.</p>
+            <p>Höhere Temperaturen führen zu einer erhöhten Spannung in der Brücke, die von Strain-Sensoren präzise
+                erfasst und in Klang übersetzt wird. Stellen Sie sich ein Seil vor, das bei Wind zwischen lockerem und
+                gespanntem Zustand wechselt – im lockeren Zustand bewegt es sich chaotisch und unregelmäßig, nicht wahr?
+                Genau so verhält sich die Soundscape der Brücke: Sie wird dynamischer und intensiver, je nachdem, wie
+                stark die Brücke beansprucht wird.</p>
 
+            <br>
             <h1>Was passiert bei einer hohen Gewichtsbelastung der Brücke?</h1>
-            <p> Drücke auf Play, ziehe den Regler zum Gewicht und finde es heraus!</p>
+            <strong> Drücke Sie auf Play und bewegen Sie den Regler zum Gewicht - So klingt Gemeinschaft!</strong>
 
 
             <div class="soundscape-slider border-thin">
@@ -57,8 +61,16 @@
                 <v-icon class="slider-icon" icon="mdi-weight"></v-icon>
             </div>
 
-            <h1>Wie hören sich Schritte an?</h1>
-            <p>Alles möglich durch Acceletometer. Verschiedene Instrumente zu verschiedenen Zeiten</p>
+            <p>Was verbinden wir mit einer Gruppe? Meist denken wir an Zusammenhalt und emotionale Verbindungen –
+                gemeinsam sind wir stärker als allein! Auch die klangliche Atmosphäre der Brücke spiegelt dieses Gefühl
+                wider: Mit steigender Belastung oder einer wachsenden Anzahl an Lebewesen wird der Klang voller und
+                emotionaler. Eine harmonische Komposition verstärkt diese starke, verbindende Note.</p>
+
+            <br>
+
+            <h1>Wie hören sich eigentlich Schritte an?</h1>
+            <p>Klicken Sie sich durch die folgenden Buttons durch. Je größer der Button, desto stärker die Sprungkraft!
+                <br> Zudem können Sie zwischen den 3 Klangmodi wechseln.</p>
 
             <!-- <v-slider></v-slider> -->
 
@@ -71,14 +83,24 @@
                 </div>
 
                 <v-tabs v-model="activePlayer.name" fixed-tabs :color="buttonColor[activePlayer.name].color">
-                    <v-tab :value="'experimentalPlayer'">Experimental</v-tab>
+                    <v-tab :value="'experimentalPlayer'">Nature</v-tab>
                     <v-tab :value="'percussionPlayer'">Percussion</v-tab>
                     <v-tab :value="'gamePlayer'">Game</v-tab>
                 </v-tabs>
             </div>
 
-            <h1>Höre nun alles gleichzeitig an!</h1>
-            <p>Erstelle deinen Brückensoundtrack!</p>
+            <p>Die in die Brücke integrierten Accelerometer-Sensoren ermöglichen es, Schritte mittels mathematischer
+                Berechnungen präzise auszuwerten – sogar die Stärke der Schritte kann dabei unterschieden werden. Um das
+                kreative Potenzial der Klangbrücke in Ulm voll auszuschöpfen und den vielfältigen Wünschen unserer
+                Gesellschaft gerecht zu werden, verfügt sie über drei unterschiedliche klangliche Modi - Nature, Gaming
+                & Percussion</p>
+
+            <br>
+
+            <h1>Erschaffen Sie sich nun ihre eigene Klangkomposition!!!</h1>
+            <p>Mischen Sie die Regler für Temperatur und Gewicht bzw. die Anzahl der Lebewesen auf der Brücke, und
+                experimentieren Sie mit den Schritt-Buttons. Im Handumdrehen entsteht so Ihr ganz persönliches
+                Musikstück!</p>
             <!-- <p>Großer Playbutton, um alle Soundscapes nochmal zu triggern?</p> -->
 
         </div>
@@ -345,8 +367,10 @@ export default {
         updateVolume(value, name) {
             const fade = value / 100
             const crossFade = crossFades[name]
-            console.log(fade, name, crossFade)
-            crossFade.fade.value = fade
+            if (crossFade) {
+                crossFade.fade.value = fade
+                console.log(fade, name, crossFade)
+            }
         },
         async playInstrument(id) {
 
