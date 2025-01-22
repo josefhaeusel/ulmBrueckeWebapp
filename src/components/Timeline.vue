@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container mt-5 mx-5 mb-10">
+  <div class="main-container mt-5 mx-1 mb-10">
 
     <v-timeline class="timeline mx-1 my-6 w-100" side="end"
       :style='`transform: translateX(${timeline.timelinePositionX}); display: ${timeline.timelineDisplay}; opacity: ${timeline.timelineOpacity}`'>
@@ -46,7 +46,7 @@
     </div>
 
     <!-- Dots -->
-    <div class="w-100 mt-4" style="max-width:1000px !important">
+    <div class="w-100 mt-4" style="max-width:1000px">
       <v-card-actions class="justify-space-between w-100" v-for="(module, i) in content_modules" :key="i"
         v-show=module.showExpansion>
         <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(module); scrollFunktion()"></v-btn>
@@ -64,13 +64,14 @@
     <div style="max-width:1000px !important; display: flex; align-content: flex-end; flex-wrap: wrap !important;">
 
       <div v-for="(module, i) in content_modules" :key="i" v-show=module.showExpansion
-        :style='`transform: translateX(${timeline.expansionPositionX}); display: ${timeline.expansionDisplay}; opacity: ${timeline.expansionOpacity}; min-height: 1000px`'
+        :style='`transform: translateX(${timeline.expansionPositionX}); display: ${timeline.expansionDisplay}; opacity: ${timeline.expansionOpacity}; min-height: ${module.minHeight}px`'
         class="expansion">
 
         <div>
           <v-window v-model="module.expansionOnboarding">
-            <v-window-item v-for="(expansionCard, n) in module.expansionCards" :key="`card-${n}`" :value="n">
-              <v-card class="flex-column my-5 mx-5 expansion-card" elevation="4" style="max-width: 1000px">
+            <v-window-item v-for="(expansionCard, n) in module.expansionCards" :key="`card-${n}`" :value="n" style="padding: 0 20px">
+              <v-card class="flex-column my-5 mx-1 expansion-card" elevation="4" style="max-width: 1000px"   :data-module-index="n"
+              >
                 <v-card-title v-if="expansionCard.title" :style="{ backgroundColor: getStyle(module.topic).color }"
                   :class="['text-h4', 'text-white', 'text-wrap']" text-color="white">
                   {{ expansionCard.title }}
@@ -95,7 +96,7 @@
 
                     <a v-if="content_block.type === 'img'" :class="`${content_block.class} progressive replace`"
                       :href="require(`../assets/${content_block.data}`)"
-                      :style="`margin-bottom:-10px; ${content_block.style}`">
+                      :style="`${content_block.style}`">
                       <img :src="require(`../assets/comp/${content_block.data}`)" class="preview" alt="image" />
                     </a>
 
@@ -152,6 +153,7 @@ export default {
         cover: 'architekt/2_Platzhalter Portrait Hanaa.png',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
+        minHeight: 765,
         expansionCards: [
           {
             title: 'Acc. Prof. Dr. Hanaa Dahy',
@@ -208,6 +210,8 @@ export default {
         cover: 'learningByDoing/Test Test Ups.png',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
+        minHeight: 700,
+
         expansionCards: [
           {
             title: 'Prof. Aart Willem Van Vuure',
@@ -285,6 +289,7 @@ export default {
         cover: 'Visionaer/Portrait Rijk Blok Copyright Smart Circular Bridge.jpg',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
+        minHeight: 500,
         expansionCards: [
           {
             title: 'Professor Rijk Blok',
@@ -342,6 +347,8 @@ export default {
         cover: 'Moeglichmacher/0_Ortsschild Ulm ohne Copyright.png',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
+        minHeight: 800,
+
         expansionCards: [
           {
             title: 'Tim von Winning',
@@ -404,6 +411,7 @@ export default {
         cover: 'learningByDoing/Platzhalter 1 zu 1.png',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
+        minHeight: 1200,
         expansionCards: [
           {
             title: 'Wie wurde die Brücke gebaut?',
@@ -494,6 +502,7 @@ export default {
       };
     }
   },
+
   methods: {
     getStyle(topic) {
       return this.topicStyles[topic]
@@ -592,6 +601,7 @@ export default {
       // })
 
     },
+    
   },
 }
 
