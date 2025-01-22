@@ -36,7 +36,7 @@
       </v-timeline-item>
     </v-timeline>
 
-
+    <!-- Return -->
     <div class="w-100 mt-4" style="max-width:1000px !important">
       <v-btn v-for="(module, i) in content_modules" :key="i" v-show=module.showExpansion
         prepend-icon="mdi-chevron-left-circle" @click="hideExpansion(module)" size="large" rounded="xl" elevation=10
@@ -45,11 +45,26 @@
       </v-btn>
     </div>
 
+    <!-- Dots -->
+    <div class="w-100 mt-4" style="max-width:1000px !important">
+      <v-card-actions class="justify-space-between w-100" v-for="(module, i) in content_modules" :key="i"
+        v-show=module.showExpansion>
+        <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(module); scrollFunktion()"></v-btn>
+        <v-item-group v-model="module.expansionOnboarding" class="text-center" mandatory @click=scrollFunktion()>
+          <v-item v-for="(card, n) in module.expansionCards" :key="`btn-${n}`" v-slot="{ isSelected, toggle }"
+            :value="n">
+            <v-btn :color="getStyle(module.topic).color" :variant="isSelected ? 'text' : 'plain'" icon="mdi-record" @click="toggle" size="2" class="dot-button"></v-btn>
+          </v-item>
+        </v-item-group>
+        <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(module); scrollFunktion()"></v-btn>
+      </v-card-actions>
+    </div>
 
-    <div style="max-width:1000px !important">
+    <!-- Cards -->
+    <div style="max-width:1000px !important; display: flex; align-content: flex-end; flex-wrap: wrap !important;">
 
       <div v-for="(module, i) in content_modules" :key="i" v-show=module.showExpansion
-        :style='`transform: translateX(${timeline.expansionPositionX}); display: ${timeline.expansionDisplay}; opacity: ${timeline.expansionOpacity}`'
+        :style='`transform: translateX(${timeline.expansionPositionX}); display: ${timeline.expansionDisplay}; opacity: ${timeline.expansionOpacity}; min-height: 1000px`'
         class="expansion">
 
         <div>
@@ -107,20 +122,6 @@
 
 
 
-    <div class="w-100 mt-4" style="max-width:1000px !important">
-      <v-card-actions class="justify-space-between w-100" v-for="(module, i) in content_modules" :key="i"
-        v-show=module.showExpansion>
-        <v-btn icon="mdi-chevron-left" variant="plain" @click="prevCard(module); scrollFunktion()"></v-btn>
-        <v-item-group v-model="module.expansionOnboarding" class="text-center" mandatory  @click=scrollFunktion() >
-          <v-item v-for="(card, n) in module.expansionCards" :key="`btn-${n}`" v-slot="{ isSelected, toggle }"
-            :value="n">
-            <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
-          </v-item>
-        </v-item-group>
-        <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(module); scrollFunktion()"></v-btn>
-      </v-card-actions>
-
-    </div>
 
   </div>
 </template>
@@ -584,7 +585,7 @@ export default {
 
       // await new Promise(resolve => setTimeout(resolve, 100));
 
-      
+
       // window.scrollTo({
       //   top: 10000,
       //   left: 0,
@@ -623,6 +624,8 @@ window.onload = function () {
 </script>
 
 <style>
+
+
 .timeline {
   max-width: 1000px;
   width: 100%;
@@ -635,11 +638,15 @@ window.onload = function () {
 
 .expansion {
   transition:
-    transform 0.2s ease,
+    transform 0.5s ease,
     opacity 0.1s ease;
+  display: flex;
+  align-items: flex-start;
 }
 
-
+.dot-button{
+  margin-top: -23px
+}
 .timeline-item {
   display: flex;
   flex-direction: column;
