@@ -94,6 +94,9 @@ header {
   padding: 20px;
 }
 
+p {margin-bottom: 1rem}
+
+
 .main-container {
   display: flex;
   flex-direction: column;

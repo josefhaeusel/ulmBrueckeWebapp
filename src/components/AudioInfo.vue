@@ -9,13 +9,26 @@
 
       <p>
 
-        Haben Sie sich schon einmal gefragt, welchen Klang eine Brücke haben könnte? <br> Das Team des Stuttgarter Ateliers für auditive Kommunikation - KLANGERFINDER - hat diese Frage beantwortet. <br> Basierend auf den eigebauten Überwachungssensoren der nachhaltigen Brücke konnten Sie durch mathematische Berechnungen neben den Schritten der Passanten auch das dadurch ausübende Gewicht sowie die auf der Temperatur basierende Ausdehnung zur Sonifikation nutzbar machen. Hierbei entstand ein einzigartiges Klangkonzept, das die Brücke zum Leben erweckt. <br> Auf dieser Seite können Sie diese Klänge isoliert erleben und sogar interaktiv Ihre eigene auditive Brückensituation zusammenbasteln. Neben der Temperatur und der davon abhängigen Brückenausdehnung können Sie auch darüber entscheiden, wie viele Personen sich gleichzitig auf der Brücke befinden und entlocken dadurch im Geiste der Gemeinschaft eine stark emotionale Soundscape. <br> <strong> Nichts wie los - Viel Spaß beim Erkunden des weltweit ersten interaktiven Klangkonzeptes einer nachhaltigen Brücke! </strong> 
+        Haben Sie sich schon einmal gefragt, welchen Klang eine Brücke haben könnte? <br> Das Team des Stuttgarter
+        Ateliers für auditive Kommunikation - KLANGERFINDER - hat diese Frage beantwortet. <br> Basierend auf den
+        eingebauten Sensoren der nachhaltigen Brücke konnten Sie durch mathematische Berechnungen neben den Schritten
+        der Passanten auch das dadurch ausübende Gewicht sowie die auf der Temperatur basierende Ausdehnung zur
+        Sonifikation nutzbar machen. Hierbei entstand ein einzigartiges Klangkonzept, das die Brücke zum Leben erweckt.
 
         <!-- <strong>Die Sensordaten von Brücken bieten Potential zur klang-ästhetischen Verarbeitung</strong> <br>
         <strong>Aufruf zum Live-Stream, hör mal rein.</strong> <br>
         <strong>Kurybeschreibung des Systems: Wie von Sensordaten zu Sounds?</strong> <br>
         <strong>Übergang zu Karte mit Klangmodulen: Hört mal rein, wie sich die Brücke bei X anhört</strong> <br>
         <strong>Wie hört sich die Brücke an bei starkter Sonne? Danach begründung, wie jede Brücke funktioniert</strong> <br> -->
+      </p>
+      <p> Auf dieser Seite können Sie diese Klänge isoliert erleben und sogar interaktiv Ihre eigene auditive
+        Brückensituation simulieren. Neben der klanglichen Reaktion auf die Temperatur und der davon abhängigen
+        Brückenausdehnung können Sie auch hören, wie sich die Belastung in Gewicht auf die Klänge auswirkt. <br>
+      </p>
+
+      <p>
+        <strong> Nichts wie los - Viel Spaß beim Erkunden des weltweit ersten interaktiven Klangkonzeptes einer
+          nachhaltigen Brücke! </strong>
       </p>
 
 
@@ -89,10 +102,10 @@
                     <v-card-subtitle style="font-size: 18px">
                       {{ expansionCard.subtitle }}
                     </v-card-subtitle>
-                    <v-card-text class="textLayout" v-html="expansionCard.text">
+                    <v-card-text class="textLayout" style="font-size: 16px" v-html="expansionCard.text">
                     </v-card-text>
                   </div>
-                  <video controls loop :id="`soundVideo-${n}`" class="rounded">
+                  <video controls loop :id="`soundVideo-${n}`" class="border-thin" style=" border-radius: 20px">
                     <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -121,12 +134,19 @@
       </h1>
 
       <p>
-        Neben dem Hauptinstrument für die Schritte wurden zwei zusätzliche klangliche Modi entwickelt, die zu bestimmten Zeiten jeden Tag erlebbar sind. Zwischen <b> 15 und 16 Uhr</b> taucht die Brücke in die <b>Welt des Gamings ein</b>: Schritte und Bewegungen erzeugen lebendige Spielsounds, die an digitale Abenteuer erinnern.
+        Neben dem Hauptinstrument für die Schritte wurden zwei zusätzliche klangliche Modi entwickelt, die zu bestimmten
+        Zeiten jeden Tag erlebbar sind. Zwischen <b> 15 und 16 Uhr</b> taucht die Brücke in die <b>Welt des Gamings
+          ein</b>: Schritte und Bewegungen erzeugen lebendige Spielsounds, die an digitale Abenteuer erinnern.
       </p>
-      <br>
+
       <p>
-        Am Abend, von <b>18 bis 19 Uhr </b>, verwandelt sich die Brücke in eine <b> Bühne für Percussion-Instrumente.</b> Hier können Nutzer:innen durch ihre Bewegungen rhythmische Klänge erzeugen und eine dynamische Klanglandschaft gestalten. <br> <br> Diese zeitlich abgestimmten Modi laden dazu ein, die Brücke auf immer neue, kreative Weise zu entdecken und zu erleben.
+        Am Abend, von <b>18 bis 19 Uhr </b>, verwandelt sich die Brücke in eine <b> Bühne für
+          Percussion-Instrumente.</b> Hier können Nutzer durch ihre Bewegungen rhythmische Klänge erzeugen und
+        eine dynamische Klanglandschaft gestalten. Diese zeitlich abgestimmten Modi laden dazu ein, die Brücke
+        auf immer neue, kreative Weise zu entdecken und zu erleben.
+
       </p>
+
 
     </div>
 
@@ -137,7 +157,7 @@
 <script>
 import InteractiveComponent from './InteractiveComponent.vue';
 
- 
+
 export default {
   name: "AudioInfoComponent",
   components: {
@@ -164,13 +184,13 @@ export default {
       expansionOnboarding: 0,
       expansionCards: [
         {
-          title: 'Spannung/ Temperatur',
+          title: 'Spannung / Temperatur',
           subtitle: 'Strain-Sensoren: Die Spannung der Brücke hörbar machen',
           text: 'Die Strain-Sensoren der Brücke erfassen die Spannung, die durch Belastung und Temperaturschwankungen im Material entsteht. Diese Messwerte spiegeln wider, wie stark die Brücke beansprucht wird, und werden direkt auf die Klangdichte sowie Klangfarbe der Hintergrund-Soundscape übertragen. Das akustische Ergebnis ist eine warme und stark bewegende bzw. kältere und recht konstante Komposition. Dieses Konzept verbindet technische Präzision mit künstlerischer Ausdruckskraft und macht die subtilen Veränderungen in der Brückenspannung für alle erlebbar – sowohl akustisch als auch emotional. So wird die Brücke nicht nur sichtbar, sondern auch spürbar lebendig.',
           video: 'strain_video.mp4',
         },
         {
-          title: 'Belastung/ Gewicht',
+          title: 'Belastung / Gewicht',
           subtitle: 'Strain-Sensoren: Indikator für kurzzeitige Belastung”',
           text: 'Mit zunehmender Belastung oder steigendem Gewicht auf der Brücke verändert sich die Soundscape: Sie wird dichter, voller und entfaltet eine stärkere emotionale Wirkung. Diese Emotionalität entsteht durch das gezielte Harmonisieren der sonst neutralen Komposition und wird durch die Anwendung der Skalentheorie verstärkt – ein Prinzip, das auch in der Filmmusik essenziell ist, um Stimmungen gezielt zu beeinflussen. Durch die Wahl spezifischer Tonleitern passt sich die Soundscape an die Belastung an. Leichte, spielerische Klänge dominieren bei geringer Spannung, während bei stärkerer Belastung kraftvolle, intensive Klangwelten entstehen. Diese musikalische Flexibilität macht die Brücke zu einem Erlebnis, das nicht nur sichtbar, sondern auch emotional spürbar ist.',
           video: 'temperatur_video.mp4',
@@ -222,7 +242,7 @@ export default {
       module.expansionOnboarding = module.expansionOnboarding + 1 > module.expansionCards.length - 1
         ? 0
         : module.expansionOnboarding + 1;
-        console.log("NEXT", module.expansionOnboarding)
+      console.log("NEXT", module.expansionOnboarding)
 
     },
     prevCard(module) {
@@ -348,7 +368,6 @@ export default {
   }
 }
 
-
 .beispielContainer {
   margin: 10px 14px;
   box-shadow: 10px;
@@ -404,6 +423,7 @@ export default {
   height: 100%;
   max-width: 500px;
   align-self: center;
+
 }
 
 
