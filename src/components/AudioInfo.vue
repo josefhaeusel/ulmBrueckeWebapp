@@ -119,7 +119,7 @@
             <v-item-group v-model="content.expansionOnboarding" class="text-center" mandatory @click=stopVideo>
               <v-item v-for="(card, i) in content.expansionCards" :key="`btn-${i}`" v-slot="{ isSelected, toggle }"
                 :value="i">
-                <v-btn :variant="isSelected ? 'outlined' : 'text'" icon="mdi-record" @click="toggle"></v-btn>
+                <v-btn color="#97B28A" :variant="isSelected ? 'text' : 'plain'" icon="mdi-record" @click="toggle" size="2" class="dot-button"></v-btn>
               </v-item>
             </v-item-group>
             <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(content); stopVideo()"></v-btn>
@@ -198,7 +198,7 @@ export default {
         {
           title: 'Schritte',
           subtitle: 'Mathematik als Schlüssel zur Interpretation von Accelerometer-Daten ',
-          text: 'Die Accelerometer-Sensoren der Brücke messen Bewegungen präzise und wandeln sie in Klang um. Durch mathematische Ableitungen werden einzelne Peaks – also Schritte oder Bewegungen – identifiziert und in Echtzeit sonifiziert. Dabei werden sieben verschiedene Schrittstärken unterschieden, um ein dynamisches und abwechslungsreiches Klangerlebnis zu schaffen. Ein leichter, schneller Hundeschritt klingt zierlich, während der kraftvolle Schritt eines Erwachsenen eine tiefere und resonantere Klangfarbe erzeugt. Diese Vielfalt sorgt dafür, dass die Klanglandschaft stets spannend bleibt. Wenn mehrere Personen oder Lebewesen gleichzeitig über die Brücke gehen, entsteht ein harmonisches und sich ständig veränderndes Klangbild. Egal ob leichtes Trippeln, gemächliches Gehen oder kräftige Sprünge – jede Bewegung trägt dazu bei, die Brücke in ein einzigartiges, lebendiges Musikstück zu verwandeln.',
+          text: 'Die Accelerometer-Sensoren der Brücke messen Bewegungen präzise und wandeln sie in Klang um. Durch mathematische Ableitungen werden einzelne Peaks – also Schritte oder Bewegungen – identifiziert und in Echtzeit sonifiziert. Dabei werden sieben verschiedene Schrittstärken unterschieden, um ein dynamisches und abwechslungsreiches Klangerlebnis zu schaffen. <br> Ein leichter, schneller Hundeschritt klingt zierlich, während der kraftvolle Schritt eines Erwachsenen eine tiefere und resonantere Klangfarbe erzeugt. Diese Vielfalt sorgt dafür, dass die Klanglandschaft stets spannend bleibt. Wenn mehrere Personen oder Lebewesen gleichzeitig über die Brücke gehen, entsteht ein harmonisches und sich ständig veränderndes Klangbild. Egal ob leichtes Trippeln, gemächliches Gehen oder kräftige Sprünge – jede Bewegung trägt dazu bei, die Brücke in ein einzigartiges, lebendiges Musikstück zu verwandeln.',
           video: 'accel_video.mp4',
         },
       ],
@@ -415,7 +415,7 @@ export default {
 
 .audio-cards {
   max-width: 1000px;
-  min-height: 700px;
+  min-height: 860px;
 }
 
 .audio-cards video {
@@ -444,7 +444,9 @@ export default {
   align-items: center;
 }
 
-
+.dot-button{
+  margin-top: -23px
+}
 
 .scrolling-line {
   /* position: absolute */
