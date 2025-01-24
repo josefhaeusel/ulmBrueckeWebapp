@@ -79,6 +79,7 @@
                     <v-btn v-for="(id, n) in buttons" :key="n" class="rounded-pill" @click=playInstrument(id)
                         style="min-width: 0px; padding: 0" :width="id * 10" :height="id * 10"
                         :color="buttonColor[activePlayer.name].color">
+                        <v-icon v-if="n==buttons[buttons.length-1]" icon="mdi-shoe-print" size="40" ></v-icon>
                     </v-btn>
                 </div>
 

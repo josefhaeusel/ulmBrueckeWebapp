@@ -20,7 +20,6 @@
         </v-tabs-window>
       </v-card>
 
-      <v-divider></v-divider>
 
       <!-- <div class="main-container mx-5">
         <div class="info-abstract text-left my-6">
@@ -39,8 +38,7 @@
       </div> -->
 
 
-      <SlideCards />
-
+      <!-- <SlideCards /> -->
 
 
       <FooterBottom />

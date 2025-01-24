@@ -117,8 +117,9 @@
 
               <!-- untergeordnete Slides -->
               <v-card class="audio-cards my-2 mx-2" elevation="4">
-                <v-card-title class="text-h4 text-white" text-color="white" style="background-color: #97B28A;">
+                <v-card-title class="text-h4 text-white d-flex align-center justify-space-between" text-color="white" style="background-color: #97B28A;">
                   {{ expansionCard.title }}
+                  <v-icon :icon="expansionCard.icon" size="40" class="pr-4"></v-icon>
                 </v-card-title>
                 <div class="text-video mb-5">
                   <div class="untertitel-titel">
@@ -149,6 +150,11 @@
           </v-card-actions>
         </div>
       </div>
+
+
+
+      <div style="height:80px"></div>
+
     </div>
 
 
@@ -190,18 +196,21 @@ export default {
       expansionCards: [
         {
           title: 'Spannung / Temperatur',
+          icon: "mdi-white-balance-sunny",
           subtitle: 'Strain-Sensoren: Die Spannung der Brücke hörbar machen',
           text: 'Die Strain-Sensoren der Brücke erfassen die Spannung, die durch Belastung und Temperaturschwankungen im Material entsteht. Diese Messwerte spiegeln wider, wie stark die Brücke beansprucht wird, und werden direkt auf die Klangdichte sowie Klangfarbe der Hintergrund-Soundscape übertragen. Das akustische Ergebnis ist eine warme und stark bewegende bzw. kältere und recht konstante Komposition. Dieses Konzept verbindet technische Präzision mit künstlerischer Ausdruckskraft und macht die subtilen Veränderungen in der Brückenspannung für alle erlebbar – sowohl akustisch als auch emotional. So wird die Brücke nicht nur sichtbar, sondern auch spürbar lebendig.',
           video: 'strain_video.mp4',
         },
         {
           title: 'Belastung / Gewicht',
+          icon: "mdi-weight",
           subtitle: 'Strain-Sensoren: Indikator für kurzzeitige Belastung”',
           text: 'Mit zunehmender Belastung oder steigendem Gewicht auf der Brücke verändert sich die Soundscape: Sie wird dichter, voller und entfaltet eine stärkere emotionale Wirkung. Diese Emotionalität entsteht durch das gezielte Harmonisieren der sonst neutralen Komposition und wird durch die Anwendung der Skalentheorie verstärkt – ein Prinzip, das auch in der Filmmusik essenziell ist, um Stimmungen gezielt zu beeinflussen. Durch die Wahl spezifischer Tonleitern passt sich die Soundscape an die Belastung an. Leichte, spielerische Klänge dominieren bei geringer Spannung, während bei stärkerer Belastung kraftvolle, intensive Klangwelten entstehen. Diese musikalische Flexibilität macht die Brücke zu einem Erlebnis, das nicht nur sichtbar, sondern auch emotional spürbar ist.',
           video: 'temperatur_video.mp4',
         },
         {
           title: 'Schritte',
+          icon: 'mdi-shoe-print',
           subtitle: 'Mathematik als Schlüssel zur Interpretation von Accelerometer-Daten ',
           text: 'Die Accelerometer-Sensoren der Brücke messen Bewegungen präzise und wandeln sie in Klang um. Durch mathematische Ableitungen werden einzelne Peaks – also Schritte oder Bewegungen – identifiziert und in Echtzeit sonifiziert. Dabei werden sieben verschiedene Schrittstärken unterschieden, um ein dynamisches und abwechslungsreiches Klangerlebnis zu schaffen. <br> Ein leichter, schneller Hundeschritt klingt zierlich, während der kraftvolle Schritt eines Erwachsenen eine tiefere und resonantere Klangfarbe erzeugt. Diese Vielfalt sorgt dafür, dass die Klanglandschaft stets spannend bleibt. Wenn mehrere Personen oder Lebewesen gleichzeitig über die Brücke gehen, entsteht ein harmonisches und sich ständig veränderndes Klangbild. Egal ob leichtes Trippeln, gemächliches Gehen oder kräftige Sprünge – jede Bewegung trägt dazu bei, die Brücke in ein einzigartiges, lebendiges Musikstück zu verwandeln.',
           video: 'accel_video.mp4',
