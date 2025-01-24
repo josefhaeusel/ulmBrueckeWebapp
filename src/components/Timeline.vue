@@ -18,7 +18,7 @@
 
               <v-parallax :src="require(`../assets/${module.cover}`)" class="align-end card-parallax w-100" scale="0.9"
                 :gradient="['rgba(0,0,0,0)', 'rgba(0,0,0,.2)', 'rgba(0,0,0,1)']"
-                :height="isHovering ? '350px' : '300px'">
+                :height="isHovering ? '400px' : '340px'">
                 <v-card-text class="text-white mt-4 w-100">
                   <span v-html="module.text"></span>
                 </v-card-text>

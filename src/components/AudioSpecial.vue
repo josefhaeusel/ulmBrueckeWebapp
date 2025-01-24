@@ -8,7 +8,7 @@
           <span class="Uhrzeit">{{ module.timelineText }}</span>
         </template>
 
-        <v-card v-if="module.title" class="my-8 d-flex">
+        <v-card v-if="module.title" class="d-flex" style="width: 250px">
           <div style="width: 100%">
             <v-card-title :style="{ backgroundColor: getStyle(module.topic).color }" :class="['text-h4', 'text-white']" text-color="white">
               {{ module.title }}
@@ -84,8 +84,8 @@ export default {
     timelineText: ''},
       {
         topic: 'Gaming',
-        title: 'Gamingsounds',
-        text: 'Tauchen Sie in die Welt des Gamings ein!',
+        title: 'Gaming',
+        text: 'Tauchen Sie in die Welt nostalgischer Videospiel-Sounds ein!',
         timelineText: '15-16 Uhr',
         size: "default",
         // showExpansion: false,

@@ -12,7 +12,7 @@
           <v-tabs-window-item :value="1">
             <!-- <InteractiveComponent /> -->
             <AudioInfoComponent />
-            <AudioSpecialComponent />
+            <!-- <AudioSpecialComponent /> -->
           </v-tabs-window-item>
           <v-tabs-window-item :value="2">
             <TimelineComponent />
@@ -56,7 +56,7 @@ import FooterBottom from './components/Footer.vue'
 // import SlideCards from './components/SlideCards.vue'
 import TimelineComponent from './components/Timeline.vue'
 import AudioInfoComponent from './components/AudioInfo.vue'
-import AudioSpecialComponent from './components/AudioSpecial.vue'
+// import AudioSpecialComponent from './components/AudioSpecial.vue'
 // import InteractiveComponent from './components/InteractiveComponent.vue'
 
 
@@ -73,7 +73,7 @@ export default {
     FooterBottom,
     // InteractiveComponent,
     // SlideCards,
-    AudioSpecialComponent
+    // AudioSpecialComponent
   }
 };
 

@@ -85,6 +85,29 @@
 
       <InteractiveComponent />
 
+      <div class="info-abstract mt-5">
+      <h1 style="padding-bottom: 15px;">
+        Sound-Modi und Hüpfspiel
+      </h1>
+
+      <p>
+        Neben dem Hauptinstrument für die Schritte wurden zwei zusätzliche klangliche Modi entwickelt, die zu bestimmte5n
+        Zeiten jeden Tag erlebbar sind. Zwischen <b> 15 und 16 Uhr</b> taucht die Brücke in die <b>Welt des Gamings
+          ein</b>: Schritte und Bewegungen erzeugen lebendige Spielsounds, die an digitale Abenteuer erinnern.
+      </p>
+
+      <p>
+        Am Abend, von <b>18 bis 19 Uhr </b>, verwandelt sich die Brücke in eine <b> Bühne für
+          Percussion-Instrumente.</b> Hier können Nutzer durch ihre Bewegungen rhythmische Klänge erzeugen und
+        eine dynamische Klanglandschaft gestalten. Diese zeitlich abgestimmte5n Modi laden dazu ein, die Brücke
+        auf immer neue, kreative Weise zu entdecken und zu erleben.
+
+      </p>
+
+
+    </div>
+
+    <AudioSpecial />
 
 
       <div class="d-flex my-6">
@@ -128,40 +151,22 @@
       </div>
     </div>
 
-    <div class="info-abstract">
-      <h1 style="padding-bottom: 15px;">
-        Sound-Modi und Hüpfspiel
-      </h1>
-
-      <p>
-        Neben dem Hauptinstrument für die Schritte wurden zwei zusätzliche klangliche Modi entwickelt, die zu bestimmten
-        Zeiten jeden Tag erlebbar sind. Zwischen <b> 15 und 16 Uhr</b> taucht die Brücke in die <b>Welt des Gamings
-          ein</b>: Schritte und Bewegungen erzeugen lebendige Spielsounds, die an digitale Abenteuer erinnern.
-      </p>
-
-      <p>
-        Am Abend, von <b>18 bis 19 Uhr </b>, verwandelt sich die Brücke in eine <b> Bühne für
-          Percussion-Instrumente.</b> Hier können Nutzer durch ihre Bewegungen rhythmische Klänge erzeugen und
-        eine dynamische Klanglandschaft gestalten. Diese zeitlich abgestimmten Modi laden dazu ein, die Brücke
-        auf immer neue, kreative Weise zu entdecken und zu erleben.
-
-      </p>
 
 
-    </div>
-
+    
 
 
   </div>
 </template>
 <script>
 import InteractiveComponent from './InteractiveComponent.vue';
-
+import AudioSpecial from './AudioSpecial.vue';
 
 export default {
   name: "AudioInfoComponent",
   components: {
     InteractiveComponent,
+    AudioSpecial
   },
   data: () => ({
     timeline: {
