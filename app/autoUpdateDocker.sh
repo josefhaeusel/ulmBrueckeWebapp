@@ -11,8 +11,8 @@ docker rm ulm-bridge
 docker build -t ulm-bridge .
 
 docker run -d \
-  --name nginx-app \
+  --name ulm-bridge \
   -p 80:80 \
   -p 443:443 \
   -v /etc/letsencrypt:/etc/letsencrypt:ro \
-  my-app-with-ssl
+  ulm-bridge
