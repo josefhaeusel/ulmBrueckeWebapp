@@ -1,27 +1,30 @@
 <template>
   <div id="app">
     <main>
-      <ParallaxBackground />
-      <v-card>
-        <v-tabs v-model="tab" align-tabs="center" color="#97B28A">
-          <v-tab :value="1">Sound-Konzept</v-tab>
-          <v-tab :value="2">Smart Circular Bridge</v-tab>
-        </v-tabs>
-
-        <v-tabs-window v-model="tab">
-          <v-tabs-window-item :value="1">
-            <!-- <InteractiveComponent /> -->
-            <AudioInfoComponent />
-            <!-- <AudioSpecialComponent /> -->
-          </v-tabs-window-item>
-          <v-tabs-window-item :value="2">
-            <TimelineComponent />
-          </v-tabs-window-item>
-        </v-tabs-window>
-      </v-card>
 
 
-      <!-- <div class="main-container mx-5">
+      <div v-if="currentRoute === '/'">
+        <ParallaxBackground />
+        <v-card>
+          <v-tabs v-model="tab" align-tabs="center" color="#97B28A">
+            <v-tab :value="1">Sound-Konzept</v-tab>
+            <v-tab :value="2">Smart Circular Bridge</v-tab>
+          </v-tabs>
+
+          <v-tabs-window v-model="tab">
+            <v-tabs-window-item :value="1">
+              <!-- <InteractiveComponent /> -->
+              <AudioInfoComponent />
+              <!-- <AudioSpecialComponent /> -->
+            </v-tabs-window-item>
+            <v-tabs-window-item :value="2">
+              <TimelineComponent />
+            </v-tabs-window-item>
+          </v-tabs-window>
+        </v-card>
+
+
+        <!-- <div class="main-container mx-5">
         <div class="info-abstract text-left my-6">
           <h1 class="py-2">
             Weitere Brücken geplant
@@ -38,9 +41,15 @@
       </div> -->
 
 
-      <!-- <SlideCards /> -->
+        <!-- <SlideCards /> -->
 
-
+      </div>
+      <div v-else-if="currentRoute === '/impressum'">
+        <ImpressumComponent />
+      </div>
+      <div v-else>
+        <h1>404 - Page Not Found</h1>
+      </div>
       <FooterBottom />
 
     </main>
@@ -56,12 +65,14 @@ import TimelineComponent from './components/Timeline.vue'
 import AudioInfoComponent from './components/AudioInfo.vue'
 // import AudioSpecialComponent from './components/AudioSpecial.vue'
 // import InteractiveComponent from './components/InteractiveComponent.vue'
-
+import ImpressumComponent from './components/Impressum.vue'
 
 
 export default {
   data: () => ({
     tab: 1,
+    currentRoute: window.location.pathname, // Get the current path
+
   }),
   name: 'App',
   components: {
@@ -69,6 +80,7 @@ export default {
     TimelineComponent,
     AudioInfoComponent,
     FooterBottom,
+    ImpressumComponent
     // InteractiveComponent,
     // SlideCards,
     // AudioSpecialComponent
@@ -92,7 +104,9 @@ header {
   padding: 20px;
 }
 
-p {margin-bottom: 1rem}
+p {
+  margin-bottom: 1rem
+}
 
 
 .main-container {

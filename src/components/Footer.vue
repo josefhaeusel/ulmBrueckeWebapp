@@ -1,21 +1,22 @@
 <template>
 
   
-  <v-footer class="d-flex flex-column pa0 ma0">
+  <v-footer class="d-flex flex-column pa-0 ma-0">
 
 
     <div class="d-flex align-center flex-row bg-black w-100 justify-space-between">
 
-      <div class="px-4 py-2 bg-black text-center">
-        {{ new Date().getFullYear() }} — <strong>Stadt Ulm</strong>
-      </div>
-      <v-spacer></v-spacer>
-      <v-btn v-for="icon in icons" :key="icon" :icon="icon.icon" :href="icon.url" class="mx-4" size="small"
+      <div class="mx-3">
+      <v-btn v-for="icon in icons" :key="icon" :icon="icon.icon" :href="icon.url"  size="small"
         variant="plain"></v-btn>
+      </div>
 
       <v-spacer></v-spacer>
+
+        <a style="color: rgb(151, 178, 138); margin-right: 1rem;" href="/impressum">Impressum</a>
+
         <img :src="require('../assets/logo_ulm.jpg')" href="https://www.ulm.de"
-          style="height: 50px; margin-top: -5px; padding-right: 20px" />
+          style="height: 50px; margin-top: -5px; "/>
 
     </div>
 
@@ -39,4 +40,9 @@ export default {
 .v-footer {
   padding: 0;
 }
+/* .p .a:link, a:visited {
+  color: #208AA7;
+  text-decoration: underline;
+  cursor: auto;
+}  */
 </style>
