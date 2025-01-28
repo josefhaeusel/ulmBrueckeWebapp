@@ -1,6 +1,6 @@
 <template>
 
-    <div class="main-container my-5 mb-10 d-flex align-center justify-center" style="position: relative"
+    <div class="main-container my-5 mb-10 d-flex align-center justify-center" style="position: relative; margin-inline: 2px;"
         id="interactive-container">
 
 

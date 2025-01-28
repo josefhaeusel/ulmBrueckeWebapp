@@ -110,7 +110,7 @@
     <AudioSpecial />
 
 
-      <div class="d-flex my-6">
+      <div class="my-2">
         <div>
           <v-window v-model="content.expansionOnboarding">
             <v-window-item v-for="(expansionCard, n) in content.expansionCards" :key="`card-${n}`" :value="n">
@@ -121,15 +121,15 @@
                   {{ expansionCard.title }}
                   <v-icon :icon="expansionCard.icon" size="40" class="pr-4"></v-icon>
                 </v-card-title>
-                <div class="text-video mb-5">
-                  <div class="untertitel-titel">
-                    <v-card-subtitle style="font-size: 18px">
+                <div class="text-video mb-5 textLayout">
+                  <div class="untertitel-titel textLayout" >
+                    <v-card-text style="font-size: 23px; font-style: bold;;">
                       {{ expansionCard.subtitle }}
-                    </v-card-subtitle>
+                    </v-card-text>
                     <v-card-text class="textLayout" style="font-size: 16px" v-html="expansionCard.text">
                     </v-card-text>
                   </div>
-                  <video controls loop :id="`soundVideo-${n}`" class="border-thin" style=" border-radius: 20px">
+                  <video controls loop :id="`soundVideo-${n}`" class="border-thin" style=" border-radius: 20px; min-width: 10px; padding-left: 3px;">
                     <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -195,16 +195,16 @@ export default {
       expansionOnboarding: 0,
       expansionCards: [
         {
-          title: 'Spannung / Temperatur',
+          title: 'Temperatur',
           icon: "mdi-white-balance-sunny",
           subtitle: 'Strain-Sensoren: Die Spannung der Brücke hörbar machen',
           text: 'Die Strain-Sensoren der Brücke erfassen die Spannung, die durch Belastung und Temperaturschwankungen im Material entsteht. Diese Messwerte spiegeln wider, wie stark die Brücke beansprucht wird, und werden direkt auf die Klangdichte sowie Klangfarbe der Hintergrund-Soundscape übertragen. Das akustische Ergebnis ist eine warme und stark bewegende bzw. kältere und recht konstante Komposition. Dieses Konzept verbindet technische Präzision mit künstlerischer Ausdruckskraft und macht die subtilen Veränderungen in der Brückenspannung für alle erlebbar – sowohl akustisch als auch emotional. So wird die Brücke nicht nur sichtbar, sondern auch spürbar lebendig.',
           video: 'strain_video.mp4',
         },
         {
-          title: 'Belastung / Gewicht',
+          title: 'Belastung',
           icon: "mdi-weight",
-          subtitle: 'Strain-Sensoren: Indikator für kurzzeitige Belastung”',
+          subtitle: 'Strain-Sensoren: Indikator für kurzzeitige Belastung',
           text: 'Mit zunehmender Belastung oder steigendem Gewicht auf der Brücke verändert sich die Soundscape: Sie wird dichter, voller und entfaltet eine stärkere emotionale Wirkung. Diese Emotionalität entsteht durch das gezielte Harmonisieren der sonst neutralen Komposition und wird durch die Anwendung der Skalentheorie verstärkt – ein Prinzip, das auch in der Filmmusik essenziell ist, um Stimmungen gezielt zu beeinflussen. Durch die Wahl spezifischer Tonleitern passt sich die Soundscape an die Belastung an. Leichte, spielerische Klänge dominieren bei geringer Spannung, während bei stärkerer Belastung kraftvolle, intensive Klangwelten entstehen. Diese musikalische Flexibilität macht die Brücke zu einem Erlebnis, das nicht nur sichtbar, sondern auch emotional spürbar ist.',
           video: 'temperatur_video.mp4',
         },
@@ -382,6 +382,10 @@ export default {
   }
 }
 
+
+
+
+
 .beispielContainer {
   margin: 10px 14px;
   box-shadow: 10px;
@@ -423,6 +427,7 @@ export default {
 
 .text-video {
   display: flex;
+  min-width: 20px !important;
   flex-direction: column;
 }
 
@@ -437,7 +442,6 @@ export default {
   height: 100%;
   max-width: 500px;
   align-self: center;
-
 }
 
 
