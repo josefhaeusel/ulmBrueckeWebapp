@@ -26,14 +26,14 @@
 
                 <v-icon v-if="!temperature.isPlaying" @click="startPlayback('temperature')"
                     :icon="temperature.playIconActive" style="font-size: 3rem"
-                    @mouseover="temperature.playIconActive = 'mdi-motion-play'"
-                    @mouseleave="temperature.playIconActive = 'mdi-motion-play-outline'"></v-icon>
+                    @mouseover="handleMouseOver('temperature', 'mdi-motion-play')"
+                    @mouseleave="handleMouseLeave('temperature', 'mdi-motion-play-outline')"></v-icon>
                 <v-icon v-if="temperature.isPlaying" @click="stopPlayback('temperature')"
                     :icon="temperature.playIconActive" style="font-size: 3rem"
-                    @mouseover="temperature.playIconActive = 'mdi-motion-pause'"
-                    @mouseleave="temperature.playIconActive = 'mdi-motion-pause-outline'"></v-icon>
+                    @mouseover="handleMouseOver('temperature', 'mdi-motion-pause')"
+                    @mouseleave="handleMouseLeave('temperature', 'mdi-motion-pause-outline')"></v-icon>
                 <v-icon color="blue" class="slider-icon" icon="mdi-snowflake"></v-icon>
-                <v-slider @update:model-value="(event) => updateVolume(event, 'temperature')"></v-slider>
+                <v-slider :model-value="temperature.slider" @update:model-value="(event) => updateVolume(event, 'temperature')"></v-slider>
                 <v-icon color="orange" class="slider-icon" icon="mdi-white-balance-sunny"></v-icon>
 
             </div>
@@ -51,13 +51,13 @@
 
             <div class="soundscape-slider border-thin">
                 <v-icon v-if="!weight.isPlaying" @click="startPlayback('weight')" :icon="weight.playIconActive"
-                    style="font-size: 3rem" @mouseover="weight.playIconActive = 'mdi-motion-play'"
-                    @mouseleave="weight.playIconActive = 'mdi-motion-play-outline'"></v-icon>
+                    style="font-size: 3rem"  @mouseover="handleMouseOver('weight', 'mdi-motion-play')"
+                    @mouseleave="handleMouseLeave('weight', 'mdi-motion-play-outline')"></v-icon>
                 <v-icon v-if="weight.isPlaying" @click="stopPlayback('weight')" :icon="weight.playIconActive"
-                    style="font-size: 3rem" @mouseover="weight.playIconActive = 'mdi-motion-pause'"
-                    @mouseleave="weight.playIconActive = 'mdi-motion-pause-outline'"></v-icon>
+                    style="font-size: 3rem" @mouseover="handleMouseOver('weight', 'mdi-motion-pause')"
+                    @mouseleave="handleMouseLeave('weight', 'mdi-motion-pause-outline')"></v-icon>
                 <v-icon color class="slider-icon" icon="mdi-feather"></v-icon>
-                <v-slider @update:model-value="(event) => updateVolume(event, 'weight')"></v-slider>
+                <v-slider :model-value="weight.slider" @update:model-value="(event) => updateVolume(event, 'weight')"></v-slider>
                 <v-icon class="slider-icon" icon="mdi-weight"></v-icon>
             </div>
 
@@ -70,7 +70,8 @@
 
             <h1>Wie hören sich eigentlich Schritte an?</h1>
             <p>Klicken Sie sich durch die folgenden Buttons durch. Je größer der Button, desto stärker die Sprungkraft!
-                <br> Zudem können Sie zwischen den 3 Klangmodi wechseln.</p>
+                <br> Zudem können Sie zwischen den 3 Klangmodi wechseln.
+            </p>
 
             <!-- <v-slider></v-slider> -->
 
@@ -79,7 +80,7 @@
                     <v-btn v-for="(id, n) in buttons" :key="n" class="rounded-pill" @click=playInstrument(id)
                         style="min-width: 0px; padding: 0" :width="id * 10" :height="id * 10"
                         :color="buttonColor[activePlayer.name].color">
-                        <v-icon v-if="n==buttons[buttons.length-1]" icon="mdi-shoe-print" size="40" ></v-icon>
+                        <v-icon v-if="n == buttons[buttons.length - 1]" icon="mdi-shoe-print" size="40"></v-icon>
                     </v-btn>
                 </div>
 
@@ -135,32 +136,20 @@ export default {
         samplePaths: {
             instruments: ["experimental", "percussion", "game"],
             soundscapes: ["temperature", "weight"]
-            // soundscapes: {
-            //     temperature: [
-            //         "temperature0",
-            //         "temperature1",
-            //         "temperature2",
-            //         "temperature3",
-            //     ],
-            //     weight: [
-            //         "weight0",
-            //         "weight1",
-            //         "weight2",
-            //         "weight3",
-            //     ]
-            // }
         },
         temperature: {
             isPlaying: false,
             playIconActive: 'mdi-motion-play-outline',
             isLoaded: false,
             time: 0,
+            slider: 0,
         },
         weight: {
             isPlaying: false,
             isLoaded: false,
             playIconActive: 'mdi-motion-play-outline',
             time: 0,
+            slider: 30,
         },
         soundscapesLoaded: false,
         audioStarted: false,
@@ -210,6 +199,20 @@ export default {
         await this.setup();
     },
     methods: {
+        isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        },
+        handleMouseOver(topic, icon) {
+            if (!this.isTouchDevice()) {
+                this[topic].playIconActive = icon;
+            }
+        },
+        handleMouseLeave(topic, icon) {
+            if (!this.isTouchDevice()) {
+                this[topic].playIconActive = icon;
+            }
+        },
+
         async setup() {
             if (Tone.getContext().state == "running") {
                 // await this.setupAudioContextAndNodes();
@@ -357,7 +360,9 @@ export default {
                         );
 
                     }
-                    crossFades[this.samplePaths.soundscapes[i]].fade.value = 0
+
+                    crossFades[this.samplePaths.soundscapes[i]].fade.value = this[this.samplePaths.soundscapes[i]].slider
+
                     i++
                 }
                 console.log("Soundscape Players Loaded", soundscapePlayers)
@@ -372,6 +377,8 @@ export default {
                 crossFade.fade.value = fade
                 console.log(fade, name, crossFade)
             }
+
+            this[name].slider= value
         },
         async playInstrument(id) {
 
