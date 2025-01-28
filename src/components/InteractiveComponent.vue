@@ -29,11 +29,12 @@
                     @mouseover="handleMouseOver('temperature', 'mdi-motion-play')"
                     @mouseleave="handleMouseLeave('temperature', 'mdi-motion-play-outline')"></v-icon>
                 <v-icon v-if="temperature.isPlaying" @click="stopPlayback('temperature')"
-                    :icon="temperature.playIconActive" style="font-size: 3rem"
+                    :icon="temperature.pauseIconActive" style="font-size: 3rem"
                     @mouseover="handleMouseOver('temperature', 'mdi-motion-pause')"
                     @mouseleave="handleMouseLeave('temperature', 'mdi-motion-pause-outline')"></v-icon>
                 <v-icon color="blue" class="slider-icon" icon="mdi-snowflake"></v-icon>
-                <v-slider :model-value="temperature.slider" @update:model-value="(event) => updateVolume(event, 'temperature')"></v-slider>
+                <v-slider :model-value="temperature.slider"
+                    @update:model-value="(event) => updateVolume(event, 'temperature')"></v-slider>
                 <v-icon color="orange" class="slider-icon" icon="mdi-white-balance-sunny"></v-icon>
 
             </div>
@@ -51,13 +52,14 @@
 
             <div class="soundscape-slider border-thin">
                 <v-icon v-if="!weight.isPlaying" @click="startPlayback('weight')" :icon="weight.playIconActive"
-                    style="font-size: 3rem"  @mouseover="handleMouseOver('weight', 'mdi-motion-play')"
+                    style="font-size: 3rem" @mouseover="handleMouseOver('weight', 'mdi-motion-play')"
                     @mouseleave="handleMouseLeave('weight', 'mdi-motion-play-outline')"></v-icon>
-                <v-icon v-if="weight.isPlaying" @click="stopPlayback('weight')" :icon="weight.playIconActive"
+                <v-icon v-if="weight.isPlaying" @click="stopPlayback('weight')" :icon="weight.pauseIconActive"
                     style="font-size: 3rem" @mouseover="handleMouseOver('weight', 'mdi-motion-pause')"
                     @mouseleave="handleMouseLeave('weight', 'mdi-motion-pause-outline')"></v-icon>
                 <v-icon color class="slider-icon" icon="mdi-feather"></v-icon>
-                <v-slider :model-value="weight.slider" @update:model-value="(event) => updateVolume(event, 'weight')"></v-slider>
+                <v-slider :model-value="weight.slider"
+                    @update:model-value="(event) => updateVolume(event, 'weight')"></v-slider>
                 <v-icon class="slider-icon" icon="mdi-weight"></v-icon>
             </div>
 
@@ -140,6 +142,7 @@ export default {
         temperature: {
             isPlaying: false,
             playIconActive: 'mdi-motion-play-outline',
+            pauseIconActive: 'mdi-motion-pause-outline',
             isLoaded: false,
             time: 0,
             slider: 0,
@@ -148,6 +151,7 @@ export default {
             isPlaying: false,
             isLoaded: false,
             playIconActive: 'mdi-motion-play-outline',
+            pauseIconActive: 'mdi-motion-pause-outline',
             time: 0,
             slider: 30,
         },
@@ -204,12 +208,23 @@ export default {
         },
         handleMouseOver(topic, icon) {
             if (!this.isTouchDevice()) {
-                this[topic].playIconActive = icon;
+                if (icon == 'mdi-motion-pause' || icon == 'mdi-motion-pause-outline') {
+                    this[topic].pauseIconActive = icon;
+                } else {
+                    this[topic].playIconActive = icon;
+                }
+                console.log(this[topic], icon)
             }
         },
         handleMouseLeave(topic, icon) {
             if (!this.isTouchDevice()) {
-                this[topic].playIconActive = icon;
+                if (icon == 'mdi-motion-pause' || icon == 'mdi-motion-pause-outline') {
+                    this[topic].pauseIconActive = icon;
+                } else {
+                    this[topic].playIconActive = icon;
+                }
+                console.log(this[topic], icon)
+
             }
         },
 
@@ -260,8 +275,10 @@ export default {
                 this.weight.isPlaying = false
 
             }
+            console.log(type, 'is playing', false)
 
             console.log('stop', type)
+
 
         },
         async startPlayback(type) {
@@ -280,6 +297,8 @@ export default {
                 } else if (type == 'weight') {
                     this.weight.isPlaying = true
                 }
+
+
             } else {
 
                 if (type == 'temperature') {
@@ -294,6 +313,8 @@ export default {
                     this.weight.isPlaying = true
 
                 }
+                console.log(type, 'is playing', true)
+
             }
 
         },
@@ -361,7 +382,7 @@ export default {
 
                     }
 
-                    crossFades[this.samplePaths.soundscapes[i]].fade.value = this[this.samplePaths.soundscapes[i]].slider
+                    crossFades[this.samplePaths.soundscapes[i]].fade.value = this[this.samplePaths.soundscapes[i]].slider / 100
 
                     i++
                 }
@@ -378,7 +399,7 @@ export default {
                 console.log(fade, name, crossFade)
             }
 
-            this[name].slider= value
+            this[name].slider = value
         },
         async playInstrument(id) {
 
