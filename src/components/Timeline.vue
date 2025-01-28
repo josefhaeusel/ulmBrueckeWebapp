@@ -783,11 +783,11 @@ window.onload = function () {
 
 .progressive img.preview {
   filter: blur(2vw);
-  transform: scale(1.05)
+  transform: scale(1)
 }
 
 .progressive img.reveal {
-  animation: progressiveReveal 0.5s linear;
+  animation: progressiveReveal 0.25s ease-out;
   left: 0;
   position: absolute;
   top: 0
@@ -796,7 +796,7 @@ window.onload = function () {
 @keyframes progressiveReveal {
   0% {
     opacity: 0;
-    transform: scale(1.05)
+    transform: scale(1)
   }
 
   to {
