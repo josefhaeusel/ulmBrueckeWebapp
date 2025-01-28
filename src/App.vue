@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <main>
-
-
+    <main :class="{ blurred: dialog }">
       <div v-if="currentRoute === '/'">
         <ParallaxBackground />
         <v-card>
@@ -13,36 +11,13 @@
 
           <v-tabs-window v-model="tab">
             <v-tabs-window-item :value="1">
-              <!-- <InteractiveComponent /> -->
               <AudioInfoComponent />
-              <!-- <AudioSpecialComponent /> -->
             </v-tabs-window-item>
             <v-tabs-window-item :value="2">
               <TimelineComponent />
             </v-tabs-window-item>
           </v-tabs-window>
         </v-card>
-
-
-        <!-- <div class="main-container mx-5">
-        <div class="info-abstract text-left my-6">
-          <h1 class="py-2">
-            Weitere Brücken geplant
-          </h1>
-          <p class="pb-2">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-        diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-        takimata sanctus est Lorem ipsum dolor sit amet.
-          </p>
-        </div>
-      </div> -->
-
-
-        <!-- <SlideCards /> -->
-
       </div>
       <div v-else-if="currentRoute === '/impressum'">
         <ImpressumComponent />
@@ -51,28 +26,43 @@
         <h1>404 - Page Not Found</h1>
       </div>
       <FooterBottom />
-
     </main>
 
+    
+    <v-dialog
+      v-model="dialog"
+      width="auto"
+      persistent
+    >
+      <v-card class="my-2 mx-2" elevation="4">
+        <v-card-title class="text-h4 text-white d-flex align-center justify-center" text-color="white" style="background-color: #97B28A;">
+          {{ modiTitle }}
+        </v-card-title>
+        <v-card-text class="align-center justify-center">
+          {{ modiText }}
+        </v-card-text>
+        <template v-slot:actions>
+          <v-btn class="ms-auto" style="justify-self: center;" text @click="dialog = false">OK</v-btn>
+        </template>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script>
 import ParallaxBackground from './components/Parallax.vue'
 import FooterBottom from './components/Footer.vue'
-// import SlideCards from './components/SlideCards.vue'
 import TimelineComponent from './components/Timeline.vue'
 import AudioInfoComponent from './components/AudioInfo.vue'
-// import AudioSpecialComponent from './components/AudioSpecial.vue'
-// import InteractiveComponent from './components/InteractiveComponent.vue'
 import ImpressumComponent from './components/Impressum.vue'
-
 
 export default {
   data: () => ({
     tab: 1,
-    currentRoute: window.location.pathname, // Get the current path
-
+    currentRoute: window.location.pathname,
+    dialog: false,
+    modiTitle: "",
+    modiText: ""
   }),
   name: 'App',
   components: {
@@ -81,21 +71,34 @@ export default {
     AudioInfoComponent,
     FooterBottom,
     ImpressumComponent
-    // InteractiveComponent,
-    // SlideCards,
-    // AudioSpecialComponent
+  },
+  created() {
+    this.setModiContent();
+    this.dialog = true; //Den Dialog beim laden der seite gleich öffnen
+  },
+  methods: {
+    setModiContent() {
+      const currentHour = new Date().getHours();
+
+      if (currentHour >= 15 && currentHour < 16) {
+        this.modiTitle = "Gaming-Modus";
+        this.modiText = "Aktuell ist der Gaming-Modus aktiv :)))";
+      } else if (currentHour >= 18 && currentHour < 19) {
+        this.modiTitle = "Percussion-Modus";
+        this.modiText = "Aktuell ist der Percussion-Modus aktiv :)))";
+      } else {
+        this.modiTitle = "Nature-Modus";
+        this.modiText = "Aktuell ist der Nature Soundmodus aktiv :)))";
+      }
+    }
   }
 };
-
 </script>
-
 
 <style>
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*text-align: center;*/
-  /* color: #083057; */
 }
 
 header {
@@ -105,20 +108,24 @@ header {
 }
 
 p {
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
-
 
 .main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-items: center; */
 }
 
 .info-abstract {
   max-width: 1000px;
   width: 100%;
   align-self: center;
+}
+
+Hintergund verschwimmen lassen
+.blurred {
+  filter: blur(0.1px);
+  pointer-events: none;
 }
 </style>
