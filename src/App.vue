@@ -28,24 +28,55 @@
       <FooterBottom />
     </main>
 
-    
-    <v-dialog
-      v-model="dialog"
-      width="auto"
-      persistent
-    >
+
+    <!-- <v-dialog v-model="dialog" width="auto" persistent>
       <v-card class="my-2 mx-2" elevation="4">
-        <v-card-title class="text-h4 text-white d-flex align-center justify-center" text-color="white" style="background-color: #97B28A;">
+        <v-card-title class="text-h4 text-white d-flex align-center justify-center" text-color="white"
+          style="background-color: #97B28A;">
           {{ modiTitle }}
         </v-card-title>
         <v-card-text class="align-center justify-center">
           {{ modiText }}
         </v-card-text>
         <template v-slot:actions>
-          <v-btn class="ms-auto" style="justify-self: center;" text @click="dialog = false">OK</v-btn>
+          <v-btn class="ms-auto" style="justify-self: center;" text @click="checkPassword">OK</v-btn>
+        </template>
+      </v-card>
+    </v-dialog> -->
+
+    <v-dialog v-model="dialog" width="auto" persistent>
+      <v-card class="my-2 mx-2" elevation="4" style="width:300px">
+        <v-card-title class="text-h4 text-white d-flex align-center justify-center" text-color="white"
+          style="background-color: #97B28A;">
+           Log-In
+        </v-card-title>
+
+
+        <p v-if="errorMessage" class="text-red">{{ errorMessage }}</p>
+        <template v-slot:actions>
+          <v-text-field v-model="passwordInput" label="Enter Password" type="password" outlined dense @input="checkPassword"></v-text-field>
+          <!-- <v-btn class="ms-auto" style="justify-self: center;" text @click="checkPassword">OK</v-btn> -->
         </template>
       </v-card>
     </v-dialog>
+    <!-- <v-dialog v-model="dialog" width="auto" persistent>
+      <v-card class="my-2 mx-2" elevation="4">
+        <v-card-title class="text-h4 text-white d-flex align-center justify-center" text-color="white"
+          style="background-color: #97B28A;">
+          Login
+        </v-card-title>
+        <v-card-text class="align-center justify-center">
+          <v-text-field v-model="passwordInput" label="Enter Password" type="password" outlined dense
+            @keyup.enter="checkPassword"></v-text-field>
+          <p v-if="errorMessage" class="text-red">{{ errorMessage }}</p>
+        </v-card-text>
+        <template v-slot:actions>
+          <v-btn class="ms-auto" style="justify-self: center;" text @click="checkPassword">
+            OK
+          </v-btn>
+        </template>
+      </v-card>
+    </v-dialog> -->
   </div>
 </template>
 
@@ -61,6 +92,8 @@ export default {
     tab: 1,
     currentRoute: window.location.pathname,
     dialog: false,
+    passwordInput: "",
+    correctPassword: "scb25", // Change this to your actual password
     modiTitle: "",
     modiText: ""
   }),
@@ -75,20 +108,26 @@ export default {
   created() {
     this.setModiContent();
     this.dialog = true; //Den Dialog beim laden der seite gleich öffnen
+
   },
   methods: {
+    checkPassword(){
+      if( this.passwordInput == this.correctPassword){
+        this.dialog = false
+      }
+    },
     setModiContent() {
       const currentHour = new Date().getHours();
 
       if (currentHour >= 15 && currentHour < 16) {
         this.modiTitle = "Gaming-Modus";
-        this.modiText = "Aktuell ist der Gaming-Modus aktiv :)))";
+        this.modiText = "Aktuell ist der Gaming-Modus aktiv.";
       } else if (currentHour >= 18 && currentHour < 19) {
         this.modiTitle = "Percussion-Modus";
-        this.modiText = "Aktuell ist der Percussion-Modus aktiv :)))";
+        this.modiText = "Aktuell ist der Percussion-Modus aktiv.";
       } else {
         this.modiTitle = "Nature-Modus";
-        this.modiText = "Aktuell ist der Nature Soundmodus aktiv :)))";
+        this.modiText = "Aktuell ist der Nature Soundmodus aktiv.";
       }
     }
   }
@@ -123,8 +162,7 @@ p {
   align-self: center;
 }
 
-Hintergund verschwimmen lassen
-.blurred {
+Hintergund verschwimmen lassen .blurred {
   filter: blur(0.1px);
   pointer-events: none;
 }
