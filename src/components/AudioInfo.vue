@@ -112,7 +112,7 @@
 
       <div class="my-2">
         <div>
-          <v-window v-model="content.expansionOnboarding">
+          <v-window v-model="content.expansionOnboarding" style="min-height:910px">
             <v-window-item v-for="(expansionCard, n) in content.expansionCards" :key="`card-${n}`" :value="n">
 
               <!-- untergeordnete Slides -->
