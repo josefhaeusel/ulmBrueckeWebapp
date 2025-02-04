@@ -176,4 +176,10 @@ Hintergund verschwimmen lassen .blurred {
     font-size: 1.5em;
   }
 }
+
+@media (max-width: 500px) {
+    .v-card .v-card-title {
+        font-size: 24px !important;
+    }
+}
 </style>

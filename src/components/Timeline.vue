@@ -9,28 +9,33 @@
           <v-card class="my-8 cursor-pointer d-flex w-100" style="width: 70vw !important; max-width: 850px"
             @click="showExpansions(module)" :elevation="isHovering ? 16 : 2" v-bind="props">
             <!-- -->
-            <div class="w-100">
-              <v-card-title :style="{ backgroundColor: getStyle(module.topic).color }"
-                :class="['text-h4', `text-white`, 'w-100', 'text-wrap']" text-color="white">
-                {{ module.title }}
-              </v-card-title>
+            <div class="w-100 responsive-card">
+
+              <div class="w-100">
+                <v-card-title :style="{ backgroundColor: getStyle(module.topic).color }"
+                  :class="['text-h4', `text-white`, 'w-100', 'text-wrap']" text-color="white">
+                  {{ module.title }}
+                </v-card-title>
 
 
-              <v-parallax :src="require(`../assets/${module.cover}`)" class="align-end card-parallax w-100" scale="0.95"
-                :gradient="['rgba(0,0,0,0)', 'rgba(0,0,0,.2)', 'rgba(0,0,0,1)']"
-                :height="isHovering ? '400px' : '340px'">
-                <v-card-text class="text-white mt-4 w-100">
-                  <span v-html="module.text"></span>
-                </v-card-text>
-              </v-parallax>
+                <v-parallax :src="require(`../assets/${module.cover}`)" class="align-end card-parallax w-100"
+                  scale="0.95" :gradient="['rgba(0,0,0,0)', 'rgba(0,0,0,.2)', 'rgba(0,0,0,1)']"
+                  :height="isHovering ? '400px' : '340px'">
+                  <v-card-text class="text-white mt-4 w-100">
+                    <span v-html="module.text"></span>
+                  </v-card-text>
+                </v-parallax>
+              </div>
 
+              <v-list-item link @click="showExpansions(module)"
+                :style="`backgroundColor: ${getStyle(module.topic).hintergrundColor}; min-width: 60px`"
+                :class="['text-white', 'd-flex', 'justify-center']">
+                <v-icon icon="mdi-chevron-right-circle" size="large" :color="getStyle(module.topic).color"></v-icon>
+              </v-list-item>
 
             </div>
 
-            <v-list-item link @click="showExpansions(module)"
-              :style="{ backgroundColor: getStyle(module.topic).hintergrundColor }" :class="['text-white']">
-              <v-icon icon="mdi-chevron-right-circle" size="large" :color="getStyle(module.topic).color"></v-icon>
-            </v-list-item>
+
           </v-card>
         </v-hover>
       </v-timeline-item>
@@ -167,8 +172,8 @@ export default {
             ]
           },
           {
-            title: 'Tragende Elemente', class: "d-flex flex-column", content_blocks: [
-              { type: 'img', data: 'Moeglichmacher/2_Europkarte ohne Copyright.png', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 1100px` },
+            title: 'Tragende Elemente', class: "d-flex flex-column", style: "max-width: 550px", content_blocks: [
+              { type: 'img', data: 'Moeglichmacher/2_Europkarte ohne Copyright.png', parentstyle: "display: flex; justify-content:center;", style: `width:100%; max-width: 1100px` },
               { type: 'text', data: 'Für ambitionierte Projekte braucht es eine Menge engagierter Leute. Hinter der Smart Circular Bridge steht ein europaweites Team aus fünf Universitäten, sieben innovativen Unternehmen und drei Städten. Über Ländergrenzen hinweg fließen einzigartige Kompetenzen in der Brücke über die „Kleine Blau“ in Ulm zusammen.' },
             ]
           },
@@ -180,16 +185,16 @@ export default {
           },
           {
             title: "Rückschläge und…",
-            class: "d-flex align-center architektur-5", content_blocks: [
-              { type: 'text', data: 'Beim Bau des Brückenkörpers kam es zu einem Problem. Aufgrund der neuen Materialmischung wurde das Harz beim Aushärten zu warm und die Naturfasern deshalb zu spröde.<br><br> Der Brückenkörper musste neu gebaut werden. Eine optimierte Materialzusammensetzung und eine neue Konstruktion führten zum entscheidenden…', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
+            class: "d-flex flex-column architektur-5", content_blocks: [
               { type: 'video', data: 'Moeglichmacher/Animation_Reuckschlaege.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
+              { type: 'text', data: 'Beim Bau des Brückenkörpers kam es zu einem Problem. Aufgrund der neuen Materialmischung wurde das Harz beim Aushärten zu warm und die Naturfasern deshalb zu spröde.<br><br> Der Brückenkörper musste neu gebaut werden. Eine optimierte Materialzusammensetzung und eine neue Konstruktion führten zum entscheidenden…', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
             ]
           },
           {
             title: "… Erfolg! :)",
-            class: "d-flex justify-center architektur-5", content_blocks: [
-              { type: 'text', data: 'Jetzt ist sie die erste Brücke weltweit aus diesem Werkstoff, über die Kraftfahrzeuge fahren können. Die Brücke ist viel leichter und noch stabiler als ihre Vorgänger.', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
-              { type: 'video', data: 'Moeglichmacher/Animation_Auto.mp4', parentstyle: "display: flex; justify-content:center", style: `max-width: 800px; width: 100%` },
+            class: "d-flex flex-column architektur-5", content_blocks: [
+              { type: 'video', data: 'Moeglichmacher/Animation_Auto.mp4', parentstyle: "display: flex; justify-content:center", style: `max-width: 700px; width: 100%` },
+              { type: 'text', data: 'Jetzt ist sie die erste Brücke weltweit aus diesem Werkstoff, über die Kraftfahrzeuge fahren können. Die Brücke ist viel leichter und noch stabiler als ihre Vorgänger.', parentstyle: "max-width:700px; display: flex; justify-content:center" },
             ]
           },
           {
@@ -202,8 +207,9 @@ export default {
           {
             title: 'Auf die Kommunen kommt es an',
             class: 'architektur-1',
-            content_blocks: [{ type: 'text', data: 'Auf das Konto der Bauwirtschaft geht weltweit rund ein Drittel aller CO2 Emissionen. Die Branche ist auch ein Spitzenreiter bei Ressourcenverbrauch und Abfallaufkommen.<br><br> Kommunen müssen täglich ganz konkrete Lösungen für Bauaufgaben finden. Durch innovative Projekte tragen sie dazu bei, die Herausforderungen der Gesellschaft zu meistern .' },
-            { type: 'img', data: 'Moeglichmacher/Kommunen-WortBildMarke.png', style: `margin-bottom: -10px; width:100%; max-width: 1000px`, class: 'aart-portrait' },
+            content_blocks: [
+              { type: 'img', data: 'Moeglichmacher/Kommunen-WortBildMarke.png', style: `margin-bottom: -10px; width:100%; max-width: 1000px`, class: 'aart-portrait' },
+              { type: 'text', data: 'Auf das Konto der Bauwirtschaft geht weltweit rund ein Drittel aller CO2 Emissionen. Die Branche ist auch ein Spitzenreiter bei Ressourcenverbrauch und Abfallaufkommen.<br><br> Kommunen müssen täglich ganz konkrete Lösungen für Bauaufgaben finden. Durch innovative Projekte tragen sie dazu bei, die Herausforderungen der Gesellschaft zu meistern .' },
             ]
           },
         ],
@@ -942,6 +948,10 @@ window.onload = function () {
   padding: 0.25rem 2rem !important;
 }
 
+.responsive-card {
+  display: flex;
+  flex-direction: row;
+}
 
 .timeline-card:hover {
   transform: translateY(-10px)
@@ -1004,6 +1014,13 @@ window.onload = function () {
 
   }
 
+  @media (max-width: 750px) {
+
+    .responsive-card {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
 
 
@@ -1035,6 +1052,10 @@ window.onload = function () {
   left: 0;
   position: absolute;
   top: 0
+}
+
+.v-card-subtitle .text-white {
+  white-space: wrap !important;
 }
 
 @keyframes progressiveReveal {

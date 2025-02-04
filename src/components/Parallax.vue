@@ -116,4 +116,10 @@ export default {
   z-index: 1;
   text-align: center;
 }
+
+@media (max-width:500px) {
+  .text-h2{
+    font-size:55px !important
+  }
+}
 </style>

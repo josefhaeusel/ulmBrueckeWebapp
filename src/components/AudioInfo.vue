@@ -121,18 +121,20 @@
                   {{ expansionCard.title }}
                   <v-icon :icon="expansionCard.icon" size="40" class="pr-4"></v-icon>
                 </v-card-title>
-                <div class="text-video mb-5 textLayout">
-                  <div class="untertitel-titel textLayout" >
-                    <v-card-text style="font-size: 23px; font-style: bold;;">
+                <div class="text-video mb-5">
+                  <div class="untertitel-titel" >
+                    <v-card-text style="font-size: 18px; font-style: bold;;">
                       {{ expansionCard.subtitle }}
                     </v-card-text>
-                    <v-card-text class="textLayout" style="font-size: 16px" v-html="expansionCard.text">
+                    <v-card-text v-html="expansionCard.text">
                     </v-card-text>
                   </div>
-                  <video controls loop :id="`soundVideo-${n}`" class="border-thin" style=" border-radius: 20px; min-width: 10px; padding-left: 3px;">
+                  <div style="margin:0 1rem">
+                  <video controls loop :id="`soundVideo-${n}`" class="border-thin" style=" border-radius: 20px; min-width: 10px">
                     <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
+                </div>
                 </div>
               </v-card>
             </v-window-item>

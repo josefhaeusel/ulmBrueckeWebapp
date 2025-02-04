@@ -62,7 +62,7 @@ export default {
       },
       {
         topic: 'Percussion',
-        title: 'Percussions',
+        title: 'Percussion',
         text: 'Kreieren Sie rhythmische Patterns mit Percussion-Instrumenten.',
         timelineText: '18-19 Uhr',
         size: "default",

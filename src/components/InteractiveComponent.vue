@@ -86,7 +86,7 @@
                     </v-btn>
                 </div>
 
-                <v-tabs v-model="activePlayer.name" center-active :color="buttonColor[activePlayer.name].color" mobile mobile-breakpoint="xs" style="justify-self: center; flex-wrap:wrap !important">
+                <v-tabs v-model="activePlayer.name" center-active :color="buttonColor[activePlayer.name].color" mobile mobile-breakpoint="xs" style="justify-self: center; flex-wrap:wrap !important; max-width: 70vw;">
                     <v-tab :value="'experimentalPlayer'">Nature</v-tab>
                     <v-tab :value="'percussionPlayer'">Percussion</v-tab>
                     <v-tab :value="'gamePlayer'">Game</v-tab>
@@ -507,8 +507,7 @@ h1 {
 }
 
 
-.v-slide-group__container
 .v-slider {
-    margin-bottom: -22px
+    margin-bottom: -22px !important
 }
 </style>
