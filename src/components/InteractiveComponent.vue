@@ -86,7 +86,7 @@
                     </v-btn>
                 </div>
 
-                <v-tabs v-model="activePlayer.name" fixed-tabs :color="buttonColor[activePlayer.name].color">
+                <v-tabs v-model="activePlayer.name" center-active :color="buttonColor[activePlayer.name].color" mobile mobile-breakpoint="xs" style="justify-self: center; flex-wrap:wrap !important">
                     <v-tab :value="'experimentalPlayer'">Nature</v-tab>
                     <v-tab :value="'percussionPlayer'">Percussion</v-tab>
                     <v-tab :value="'gamePlayer'">Game</v-tab>
@@ -502,6 +502,12 @@ h1 {
     padding: 2rem !important
 }
 
+.v-slide-group__content {
+    flex-wrap: wrap !important
+}
+
+
+.v-slide-group__container
 .v-slider {
     margin-bottom: -22px
 }
