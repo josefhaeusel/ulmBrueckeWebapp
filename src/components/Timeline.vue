@@ -160,7 +160,7 @@ export default {
         cover: 'Moeglichmacher/0_Ortsschild Ulm ohne Copyright.png',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
-        minHeight: 800,
+        minHeight: 700,
         expansionCards: [
           {
             title: 'Tim von Winning',
@@ -221,7 +221,7 @@ export default {
         cover: 'flachs/Leinenbluete_free copyright artlist.jpg',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
-        minHeight: 800,
+        minHeight: 600,
         expansionCards: [
           {
             title: 'Seit 5000 Jahren im Einsatz',
@@ -264,7 +264,7 @@ export default {
         cover: 'Biokomposit/0_Biokomposit.jpg',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
-        minHeight: 800,
+        minHeight: 700,
         expansionCards: [
           {
             title: 'Clever kombiniert',
@@ -325,14 +325,14 @@ export default {
         cover: 'learningByDoing/Idee Test Test.png',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
-        minHeight: 700,
+        minHeight: 600,
         expansionCards: [
           {
             title: 'Prof. Aart Willem Van Vuure',
             subtitle: "Katholische Universität Leuven, Belgien",
             class: 'architektur-1',
             content_blocks: [
-              { type: 'img', data: 'learningByDoing/2_Aart Portrait 1zu1.jpg', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 800px` },
+              { type: 'img', data: 'learningByDoing/2_Aart Portrait 1zu1.jpg', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 350px` },
               { type: 'text', data: 'Aart ist einer der führenden Experten für neue bio-basierte Materialien in Europa.<br><br> Mit seinem Team arbeitet er daran, diese Werkstoffe noch leistungsfähiger zu machen.' },
             ]
           },
@@ -369,7 +369,7 @@ export default {
             title: 'Wouter Claassen',
             subtitle: "Technische Universität Eindhoven, Niederlande",
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'learningByDoing/Wouter Portrait_no copyright.jpg', style: `margin-bottom: -10px; width:100%; max-width: 500px`, },
+            content_blocks: [{ type: 'img', data: 'learningByDoing/Wouter Portrait_no copyright.jpg', style: `width:100%; max-width: 350px`, },
             { type: 'text', data: 'Wouter, der Konstrukteur der Ulmer Brücke, ging mit seinem Team die nächsten Schritte.<br><br> Er macht die Tests an den großen Bauteilen der Brücke.' },
             ]
           },
@@ -397,7 +397,6 @@ export default {
           },
         ],
       },
-
       {
         topic: 'Architektin',
         title: 'Der Konstrukteur',
@@ -406,7 +405,7 @@ export default {
         cover: 'konstrukteur/Wouter Portrait_no copyright.jpg',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
-        minHeight: 765,
+        minHeight: 700,
         expansionCards: [
           {
             title: 'Wouter Claasen',
@@ -461,7 +460,7 @@ export default {
         cover: 'brueckenbau/0_abzBruecke.png',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
-        minHeight: 1200,
+        minHeight: 750,
         expansionCards: [
           {
             title: 'Schritt für Schritt + Bauteil für Bauteil',
@@ -479,8 +478,8 @@ export default {
 
           {
             title: "Jetzt braucht's noch ein Geländer",
-            class: "d-flex align-center architektur-6", content_blocks: [
-              { type: 'img', data: 'brueckenbau/3_Gelaender aussen.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 580px; width: 100%" },
+            class: "d-flex align-center architektur-6 justify-center", content_blocks: [
+              { type: 'img', data: 'brueckenbau/3_Gelaender_aussen.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%" },
             ]
           },
           {
@@ -536,9 +535,9 @@ export default {
           },
           {
             class: "d-flex align-center architektur-4", content_blocks: [
-              { type: 'img', data: 'architekt/5-1_ICD.png', parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
+              { type: 'img', data: 'architekt/5-1_ICD.png', parentstyle: "display: flex; justify-content:center", style: "margin-bottom: -10px", class: 'uni-bilder' },
               { type: 'text', style: "max-width:500px", data: 'Mit diesem neuen Herstellungsverfahren lassen sich Gebäude mit einer ganz eigenen Ästhetik gestalten, wie hier in Wangen auf dem Gelände der Landesgartenschau 2024.' },
-              { type: 'img', data: 'architekt/5-2_ICD.png', parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },]
+              { type: 'img', data: 'architekt/5-2_ICD.png', parentstyle: "display: flex; justify-content:center", style: "margin-bottom: -10px", class: 'uni-bilder' },]
           },
           {
             title: "Material und Formensprache",
@@ -571,7 +570,7 @@ export default {
         cover: 'circularEconomy/plastikflasche.jpg',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
-        minHeight: 500,
+        minHeight: 750,
         expansionCards: [
           {
             title: 'Der Ursprung der Brücke',
@@ -826,7 +825,7 @@ export default {
       for (let x = 0; x <= this.content_modules.length; x++) {
         const isModule = module == this.content_modules[x]
         if (isModule) {
-          const position = 500 + (x * 400)
+          const position = 500 + (x * 500)
           return position
         }
       }
