@@ -146,6 +146,8 @@ export default {
       showSoundInformation: false,
     },
     content_modules: [
+
+
       {
         topic: 'Ermöglicher',
         title: 'Die Möglichmacher',
@@ -384,7 +386,6 @@ export default {
             { type: 'text', data: '24 Tonnen hält die Ulmer Brücke aus – und erfüllt damit die Anforderungen an Fahrrad- und Fußgängerbrücken in Europa.<br><br> Und noch mehr: Sie ist weltweit die erste Brücke dieser Art, die auch Fahrzeuge der Stadtverwaltung überqueren können.' },
             ]
           },
-
         ],
       },
 
@@ -713,14 +714,24 @@ export default {
         icon: 'mdi mdi-palette-swatch'
       },
       Architektin: {
-        color: '#D67B2A',
-        hintergrundColor: '#EABD94',
+        color: '#208AA7',
+        hintergrundColor: '#7CCFE5',
         icon: 'mdi-pencil-ruler'
       },
       Ursprung: {
         color: '#68272A',
         hintergrundColor: '#CC797D',
         icon: 'mdi-head-lightbulb-outline',
+      },
+      Circular: {
+        color: '#D67B2A',
+        hintergrundColor: '#EABD94',
+        icon: 'mdi-cached',
+      },
+      Ermöglicher: {
+        color: '#97B28A',
+        hintergrundColor: '#CBD8C4',
+        icon: 'mdi-account-group-outline',
       },
       Brücke: {
         color: '#D67B2A',

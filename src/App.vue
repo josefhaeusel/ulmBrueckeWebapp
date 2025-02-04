@@ -146,6 +146,10 @@ header {
   padding: 20px;
 }
 
+h1 {
+  font-size: 2em;
+}
+
 p {
   margin-bottom: 1rem;
 }
@@ -165,5 +169,11 @@ p {
 Hintergund verschwimmen lassen .blurred {
   filter: blur(0.1px);
   pointer-events: none;
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.5em;
+  }
 }
 </style>
