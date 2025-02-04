@@ -412,7 +412,7 @@ export default {
           },
           {
             title: 'Innere Werte', class: "d-flex flex-column", content_blocks: [
-              { type: 'video', data: 'konstrukteur/CAD Modell.mp4', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
+              { type: 'img', data: 'konstrukteur/innere_werte.png', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
               { type: 'text', style: "max-width:700px", data: 'Wouter hat eine klare Konstruktion gewählt: Die Brücke besteht aus einer Bodenplatte, acht Hauptträgern, drei Querspanten und einer Deckplatte – und alle Teile sind aus Flachsfasern und bio-basiertem Epoxidharz hergestellt.' }]
           },
           {
