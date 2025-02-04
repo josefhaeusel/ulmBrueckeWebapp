@@ -167,8 +167,8 @@ export default {
             subtitle: "Baubürgermeister, Ulm",
             class: 'architektur-1',
             content_blocks: [
-              { type: 'text', data: 'Warum ist die Stadt Ulm Teil des Smart Circular Bridge Projekts?' },
               { type: 'video', data: 'Moeglichmacher/Tim von Winning_DE.mp4', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 800px` },
+              { type: 'text', data: 'Warum ist die Stadt Ulm Teil des Smart Circular Bridge Projekts?' },
             ]
           },
           {
@@ -293,8 +293,8 @@ export default {
           {
             title: 'Stabil in alle Richtungen',
             class: "d-flex align-center flex-column", content_blocks: [
-              { type: 'text', style: "max-width:500px", data: 'Das Material zeigt hervorragende Eigenschaften: Die Flachsfasern halten hohe Zugbelastungen aus. Das Harz widersteht hohem Druck. Zusammen bilden sie eine unschlagbare Einheit.' },
               { type: 'video', data: 'Biokomposit/Biokomposit Animation_Stabil.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
+              { type: 'text', style: "max-width:500px", data: 'Das Material zeigt hervorragende Eigenschaften: Die Flachsfasern halten hohe Zugbelastungen aus. Das Harz widersteht hohem Druck. Zusammen bilden sie eine unschlagbare Einheit.' },
             ]
           },
           {
@@ -432,15 +432,15 @@ export default {
           },
           {
             title: "Daten für die nächsten Brücken", class: "d-flex align-center architektur-4", content_blocks: [
+              { type: 'img', data: 'konstrukteur/kabel.jpg', parentstyle: "display: flex; justify-content:center", style: "",  },
               { type: 'text', style: "max-width:500px", data: 'Mit diesem neuen Herstellungsverfahren lassen sich Gebäude mit einer ganz eigenen Ästhetik gestalten, wie hier in Wangen auf dem Gelände der Landesgartenschau 2024.' },
-              { type: 'img', data: 'konstrukteur/kabel.jpg', parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
             ]
           },
           {
             title: "Sehen, was gerade passiert",
             class: "d-flex flex-column", content_blocks: [
               { type: 'img', data: 'konstrukteur/Dashbord Screenshot Ulm.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 750px; width: 100%" },
-              { type: 'text', style: "max-width: 500px", data: 'Die Sensor-Daten kann übrigens jeder auf einem Dashboard anschauen – und das nahezu in Echtzeit! <br><br> <a href=https://dashboard.smartcircularbridge.eu/d/ulm> https://dashboard.smartcircularbridge.eu/d/ulm </a> <br><br> Die Daten kann man übrigens auch …' },
+              { type: 'text', style: "max-width: 500px", data: 'Die Sensor-Daten kann übrigens jeder <a href=https://dashboard.smartcircularbridge.eu/d/ulm> auf einem Dashboard </a>anschauen – und das nahezu in Echtzeit! <br><br> Die Daten kann man übrigens auch …' },
             ]
           },
 
@@ -642,7 +642,7 @@ export default {
         cover: 'Visionaer/Portrait Rijk Blok Copyright Smart Circular Bridge.jpg',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
-        minHeight: 500,
+        minHeight: 600,
         expansionCards: [
           {
             title: 'Professor Rijk Blok',
@@ -1054,6 +1054,10 @@ window.onload = function () {
 }
 
 .v-card-subtitle .text-white {
+  white-space: wrap !important;
+}
+
+.v-card-subtitle  {
   white-space: wrap !important;
 }
 
