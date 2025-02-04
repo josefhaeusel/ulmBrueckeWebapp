@@ -151,8 +151,23 @@ export default {
       showSoundInformation: false,
     },
     content_modules: [
-
-
+    {
+        topic: 'intro',
+        title: 'Editorial',
+        showExpansion: false,
+        cover: 'intro/Thumbnail_Editorial.jpg',
+        expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        expansionOnboarding: 0,
+        minHeight: 700,
+        expansionCards: [
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'video', data: 'intro/Intro Video.mp4', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 800px` },
+            ]
+          },
+        ],
+      },
       {
         topic: 'Ermöglicher',
         title: 'Die Möglichmacher',
@@ -180,14 +195,14 @@ export default {
           {
             title: 'Ambitionierte Ziele',
             class: 'architektur-1',
-            content_blocks: [{ type: 'text', data: 'Die erste Smart Circular Bridge in den Niederlanden war ein großer Erfolg.<br><br> In Ulm wollte man noch einen Schritt weitergehen: Die Brücke sollte noch leistungsfähiger werden und der Bio Anteil im Epoxidharz deutlich steigen, um den CO2 Fußabdruck weiter zu verkleinern.<br><br> Doch innovative Projekte bringen immer auch Herausforderungen mit sich.' },
+            content_blocks: [{ type: 'text', data: 'Die erste Smart Circular Bridge in den Niederlanden war ein großer Erfolg.<br><br> In Ulm wollte man noch einen Schritt weitergehen: Die Brücke sollte noch leistungsfähiger werden – und der Bio-Anteil im Epoxidharz deutlich steigen, um den CO2-Fußabdruck weiter zu verkleinern.”<br><br> Doch innovative Projekte bringen immer auch Herausforderungen mit sich.' },
             ]
           },
           {
-            title: "Rückschläge und…",
+            title: ":( Rückschlag und …",
             class: "d-flex flex-column architektur-5", content_blocks: [
               { type: 'video', data: 'Moeglichmacher/Animation_Reuckschlaege.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
-              { type: 'text', data: 'Beim Bau des Brückenkörpers kam es zu einem Problem. Aufgrund der neuen Materialmischung wurde das Harz beim Aushärten zu warm und die Naturfasern deshalb zu spröde.<br><br> Der Brückenkörper musste neu gebaut werden. Eine optimierte Materialzusammensetzung und eine neue Konstruktion führten zum entscheidenden…', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
+              { type: 'text', data: 'Beim Bau des Brückenkörpers kam es zu einem Problem. Aufgrund der neuen Materialmischung wurde das Harz beim Aushärten zu warm – und die Naturfasern” deshalb zu spröde.<br><br> Der Brückenkörper musste neu gebaut werden. Eine optimierte Materialzusammensetzung und eine neue Konstruktion führten zum entscheidenden…', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
             ]
           },
           {
@@ -201,7 +216,7 @@ export default {
             title: 'Wegbereiter',
             class: 'architektur-1',
             content_blocks: [
-              { type: 'text', data: 'Dank der Leichtbauweise wiegt die Brücke deutlich weniger als eine konventionelle Konstruktion. Sie wiegt nur 5 Tonnen, kann aber mehr als 24 Tonnen tragen und das geringe Gewicht und die nachwachsenden Rohstoffe reduzieren den CO2 Fußabdruck.<br><br> Mit der neuen Version der Smart Circular Bridge hat die Stadt Ulm den Weg bereitet für ganz neue Einsatzmöglichkeiten von Biokompositen. Aus dem Material können künftig auch Häuser gebaut werden oder andere anspruchsvolle Bauwerke.' },
+              { type: 'text', data: 'Dank der Leichtbauweise wiegt die Brücke deutlich weniger als eine konventionelle Konstruktion. Sie wiegt nur 5 Tonnen, kann aber mehr als 24 Tonnen tragen – und das geringe Gewicht und die nachwachsenden Rohstoffe reduzieren den CO2- Fußabdruck.<br><br> Mit der neuen Version der Smart Circular Bridge hat die Stadt Ulm den Weg bereitet für ganz neue Einsatzmöglichkeiten von Biokompositen. Aus dem Material können künftig auch Häuser gebaut werden oder andere anspruchsvolle Bauwerke.' },
             ]
           },
           {
@@ -209,14 +224,14 @@ export default {
             class: 'architektur-1',
             content_blocks: [
               { type: 'img', data: 'Moeglichmacher/Kommunen-WortBildMarke.png', style: `margin-bottom: -10px; width:100%; max-width: 1000px`, class: 'aart-portrait' },
-              { type: 'text', data: 'Auf das Konto der Bauwirtschaft geht weltweit rund ein Drittel aller CO2 Emissionen. Die Branche ist auch ein Spitzenreiter bei Ressourcenverbrauch und Abfallaufkommen.<br><br> Kommunen müssen täglich ganz konkrete Lösungen für Bauaufgaben finden. Durch innovative Projekte tragen sie dazu bei, die Herausforderungen der Gesellschaft zu meistern .' },
+              { type: 'text', data: 'Auf das Konto der Bauwirtschaft geht weltweit rund ein Drittel aller CO2-Emissionen. Die Branche ist auch ein Spitzenreiter bei Ressourcenverbrauch und Abfallaufkommen.<br><br> Kommunen müssen täglich ganz konkrete Lösungen für Bauaufgaben finden. Durch innovative Projekte tragen sie dazu bei, die Herausforderungen der Gesellschaft zu meistern.' },
             ]
           },
         ],
       },
       {
         topic: 'Flachspflanze',
-        title: 'Die Flachspflanze',
+        title: 'Flowerpower',
         showExpansion: false,
         cover: 'flachs/Leinenbluete_free copyright artlist.jpg',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
@@ -228,7 +243,7 @@ export default {
             class: 'architektur-1',
             content_blocks: [
               { type: 'img', data: 'flachs/Seile.jpg', parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
-              { type: 'text', style: "max-width:500px", data: 'Seit Jahrtausenden bauen Menschen in Mitteleuropa Flachs an. Bereits in der Steinzeit wurde Flachs zur Herstellung von Kleidung, Körben, Seilen und vielem mehr verwendet.<br><br> Der Anbau von Flachs begleitet die Menschen in Mitteleuropa seit Jahrtausenden. Bereits in der Steinzeit wurde Flachs zur Herstellung von Kleidung, Körben, Seilen und vielem mehr verwendet.' },
+              { type: 'text', style: "max-width:500px", data: 'Flachs wird in Mitteleuropa seit Jahrtausenden angebaut. Bereits in der Steinzeit wurden Kleidung, Körbe, Seile und vieles mehr daraus hergestellt.' },
               { type: 'img', data: 'flachs/Netz_steinzeitlich.jpg', parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },]
           },
           {
@@ -244,10 +259,10 @@ export default {
               { type: 'text', data: 'Heute erlebt die Nutzpflanze ihre „zweite Blüte“ als nachwachsender Roh- und Baustoff.<br><br> Flachs ist äußerst vielseitig und einfach zu verarbeiten. In der wortwörtlichen Zerreißprobe punktet Flachs gegenüber den meisten anderen Pflanzenfasern. Durch seine hohe Zugfestigkeit und Elastizität kann er sogar mit Glasfasern mithalten.' },
             ]
           },
-          {
+          { title: 'Jedes Jahr aufs Neue',
             class: "d-flex align-center architektur-3", content_blocks: [
               { type: 'img', data: 'flachs/Getrockneter Flachs.jpg', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 400px", class: 'gelaender-3' },
-              { type: 'text', style: "max-width:500px", data: 'Flachs ist äußerst vielseitig und einfach zu verarbeiten. Als Baustoff ist Flachs weitaus umweltfreundlicher als Beton, da bei der Herstellung und Verarbeitung weniger CO2 freigesetzt wird.<br><br> Auch gegenüber Holz als Baumaterial hat Flachs einen klaren Vorteil: Die Pflanze wächst sehr schnell und kann jedes Jahr geerntet werden.' }]
+              { type: 'text', style: "max-width:500px", data: 'Bei nachwachsenden Baumaterialien denken die wenigsten Menschen an Fasern, sondern meist an Holz.<br><br> Gegenüber Holz hat Flachs aber einen großen Vorteil: Die Pflanze kann jedes Jahr geerntet werden. Auch deshalb haben Fasern ein großes Potenzial für das künftige Bauen.' }]
           },
           {
             title: 'Roboterfertigung: Vom Seil zum Geländer',
@@ -300,8 +315,8 @@ export default {
           {
             title: 'Flachsfasern ganz groß',
             class: 'architektur-1',
-            content_blocks: [{ type: 'text', data: 'Auf das Konto der Bauwirtschaft geht weltweit rund ein Drittel aller CO2 Emissionen. Die Branche ist auch ein Spitzenreiter bei Ressourcenverbrauch und Abfallaufkommen.<br><br> Kommunen müssen täglich ganz konkrete Lösungen für Bauaufgaben finden. Durch innovative Projekte tragen sie dazu bei, die Herausforderungen der Gesellschaft zu meistern .' },
-            { type: 'img', data: 'Biokomposit/fasern.jpg', style: `margin-bottom: -10px; width:100%; max-width: 1000px`, class: 'aart-portrait' },
+            content_blocks: [
+            { type: 'img', data: 'Biokomposit/fasern.jpg', style: `margin-bottom: -10px; width:100%; max-width: 550px;`, class: 'aart-portrait' },
             ]
           },
           {
@@ -312,8 +327,8 @@ export default {
           },
           {
             class: "d-flex align-center architektur-3", content_blocks: [
-              { type: 'img', data: 'Biokomposit/TreibhausGrafik.jpg', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 400px", class: 'gelaender-3' },
-              { type: 'text', style: "max-width:500px", data: 'Durch die leichte Bauweise und den Einsatz von Flachs als nachwachsendem Rohstoff hat die Brücke in Ulm einen kleineren CO2-Fußabdruck als eine konventionelle Brücke. Leichtbau = Materialeinsparung = weniger CO2.' }]
+              { type: 'img', data: 'Biokomposit/TreibhausGrafik.jpg', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 500px", class: 'gelaender-3' },
+              { type: 'text', style: "max-width:500px", data: 'Durch die leichte Bauweise und den Einsatz von Flachs als nachwachsendem Rohstoff hat die Brücke in Ulm einen kleineren CO2-Fußabdruck als eine konventionelle Brücke.<br><br> Leichtbau = Materialeinsparung = weniger CO2.' }]
           },
         ]
       },
@@ -367,10 +382,10 @@ export default {
           },
           {
             title: 'Wouter Claassen',
-            subtitle: "Technische Universität Eindhoven, Niederlande",
+            subtitle: "Technical University Eindhoven / Witteveen+Bos, Netherlands",
             class: 'architektur-1',
             content_blocks: [{ type: 'img', data: 'learningByDoing/Wouter Portrait_no copyright.jpg', style: `width:100%; max-width: 350px`, },
-            { type: 'text', data: 'Wouter, der Konstrukteur der Ulmer Brücke, ging mit seinem Team die nächsten Schritte.<br><br> Er macht die Tests an den großen Bauteilen der Brücke.' },
+            { type: 'text', data: 'Wouter, der Senior Design Lead der Ulmer Brücke, ging mit seinem Team die nächsten Schritte.<br><br> Er macht die Tests an den großen Bauteilen der Brücke.' },
             ]
           },
           {
@@ -409,10 +424,10 @@ export default {
         expansionCards: [
           {
             title: 'Wouter Claasen',
-            subtitle: "Technische Universität Eindhoven, Niederlande",
+            subtitle: "Technical University Eindhoven / Witteveen+Bos, Netherlands",
             class: 'architektur-1',
             content_blocks: [{ type: 'img', data: 'konstrukteur/Wouter Portrait_no copyright.jpg', style: "min-width: 350px; max-width: 500px", class: 'hanna-portrait' },
-            { type: 'text', data: 'Wouter ist der Konstrukteur der Brücke. Sein Ziel war es, die Ulmer noch Brücke leichter und leistungsfähiger zu machen als ihre Vorgängerin in Almere, Niederlande.' },
+            { type: 'text', data: 'Wouter ist der Senior Design Lead der Brücke. Sein Ziel war es, die Ulmer Brücke noch leichter und leistungsfähiger zu machen als ihre Vorgängerin in Almere, Niederlande.' },
             ]
           },
           {
@@ -433,7 +448,7 @@ export default {
           {
             title: "Daten für die nächsten Brücken", class: "d-flex align-center architektur-4", content_blocks: [
               { type: 'img', data: 'konstrukteur/kabel.jpg', parentstyle: "display: flex; justify-content:center", style: "",  },
-              { type: 'text', style: "max-width:500px", data: 'Mit diesem neuen Herstellungsverfahren lassen sich Gebäude mit einer ganz eigenen Ästhetik gestalten, wie hier in Wangen auf dem Gelände der Landesgartenschau 2024.' },
+              { type: 'text', style: "max-width:500px", data: 'Die Smart Circular Bridge enthält 42 Sensoren, die mit KI ausgewertet werden. Mit den Sensoren wird die Brücke im Alltag kontinuierlich untersucht.<br><br> Die Daten helfen Wouter und anderen Konstrukteuren, künftige Bauwerke aus dem neuen Werkstoff weiter zu optimieren.' },
             ]
           },
           {
@@ -455,7 +470,6 @@ export default {
       {
         topic: 'Brücke',
         title: 'Der Brückenbau',
-        text: '...',
         showExpansion: false,
         cover: 'brueckenbau/0_abzBruecke.png',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
@@ -466,7 +480,7 @@ export default {
             title: 'Schritt für Schritt + Bauteil für Bauteil',
             class: 'architektur-1',
             content_blocks: [
-              { type: 'video', data: 'brueckenbau/2_Bridge Hanging.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:900px; width:80vw" },
+              { type: 'video', data: 'brueckenbau/Brueckenproduktion.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:900px; width:80vw" },
 
             ]
           },
@@ -542,22 +556,22 @@ export default {
           {
             title: "Material und Formensprache",
             class: "d-flex align-center architektur-5", content_blocks: [
-              { type: 'img', data: 'architekt/6_Hanaa Dahy.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%" },
+              { type: 'img', data: 'architekt/6_Flexible Forms.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%" },
               { type: 'text', style: "max-width: 500px", data: 'Bio-basierte Werkstoffe erlauben Designern und Architekten vielfältige Formen. <br><br> Alle Materialien, egal ob Beton, Stahl oder Holz, haben typische Eigenschaften. Diese Eigenschaften führen bei jeder Materialart zu ganz bestimmten Formen beim Bauen. So sehen Brücken aus Stahl anders aus als Brücken aus Beton. <br><br> Die Formensprache dieser Materialien wurde vor über hundert Jahren entwickelt. ' },
             ]
           },
           {
             title: 'Jetzt gilt es, die Formensprache für Bio-Verbundwerkstoffe zu entdecken.',
             class: "d-flex align-center architektur-6", content_blocks: [
-              { type: 'img', data: 'architekt/7-1_BioMat.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 350px; width: 100%" },
+              { type: 'img', data: 'architekt/7_1 BioMat Universität Stuttgart.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 390px; width: 100%" },
               { type: 'text', style: "max-width: 350px", data: 'Hier ein Beispiel von Hanaa: Was aussieht wie Metall, ist in Wirklichkeit ein Werkstoff aus Pflanzenfasern und bio-basiertem Epoxidharz: elegant, leicht und äußerst stabil!' },
-              { type: 'img', data: 'architekt/7-2_BioMat.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 350px;  width: 100%" },
+              { type: 'img', data: 'architekt/7_2 BioMat Universität Stuttgart.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 390px;  width: 100%" },
             ]
           },
           {
             class: "d-flex align-center flex-column", content_blocks: [
               { type: 'video', data: 'architekt/Slideshow_Architektin.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
-              { type: 'text', data: 'Hanaas Projekte zeigen das große Potenzial biobasierter Materialien.', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
+              { type: 'text', data: 'Hanaas Projekte zeigen das große Potenzial bio-basierter Materialien.', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
             ]
           },
         ]
@@ -667,7 +681,7 @@ export default {
           {
             title: 'Manchmal muss man einfach machen',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'Visionaer/FP license TUe biocomposiet brug TU Eindhoven.png', style: `margin-bottom: -10px; width:100%; max-width: 900px`, },
+            content_blocks: [{ type: 'img', data: 'Visionaer/FP license TUe biocomposiet brug TU.png', style: `margin-bottom: -10px; width:100%; max-width: 900px`, },
             { type: 'text', data: 'Zusammen mit Patrick, mit Studierenden und mit Partnern aus Hochschulen und Wirtschaft setzte Rijk seine Vision in die Tat um: Die erste Brücke aus Flachsfasern und Harz entsteht 2016 auf dem Gelände der Universität Eindhoven.' },
             ]
           },
@@ -687,7 +701,7 @@ export default {
           {
             title: '',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'Visionaer/Rijk Blok Bridge - C TU Eindhoven.png', style: `margin-bottom: -10px; width:100%; max-width: 900px`, },
+            content_blocks: [{ type: 'img', data: 'Visionaer/Rijk Blok Bridge - C TU.png', style: `margin-bottom: -10px; width:100%; max-width: 900px`, },
             { type: 'text', data: 'Rijk Blok war die treibende Kraft hinter den Smart Circular Bridges. Die Brücke in Ulm hat er leider nicht mehr erlebt. Denn kurz nach der Eröffnung der ersten Brücke in Almere ist er überraschend verstorben.' },
             ]
           },
@@ -701,6 +715,11 @@ export default {
 
 
     topicStyles: {
+      intro: {
+        color: '#208AA7',
+        hintergrundColor: '#7CCFE5',
+        icon: 'mdi mdi-camera',
+      },
       Ermöglicher: {
         color: '#68272A',
         hintergrundColor: '#CC797D',
