@@ -53,7 +53,8 @@
         <v-item-group v-model="module.expansionOnboarding" class="text-center" mandatory @click=scrollFunktion()>
           <v-item v-for="(card, n) in module.expansionCards" :key="`btn-${n}`" v-slot="{ isSelected, toggle }"
             :value="n">
-            <v-btn :color="getStyle(module.topic).color" :variant="isSelected ? 'text' : 'plain'" icon="mdi-record" @click="toggle" size="2" class="dot-button"></v-btn>
+            <v-btn :color="getStyle(module.topic).color" :variant="isSelected ? 'text' : 'plain'" icon="mdi-record"
+              @click="toggle" size="2" class="dot-button"></v-btn>
           </v-item>
         </v-item-group>
         <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(module); scrollFunktion()"></v-btn>
@@ -69,9 +70,10 @@
 
         <div>
           <v-window v-model="module.expansionOnboarding">
-            <v-window-item v-for="(expansionCard, n) in module.expansionCards" :key="`card-${n}`" :value="n" style="padding: 0 20px">
-              <v-card class="flex-column my-5 mx-1 expansion-card" elevation="4" style="max-width: 1000px"   :data-module-index="n"
-              >
+            <v-window-item v-for="(expansionCard, n) in module.expansionCards" :key="`card-${n}`" :value="n"
+              style="padding: 0 20px">
+              <v-card class="flex-column my-5 mx-1 expansion-card" elevation="4" style="max-width: 1000px"
+                :data-module-index="n">
                 <v-card-title v-if="expansionCard.title" :style="{ backgroundColor: getStyle(module.topic).color }"
                   :class="['text-h4', 'text-white', 'text-wrap']" text-color="white">
                   {{ expansionCard.title }}
@@ -95,8 +97,7 @@
 
 
                     <a v-if="content_block.type === 'img'" :class="`${content_block.class} progressive replace`"
-                      :href="require(`../assets/${content_block.data}`)"
-                      :style="`${content_block.style}`">
+                      :href="require(`../assets/${content_block.data}`)" :style="`${content_block.style}`">
                       <img :src="require(`../assets/comp/${content_block.data}`)" class="preview" alt="image" />
                     </a>
 
@@ -145,28 +146,138 @@ export default {
       showSoundInformation: false,
     },
     content_modules: [
+
+
       {
         topic: 'Architektin',
-        title: 'Die Architektin',
-        text: '<em>"Diese Materialentwicklung ist der Anfang einer neuen Art zu bauen."</em> - Hanaa Dahy',
+        title: 'Der Konstrukteur',
+        text: '<em>„Noch leichter, noch leistungsfähiger!“</em> - Wouter Claasen',
         showExpansion: false,
-        cover: 'architekt/2_Platzhalter Portrait Hanaa.png',
+        cover: 'konstrukteur/Wouter Portrait_no copyright.jpg',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
         minHeight: 765,
         expansionCards: [
           {
-            title: 'Acc. Prof. Dr. Hanaa Dahy',
+            title: 'Wouter Claasen',
+            subtitle: "Technische Universität Eindhoven, Niederlande",
+            class: 'architektur-1',
+            content_blocks: [{ type: 'img', data: 'konstrukteur/Wouter Portrait_no copyright.jpg', style: "min-width: 350px; max-width: 500px", class: 'hanna-portrait' },
+            { type: 'text', data: 'Wouter ist der Konstrukteur der Brücke. Sein Ziel war es, die Ulmer noch Brücke leichter und leistungsfähiger zu machen als ihre Vorgängerin in Almere, Niederlande.' },
+            ]
+          },
+          {
+            title: 'Innere Werte', class: "d-flex flex-column", content_blocks: [
+              { type: 'video', data: 'konstrukteur/CAD Modell.mp4', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
+              { type: 'text', style: "max-width:700px", data: 'Wouter hat eine klare Konstruktion gewählt: Die Brücke besteht aus einer Bodenplatte, acht Hauptträgern, drei Querspanten und einer Deckplatte – und alle Teile sind aus Flachsfasern und bio-basiertem Epoxidharz hergestellt.' }]
+          },
+          {
+            title: 'Tragende Rolle', class: "d-flex flex-column", content_blocks: [
+              { type: 'video', data: 'konstrukteur/CAD Modell.mp4', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
+              { type: 'text', style: "max-width:700px", data: 'Wouter hat die Belastbarkeit der Brücke genau berechnet und durch Simulationen überprüft: Wie stark muss sie an welcher Stelle sein?' }]
+          },
+          {
+            title: 'Die Brücke hält viel aus', class: "d-flex flex-column", content_blocks: [
+              { type: 'video', data: 'konstrukteur/Loadtest Timelapse.mp4', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' }
+            ]
+          },
+          {
+            title: "Daten für die nächsten Brücken", class: "d-flex align-center architektur-4", content_blocks: [
+              { type: 'text', style: "max-width:500px", data: 'Mit diesem neuen Herstellungsverfahren lassen sich Gebäude mit einer ganz eigenen Ästhetik gestalten, wie hier in Wangen auf dem Gelände der Landesgartenschau 2024.' },
+              { type: 'img', data: 'konstrukteur/kabel.jpg', parentstyle: "display: flex; justify-content:center", style: "", class: 'uni-bilder' },
+            ]
+          },
+          {
+            title: "Sehen, was gerade passiert",
+            class: "d-flex flex-column", content_blocks: [
+              { type: 'img', data: 'konstrukteur/Dashbord Screenshot Ulm.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 750px; width: 100%" },
+              { type: 'text', style: "max-width: 500px", data: 'Die Sensor-Daten kann übrigens jeder auf einem Dashboard anschauen – und das nahezu in Echtzeit! <br><br> <a href=https://dashboard.smartcircularbridge.eu/d/ulm> https://dashboard.smartcircularbridge.eu/d/ulm </a> <br><br> Die Daten kann man übrigens auch …' },
+            ]
+          },
+
+          {
+            title: "… hören.", class: "d-flex align-center flex-column", content_blocks: [
+              { type: 'video', data: 'konstrukteur/Rohdaten.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
+              // { type: 'text', data: 'Hanaas Projekte zeigen das große Potenzial biobasierter Materialien.', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
+            ]
+          },
+        ]
+      },
+      {
+        topic: 'Brücke',
+        title: 'Der Brückenbau',
+        text: '...',
+        showExpansion: false,
+        cover: 'brueckenbau/0_abzBruecke.png',
+        expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        expansionOnboarding: 0,
+        minHeight: 1200,
+        expansionCards: [
+          {
+            title: 'Schritt für Schritt + Bauteil für Bauteil',
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'video', data: 'brueckenbau/2_Bridge Hanging.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:900px; width:80vw" },
+
+            ]
+          },
+          {
+            title: 'Die Brücke wird eingehängt ', class: "d-flex flex-column", content_blocks: [
+              { type: 'video', data: 'brueckenbau/2_Bridge Hanging.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:900px; width:80vw" },
+            ]
+          },
+
+          {
+            title: "Jetzt braucht's noch ein Geländer",
+            class: "d-flex align-center architektur-6", content_blocks: [
+              { type: 'img', data: 'brueckenbau/3_Gelaender aussen.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 580px; width: 100%" },
+            ]
+          },
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'brueckenbau/4_Gelaender innen.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+            ]
+          },
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'brueckenbau/5_Gelaender innen closeup.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+            ]
+          },
+          {
+            title: 'Fertig!',
+            class: 'architektur-1 justify-center',
+            content_blocks: [{ type: 'img', data: 'brueckenbau/2107-1024.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+            ]
+          },
+
+        ],
+      },
+
+
+      {
+        topic: 'Architektin',
+        title: 'Die Architektin',
+        text: '<em>"Diese Materialentwicklung ist der Anfang einer neuen Art zu bauen."</em> - Hanaa Dahy',
+        showExpansion: false,
+        cover: 'architekt/Portrait-Dahy_Variation 01.jpg',
+        expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        expansionOnboarding: 0,
+        minHeight: 765,
+        expansionCards: [
+          {
+            title: 'Prof. Dr. Hanaa Dahy',
             subtitle: "Universität Stuttgart & Universität Aalborg",
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'architekt/2_Platzhalter Portrait Hanaa.png', style: "max-width: 500px", class: 'hanna-portrait' },
-            { type: 'text', data: 'Seit vielen Jahren entwickelt die Architektin Hanaa Dahy biobasierte Werkstoffe für das Bauen. Mit vielen Partnern aus Wissenschaft und Industrie erforscht die Architektin immer neue Anwendungen vom Möbelbau bis zur Fassade. Sie hat auch die Ulmer Brücke mitgeprägt.' },
+            content_blocks: [{ type: 'img', data: 'architekt/Portrait-Dahy.jpg', style: "min-width: 350px; max-width: 500px", class: 'hanna-portrait' },
+            { type: 'text', data: 'Seit vielen Jahren entwickelt Hanaa Dahy bio-basierte Werkstoffe für das Bauen. Mit vielen Partnern aus Wissenschaft und Industrie erforscht die Architektin immer neue Anwendungen vom Möbelbau bis zur Fassade. Sie hat auch die Ulmer Brücke mitgeprägt.' },
             ]
           },
           {
             title: 'Von Hanaa stammt übrigens auch ...', class: "d-flex flex-column", content_blocks: [
               { type: 'img', data: 'architekt/3 BioMat.jpg', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
-              { type: 'text', style: "max-width:700px", data: '... die Idee, so ein besonderes Geländer in Ulm einzusetzen. Die Streben des Geländers bestehen auch aus Flachsfasern. Zum Schutz sind sie mit einem speziellen biobasierten Harz ummantelt. <br><br>Diese Idee wiederum stammt…' }]
+              { type: 'text', style: "max-width:700px", data: '... die Idee, so ein besonderes Geländer in Ulm einzusetzen. Die Streben des Geländers bestehen auch aus Flachsfasern. Zum Schutz sind sie mit einem bio-basierten Epoxidharz ummantelt. <br><br> Diese Idee wiederum stammt…' }]
           },
           {
             class: "d-flex align-center architektur-3", content_blocks: [
@@ -183,14 +294,14 @@ export default {
             title: "Material und Formensprache",
             class: "d-flex align-center architektur-5", content_blocks: [
               { type: 'img', data: 'architekt/6_Hanaa Dahy.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%" },
-              { type: 'text', style: "max-width: 500px", data: 'Biobasierte Werkstoffe erlauben Designern und Architekten vielseitige Formen. <br><br> Alle Materialien, egal ob Beton, Stahl oder Holz, haben typische Eigenschaften. Diese Eigenschaften führen bei jeder Materialart zu ganz bestimmten Formen beim Bauen. So sehen Brücken aus Stahl anders aus als Brücken aus Beton. <br><br> Die Formensprache dieser Materialien wurde vor über hundert Jahren entwickelt.' },
+              { type: 'text', style: "max-width: 500px", data: 'Bio-basierte Werkstoffe erlauben Designern und Architekten vielfältige Formen. <br><br> Alle Materialien, egal ob Beton, Stahl oder Holz, haben typische Eigenschaften. Diese Eigenschaften führen bei jeder Materialart zu ganz bestimmten Formen beim Bauen. So sehen Brücken aus Stahl anders aus als Brücken aus Beton. <br><br> Die Formensprache dieser Materialien wurde vor über hundert Jahren entwickelt. ' },
             ]
           },
           {
-            title: 'Jetzt gilt es, die Formensprache für Biokomposite zu entdecken.',
+            title: 'Jetzt gilt es, die Formensprache für Bio-Verbundwerkstoffe zu entdecken.',
             class: "d-flex align-center architektur-6", content_blocks: [
               { type: 'img', data: 'architekt/7-1_BioMat.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 350px; width: 100%" },
-              { type: 'text', style: "max-width: 350px", data: 'Hier ein Beispiel von Hanaa: Was aussieht wie Metall, ist in Wirklichkeit ein Werkstoff aus Pflanzenfasern und synthetischem Harz: elegant, leicht und äußerst stabil!' },
+              { type: 'text', style: "max-width: 350px", data: 'Hier ein Beispiel von Hanaa: Was aussieht wie Metall, ist in Wirklichkeit ein Werkstoff aus Pflanzenfasern und bio-basiertem Epoxidharz: elegant, leicht und äußerst stabil!' },
               { type: 'img', data: 'architekt/7-2_BioMat.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 350px;  width: 100%" },
             ]
           },
@@ -203,82 +314,75 @@ export default {
         ]
       },
       {
-        topic: 'Learning',
-        title: 'Learning by Doing',
-        text: '',
+        topic: 'Circular',
+        title: 'Die Brücke als Verwandlungskünstler',
+        text: 'Gestern PET-Flasche, heute Brücke, morgen Rohstoff für neue Ideen.',
         showExpansion: false,
-        cover: 'learningByDoing/Test Test Ups.png',
+        cover: 'circularEconomy/plastikflasche.jpg',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
-        minHeight: 700,
-
+        minHeight: 500,
         expansionCards: [
           {
-            title: 'Prof. Aart Willem Van Vuure',
-            subtitle: "Katholieke Universität Leuven, Belgien",
+            title: 'Der Ursprung der Brücke',
             class: 'architektur-1',
             content_blocks: [
-              { type: 'img', data: 'learningByDoing/2_Aart Portrait 1zu1.jpg', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 800px` },
-              { type: 'text', data: 'Aart ist einer der führenden Experten für neue basierte Materialien in Europa. <br><br> Seine Vision ist es, diese Werkstoffe weiterzuentwickeln, die leicht und hochleistungsfähig sind.' },
+              { type: 'text', data: 'Die Brücke besteht zum einen aus einem nachwachsenden Rohstoff, den Flachsfasern. Und zum anderen aus rezyklierten PET-Flaschen und einem Epoxidharz, das zu 25 Prozent bio-basiert ist. <br><br> Als Handlauf kommt Bongossi-Holz zum Einsatz, das aus dem Rückbau eines anderen Bauwerks in Ulm stammt. <br><br> Die Brücke aus nachwachsenden und rezyklierten Rohstoffen wird viele Jahrzehnte lang Menschen über die „Kleine Blau“ tragen. Und dann?' },
             ]
           },
           {
-            title: 'Zerreißprobe!', class: "d-flex flex-column", content_blocks: [
-              { type: 'img', data: 'learningByDoing/6_Platzhalter.png', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 700px"`, class: '' },
-            ]
-          },
-          {
-            title: 'Mit seinem Team hat Aart in den Laboren der Uni unzählige Versuche durchgeführt und die Vorarbeiten zur Ulmer Brücke begleitet.',
+            title: 'Vom Ende her denken',
             class: 'architektur-1',
-            //content_blocks: [{ type: 'text', data: 'Weiter klicken und Einblicke bekommen:' }]
-          },
-          {
-            title: "Wind und Wetter trotzen",
-            class: "d-flex align-center architektur-5", content_blocks: [
-              { type: 'img', data: 'learningByDoing/6_Platzhalter.png', parentstyle: "display: flex; justify-content: center", style: `max-width: 500px; width: 100%` },
+            content_blocks: [{ type: 'text', data: 'Was geschieht mit dem wertvollen Material nach dem Lebensende der Brücke? <br><br> Für eine echte Kreislaufwirtschaft müssen Produkte vom Ende her gedacht werden: Wie lassen sich die eingesetzten Rohstoffe später wieder nutzen oder sogar ganze Bauteile weiterverwenden?' },
+            { type: 'img', data: 'circularEconomy/KreislaufwirtschaftGrafik.png', style: `width:100%; max-width: 500px` },
             ]
           },
           {
-            title: "Materialproben werden auf den Millimeter genau untersucht",
-            class: "d-flex justify-center", content_blocks: [
-              { type: 'img', data: 'learningByDoing/6_Platzhalter.png', parentstyle: "display: flex; justify-content:center", style: `max-width: 500px; width: 100%` },
+            title: 'Das nächste Leben',
+            class: 'architektur-1',
+            content_blocks: [{ type: 'text', data: 'Ein wichtiger Teil des Forschungsprojekts war deshalb, die Recyclingfähigkeit der Brücke zu untersuchen. <br><br> Was könnte man am Ende mit ihr machen?' },
             ]
           },
           {
-            title: 'Es braucht viele Ideen und Material-Untersuchungen, aber auch Ausdauer und Glück. Nur so lässt sich Aarts Vision von neuen, leistungsfähigen Werkstoffen verwirklichen.',
+            title: 'Mechanisches Recycling',
             class: 'architektur-1',
             content_blocks: [
+              { type: 'img', data: 'circularEconomy/Mechanisches Recycling.jpg', style: `width:100%; max-width: 500px` },
+              { type: 'text', data: 'Man kann die Brückenteile zermahlen und das Granulat als Füllstoff in anderen Verbund-Werkstoffen einsetzen.' },
             ]
           },
           {
-            title: 'Wouter Claassen',
-            subtitle: "Technische Universität Eindhoven, Niederlande",
-            class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'learningByDoing/Platzhalter 1 zu 1.png', style: `margin-bottom: -10px; width:100%; max-width: 500px`, },
-            { type: 'text', data: 'Wouter, der Konstrukteur der Ulmer Brücke, ging mit seinem Team die nächsten Schritte. <br><br> Er macht die Tests an den großen Bauteilen der Brücke.' },
+            title: 'Chemisches Recycling',
+            class: "d-flex flex-column",
+            content_blocks: [
+              { type: 'video', data: 'circularEconomy/Chemisches Recycling.mp4', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
+              { type: 'text', data: 'Die Bestandteile der Brücke können chemisch in ihre Moleküle zerlegt werden. Aus diesen Molekülen lassen sich neue Produkte herstellen.', style: "max-width:700px", },
             ]
           },
           {
-            title: 'Bei den Tests geht es rau zu: Wie viel hält ein tragender Balken aus? Wann bricht er?',
-            class: 'architektur-1 justify-center d-flex',
-            content_blocks: [{ type: 'img', data: 'learningByDoing/9_Loadtest_einzelner Balken.png', style: `margin-bottom: -10px; width:100%; max-width: 500px`, class: 'aart-portrait' },
-            ]
-          },
-          {
-            title: 'Die Brücke als Wegbereiter',
+            title: 'Chemisches Recycling',
             class: 'architektur-1',
             content_blocks: [
-              { type: 'text', data: '„Durch all diese Tests lernen wir das Material immer besser kennen. <br><br> Wir können sein Verhalten vorhersagen und unsere mathematischen Modelle immer weiter entwickeln. Mit den Modellen können wir Ingenieure zum Beispiel das Tragverhalten der Brücke in Ulm berechnen. Damit leistet die Brücke einen Beitrag für die nächsten Bauprojekte, die den Klimaschutz und die Kreislaufwirtschaft noch weiter vorantreiben.” <br> <br> <br> Wouter Claassen, Universität Eindhoven ' },
+              { type: 'img', data: 'circularEconomy/biochar.jpg', style: `width:100%; max-width: 900px` },
+              { type: 'text', data: 'Die Brückenteile können bei definierten Temperaturen in Kohlenstoff verwandelt werden – als Ausgangspunkt für zahlreiche neue Produkte.' },
             ]
           },
           {
-            title: 'Das Ergebnis: Die Ulmer Brücke glänzt beim Belastungstest!',
+            title: 'Biologisches Recycling',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'learningByDoing/11_Belastungstest.jpg', style: `margin-bottom: -10px; width:100%; max-width: 900px`, class: 'aart-portrait' },
-            { type: 'text', data: '24 Tonnen hält sie aus - und erfüllt damit die Anforderungen an Fahrrad- und Fußgänger-brücken in Europa. <br><br> Und noch mehr: Sie ist weltweit die erste Brücke dieser Art, die auch Fahrzeuge der Stadt-verwaltung überqueren können.' },
+            content_blocks: [
+              { type: 'img', data: 'circularEconomy/mycelium.jpg', style: `width:100%; max-width: 900px` },
+              { type: 'text', data: 'Ein ganz neuer Weg ist, die Brücke zu zermahlen und als Nahrungsgrundlage für Pilze zu nutzen. Diese übernehmen die biologische Umwandlung des Materials in neue Rohstoffe. Damit dies gelingt, ist allerdings noch viel Forschung nötig.' },
             ]
           },
-
+          {
+            title: 'Fortschritt im Kreis',
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'text', data: 'Bio-basierte Rohstoffe und Rezyklate verbessern die CO2-Bilanzen von Produkten und Bauwerken. Außerdem schonen sie primäre Ressourcen. Es lohnt sich, im Kreis zu denken!' },
+              { type: 'img', data: 'circularEconomy/Fortschritt im Kreis_schwarz.png', style: `width:100%; max-width: 500px`, },
+            ]
+          },
         ],
       },
       {
@@ -296,166 +400,48 @@ export default {
             subtitle: "Technische Universität Eindhoven",
             class: 'architektur-1',
             content_blocks: [
-              { type: 'text', data: 'Rijk stellte sich vor über zehn Jahren eine Frage: „Wie können wir den Klimaschutz mit Hilfe von nachwachsenden Rohstoffen voranbringen?“ <br><br> Aus dieser Frage entstand der erste Prototyp der Smart Circular Bridge.' },
+              { type: 'text', data: 'Vor über zehn Jahren stellte Rijk sich die Frage: „Wie können wir den Klimaschutz beim Bauen mit nachwachsenden Rohstoffen voranbringen?“ <br><br> Gemeinsam mit seinem Kollegen Prof. Dr. Patrick Teuffel untersuchte er traditionelle Werkstoffe. Denn auch Altbewährtes kann spannende Lösungen für die Zukunft bieten.' },
             ]
           },
           {
-            title: 'Umdenken!', class: "d-flex flex-column", content_blocks: [
-              { type: 'text', data: 'Als Ingenieur wollte Rijk neue, leistungsfähige Materialien für die Baubranche entwickeln. <br><br> Dazu erforscht er die Potentiale traditioneller Baumaterialien. Denn auch altbewährte Rohstoffe bieten spannende Lösungen für die Zukunft.' },
+            title: 'Flachs im Fokus', class: "d-flex flex-column", content_blocks: [
+              { type: 'text', data: 'Rijk und sein Team kombinierten Flachsfasern mit einem bio-basierten Epoxidharz. Dabei entsteht ein Verbundwerkstoff, das sowohl leicht als auch extrem stabil ist – und sich in Bauwerken locker mit Aluminium oder Stahl messen kann.' },
             ]
           },
+          // {
+          //   title: 'Flachs im Fokus',
+          //   class: 'architektur-1',
+          //   content_blocks: [{ type: 'img', data: 'Visionaer/6_Platzhalter.png', style: `margin-bottom: -10px; width:100%; max-width: 500px`, },
+          //   { type: 'text', data: 'Rijk und sein Team kombinierten Flachsfasern mit einem speziellen Harz. So entsteht ein Material, das sowohl leicht als auch extrem stabil ist – und sich in Bauwerken locker mit Aluminium oder Stahl messen kann.' },
+          //   ]
+          // },
           {
-            title: 'Flachs im Fokus',
+            title: 'Manchmal muss man einfach machen',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'Visionaer/6_Platzhalter.png', style: `margin-bottom: -10px; width:100%; max-width: 500px`, },
-            { type: 'text', data: 'Rijk und sein Team kombinierten Flachsfasern mit einem speziellen Harz. So entsteht ein Material, das sowohl leicht als auch extrem stabil ist – und sich in Bauwerken locker mit Aluminium oder Stahl messen kann.' },
+            content_blocks: [{ type: 'img', data: 'Visionaer/FP license TUe biocomposiet brug TU Eindhoven.png', style: `margin-bottom: -10px; width:100%; max-width: 900px`, },
+            { type: 'text', data: 'Zusammen mit Patrick, mit Studierenden und mit Partnern aus Hochschulen und Wirtschaft setzte Rijk seine Vision in die Tat um: Die erste Brücke aus Flachsfasern und Harz entsteht 2016 auf dem Gelände der Universität Eindhoven.' },
             ]
           },
           {
             title: 'Manchmal muss man einfach machen',
             class: 'architektur-1',
             content_blocks: [{ type: 'img', data: 'Visionaer/Test Uni einhoven-copyright Rijk Blok.png', style: `margin-bottom: -10px; width:100%; max-width: 900px`, },
-            { type: 'text', data: 'Zusammen mit Studierenden und Partnern aus anderen Hochschulen und der Wirtschaft, setzte Rijk auf dem Gelände der Universität Eindhoven seine Vision in die Tat um: Die erste Brücke aus Flachsfasern und Harz entsteht.' },
-            ]
-          },
-          {
-            title: 'Manchmal muss man einfach machen',
-            class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'Visionaer/FP license TUe biocomposiet brug TU Eindhoven.png', style: `margin-bottom: -10px; width:100%; max-width: 900px`, },
             { type: 'text', data: 'Zahlreiche Tests am Material und der Konstruktion zeigen: Der Sprung von der Vision zur Praxis funktioniert. Die Idee trägt – und wie!' },
             ]
           },
           {
             title: "Erfindergeist lohnt sich",
             class: "d-flex justify-center", content_blocks: [
-              { type: 'text', data: 'Der erfolgreiche Prototyp inspirierte auch international: Rijk hat über Ländergrenzen hinweg die Projektpartner mit ihren unterschiedlichen Kompetenzen zusammengebracht. Er überzeugte die EU, dass es sich lohnt, das große Potential der Materialien zu erschließen. Das Ergebnis nach vier Jahren: viel gelernt, viel Neues entwickelt und Rijks Vision hat sich bewährt.' },
+              { type: 'text', data: 'Der erfolgreiche Prototyp inspirierte auch international: Über Ländergrenzen hinweg brachte Rijk die Projektpartner von Ulm mit ihren unterschiedlichen Kompetenzen zusammen. Er überzeugte auch die EU, dass es sich lohnt, die Innovation finanziell zu fördern. <br><br> Das Ergebnis nach vier Jahren: Ein neuer Werkstoff mit großem Potenzial für den Klima- und Ressourcenschutz. Rijks Vision hat sich erfüllt.' },
             ]
           },
           {
             title: '',
             class: 'architektur-1',
             content_blocks: [{ type: 'img', data: 'Visionaer/Rijk Blok Bridge - C TU Eindhoven.png', style: `margin-bottom: -10px; width:100%; max-width: 900px`, },
-            { type: 'text', data: 'Rijk Blok war die treibende Kraft hinter den Smart Circular Bridges. Die Brücke in Ulm mit all ihren Innovationen hat er leider nicht mehr erlebt. Denn kurz nach der Eröffnung der ersten Brücke in Almere ist er überraschend verstorben.' },
+            { type: 'text', data: 'Rijk Blok war die treibende Kraft hinter den Smart Circular Bridges. Die Brücke in Ulm hat er leider nicht mehr erlebt. Denn kurz nach der Eröffnung der ersten Brücke in Almere ist er überraschend verstorben.' },
             ]
           },
-        ],
-      },
-      {
-        topic: 'Ermöglicher',
-        title: 'Die Möglichmacher',
-        showExpansion: false,
-        cover: 'Moeglichmacher/0_Ortsschild Ulm ohne Copyright.png',
-        expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-        expansionOnboarding: 0,
-        minHeight: 800,
-
-        expansionCards: [
-          {
-            title: 'Tim von Winning',
-            subtitle: "Baubürgermeister, Ulm",
-            class: 'architektur-1',
-            content_blocks: [
-              { type: 'img', data: 'learningByDoing/6_Platzhalter.png', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 800px` },
-              { type: 'text', data: 'Warum ist die Stadt Ulm Teil des Smart Circular Bridge Projekts?' },
-            ]
-          },
-          {
-            title: 'Tragende Elemente', class: "d-flex flex-column", content_blocks: [
-              { type: 'img', data: 'Moeglichmacher/2_Europkarte ohne Copyright.png', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 1100px` },
-              { type: 'text', data: 'Für ambitionierte Projekte braucht es kluge Köpfe und eine Menge engagierter Leute. Hinter der Smart Circular Bridge steht ein europaweites Team aus fünf Universitäten, sieben innovativen Unternehmen und drei Städten. Über Ländergrenzen hinweg fließen einzigartige Kompetenzen in der Brücke über die „Kleine Blau“ in Ulm zusammen.' },
-            ]
-          },
-          {
-            title: '',
-            class: 'architektur-1',
-            content_blocks: [{ type: 'text', data: 'Bei innovativen Projekten kommt es immer zu Herausforderungen. Die erste Smart Circular Bridge in den Niederlanden war ein Erfolg. <br><br> Jetzt wollte man in Ulm noch einen Schritt weitergehen: Die Brücke sollte noch leistungsfähiger werden – und der Anteil an recyceltem Harz deutlich steigen, um den CO2-Fußabdruck weiter zu verkleinern.' },
-            ]
-          },
-          {
-            title: "Rückschläge und…",
-            class: "d-flex align-center architektur-5", content_blocks: [
-              { type: 'video', data: 'Moeglichmacher/4_Animation_Rueckschlaege.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
-              { type: 'text', data: 'Doch dann kam es beim Bau des Brückenkörpers zu einem Problem. Aufgrund der neuen Materialmischung wurde das Harz beim Aushärten zu warm – und die Naturfasern deshalb zu spröde. <br><br> Der Brückenkörper musste neu gebaut werden. Das heißt: zeitliche Verzögerung und höherer Aufwand. <br><br> Aber zugleich gab es…', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
-            ]
-          },
-          {
-            title: "…große Fortschritte!",
-            class: "d-flex justify-center architektur-5", content_blocks: [
-              { type: 'img', data: 'learningByDoing/6_Platzhalter.png', parentstyle: "display: flex; justify-content:center", style: `max-width: 800px; width: 100%` },
-              { type: 'text', data: 'Es ist die erste Brücke weltweit aus diesem Werkstoff, über die Kraftfahrzeuge fahren können. Die Brücke ist viel leichter und noch stabiler als ihre Vorgänger.', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
-            ]
-          },
-          {
-            title: '',
-            class: 'architektur-1',
-            content_blocks: [
-              { type: 'text', data: 'Dank der Leichtbauweise wiegt die Brücke deutlich weniger als eine konventionelle Konstruktion. Sie wiegt nur 5 Tonnen, kann aber mehr als 24 Tonnen tragen – und das geringe Gewicht reduziert den CO2-Fußabdruck. <br><br> Die Brücke in Ulm zeigt die hohe Leistungsfähigkeit von Biokompositen – und deren Potenziale für den Klimaschutz! <br><br> Mit der neuen Version der Smart Circular Bridge hat die Stadt Ulm den Weg bereitet für ganz neue Einsatzmöglichkeiten von Biokompositen. Aus dem Material können künftig auch Häuser gebaut werden oder andere anspruchsvolle Bauwerke.' },
-            ]
-          },
-          {
-            title: 'Auf die Kommunen kommt es an',
-            class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'Moeglichmacher/7_Weltkarte Connections.png', style: `margin-bottom: -10px; width:100%; max-width: 1000px`, class: 'aart-portrait' },
-            { type: 'text', data: 'Die Bauwirtschaft steht vor der Herausforderung, dem Ressourcen- und Klimaschutz gerecht zu werden. Kommunen tragen durch innovative Projekte dazu bei, diese Herausforderungen zu lösen – und den Wandel weltweit voranzubringen.' },
-            ]
-          },
-
-        ],
-      },
-      {
-        topic: 'Brücke',
-        title: 'Brückenbau',
-        position: '1500',
-        text: '...',
-        showExpansion: false,
-        cover: 'learningByDoing/Platzhalter 1 zu 1.png',
-        expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-        expansionOnboarding: 0,
-        minHeight: 1200,
-        expansionCards: [
-          {
-            title: 'Wie wurde die Brücke gebaut?',
-            class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'learningByDoing/Platzhalter 1 zu 1.png', style: `margin-bottom: -10px; width:100%; max-width: 500px` },
-            { type: 'text', data: 'a + b +c ... + z = Brücke' },
-            ]
-          },
-          {
-            title: 'Schritt für Schritt und Bauteil für Bauteil', class: "d-flex flex-column", content_blocks: [
-              { type: 'video', data: 'brueckenbau/2_Bridge Hanging.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:900px; width:80vw" },
-            ]
-          },
-          {
-            title: "Von der Produktionshalle geht's mit dem Schwertransport nach Ulm./ Der fertige Brückenkörper wird dann transportiert und platziert.",
-            class: "d-flex align-center architektur-5 justify-center", content_blocks: [
-              { type: 'video', data: 'brueckenbau/2_Bridge Hanging.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:900px; width:80vw" },
-            ]
-          },
-          {
-            title: "Jetzt noch das Geländer dran.",
-            class: "d-flex align-center architektur-6", content_blocks: [
-              { type: 'img', data: 'brueckenbau/3_Geleander_aussen.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
-            ]
-          },
-          {
-            class: 'architektur-1',
-            content_blocks: [
-              { type: 'img', data: 'brueckenbau/4_Geleander innen.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
-            ]
-          },
-          {
-            class: 'architektur-1',
-            content_blocks: [
-              { type: 'img', data: 'brueckenbau/5_Geleander innen closeup.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
-            ]
-          },
-          {
-            title: 'Und fertig!',
-            class: 'architektur-1 justify-center',
-            content_blocks: [{ type: 'img', data: 'brueckenbau/3_Geleander_aussen.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
-            ]
-          },
-
         ],
       },
 
@@ -468,8 +454,8 @@ export default {
 
     topicStyles: {
       Architektin: {
-        color: '#D67B2A',
-        hintergrundColor: '#EABD94',
+        color: '#208AA7',
+        hintergrundColor: '#7CCFE5',
         icon: 'mdi-pencil-ruler'
       },
       Learning: {
@@ -481,6 +467,11 @@ export default {
         color: '#68272A',
         hintergrundColor: '#CC797D',
         icon: 'mdi-head-lightbulb-outline',
+      },
+      Circular: {
+        color: '#D67B2A',
+        hintergrundColor: '#EABD94',
+        icon: 'mdi-cached',
       },
       Ermöglicher: {
         color: '#97B28A',
@@ -601,7 +592,7 @@ export default {
       // })
 
     },
-    
+
   },
 }
 
@@ -634,8 +625,6 @@ window.onload = function () {
 </script>
 
 <style>
-
-
 .timeline {
   max-width: 1000px;
   width: 100%;
@@ -654,9 +643,10 @@ window.onload = function () {
   align-items: flex-start;
 }
 
-.dot-button{
+.dot-button {
   margin-top: -23px
 }
+
 .timeline-item {
   display: flex;
   flex-direction: column;
