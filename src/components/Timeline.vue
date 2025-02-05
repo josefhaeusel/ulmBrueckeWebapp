@@ -169,64 +169,53 @@ export default {
         ],
       },
       {
-        topic: 'Ermöglicher',
-        title: 'Die Möglichmacher',
+        topic: 'Brücke',
+        title: 'Der Brückenbau',
         showExpansion: false,
-        cover: 'Moeglichmacher/0_Ortsschild Ulm ohne Copyright.png',
+        cover: 'brueckenbau/0_abzBruecke.png',
         expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         expansionOnboarding: 0,
-        minHeight: 700,
+        minHeight: 750,
         expansionCards: [
           {
-            title: 'Tim von Winning',
-            subtitle: "Baubürgermeister, Ulm",
+            title: 'Schritt für Schritt + Bauteil für Bauteil',
             class: 'architektur-1',
             content_blocks: [
-              { type: 'video', data: 'Moeglichmacher/Tim von Winning_DE.mp4', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 800px` },
-              { type: 'text', data: 'Warum ist die Stadt Ulm Teil des Smart Circular Bridge Projekts?' },
+              { type: 'video', data: 'brueckenbau/Brueckenproduktion.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:900px; width:80vw" },
+
             ]
           },
           {
-            title: 'Tragende Elemente', class: "d-flex flex-column", style: "max-width: 550px", content_blocks: [
-              { type: 'img', data: 'Moeglichmacher/2_Europkarte ohne Copyright.png', parentstyle: "display: flex; justify-content:center;", style: `width:100%; max-width: 1100px` },
-              { type: 'text', data: 'Für ambitionierte Projekte braucht es eine Menge engagierter Leute. Hinter der Smart Circular Bridge steht ein europaweites Team aus fünf Universitäten, sieben innovativen Unternehmen und drei Städten. Über Ländergrenzen hinweg fließen einzigartige Kompetenzen in der Brücke über die „Kleine Blau“ in Ulm zusammen.' },
+            title: 'Die Brücke wird eingehängt ', class: "d-flex flex-column", content_blocks: [
+              { type: 'video', data: 'brueckenbau/2_Bridge Hanging.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:900px; width:80vw" },
+            ]
+          },
+
+          {
+            title: "Jetzt braucht's noch ein Geländer",
+            class: "d-flex align-center architektur-6 justify-center", content_blocks: [
+              { type: 'img', data: 'brueckenbau/3_Gelaender_aussen.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%" },
             ]
           },
           {
-            title: 'Ambitionierte Ziele',
-            class: 'architektur-1',
-            content_blocks: [{ type: 'text', data: 'Die erste Smart Circular Bridge in den Niederlanden war ein großer Erfolg.<br><br> In Ulm wollte man noch einen Schritt weitergehen: Die Brücke sollte noch leistungsfähiger werden – und der Bio-Anteil im Epoxidharz deutlich steigen, um den CO2-Fußabdruck weiter zu verkleinern.”<br><br> Doch innovative Projekte bringen immer auch Herausforderungen mit sich.' },
-            ]
-          },
-          {
-            title: ":( Rückschlag und …",
-            class: "d-flex flex-column architektur-5", content_blocks: [
-              { type: 'video', data: 'Moeglichmacher/Animation_Reuckschlaege.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
-              { type: 'text', data: 'Beim Bau des Brückenkörpers kam es zu einem Problem. Aufgrund der neuen Materialmischung wurde das Harz beim Aushärten zu warm – und die Naturfasern” deshalb zu spröde.<br><br> Der Brückenkörper musste neu gebaut werden. Eine optimierte Materialzusammensetzung und eine neue Konstruktion führten zum entscheidenden…', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
-            ]
-          },
-          {
-            title: "… Erfolg! :)",
-            class: "d-flex flex-column architektur-5", content_blocks: [
-              { type: 'video', data: 'Moeglichmacher/Animation_Auto.mp4', parentstyle: "display: flex; justify-content:center", style: `max-width: 700px; width: 100%` },
-              { type: 'text', data: 'Jetzt ist sie die erste Brücke weltweit aus diesem Werkstoff, über die Kraftfahrzeuge fahren können. Die Brücke ist viel leichter und noch stabiler als ihre Vorgänger.', parentstyle: "max-width:700px; display: flex; justify-content:center" },
-            ]
-          },
-          {
-            title: 'Wegbereiter',
             class: 'architektur-1',
             content_blocks: [
-              { type: 'text', data: 'Dank der Leichtbauweise wiegt die Brücke deutlich weniger als eine konventionelle Konstruktion. Sie wiegt nur 5 Tonnen, kann aber mehr als 24 Tonnen tragen – und das geringe Gewicht und die nachwachsenden Rohstoffe reduzieren den CO2- Fußabdruck.<br><br> Mit der neuen Version der Smart Circular Bridge hat die Stadt Ulm den Weg bereitet für ganz neue Einsatzmöglichkeiten von Biokompositen. Aus dem Material können künftig auch Häuser gebaut werden oder andere anspruchsvolle Bauwerke.' },
+              { type: 'img', data: 'brueckenbau/4_Gelaender innen.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
             ]
           },
           {
-            title: 'Auf die Kommunen kommt es an',
             class: 'architektur-1',
             content_blocks: [
-              { type: 'img', data: 'Moeglichmacher/Kommunen-WortBildMarke.png', style: `margin-bottom: -10px; width:100%; max-width: 1000px`, class: 'aart-portrait' },
-              { type: 'text', data: 'Auf das Konto der Bauwirtschaft geht weltweit rund ein Drittel aller CO2-Emissionen. Die Branche ist auch ein Spitzenreiter bei Ressourcenverbrauch und Abfallaufkommen.<br><br> Kommunen müssen täglich ganz konkrete Lösungen für Bauaufgaben finden. Durch innovative Projekte tragen sie dazu bei, die Herausforderungen der Gesellschaft zu meistern.' },
+              { type: 'img', data: 'brueckenbau/5_Gelaender innen closeup.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
             ]
           },
+          {
+            title: 'Fertig!',
+            class: 'architektur-1 justify-center',
+            content_blocks: [{ type: 'img', data: 'brueckenbau/2107-1024.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+            ]
+          },
+
         ],
       },
       {
@@ -413,6 +402,67 @@ export default {
         ],
       },
       {
+        topic: 'Ermöglicher',
+        title: 'Die Möglichmacher',
+        showExpansion: false,
+        cover: 'Moeglichmacher/0_Ortsschild Ulm ohne Copyright.png',
+        expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        expansionOnboarding: 0,
+        minHeight: 700,
+        expansionCards: [
+          {
+            title: 'Tim von Winning',
+            subtitle: "Baubürgermeister, Ulm",
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'video', data: 'Moeglichmacher/Tim von Winning_DE.mp4', parentstyle: "display: flex; justify-content:center", style: `width:100%; max-width: 800px` },
+              { type: 'text', data: 'Warum ist die Stadt Ulm Teil des Smart Circular Bridge Projekts?' },
+            ]
+          },
+          {
+            title: 'Tragende Elemente', class: "d-flex flex-column", style: "max-width: 550px", content_blocks: [
+              { type: 'img', data: 'Moeglichmacher/2_Europkarte ohne Copyright.png', parentstyle: "display: flex; justify-content:center;", style: `width:100%; max-width: 1100px` },
+              { type: 'text', data: 'Für ambitionierte Projekte braucht es eine Menge engagierter Leute. Hinter der Smart Circular Bridge steht ein europaweites Team aus fünf Universitäten, sieben innovativen Unternehmen und drei Städten. Über Ländergrenzen hinweg fließen einzigartige Kompetenzen in der Brücke über die „Kleine Blau“ in Ulm zusammen.' },
+            ]
+          },
+          {
+            title: 'Ambitionierte Ziele',
+            class: 'architektur-1',
+            content_blocks: [{ type: 'text', data: 'Die erste Smart Circular Bridge in den Niederlanden war ein großer Erfolg.<br><br> In Ulm wollte man noch einen Schritt weitergehen: Die Brücke sollte noch leistungsfähiger werden – und der Bio-Anteil im Epoxidharz deutlich steigen, um den CO2-Fußabdruck weiter zu verkleinern.”<br><br> Doch innovative Projekte bringen immer auch Herausforderungen mit sich.' },
+            ]
+          },
+          {
+            title: ":( Rückschlag und …",
+            class: "d-flex flex-column architektur-5", content_blocks: [
+              { type: 'video', data: 'Moeglichmacher/Animation_Reuckschlaege.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:700px; width:80vw" },
+              { type: 'text', data: 'Beim Bau des Brückenkörpers kam es zu einem Problem. Aufgrund der neuen Materialmischung wurde das Harz beim Aushärten zu warm – und die Naturfasern” deshalb zu spröde.<br><br> Der Brückenkörper musste neu gebaut werden. Eine optimierte Materialzusammensetzung und eine neue Konstruktion führten zum entscheidenden…', parentstyle: "display: flex; justify-content:center", style: "max-width:700px" },
+            ]
+          },
+          {
+            title: "… Erfolg! :)",
+            class: "d-flex flex-column architektur-5", content_blocks: [
+              { type: 'video', data: 'Moeglichmacher/Animation_Auto.mp4', parentstyle: "display: flex; justify-content:center", style: `max-width: 700px; width: 100%` },
+              { type: 'text', data: 'Jetzt ist sie die erste Brücke weltweit aus diesem Werkstoff, über die Kraftfahrzeuge fahren können. Die Brücke ist viel leichter und noch stabiler als ihre Vorgänger.', parentstyle: "max-width:700px; display: flex; justify-content:center" },
+            ]
+          },
+          {
+            title: 'Wegbereiter',
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'text', data: 'Dank der Leichtbauweise wiegt die Brücke deutlich weniger als eine konventionelle Konstruktion. Sie wiegt nur 5 Tonnen, kann aber mehr als 24 Tonnen tragen – und das geringe Gewicht und die nachwachsenden Rohstoffe reduzieren den CO2- Fußabdruck.<br><br> Mit der neuen Version der Smart Circular Bridge hat die Stadt Ulm den Weg bereitet für ganz neue Einsatzmöglichkeiten von Biokompositen. Aus dem Material können künftig auch Häuser gebaut werden oder andere anspruchsvolle Bauwerke.' },
+            ]
+          },
+          {
+            title: 'Auf die Kommunen kommt es an',
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'Moeglichmacher/Kommunen-WortBildMarke.png', style: `margin-bottom: -10px; width:100%; max-width: 1000px`, class: 'aart-portrait' },
+              { type: 'text', data: 'Auf das Konto der Bauwirtschaft geht weltweit rund ein Drittel aller CO2-Emissionen. Die Branche ist auch ein Spitzenreiter bei Ressourcenverbrauch und Abfallaufkommen.<br><br> Kommunen müssen täglich ganz konkrete Lösungen für Bauaufgaben finden. Durch innovative Projekte tragen sie dazu bei, die Herausforderungen der Gesellschaft zu meistern.' },
+            ]
+          },
+        ],
+      },
+      {
         topic: 'Architektin',
         title: 'Der Konstrukteur',
         text: '<em>„Noch leichter, noch leistungsfähiger!“</em> - Wouter Claasen',
@@ -467,58 +517,6 @@ export default {
           },
         ]
       },
-      {
-        topic: 'Brücke',
-        title: 'Der Brückenbau',
-        showExpansion: false,
-        cover: 'brueckenbau/0_abzBruecke.png',
-        expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-        expansionOnboarding: 0,
-        minHeight: 750,
-        expansionCards: [
-          {
-            title: 'Schritt für Schritt + Bauteil für Bauteil',
-            class: 'architektur-1',
-            content_blocks: [
-              { type: 'video', data: 'brueckenbau/Brueckenproduktion.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:900px; width:80vw" },
-
-            ]
-          },
-          {
-            title: 'Die Brücke wird eingehängt ', class: "d-flex flex-column", content_blocks: [
-              { type: 'video', data: 'brueckenbau/2_Bridge Hanging.mp4', parentstyle: "display: flex; justify-content:center", style: "max-width:900px; width:80vw" },
-            ]
-          },
-
-          {
-            title: "Jetzt braucht's noch ein Geländer",
-            class: "d-flex align-center architektur-6 justify-center", content_blocks: [
-              { type: 'img', data: 'brueckenbau/3_Gelaender_aussen.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 500px; width: 100%" },
-            ]
-          },
-          {
-            class: 'architektur-1',
-            content_blocks: [
-              { type: 'img', data: 'brueckenbau/4_Gelaender innen.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
-            ]
-          },
-          {
-            class: 'architektur-1',
-            content_blocks: [
-              { type: 'img', data: 'brueckenbau/5_Gelaender innen closeup.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
-            ]
-          },
-          {
-            title: 'Fertig!',
-            class: 'architektur-1 justify-center',
-            content_blocks: [{ type: 'img', data: 'brueckenbau/2107-1024.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
-            ]
-          },
-
-        ],
-      },
-
-
       {
         topic: 'Architektin',
         title: 'Die Architektin',
