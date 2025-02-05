@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div class="parallax-video-container rounded-b-lg" ref="parallaxContainer">
+    <div class="parallax-video-container" ref="parallaxContainer">
       <div style="position:absolute; background:rgba(0,0,0,0.5)"  class="h-100 w-100 d-flex align-center justify-center">
         <video autoplay muted loop class="parallax-video" ref="parallaxVideo">
           <source :src="require('../assets/banner_video.mp4')" type="video/mp4" />

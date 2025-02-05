@@ -4,9 +4,9 @@
       <div v-if="currentRoute === '/'">
         <ParallaxBackground />
         <v-card>
-          <v-tabs v-model="tab" align-tabs="center" color="#97B28A">
-            <v-tab :value="1">Sound-Konzept</v-tab>
-            <v-tab :value="2">Smart Circular Bridge</v-tab>
+          <v-tabs v-model="tab" align-tabs="center" class="elevation-1" color="rgb(151, 178, 138)">
+            <v-tab  class="main-tab-a" :value="1">Sound-Konzept</v-tab>
+            <v-tab class="main-tab-b" :value="2">Smart Circular Bridge</v-tab>
           </v-tabs>
 
           <v-tabs-window v-model="tab">
@@ -43,7 +43,7 @@
         </template>
       </v-card>
     </v-dialog> -->
-
+<!-- 
     <v-dialog v-model="dialog" width="auto" persistent>
       <v-card class="my-2 mx-2" elevation="4" style="width:300px">
         <v-card-title class="text-h4 text-white d-flex align-center justify-center" text-color="white"
@@ -55,10 +55,9 @@
         <p v-if="errorMessage" class="text-red">{{ errorMessage }}</p>
         <template v-slot:actions>
           <v-text-field v-model="passwordInput" label="Enter Password" type="password" outlined dense @input="checkPassword"></v-text-field>
-          <!-- <v-btn class="ms-auto" style="justify-self: center;" text @click="checkPassword">OK</v-btn> -->
         </template>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
     <!-- <v-dialog v-model="dialog" width="auto" persistent>
       <v-card class="my-2 mx-2" elevation="4">
         <v-card-title class="text-h4 text-white d-flex align-center justify-center" text-color="white"
@@ -146,14 +145,29 @@ header {
   padding: 20px;
 }
 
-.v-tab {
+.main-tab-a {
   font-size: 18px !important;
+  width: 50dvw
 }
 
-@media (max-width: 500px) {
-  .v-tab {
-  font-size: 13px !important;
+.main-tab-b {
+  font-size: 18px !important;
+  width: 50dvw
 }
+
+
+
+@media (max-width: 500px) {
+  .main-tab-a {
+  font-size: 13px !important;
+  width: 40dvw !important
+}
+
+.main-tab-b {
+  font-size: 13px !important;
+  width: 60dvw !important
+}
+
 }
 
 h1 {
