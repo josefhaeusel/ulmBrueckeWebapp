@@ -146,6 +146,16 @@ header {
   padding: 20px;
 }
 
+.v-tab {
+  font-size: 18px !important;
+}
+
+@media (max-width: 500px) {
+  .v-tab {
+  font-size: 13px !important;
+}
+}
+
 h1 {
   font-size: 2em;
 }

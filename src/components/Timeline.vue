@@ -245,13 +245,20 @@ export default {
             title: 'Mit Fasern bauen',
             class: 'architektur-1',
             content_blocks: [
-              { type: 'text', data: 'Heute erlebt die Nutzpflanze ihre „zweite Blüte“ als nachwachsender Roh- und Baustoff.<br><br> Flachs ist äußerst vielseitig und einfach zu verarbeiten. In der wortwörtlichen Zerreißprobe punktet Flachs gegenüber den meisten anderen Pflanzenfasern. Durch seine hohe Zugfestigkeit und Elastizität kann er sogar mit Glasfasern mithalten.' },
+              { type: 'text', data: 'Heute erlebt die Nutzpflanze ihre „zweite Blüte“ als nachwachsender Roh- und Baustoff.<br><br> Flachs ist äußerst vielseitig und einfach zu verarbeiten. In der wortwörtlichen Zerreißprobe punktet Flachs gegenüber den meisten anderen Pflanzenfasern: Die Fasern haben eine sehr hohe Zugfestigkeit und sind zugleich elastisch.' },
             ]
           },
           { title: 'Jedes Jahr aufs Neue',
             class: "d-flex align-center architektur-3", content_blocks: [
               { type: 'img', data: 'flachs/Getrockneter Flachs.jpg', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 400px", class: 'gelaender-3' },
               { type: 'text', style: "max-width:500px", data: 'Bei nachwachsenden Baumaterialien denken die wenigsten Menschen an Fasern, sondern meist an Holz.<br><br> Gegenüber Holz hat Flachs aber einen großen Vorteil: Die Pflanze kann jedes Jahr geerntet werden. Auch deshalb haben Fasern ein großes Potenzial für das künftige Bauen.' }]
+          },
+          {
+            title: 'Zurück in die Zukunft',
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'text', data: 'Jetzt gilt es, die Vorteile der altbewährten Fasern zu sehen und sie mit Hightech zu kombinieren.' },
+            ]
           },
           {
             title: 'Roboterfertigung: Vom Seil zum Geländer',
@@ -679,7 +686,7 @@ export default {
           {
             title: 'Manchmal muss man einfach machen',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'Visionaer/FP license TUe biocomposiet brug TU.png', style: `margin-bottom: -10px; width:100%; max-width: 900px`, },
+            content_blocks: [{ type: 'img', data: 'Visionaer/FP license TUe biocomposiet brug TU.png', style: `width:100%; max-width: 900px`, },
             { type: 'text', data: 'Zusammen mit Patrick, mit Studierenden und mit Partnern aus Hochschulen und Wirtschaft setzte Rijk seine Vision in die Tat um: Die erste Brücke aus Flachsfasern und Harz entsteht 2016 auf dem Gelände der Universität Eindhoven.' },
             ]
           },
@@ -699,7 +706,7 @@ export default {
           {
             title: '',
             class: 'architektur-1',
-            content_blocks: [{ type: 'img', data: 'Visionaer/Rijk Blok Bridge - C TU.png', style: `margin-bottom: -10px; width:100%; max-width: 900px`, },
+            content_blocks: [{ type: 'img', data: 'Visionaer/Rijk Blok Bridge - C TU.png', style: `width:100%; max-width: 900px`, },
             { type: 'text', data: 'Rijk Blok war die treibende Kraft hinter den Smart Circular Bridges. Die Brücke in Ulm hat er leider nicht mehr erlebt. Denn kurz nach der Eröffnung der ersten Brücke in Almere ist er überraschend verstorben.' },
             ]
           },
