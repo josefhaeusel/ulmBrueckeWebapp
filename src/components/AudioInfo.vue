@@ -251,7 +251,6 @@ export default {
   }),
   methods: {
     stopAudioChild(){
-      console.log("yo")
       this.$refs.interactiveComponent?.stopPlayback("weight")
       this.$refs.interactiveComponent?.stopPlayback("temperature")
     },
@@ -262,7 +261,6 @@ export default {
       module.expansionOnboarding = module.expansionOnboarding + 1 > module.expansionCards.length - 1
         ? 0
         : module.expansionOnboarding + 1;
-      console.log("NEXT", module.expansionOnboarding)
 
     },
     prevCard(module) {
