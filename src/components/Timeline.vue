@@ -293,7 +293,7 @@ export default {
           {
             class: "d-flex align-center architektur-3", content_blocks: [
               { type: 'img', data: 'Biokomposit/Harz.jpg', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 400px", class: 'gelaender-3' },
-              { type: 'text', style: "max-width:500px", data: '… dazu kommt ein bio-basiertes Epoxidharz.' }]
+              { type: 'text', style: "max-width:500px", data: '…dazu kommt ein Polyesterharz, das zu 25 Prozent bio-basiert ist.' }]
           },
           {
             title: 'Gemeinsam stark',
@@ -435,7 +435,7 @@ export default {
           {
             title: 'Ambitionierte Ziele',
             class: 'architektur-1',
-            content_blocks: [{ type: 'text', data: 'Die erste Smart Circular Bridge in den Niederlanden war ein großer Erfolg.<br><br> In Ulm wollte man noch einen Schritt weitergehen: Die Brücke sollte noch leistungsfähiger werden – und der Bio-Anteil im Epoxidharz deutlich steigen, um den CO2-Fußabdruck weiter zu verkleinern.”<br><br> Doch innovative Projekte bringen immer auch Herausforderungen mit sich.' },
+            content_blocks: [{ type: 'text', data: 'Die erste Smart Circular Bridge in den Niederlanden war ein großer Erfolg.<br><br> In Ulm wollte man noch einen Schritt weitergehen: Die Brücke sollte noch leistungsfähiger werden – und der Bio-Anteil im Polyesterharz deutlich steigen, um den CO2-Fußabdruck weiter zu verkleinern.”<br><br> Doch innovative Projekte bringen immer auch Herausforderungen mit sich.' },
             ]
           },
           {
@@ -490,7 +490,7 @@ export default {
           {
             title: 'Innere Werte', class: "d-flex flex-column", content_blocks: [
               { type: 'img', data: 'konstrukteur/innere_werte.png', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
-              { type: 'text', style: "max-width:700px", data: 'Wouter hat eine klare Konstruktion gewählt: Die Brücke besteht aus einer Bodenplatte, acht Hauptträgern, drei Querspanten und einer Deckplatte – und alle Teile sind aus Flachsfasern und bio-basiertem Epoxidharz hergestellt.' }]
+              { type: 'text', style: "max-width:700px", data: 'Wouter hat eine klare Konstruktion gewählt: Die Brücke besteht aus einer Bodenplatte, acht Hauptträgern, drei Querspanten und einer Deckplatte – und alle Teile sind aus Flachsfasern und bio-basiertem Polyesterharz hergestellt.' }]
           },
           {
             title: 'Tragende Rolle', class: "d-flex flex-column", content_blocks: [
@@ -545,7 +545,7 @@ export default {
           {
             title: 'Von Hanaa stammt übrigens auch ...', class: "d-flex flex-column", content_blocks: [
               { type: 'img', data: 'architekt/3 BioMat.jpg', parentstyle: "display: flex; justify-content:center", style: "width:100%; max-width: 700px", class: '' },
-              { type: 'text', style: "max-width:700px", data: '... die Idee, so ein besonderes Geländer in Ulm einzusetzen. Die Streben des Geländers bestehen auch aus Flachsfasern. Zum Schutz sind sie mit einem bio-basierten Epoxidharz ummantelt. <br><br> Diese Idee wiederum stammt…' }]
+              { type: 'text', style: "max-width:700px", data: '... die Idee, so ein besonderes Geländer in Ulm einzusetzen. Die Streben des Geländers bestehen auch aus Flachsfasern. Zum Schutz sind sie mit einem bio-basierten Polyesterharz ummantelt. <br><br> Diese Idee wiederum stammt…' }]
           },
           {
             class: "d-flex align-center architektur-3", content_blocks: [
@@ -569,7 +569,7 @@ export default {
             title: 'Jetzt gilt es, die Formensprache für Bio-Verbundwerkstoffe zu entdecken.',
             class: "d-flex align-center architektur-6", content_blocks: [
               { type: 'img', data: 'architekt/7_1 BioMat Universität Stuttgart.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 390px; width: 100%" },
-              { type: 'text', style: "max-width: 350px", data: 'Hier ein Beispiel von Hanaa: Was aussieht wie Metall, ist in Wirklichkeit ein Werkstoff aus Pflanzenfasern und bio-basiertem Epoxidharz: elegant, leicht und äußerst stabil!' },
+              { type: 'text', style: "max-width: 350px", data: 'Hier ein Beispiel von Hanaa: Was aussieht wie Metall, ist in Wirklichkeit ein Werkstoff aus Pflanzenfasern und Harz: elegant, leicht und äußerst stabil!' },
               { type: 'img', data: 'architekt/7_2 BioMat Universität Stuttgart.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 390px;  width: 100%" },
             ]
           },
@@ -595,7 +595,7 @@ export default {
             title: 'Der Ursprung der Brücke',
             class: 'architektur-1',
             content_blocks: [
-              { type: 'text', data: 'Die Brücke besteht zum einen aus einem nachwachsenden Rohstoff, den Flachsfasern. Und zum anderen aus rezyklierten PET-Flaschen und einem Epoxidharz, das zu 25 Prozent bio-basiert ist. <br><br> Als Handlauf kommt Bongossi-Holz zum Einsatz, das aus dem Rückbau eines anderen Bauwerks in Ulm stammt. <br><br> Die Brücke aus nachwachsenden und rezyklierten Rohstoffen wird viele Jahrzehnte lang Menschen über die „Kleine Blau“ tragen. Und dann?' },
+              { type: 'text', data: 'Die Brücke besteht zum einen aus einem nachwachsenden Rohstoff, den Flachsfasern. Und zum anderen aus rezyklierten PET-Flaschen und einem Polyesterharz, das zu 25 Prozent bio-basiert ist. <br><br> Als Handlauf kommt Bongossi-Holz zum Einsatz, das aus dem Rückbau eines anderen Bauwerks in Ulm stammt. <br><br> Die Brücke aus nachwachsenden und rezyklierten Rohstoffen wird viele Jahrzehnte lang Menschen über die „Kleine Blau“ tragen. Und dann?' },
             ]
           },
           {
@@ -673,7 +673,7 @@ export default {
           },
           {
             title: 'Flachs im Fokus', class: "d-flex flex-column", content_blocks: [
-              { type: 'text', data: 'Rijk und sein Team kombinierten Flachsfasern mit einem bio-basierten Epoxidharz. Dabei entsteht ein Verbundwerkstoff, das sowohl leicht als auch extrem stabil ist – und sich in Bauwerken locker mit Aluminium oder Stahl messen kann.' },
+              { type: 'text', data: 'Rijk und sein Team kombinierten Flachsfasern mit einem bio-basierten Polyesterharz. Dabei entsteht ein Verbundwerkstoff, das sowohl leicht als auch extrem stabil ist – und sich in Bauwerken locker mit Aluminium oder Stahl messen kann.' },
             ]
           },
           // {
