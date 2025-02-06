@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="main-container mt-5 mx-5 mb-10">
+    <div id="impressum" class="main-container mt-5 mx-5 mb-10">
         <div class="w-100 my-5" style="max-width:1000px !important;">
             <a href="/">
             <v-btn

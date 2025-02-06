@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <main :class="{ blurred: dialog }">
-      <div v-if="currentRoute === '/'">
+      <div>
         <ParallaxBackground />
         <v-card>
           <v-tabs v-model="tab" align-tabs="center" class="elevation-1" color="rgb(151, 178, 138)" @click="stopAudioChild(); stopVideos()">
@@ -18,12 +18,6 @@
             </v-tabs-window-item>
           </v-tabs-window>
         </v-card>
-      </div>
-      <div v-else-if="currentRoute === '/impressum'">
-        <ImpressumComponent />
-      </div>
-      <div v-else>
-        <h1>404 - Page Not Found</h1>
       </div>
       <FooterBottom />
     </main>
@@ -84,7 +78,6 @@ import ParallaxBackground from './components/Parallax.vue'
 import FooterBottom from './components/Footer.vue'
 import TimelineComponent from './components/Timeline.vue'
 import AudioInfoComponent from './components/AudioInfo.vue'
-import ImpressumComponent from './components/Impressum.vue'
 
 export default {
   data: () => ({
@@ -102,7 +95,6 @@ export default {
     TimelineComponent,
     AudioInfoComponent,
     FooterBottom,
-    ImpressumComponent
   },
   created() {
     this.setModiContent();
