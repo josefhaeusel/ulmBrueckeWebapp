@@ -1081,7 +1081,7 @@ window.onload = function () {
 }
 
 .progressive img.preview {
-  filter: blur(2vw);
+  /* filter: blur(2vw); */
   transform: scale(1)
 }
 
