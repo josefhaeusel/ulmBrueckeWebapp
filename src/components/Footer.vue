@@ -13,7 +13,7 @@
 
       <v-spacer></v-spacer>
 
-        <a style="color: rgb(151, 178, 138); margin-right: 1rem;" href="/impressum">Impressum</a>
+        <a style="color: rgb(151, 178, 138); margin-right: 1rem;" href="/impressum.html">Impressum</a>
 
         <img :src="require('../assets/logo_ulm.jpg')" href="https://www.ulm.de"
           style="height: 50px; margin-top: -5px; "/>
