@@ -149,7 +149,7 @@ export default {
             isLoaded: false,
             time: 0,
             slider: 1,
-            volume: -12,
+            volume: -6,
         },
         weight: {
             isPlaying: false,
@@ -158,7 +158,7 @@ export default {
             pauseIconActive: 'mdi-motion-pause-outline',
             time: 0,
             slider: 30,
-            volume: -3,
+            volume: 3,
         },
         soundscapesLoaded: false,
         audioStarted: false,
@@ -346,7 +346,7 @@ export default {
                             url: buffer,
                             // loop: false,
                             playbackRate: 1,
-                            volume: 0,
+                            volume: 3,
                             // grainSize: 0.2,
                             // overlap: 0.1
                         }).connect(delay);
