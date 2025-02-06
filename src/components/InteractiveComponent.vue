@@ -149,6 +149,7 @@ export default {
             isLoaded: false,
             time: 0,
             slider: 1,
+            volume: -12,
         },
         weight: {
             isPlaying: false,
@@ -157,6 +158,7 @@ export default {
             pauseIconActive: 'mdi-motion-pause-outline',
             time: 0,
             slider: 30,
+            volume: -3,
         },
         soundscapesLoaded: false,
         audioStarted: false,
@@ -377,7 +379,7 @@ export default {
                         } else if (type == this.samplePaths.soundscapes[i] && type == 'weight') {
                             autostart = true
                         }
-                        soundscapePlayers[player][x] = await new Tone.Player({ url: buffer, loop: true, autostart: autostart, volume: -12 })
+                        soundscapePlayers[player][x] = await new Tone.Player({ url: buffer, loop: true, autostart: autostart, volume: this[this.samplePaths.soundscapes[i]].volume })
 
                         soundscapePlayers[player][x].connect(
                             x === 0
