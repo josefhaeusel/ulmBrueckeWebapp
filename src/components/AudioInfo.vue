@@ -129,7 +129,7 @@
                     </v-card-text>
                   </div>
                   <div style="margin:0 1rem; align-self: center;">
-                  <video controls loop :id="`soundVideo-${n}`" class="border-thin" style=" border-radius: 20px; min-width: 10px">
+                  <video name="video" controls loop :id="`soundVideo-${n}`" class="border-thin" style=" border-radius: 20px; min-width: 10px">
                     <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>

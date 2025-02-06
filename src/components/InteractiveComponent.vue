@@ -1,7 +1,7 @@
 <template>
 
-    <div class="main-container my-5 mb-10 d-flex align-center justify-center" style="position: relative; margin-inline: 2px;"
-        id="interactive-container">
+    <div class="main-container my-5 mb-10 d-flex align-center justify-center"
+        style="position: relative; margin-inline: 2px;" id="interactive-container">
 
 
         <!-- <div v-if="!hasBeenClicked" class="overlay" id="overlay" @click="hasBeenClicked = true">
@@ -86,7 +86,8 @@
                     </v-btn>
                 </div>
 
-                <v-tabs v-model="activePlayer.name" center-active :color="buttonColor[activePlayer.name].color" mobile mobile-breakpoint="xs" style="justify-self: center; flex-wrap:wrap !important; max-width: 70vw;">
+                <v-tabs v-model="activePlayer.name" center-active :color="buttonColor[activePlayer.name].color" mobile
+                    mobile-breakpoint="xs" style="justify-self: center; flex-wrap:wrap !important; max-width: 70vw;">
                     <v-tab :value="'experimentalPlayer'">Nature</v-tab>
                     <v-tab :value="'percussionPlayer'">Percussion</v-tab>
                     <v-tab :value="'gamePlayer'">Game</v-tab>
@@ -265,22 +266,24 @@ export default {
 
         },
         async stopPlayback(type) {
-            if (type == 'temperature') {
-                soundscapePlayers.temperaturePlayers[0].stop()
-                soundscapePlayers.temperaturePlayers[1].stop()
-                this.temperature.isPlaying = false
-                // this.temperature.time = soundscapePlayers.temperaturePlayers.
+
+            if (this.audioStarted) {
+                if (type == 'temperature') {
+                    soundscapePlayers.temperaturePlayers[0].stop()
+                    soundscapePlayers.temperaturePlayers[1].stop()
+                    this.temperature.isPlaying = false
+                    // this.temperature.time = soundscapePlayers.temperaturePlayers.
+
+                }
+                else if (type == 'weight') {
+                    soundscapePlayers.weightPlayers[0].stop()
+                    soundscapePlayers.weightPlayers[1].stop()
+                    this.weight.isPlaying = false
+
+                }
+
 
             }
-            else if (type == 'weight') {
-                soundscapePlayers.weightPlayers[0].stop()
-                soundscapePlayers.weightPlayers[1].stop()
-                this.weight.isPlaying = false
-
-            }
-            console.log(type, 'is playing', false)
-
-            console.log('stop', type)
 
 
         },
