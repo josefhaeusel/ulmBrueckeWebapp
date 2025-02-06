@@ -133,6 +133,9 @@ let crossFades = {
 
 export default {
     name: 'InteractiveComponent',
+    props: {
+        stopPlayingAudio: Function
+    },
     data: () => ({
         hasBeenClicked: false,
         samplePaths: {

@@ -4,14 +4,14 @@
       <div v-if="currentRoute === '/'">
         <ParallaxBackground />
         <v-card>
-          <v-tabs v-model="tab" align-tabs="center" class="elevation-1" color="rgb(151, 178, 138)">
+          <v-tabs v-model="tab" align-tabs="center" class="elevation-1" color="rgb(151, 178, 138)" @click="stopAudioChild">
             <v-tab  class="main-tab-a" :value="1">Sound-Konzept</v-tab>
             <v-tab class="main-tab-b" :value="2">Smart Circular Bridge</v-tab>
           </v-tabs>
 
           <v-tabs-window v-model="tab">
             <v-tabs-window-item :value="1">
-              <AudioInfoComponent />
+              <AudioInfoComponent ref="audioInfo"/>
             </v-tabs-window-item>
             <v-tabs-window-item :value="2">
               <TimelineComponent />
@@ -110,6 +110,9 @@ export default {
 
   },
   methods: {
+    stopAudioChild(){
+      this.$refs.audioInfo?.stopAudioChild()
+    },
     checkPassword(){
       if( this.passwordInput == this.correctPassword){
         this.dialog = false

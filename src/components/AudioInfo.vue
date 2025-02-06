@@ -6,7 +6,6 @@
         Die Smart Circular Bridge ist ein Musikinstrument
       </h1>
 
-
       <p>
 
         Haben Sie sich schon einmal gefragt, welchen Klang eine Brücke haben könnte? <br> Das Team des Stuttgarter
@@ -83,7 +82,7 @@
         </div>
       </div> -->
 
-      <InteractiveComponent />
+      <InteractiveComponent ref="interactiveComponent"/>
 
       <div class="info-abstract mt-5">
       <h1 style="padding-bottom: 15px;">
@@ -251,6 +250,11 @@ export default {
 
   }),
   methods: {
+    stopAudioChild(){
+      console.log("yo")
+      this.$refs.interactiveComponent?.stopPlayback("weight")
+      this.$refs.interactiveComponent?.stopPlayback("temperature")
+    },
     changeOpacity(beispiel) {
       beispiel.bgopacity = 0.1;
     },
@@ -278,8 +282,6 @@ export default {
         }
       }
     },
-
-
     updateVolume(event) {
       this.volume = event.target.value;  // Den Slider-Wert speichern
       this.updateAllVolumes();  // Optional: Volumen für alle Audios aktualisieren
