@@ -19,7 +19,7 @@
         <div class="d-flex flex-column justify-center elevation-10 rounded-xl component-content">
 
             <h1>Welchen Klang entfaltet die Brücke im Sonnenlicht?</h1>
-            <strong>Drücke Sie auf Play und bewegen Sie den Regler zur Sonne - Hätten Sie das erwartet?</strong>
+            <strong>Drücken Sie auf Play und bewegen Sie den Regler zum Sonnen-Symbol hin.</strong>
 
             <div class="soundscape-slider border-thin">
 
@@ -39,15 +39,11 @@
 
             </div>
 
-            <p>Höhere Temperaturen führen zu einer erhöhten Spannung in der Brücke, die von Strain-Sensoren präzise
-                erfasst und in Klang übersetzt wird. Stellen Sie sich ein Seil vor, das bei Wind zwischen lockerem und
-                gespanntem Zustand wechselt – im lockeren Zustand bewegt es sich chaotisch und unregelmäßig, nicht wahr?
-                Genau so verhält sich die Soundscape der Brücke: Sie wird dynamischer und intensiver, je nachdem, wie
-                stark die Brücke beansprucht wird.</p>
+            <p>Höhere Temperaturen führen zu einer erhöhten Spannung in der Brücke, die von Strain-Sensoren präzise erfasst und in Klang übersetzt werden. Stellen Sie sich ein Seil vor, das bei Wind zwischen lockerem und gespanntem Zustand wechselt: Im lockeren Zustand bewegt es sich chaotisch und unregelmäßig. Genauso verhält sich die Klanglandschaft der Brücke. Sie wird dynamischer und intensiver, wenn die Brücke stark beansprucht wird.</p>
 
             <br>
-            <h1>Was passiert bei einer hohen Gewichtsbelastung der Brücke?</h1>
-            <strong> Drücke Sie auf Play und bewegen Sie den Regler zum Gewicht - So klingt Gemeinschaft!</strong>
+            <h1>Was passiert bei einer hohen Gewichtsbelastung?</h1>
+            <strong>Drücken Sie auf Play und bewegen Sie den Regler zum Gewichts-Symbol – so klingt Gemeinschaft!</strong>
 
 
             <div class="soundscape-slider border-thin">
@@ -63,16 +59,12 @@
                 <v-icon class="slider-icon" icon="mdi-weight"></v-icon>
             </div>
 
-            <p>Was verbinden wir mit einer Gruppe? Meist denken wir an Zusammenhalt und emotionale Verbindungen –
-                gemeinsam sind wir stärker als allein! Auch die klangliche Atmosphäre der Brücke spiegelt dieses Gefühl
-                wider: Mit steigender Belastung oder einer wachsenden Anzahl an Lebewesen wird der Klang voller und
-                emotionaler. Eine harmonische Komposition verstärkt diese starke, verbindende Note.</p>
+            <p>Was verbinden wir mit einer Gruppe? Meist denken wir an Zusammenhalt und emotionale Verbindungen – gemeinsam sind wir stärker als allein! Auch die klangliche Atmosphäre der Brücke spiegelt dieses Gefühl wider: Mit steigender Belastung oder einer wachsenden Anzahl an Lebewesen wird der Klang voller und emotionaler. Eine harmonische Komposition verstärkt die verbindende Note.</p>
 
             <br>
 
             <h1>Wie hören sich eigentlich Schritte an?</h1>
-            <p>Klicken Sie sich durch die folgenden Buttons durch. Je größer der Button, desto stärker die Sprungkraft!
-                <br> Zudem können Sie zwischen den 3 Klangmodi wechseln.
+            <p><b>Klicken Sie sich durch die Schritt-Buttons: Je größer der Button, desto stärker die Sprungkraft!</b>
             </p>
 
             <!-- <v-slider></v-slider> -->
@@ -93,18 +85,12 @@
                 </v-tabs>
             </div>
 
-            <p>Die in die Brücke integrierten Accelerometer-Sensoren ermöglichen es, Schritte mittels mathematischer
-                Berechnungen präzise auszuwerten – sogar die Stärke der Schritte kann dabei unterschieden werden. Um das
-                kreative Potenzial der Klangbrücke in Ulm voll auszuschöpfen und den vielfältigen Wünschen unserer
-                Gesellschaft gerecht zu werden, verfügt sie über drei unterschiedliche klangliche Modi - Nature, Gaming
-                & Percussion</p>
+            <p>Die in die Brücke integrierten Accelerometer-Sensoren ermöglichen es, Schritte mittels mathematischer Berechnungen präzise auszuwerten – sogar die Stärke der Schritte wird erkannt. Um das kreative Potenzial der Klangbrücke in Ulm voll auszuschöpfen und verschiedene Generationen anzusprechen, verfügt sie über drei klangliche Modi: Nature, Gaming & Percussion.</p>
 
             <br>
 
-            <h1>Erschaffen Sie sich nun ihre eigene Klangkomposition!</h1>
-            <p>Mischen Sie die Regler für Temperatur und Gewicht bzw. die Anzahl der Lebewesen auf der Brücke, und
-                experimentieren Sie mit den Schritt-Buttons. Im Handumdrehen entsteht so Ihr ganz persönliches
-                Musikstück!</p>
+            <h1>Erschaffen Sie Ihre eigene Komposition!</h1>
+            <p>Mischen Sie die Regler für Temperatur und Gewicht bzw. die Anzahl der Lebewesen auf der Brücke und experimentieren Sie mit den Schritt-Buttons. Im Handumdrehen entsteht so Ihre ganz persönliche Brücken-Musik!</p>
             <!-- <p>Großer Playbutton, um alle Soundscapes nochmal zu triggern?</p> -->
 
         </div>

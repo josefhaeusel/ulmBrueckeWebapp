@@ -13,9 +13,9 @@
             <v-card-title :style="{ backgroundColor: getStyle(module.topic).color }" :class="['text-h4', 'text-white']" text-color="white">
               {{ module.title }}
             </v-card-title>
-            <v-card-text class="bg-white text--primary mt-4">
+            <!-- <v-card-text class="bg-white text--primary mt-4">
               <p>{{ module.text }}</p>
-            </v-card-text>
+            </v-card-text> -->
           </div>
         </v-card>
       </v-timeline-item>
@@ -46,7 +46,7 @@ export default {
       {
         topic: 'Gaming',
         title: 'Gaming',
-        text: 'Tauchen Sie in die Welt nostalgischer Videospiel-Sounds ein!',
+        // text: 'Tauchen Sie in die Welt nostalgischer Videospiel-Sounds ein!',
         timelineText: '15-16 Uhr',
         size: "default",
         cover: 'flax-matten.jpg'
@@ -55,7 +55,7 @@ export default {
       {
         topic: 'Experimental',
         title: 'Nature',
-        text: 'Erleben Sie eine natürliche Klangfarbe, kombiniert mit subtilen technischen Akzenten.',
+        // text: 'Erleben Sie eine natürliche Klangfarbe, kombiniert mit subtilen technischen Akzenten.',
         timelineText: 'außerhalb der Specials',
         size: "default",
         cover: 'card1.jpg'
@@ -63,7 +63,7 @@ export default {
       {
         topic: 'Percussion',
         title: 'Percussion',
-        text: 'Kreieren Sie rhythmische Patterns mit Percussion-Instrumenten.',
+        // text: 'Kreieren Sie rhythmische Patterns mit Percussion-Instrumenten.',
         timelineText: '18-19 Uhr',
         size: "default",
         cover: 'card1.jpg'
