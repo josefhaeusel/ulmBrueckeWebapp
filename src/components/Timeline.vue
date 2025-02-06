@@ -108,7 +108,7 @@
 
 
 
-                    <video v-if="content_block.type === 'video'" :src="require(`../assets/${content_block.data}`)"
+                    <video name="video" v-if="content_block.type === 'video'" :src="require(`../assets/${content_block.data}`)"
                       controls :style="content_block.style" :class="content_block.class">
                     </video>
 
@@ -778,6 +778,13 @@ export default {
   },
 
   methods: {
+    stopVideos() {
+      const videos = document.getElementsByName("video")
+      console.log("VIDEOS", videos)
+      videos.forEach( (video) => {
+        video.pause()
+      })
+    },
     getStyle(topic) {
       return this.topicStyles[topic]
     },
@@ -795,7 +802,6 @@ export default {
       return newPath;
     },
     async showExpansions(module) {
-
 
 
       this.timeline.timelinePositionX = '-120%'
@@ -818,6 +824,8 @@ export default {
         left: 0,
         behavior: "smooth",
       });
+
+      this.stopVideos()
 
     },
     async hideExpansion(module) {
@@ -842,6 +850,7 @@ export default {
         behavior: "smooth",
       });
 
+      this.stopVideos()
 
 
     },
@@ -855,14 +864,20 @@ export default {
       }
     },
     nextCard(module) {
+
       module.expansionOnboarding = module.expansionOnboarding + 1 > module.expansionCards.length - 1
         ? 0
         : module.expansionOnboarding + 1
+
+      this.stopVideos()
     },
     prevCard(module) {
       module.expansionOnboarding = module.expansionOnboarding - 1 < 0
         ? module.expansionCards.length - 1
         : module.expansionOnboarding - 1
+
+      this.stopVideos()
+
     },
     async scrollFunktion() {
 
