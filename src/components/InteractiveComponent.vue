@@ -101,7 +101,7 @@
 
             <br>
 
-            <h1>Erschaffen Sie sich nun ihre eigene Klangkomposition!!!</h1>
+            <h1>Erschaffen Sie sich nun ihre eigene Klangkomposition!</h1>
             <p>Mischen Sie die Regler für Temperatur und Gewicht bzw. die Anzahl der Lebewesen auf der Brücke, und
                 experimentieren Sie mit den Schritt-Buttons. Im Handumdrehen entsteht so Ihr ganz persönliches
                 Musikstück!</p>
@@ -148,7 +148,7 @@ export default {
             pauseIconActive: 'mdi-motion-pause-outline',
             isLoaded: false,
             time: 0,
-            slider: 0,
+            slider: 1,
         },
         weight: {
             isPlaying: false,
