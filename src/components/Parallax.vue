@@ -23,7 +23,7 @@
               <v-progress-circular v-if="audioIsLoading" color="primary" indeterminate size="50"></v-progress-circular>
             </div>
             <audio id="audioPlayer">
-              <source src="	http://flachsbruecke-ulm.de:8000/stream"/>
+              <source src="https://flachsbruecke-ulm.de/radio/stream"/>
             </audio>
           </div>
       </div>
