@@ -169,6 +169,66 @@ export default {
         ],
       },
       {
+        topic: 'SCB_Ulm',
+        title: 'Die Smart Circular Bridge in Ulm',
+        text: 'Eindrücke aus dem Ulmer Alltag',
+        showExpansion: false,
+        cover: 'alltag/0_SCB in Ulm.png',
+        expansionContent: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        expansionOnboarding: 0,
+        minHeight: 600,
+        expansionCards: [
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'alltag/1_SCB in Ulm.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 750px; width: 100%" },
+            ]
+          },
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'alltag/2_SCB in Ulm.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 750px; width: 100%" },
+            ]
+          },
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'alltag/3_SCB in Ulm.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 750px; width: 100%" },
+            ]
+          },
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'alltag/4_SCB in Ulm.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 750px; width: 100%" },
+            ]
+          },
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'alltag/5_SCB in Ulm.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 750px; width: 100%" },
+            ]
+          },
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'alltag/6_SCB in Ulm.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 750px; width: 100%" },
+            ]
+          },
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'alltag/7_SCB in Ulm.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 750px; width: 100%" },
+            ]
+          },
+          {
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'alltag/8_SCB in Ulm.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 750px; width: 100%" },
+            ]
+          },
+        ],
+      },
+      {
         topic: 'Brücke',
         title: 'Der Brückenbau',
         showExpansion: false,
@@ -427,6 +487,11 @@ export default {
             ]
           },
           {
+            class: 'architektur-1 justify-center',
+            content_blocks: [{ type: 'img', data: 'Moeglichmacher/Moeglichmacher Position 2_Neu.jpg', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
+            ]
+          },
+          {
             title: 'Tragende Elemente', class: "d-flex flex-column", style: "max-width: 550px", content_blocks: [
               { type: 'img', data: 'Moeglichmacher/2_Europkarte ohne Copyright.png', parentstyle: "display: flex; justify-content:center;", style: `width:100%; max-width: 1100px` },
               { type: 'text', data: 'Für ambitionierte Projekte braucht es eine Menge engagierter Leute. Hinter der Smart Circular Bridge steht ein europaweites Team aus fünf Universitäten, sieben innovativen Unternehmen und drei Städten. Über Ländergrenzen hinweg fließen einzigartige Kompetenzen in der Brücke über die „Kleine Blau“ in Ulm zusammen.' },
@@ -457,6 +522,13 @@ export default {
             class: 'architektur-1',
             content_blocks: [
               { type: 'text', data: 'Dank der Leichtbauweise wiegt die Brücke deutlich weniger als eine konventionelle Konstruktion. Sie wiegt nur 5 Tonnen, kann aber mehr als 24 Tonnen tragen – und das geringe Gewicht und die nachwachsenden Rohstoffe reduzieren den CO2- Fußabdruck.<br><br> Mit der neuen Version der Smart Circular Bridge hat die Stadt Ulm den Weg bereitet für ganz neue Einsatzmöglichkeiten von Biokompositen. Aus dem Material können künftig auch Häuser gebaut werden oder andere anspruchsvolle Bauwerke.' },
+            ]
+          },
+          {
+            title: 'Historisches Münster und zukunftsweisende Brücke',
+            class: 'architektur-1',
+            content_blocks: [
+              { type: 'img', data: 'Moeglichmacher/Moeglichmacher 7.png', parentstyle: "display: flex; justify-content:center", style: "max-width: 550px; width: 100%" },
             ]
           },
           {
@@ -764,6 +836,11 @@ export default {
       Brücke: {
         color: '#D67B2A',
         hintergrundColor: '#EABD94',
+        icon: 'mdi-bridge'
+      },
+      SCB_Ulm:  {
+        color: '#97B28A',
+        hintergrundColor: '#CBD8C4',
         icon: 'mdi-bridge'
       },
 

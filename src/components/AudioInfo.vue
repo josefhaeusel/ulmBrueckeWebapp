@@ -18,6 +18,8 @@
         <strong> Viel Spaß beim Erkunden! </strong>
       </p>
 
+      <img class="rounded-xl" style="margin: 15px 0 ; width:100%" :src="require('../assets/klangkunst_landingpage.png')" alt="">
+
 
 
       <!-- <div class="fragezeichenContainer rounded-xl elevation-10 border-thin my-10" style="background-color: #97B28A;">
