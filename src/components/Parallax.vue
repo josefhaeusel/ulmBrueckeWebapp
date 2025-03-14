@@ -2,7 +2,7 @@
   <div>
 
     <div class="parallax-video-container" ref="parallaxContainer">
-      <div style="position:absolute; background:rgba(0,0,0,0.5)"  class="h-100 w-100 d-flex align-center justify-center">
+      <div style="position:absolute; background:rgba(0,0,0,0.4)"  class="w-100 h-100 d-flex align-center justify-center">
         <video autoplay muted loop class="parallax-video" ref="parallaxVideo">
           <source :src="require('../assets/banner_video.mp4')" type="video/mp4" />
           Your browser does not support the video tag.
@@ -107,6 +107,8 @@ export default {
 
 .parallax-video {
   position: absolute;
+  /* width: 100%;
+  height: 100%; */
   left: 50%;
   z-index: -1;
 }
@@ -120,6 +122,15 @@ export default {
 @media (max-width:500px) {
   .text-h2{
     font-size:55px !important
+  }
+
+
+}
+
+@media (min-width:1250px) {
+
+  .parallax-video {
+    width: 100%
   }
 }
 </style>
