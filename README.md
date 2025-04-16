@@ -2,10 +2,9 @@
 
 **An interactive web application showcasing the Smart Circular Bridge ("Flachsbrücke") in Ulm.**
 
-![Flachsbrücke Ulm](https://flachsbruecke-ulm.de/media/banner_video.e1d5da7a.mp4) <!-- Replace with an actual image path if available -->
 
 ## 🎯 Project Overview
-
+https://github.com/josefhaeusel/ulmBrueckeWebapp/blob/main/README.md
 This project presents the innovative **Smart Circular Bridge** in Ulm—a pioneering structure built from flax fibers and bio-based resins. The bridge not only exemplifies sustainable construction but also transforms into a musical instrument, translating pedestrian movements into sound.
 
 Key features:
@@ -74,9 +73,7 @@ Visit the live application to:
 - [University of Stuttgart – BioMat](https://www.uni-stuttgart.de/en/research/profile/biomat/)
 - [Energiezukunft Article on the Bridge](https://www.energiezukunft.eu/bauen/bio-basierte-bruecke-in-ulm-macht-musik)
 
-## 📝 License
-
-This project is licensed under the [MIT License](LICENSE).
+![Flachsbrücke Ulm](/public/favicon.jpg)
 
 ---
 
