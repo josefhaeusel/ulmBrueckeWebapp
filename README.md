@@ -1,16 +1,20 @@
 # ulm-bruecke-frontend
 
+## Deployment flachsbruecke-ulm.de (Hetzner Server)
+### Server Commands
 ```
-ssh root@65.109.168.160
+cd /var/www/ulmBrueckeWebapp/;
+git pull;
+npm run build;
+
 ```
 
-
-
+### Icecast Stream
 ```
-ICECAST2 Port http://ulm-smart-bridge.de:8000
+ICECAST2 Port http://flachsbruecke-ulm.de:8000
 ```
 
-## Project setup
+## VueJS Project setup
 ```
 npm install
 ```
