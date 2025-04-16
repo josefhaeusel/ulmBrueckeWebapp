@@ -62,7 +62,7 @@ ulmBrueckeWebapp/
 Visit the live application to:
 
 - Hear the bridge's responses to pedestrian movements.
-- Visualize real-time sensor data.
+- Interact and play with the sounds.
 - Explore the bridge's construction and sustainability features.
 
 👉 [flachsbruecke-ulm.de](https://flachsbruecke-ulm.de)
