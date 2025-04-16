@@ -1,37 +1,83 @@
-# flachsbruecke-ulm.de
+# 🌉 Ulm Flachsbrücke WebApp
 
-## Deployment flachsbruecke-ulm.de (Hetzner Server)
-### Server Commands
-```
-cd /var/www/ulmBrueckeWebapp/;
-git pull;
-npm run build
+**An interactive web application showcasing the Smart Circular Bridge ("Flachsbrücke") in Ulm.**
+
+![Flachsbrücke Ulm](https://flachsbruecke-ulm.de/media/banner_video.e1d5da7a.mp4) <!-- Replace with an actual image path if available -->
+
+## 🎯 Project Overview
+
+This project presents the innovative **Smart Circular Bridge** in Ulm—a pioneering structure built from flax fibers and bio-based resins. The bridge not only exemplifies sustainable construction but also transforms into a musical instrument, translating pedestrian movements into sound.
+
+Key features:
+
+- **Bio-based Construction**: Utilizes flax fibers and recycled PET foam, resulting in a lightweight yet robust structure.
+- **Interactive Sound Experience**: Equipped with 42 sensors that capture movements and environmental changes, converting them into auditory feedback.
+- **Real-time Monitoring**: Continuous data collection for structural health monitoring, aiding research in sustainable materials.
+
+Learn more at [flachsbruecke-ulm.de](https://flachsbruecke-ulm.de).
+
+## 🖥️ Technologies Used
+
+- **Frontend**: [Vue.js]
+- **Deployment**: [nginx]
+- **Audio Stream**: [Icecast2]
+
+
+## 🚀 Getting Started
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/josefhaeusel/ulmBrueckeWebapp.git
+   ```
+2. **Navigate to the project directory**:
+   ```bash
+   cd ulmBrueckeWebapp
+   ```
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+4. **Start the development server**:
+   ```bash
+   npm start
+   ```
+
+Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
+
+## 📁 Project Structure
+
+```plaintext
+ulmBrueckeWebapp/
+├── public/               # Static assets
+├── src/                  # Source files
+│   ├── components/       # Reusable components
+│   ├── pages/            # Application pages
+│   ├── assets/           # Images, stylesheets, etc.
+│   └── App.js            # Root component
+├── package.json          # Project metadata and dependencies
+└── README.md             # Project documentation
 ```
 
-### Icecast Stream
-```
-ICECAST2 Port http://flachsbruecke-ulm.de:8000
-```
+## 🎵 Experience the Bridge
 
-## VueJS Project setup
-```
-npm install
-```
+Visit the live application to:
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- Hear the bridge's responses to pedestrian movements.
+- Visualize real-time sensor data.
+- Explore the bridge's construction and sustainability features.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+👉 [flachsbruecke-ulm.de](https://flachsbruecke-ulm.de)
 
-### Lints and fixes files
-```
-npm run lint
-```
+## 📚 Learn More
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [Smart Circular Bridge Project Overview](https://vb.nweurope.eu/projects/project-search/smart-circular-bridge-scb-for-pedestrians-and-cyclists-in-a-circular-built-environment/)
+- [University of Stuttgart – BioMat](https://www.uni-stuttgart.de/en/research/profile/biomat/)
+- [Energiezukunft Article on the Bridge](https://www.energiezukunft.eu/bauen/bio-basierte-bruecke-in-ulm-macht-musik)
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+*Developed with ❤️ to showcase the fusion of sustainable engineering and interactive technology.*
