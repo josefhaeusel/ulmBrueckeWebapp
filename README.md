@@ -1,4 +1,4 @@
-# ulm-bruecke-frontend
+# flachsbruecke-ulm.de
 
 ## Deployment flachsbruecke-ulm.de (Hetzner Server)
 ### Server Commands
