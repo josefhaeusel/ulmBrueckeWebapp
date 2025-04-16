@@ -2,6 +2,8 @@
 
 **An interactive web application showcasing the Smart Circular Bridge ("Flachsbrücke") in Ulm.**
 
+![Banner](/src/assets/alltag/3_SCB%20in%20Ulm.png)
+
 ## 👨‍💻 Development & Credits
 
 This web application was developed by
@@ -82,7 +84,6 @@ Visit the live application to:
 - [Energiezukunft Article on the Bridge](https://www.energiezukunft.eu/bauen/bio-basierte-bruecke-in-ulm-macht-musik)
 
 ![Flachsbrücke Ulm](/public/favicon.jpg)
-
 ---
 
 *Developed with ❤️ to showcase the fusion of sustainable engineering and interactive technology.*
