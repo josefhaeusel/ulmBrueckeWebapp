@@ -2,6 +2,13 @@
 
 **An interactive web application showcasing the Smart Circular Bridge ("Flachsbrücke") in Ulm.**
 
+## 👨‍💻 Development & Credits
+
+This web application was developed by  
+**[Josef Häusel](https://github.com/josefhaeusel)** – *Lead Creative Technologist at [KLANGERFINDER GmbH & Co. KG](https://klangerfinder.de)*.
+**[Alec Dull](https://github.com/AlecDull)** – *Creative Technologist at [KLANGERFINDER GmbH & Co. KG](https://klangerfinder.de)*.
+
+Commissioned by or in collaboration with the Smart Circular Bridge project.
 
 ## 🎯 Project Overview
 https://github.com/josefhaeusel/ulmBrueckeWebapp/blob/main/README.md
