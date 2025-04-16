@@ -4,11 +4,13 @@
 
 ## 👨‍💻 Development & Credits
 
-This web application was developed by  
-**[Josef Häusel](https://github.com/josefhaeusel)** – *Lead Creative Technologist at [KLANGERFINDER GmbH & Co. KG](https://klangerfinder.de)*.
-**[Alec Dull](https://github.com/AlecDull)** – *Creative Technologist at [KLANGERFINDER GmbH & Co. KG](https://klangerfinder.de)*.
+This web application was developed by
 
-Commissioned by or in collaboration with the Smart Circular Bridge project.
+- **[Josef Häusel](https://github.com/josefhaeusel)** – *Lead Creative Technologist at [KLANGERFINDER GmbH & Co. KG](https://klangerfinder.de)*.
+
+- **[Alec Dull](https://github.com/AlecDull)** – *Creative Technologist at [KLANGERFINDER GmbH & Co. KG](https://klangerfinder.de)*.
+
+Commissioned by and in collaboration with the Smart Circular Bridge project.
 
 ## 🎯 Project Overview
 https://github.com/josefhaeusel/ulmBrueckeWebapp/blob/main/README.md
