@@ -5,8 +5,7 @@
 ```
 cd /var/www/ulmBrueckeWebapp/;
 git pull;
-npm run build;
-
+npm run build
 ```
 
 ### Icecast Stream
