@@ -38,7 +38,7 @@ Learn more at [flachsbruecke-ulm.de](https://flachsbruecke-ulm.de).
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/josefhaeusel/ulmBrueckeWebapp.git
+   git clone
    ```
 2. **Navigate to the project directory**:
    ```bash
@@ -52,17 +52,15 @@ Learn more at [flachsbruecke-ulm.de](https://flachsbruecke-ulm.de).
    ```bash
    npm build
    ```
-5. **Serve via nginx**:
+5. **Serve via nginx**
+   ```bash
+   # see nginx.conf
    ```
-   see nginx.conf
-   ```
-6. **Start /api detached and log**:
-   ```
+7. **Start /api detached and log**:
+   ```bash
    nohup npm start > app.log 2>&1 &;
    tail -f app.log
    ```
-
-Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
 
 ## 📁 Project Structure
 
