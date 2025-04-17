@@ -13,7 +13,7 @@ export class HeartbeatService {
     }
 
     recordHeartbeat(ip, timestamp) {
-        this.heartbeats.set(ip, timestamp);
+        this.heartbeats.set(ip, Date.now());
         this.logger.debug(`Heartbeat from ${ip} sent at ${timestamp}`);
         if (process.env.PROD == "false") {
             this.sendEmail(ip)
