@@ -30,9 +30,11 @@ Learn more at [flachsbruecke-ulm.de](https://flachsbruecke-ulm.de).
 - **Frontend**: [Vue.js]
 - **Deployment**: [nginx]
 - **Audio Stream**: [Icecast2]
+- **API**: [Nest.JS]
+- **Monitoring**: [C#]
 
 
-## 🚀 Getting Started
+## 🚀 Getting Started (FE)
 
 1. **Clone the repository**:
    ```bash
@@ -48,7 +50,16 @@ Learn more at [flachsbruecke-ulm.de](https://flachsbruecke-ulm.de).
    ```
 4. **Start the development server**:
    ```bash
-   npm start
+   npm build
+   ```
+5. **Serve via nginx**:
+   ```
+   see nginx.conf
+   ```
+6. **Start /api detached and log**:
+   ```
+   nohup npm start > app.log 2>&1 &;
+   tail -f app.log
    ```
 
 Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
@@ -57,6 +68,9 @@ Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
 
 ```plaintext
 ulmBrueckeWebapp/
+├── api/                  # NestJS API
+├── heartbeat_console/    # C# Code for IPC heartbeat
+├── public/               # Static assets
 ├── public/               # Static assets
 ├── src/                  # Source files
 │   ├── components/       # Reusable components
@@ -79,9 +93,10 @@ Visit the live application to:
 
 ## 📚 Learn More
 
+- [Sensor Data Dashboard](https://dashboard.smartcircularbridge.eu/d/ulm/ulm?orgId=1&refresh=5s)
 - [Smart Circular Bridge Project Overview](https://vb.nweurope.eu/projects/project-search/smart-circular-bridge-scb-for-pedestrians-and-cyclists-in-a-circular-built-environment/)
 - [University of Stuttgart – BioMat](https://www.uni-stuttgart.de/en/research/profile/biomat/)
-- [Energiezukunft Article on the Bridge](https://www.energiezukunft.eu/bauen/bio-basierte-bruecke-in-ulm-macht-musik)
+  
 
 ![Flachsbrücke Ulm](/public/favicon.jpg)
 ---
