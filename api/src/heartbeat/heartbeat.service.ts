@@ -12,9 +12,9 @@ export class HeartbeatService {
         setInterval(() => this.checkHeartbeats(), 60000); // every 60 sec
     }
 
-    recordHeartbeat(ip) {
-        this.heartbeats.set(ip, Date.now());
-        this.logger.debug(`Heartbeat from ${ip} at ${new Date().toISOString()}`);
+    recordHeartbeat(ip, timestamp) {
+        this.heartbeats.set(ip, timestamp);
+        this.logger.debug(`Heartbeat from ${ip} sent at ${timestamp}`);
         if (process.env.PROD == "false") {
             this.sendEmail(ip)
         }
@@ -51,7 +51,7 @@ export class HeartbeatService {
 
         try {
             await transporter.sendMail(mailOptions);
-            this.logger.log(`Email sent for missing heartbeat: ${ip}`);
+            this.logger.log(`Email sent to ${process.env.GMAIL_USER_TO} missing heartbeat: ${ip}`);
         } catch (err) {
             this.logger.error(`Failed to send email: ${err}`);
         }

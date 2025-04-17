@@ -1,15 +1,21 @@
-import { Controller, Post, Req } from '@nestjs/common';
-import { Request } from 'express';
+import { Controller, Post, Body } from '@nestjs/common';
 import { HeartbeatService } from './heartbeat.service';
+
+interface HeartbeatDto {
+  id: string;
+  timestamp: string;
+}
 
 @Controller('api/heartbeat')
 export class HeartbeatController {
-  constructor(private readonly heartbeatService: HeartbeatService) {}
+  constructor(private readonly heartbeatService: HeartbeatService) { }
 
   @Post()
-  receiveHeartbeat(@Req() req: Request) {
-    const ip = req.ip;
-    this.heartbeatService.recordHeartbeat(ip);
+  receiveHeartbeat(@Body() heartbeat: HeartbeatDto) {
+    const id = heartbeat.id;
+    const timestamp = heartbeat.timestamp;
+
+    this.heartbeatService.recordHeartbeat(id, timestamp);
     return { message: 'Heartbeat received' };
   }
 }
