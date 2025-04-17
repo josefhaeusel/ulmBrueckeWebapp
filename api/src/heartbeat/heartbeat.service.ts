@@ -5,11 +5,11 @@ import * as nodemailer from 'nodemailer';
 export class HeartbeatService {
     private readonly logger = new Logger(HeartbeatService.name);
     private readonly heartbeats = new Map<string, number>();
-    private readonly timeoutSeconds = 15;
+    private readonly timeoutSeconds = 120;
 
     constructor() {
         // Start monitor loop
-        setInterval(() => this.checkHeartbeats(), 10000); // every 60 sec
+        setInterval(() => this.checkHeartbeats(), 60); // every 60 sec
     }
 
     recordHeartbeat(ip, timestamp) {
@@ -49,7 +49,7 @@ export class HeartbeatService {
             from: process.env.GMAIL_USER_FROM,
             to: recipients,
             subject: `[SCB] 🚨 System Report`,
-            text: `${new Date().toLocaleDateString("de-DE")}: No heartbeat received from PC User ${ip} in the last ${this.timeoutSeconds} seconds.`,
+            text: `${new Date().toLocaleString("en-GB", { timeZone: "Europe/Berlin" })}: No heartbeat received from PC User ${ip} in the last ${this.timeoutSeconds} seconds.`,
         };
 
         try {
