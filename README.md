@@ -59,6 +59,7 @@ Learn more at [flachsbruecke-ulm.de](https://flachsbruecke-ulm.de).
 7. **Start /api detached and log**:
    ```bash
    nohup npm start > app.log 2>&1 &;
+   lsof -i :3000;
    tail -f app.log
    ```
 
