@@ -24,6 +24,7 @@ export class HeartbeatService {
         const now = Date.now();
         for (const [ip, lastSeen] of this.heartbeats.entries()) {
             const diffSeconds = (now - lastSeen) / 1000;
+            this.logger.debug("diffSeconds", diffSeconds)
             if (diffSeconds > this.timeoutSeconds) {
                 this.logger.warn(`No heartbeat from ${ip} in ${diffSeconds}s`);
                 this.sendEmail(ip);
