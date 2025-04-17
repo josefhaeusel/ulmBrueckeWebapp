@@ -16,7 +16,7 @@ export class HeartbeatService {
         this.heartbeats.set(ip, Date.now());
         this.logger.debug(`Heartbeat from ${ip} at ${new Date().toISOString()}`);
         if (process.env.PROD == "false") {
-            this.sendEmail(ip, Date.now())
+            this.sendEmail(ip)
         }
     }
 
@@ -26,13 +26,13 @@ export class HeartbeatService {
             const diffSeconds = (now - lastSeen) / 1000;
             if (diffSeconds > this.timeoutSeconds) {
                 this.logger.warn(`No heartbeat from ${ip} in ${diffSeconds}s`);
-                this.sendEmail(ip, now);
+                this.sendEmail(ip);
                 this.heartbeats.delete(ip);
             }
         }
     }
 
-    private async sendEmail(ip: string, time) {
+    private async sendEmail(ip: string) {
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
             auth: {
@@ -46,7 +46,7 @@ export class HeartbeatService {
             from: process.env.GMAIL_USER_FROM,
             to: process.env.GMAIL_USER_TO,
             subject: `[SCB] 🚨 System Report`,
-            text: `${time} No heartbeat received from IP ${ip} in the last ${this.timeoutSeconds} seconds.`,
+            text: `${new Date().toISOString()}: No heartbeat received from IP ${ip} in the last ${this.timeoutSeconds} seconds.`,
         };
 
         try {
