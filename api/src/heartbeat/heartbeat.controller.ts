@@ -16,6 +16,6 @@ export class HeartbeatController {
     const timestamp = heartbeat.timestamp;
 
     this.heartbeatService.recordHeartbeat(id, timestamp);
-    return { message: 'Heartbeat received' };
+    return { message: `Heartbeat received ${id} ${timestamp}` };
   }
 }
