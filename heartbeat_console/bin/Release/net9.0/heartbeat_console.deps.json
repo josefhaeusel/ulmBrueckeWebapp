@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "heartbeat_console/1.0.0": {
+        "runtime": {
+          "heartbeat_console.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "heartbeat_console/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

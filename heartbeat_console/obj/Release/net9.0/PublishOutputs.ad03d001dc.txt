@@ -1,0 +1,5 @@
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/bin/Release/net9.0/publish/heartbeat_console
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/bin/Release/net9.0/publish/heartbeat_console.dll
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/bin/Release/net9.0/publish/heartbeat_console.deps.json
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/bin/Release/net9.0/publish/heartbeat_console.runtimeconfig.json
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/bin/Release/net9.0/publish/heartbeat_console.pdb

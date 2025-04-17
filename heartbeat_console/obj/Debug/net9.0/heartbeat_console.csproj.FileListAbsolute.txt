@@ -1,0 +1,15 @@
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/bin/Debug/net9.0/heartbeat_console
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/bin/Debug/net9.0/heartbeat_console.deps.json
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/bin/Debug/net9.0/heartbeat_console.runtimeconfig.json
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/bin/Debug/net9.0/heartbeat_console.dll
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/bin/Debug/net9.0/heartbeat_console.pdb
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/Debug/net9.0/heartbeat_console.GeneratedMSBuildEditorConfig.editorconfig
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/Debug/net9.0/heartbeat_console.AssemblyInfoInputs.cache
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/Debug/net9.0/heartbeat_console.AssemblyInfo.cs
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/Debug/net9.0/heartbeat_console.csproj.CoreCompileInputs.cache
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/Debug/net9.0/heartbeat_console.sourcelink.json
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/Debug/net9.0/heartbeat_console.dll
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/Debug/net9.0/refint/heartbeat_console.dll
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/Debug/net9.0/heartbeat_console.pdb
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/Debug/net9.0/heartbeat_console.genruntimeconfig.cache
+/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/Debug/net9.0/ref/heartbeat_console.dll
