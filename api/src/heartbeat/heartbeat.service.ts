@@ -41,17 +41,19 @@ export class HeartbeatService {
             },
         });
 
+        const rawMailList = process.env.MAIL_RECIPIENTS;
+        const recipients = rawMailList?.split(',').map(email => email.trim()) || [];
 
         const mailOptions = {
             from: process.env.GMAIL_USER_FROM,
-            to: process.env.GMAIL_USER_TO,
+            to: recipients,
             subject: `[SCB] 🚨 System Report`,
             text: `${new Date().toISOString()}: No heartbeat received from IP ${ip} in the last ${this.timeoutSeconds} seconds.`,
         };
 
         try {
             await transporter.sendMail(mailOptions);
-            this.logger.log(`Email sent to ${process.env.GMAIL_USER_TO} missing heartbeat: ${ip}`);
+            this.logger.log(`Email sent to ${recipients} missing heartbeat: ${ip}`);
         } catch (err) {
             this.logger.error(`Failed to send email: ${err}`);
         }
