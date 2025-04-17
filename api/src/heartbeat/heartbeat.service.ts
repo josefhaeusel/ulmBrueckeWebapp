@@ -5,11 +5,11 @@ import * as nodemailer from 'nodemailer';
 export class HeartbeatService {
     private readonly logger = new Logger(HeartbeatService.name);
     private readonly heartbeats = new Map<string, number>();
-    private readonly timeoutSeconds = 120;
+    private readonly timeoutSeconds = 15;
 
     constructor() {
         // Start monitor loop
-        setInterval(() => this.checkHeartbeats(), 60000); // every 60 sec
+        setInterval(() => this.checkHeartbeats(), 10000); // every 60 sec
     }
 
     recordHeartbeat(ip, timestamp) {
