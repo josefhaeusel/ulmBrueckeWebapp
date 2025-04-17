@@ -24,7 +24,7 @@ export class HeartbeatService {
         const now = Date.now();
         for (const [ip, lastSeen] of this.heartbeats.entries()) {
             const diffSeconds = (now - lastSeen) / 1000;
-            this.logger.debug(`Checking Heartbeat... \n -> Time since last one: $${diffSeconds}s`)
+            this.logger.debug(`Checking Heartbeat... \n -> Time since last one: ${diffSeconds}s`)
             if (diffSeconds > this.timeoutSeconds) {
                 this.logger.warn(`No heartbeat from ${ip} in ${diffSeconds}s`);
                 this.sendEmail(ip);
@@ -49,7 +49,7 @@ export class HeartbeatService {
             from: process.env.GMAIL_USER_FROM,
             to: recipients,
             subject: `[SCB] 🚨 System Report`,
-            text: `${new Date().toISOString()}: No heartbeat received from IP ${ip} in the last ${this.timeoutSeconds} seconds.`,
+            text: `${new Date().toLocaleDateString("de-DE")}: No heartbeat received from PC User ${ip} in the last ${this.timeoutSeconds} seconds.`,
         };
 
         try {
