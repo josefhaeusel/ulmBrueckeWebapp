@@ -9,7 +9,7 @@ export class HeartbeatService {
 
     constructor() {
         // Start monitor loop
-        setInterval(() => this.checkHeartbeats(), 60); // every 60 sec
+        setInterval(() => this.checkHeartbeats(), 60000); // every 60 sec
     }
 
     recordHeartbeat(ip, timestamp) {
