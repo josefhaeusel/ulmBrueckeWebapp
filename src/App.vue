@@ -19,6 +19,7 @@
           </v-tabs-window>
         </v-card>
       </div>
+      <FeedbackWidget />
       <FooterBottom />
     </main>
 
@@ -78,6 +79,7 @@ import ParallaxBackground from './components/Parallax.vue'
 import FooterBottom from './components/Footer.vue'
 import TimelineComponent from './components/Timeline.vue'
 import AudioInfoComponent from './components/AudioInfo.vue'
+import FeedbackWidget from './components/FeedbackWidget.vue'
 
 export default {
   data: () => ({
@@ -95,6 +97,7 @@ export default {
     TimelineComponent,
     AudioInfoComponent,
     FooterBottom,
+    FeedbackWidget
   },
   created() {
     this.setModiContent();
