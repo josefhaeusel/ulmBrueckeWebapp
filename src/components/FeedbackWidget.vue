@@ -11,7 +11,7 @@
         >
           <div style="font-size: 14px;">
             Anliegen? Schreiben Sie:<br />
-            <strong>{{ email }}</strong>
+            <a href="mailto:flachsbrueckeulm@gmail.com"><strong>{{ email }}</strong></a>
           </div>
           <v-btn
             icon
@@ -69,5 +69,12 @@
   .fade-enter-from,
   .fade-leave-to {
     opacity: 0;
+  }
+
+  a:link {
+  color: white;
+  background-color: transparent;
+  /* text-decoration: none; */
+
   }
   </style>
