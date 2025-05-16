@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("heartbeat_console")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2fc1917c2d738c355508ed65e9b1877acfb87067")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dce6899fdfc4c00843f061047e38c188ecfbcf80")]
 [assembly: System.Reflection.AssemblyProductAttribute("heartbeat_console")]
 [assembly: System.Reflection.AssemblyTitleAttribute("heartbeat_console")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -12,7 +12,7 @@
             <h1 class="text-h2 mb-4">
               Smart Circular Bridge Ulm
             </h1>
-            <!-- <h2 class="subheading font-weight-thin">
+            <h2 class="subheading font-weight-thin">
               Listen to the Live-Sound!
               <v-icon icon="mdi-cast-audio-variant"></v-icon>
             </h2>
@@ -21,7 +21,7 @@
               <v-icon v-if="!audioIsPlaying && !audioIsLoading" @click="startStream" :icon="playIconActive" style="font-size: 6rem" @mouseover="playIconActive = 'mdi-motion-play'" @mouseleave="playIconActive = 'mdi-motion-play-outline'"></v-icon>
               <v-icon v-if="audioIsPlaying && !audioIsLoading" @click="audioPlayer.pause()" :icon="playIconActive" style="font-size: 6rem" @mouseover="playIconActive = 'mdi-motion-pause'" @mouseleave="playIconActive = 'mdi-motion-pause-outline'"></v-icon>
               <v-progress-circular v-if="audioIsLoading" color="primary" indeterminate size="50"></v-progress-circular>
-            </div> -->
+            </div>
             <audio id="audioPlayer">
               <source src="https://flachsbruecke-ulm.de/radio/stream"/>
             </audio>

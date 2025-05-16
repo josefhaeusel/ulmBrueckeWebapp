@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/heartbeat_console.csproj",
+      "projectUniqueName": "/Users/josef.haeusel/Documents/Lokale_Projekte/ulmBrueckeWebapp/heartbeat_console/heartbeat_console.csproj",
       "projectName": "heartbeat_console",
-      "projectPath": "/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/heartbeat_console.csproj",
+      "projectPath": "/Users/josef.haeusel/Documents/Lokale_Projekte/ulmBrueckeWebapp/heartbeat_console/heartbeat_console.csproj",
       "packagesPath": "/Users/josef.haeusel/.nuget/packages/",
-      "outputPath": "/Users/josef.haeusel/Documents/Lokale Projekte/ulmBrueckeWebapp/heartbeat_console/obj/",
+      "outputPath": "/Users/josef.haeusel/Documents/Lokale_Projekte/ulmBrueckeWebapp/heartbeat_console/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/josef.haeusel/.nuget/NuGet/NuGet.Config"

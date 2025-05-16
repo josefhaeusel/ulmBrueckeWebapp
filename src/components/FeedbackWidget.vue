@@ -74,7 +74,5 @@
   a:link {
   color: white;
   background-color: transparent;
-  /* text-decoration: none; */
-
   }
   </style>
