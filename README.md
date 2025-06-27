@@ -56,9 +56,23 @@ Learn more at [flachsbruecke-ulm.de](https://flachsbruecke-ulm.de).
    ```bash
    # see nginx.conf
    ```
+
+6. **Kill /api**:
+   ```bash
+   lsof -i :3000;
+   kill {PROCESS_ID}
+   ```
+   
 7. **Start /api detached and log**:
    ```bash
-   nohup npm start > app.log 2>&1 &;
+   nohup npm start > app.log 2>&1 &
+   
+   ```
+   _**Hint:** Log uses International Time (German - 2h)_
+   
+
+8. **View log**:
+   ```
    lsof -i :3000;
    tail -f app.log
    ```
