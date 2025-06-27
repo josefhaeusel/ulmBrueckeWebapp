@@ -5,7 +5,7 @@ import * as nodemailer from 'nodemailer';
 export class HeartbeatService {
     private readonly logger = new Logger(HeartbeatService.name);
     private readonly heartbeats = new Map<string, number>();
-    private readonly timeoutSeconds = 120;
+    private readonly timeoutSeconds = 300;
 
     constructor() {
         // Start monitor loop
@@ -60,3 +60,4 @@ export class HeartbeatService {
         }
     }
 }
+
