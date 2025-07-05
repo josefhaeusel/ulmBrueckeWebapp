@@ -7,18 +7,27 @@
       </h1>
 
       <p>
-        Haben Sie sich schon einmal gefragt, wie eine Brücke klingt? Auf der Smart Circular Bridge hören Sie ihre eigenen Schritte, und Sie können erfahren, wie die Brücke bei unterschiedlicher Belastung oder Temperatur klingt.<br><br> Möglich wird das mit Hilfe von 42 Sensoren, die in der Brücke verbaut sind.<br> Sie dienen in erster Linie der Materialforschung für das EU-Projekt „Smart Circular Bridge“. 
+        Haben Sie sich schon einmal gefragt, wie eine Brücke klingt? Auf der Smart Circular Bridge hören Sie ihre
+        eigenen Schritte, und Sie können erfahren, wie die Brücke bei unterschiedlicher Belastung oder Temperatur
+        klingt.<br><br> Möglich wird das mit Hilfe von 42 Sensoren, die in der Brücke verbaut sind.<br> Sie dienen in
+        erster Linie der Materialforschung für das EU-Projekt „Smart Circular Bridge“.
 
       </p>
-      <p> Aber das Stuttgarter Atelier für auditive Kommunikation „Klangerfinder“ hat sich die Sensordaten zunutze gemacht. Mit mathematischen Berechnungen überführen die Künstler die Daten in Klänge – und laden mit ihrem Soundkonzept dazu ein, die Brücke als Musikinstrument zu erleben.<br><br> Mit dieser WebApp hören Sie nicht nur den Sound der Brücke. Sie können die unterschiedlichen Klänge auch einzeln anhören und sogar interaktiv Ihre eigene auditive Brückensituation simulieren. Entdecken Sie, wie die Brücke auf Belastung und auf Temperaturveränderungen reagiert!
- <br>
+      <p> Aber das Stuttgarter Atelier für auditive Kommunikation „Klangerfinder“ hat sich die Sensordaten zunutze
+        gemacht. Mit mathematischen Berechnungen überführen die Künstler die Daten in Klänge – und laden mit ihrem
+        Soundkonzept dazu ein, die Brücke als Musikinstrument zu erleben.<br><br> Mit dieser WebApp hören Sie nicht nur
+        den Sound der Brücke. Sie können die unterschiedlichen Klänge auch einzeln anhören und sogar interaktiv Ihre
+        eigene auditive Brückensituation simulieren. Entdecken Sie, wie die Brücke auf Belastung und auf
+        Temperaturveränderungen reagiert!
+        <br>
       </p>
 
       <p>
         <strong> Viel Spaß beim Erkunden! </strong>
       </p>
 
-      <img class="rounded-xl" style="margin: 15px 0 ; width:100%" :src="require('../assets/klangkunst_landingpage.png')" alt="">
+      <img class="rounded-xl" style="margin: 15px 0 ; width:100%" :src="require('../assets/klangkunst_landingpage.png')"
+        alt="">
 
 
 
@@ -72,9 +81,9 @@
         </div>
       </div> -->
 
-      <InteractiveComponent ref="interactiveComponent"/>
+      <InteractiveComponent ref="interactiveComponent" />
 
-      <div class="info-abstract mt-5">
+      <!-- <div class="info-abstract mt-5">
       <h1 style="padding-bottom: 15px;">
         Sound-Modi
       </h1>
@@ -83,9 +92,9 @@
       </p>
 
 
-    </div>
+    </div> -->
 
-    <AudioSpecial />
+      <!-- <AudioSpecial /> -->
 
 
       <div class="my-2">
@@ -95,12 +104,13 @@
 
               <!-- untergeordnete Slides -->
               <v-card class="audio-cards my-2 mx-2" elevation="4">
-                <v-card-title class="text-h4 text-white d-flex align-center justify-space-between" text-color="white" style="background-color: #97B28A;">
+                <v-card-title class="text-h4 text-white d-flex align-center justify-space-between" text-color="white"
+                  style="background-color: #97B28A;">
                   {{ expansionCard.title }}
                   <v-icon :icon="expansionCard.icon" size="40" class="pr-4"></v-icon>
                 </v-card-title>
                 <div class="text-video mb-5">
-                  <div class="untertitel-titel" >
+                  <div class="untertitel-titel">
                     <v-card-text style="font-size: 18px; font-style: bold;;">
                       {{ expansionCard.subtitle }}
                     </v-card-text>
@@ -108,11 +118,12 @@
                     </v-card-text>
                   </div>
                   <div style="margin:0 1rem; align-self: center;">
-                  <video name="video" controls loop :id="`soundVideo-${n}`" class="border-thin" style=" border-radius: 20px; min-width: 10px">
-                    <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
+                    <video name="video" controls loop :id="`soundVideo-${n}`" class="border-thin"
+                      style=" border-radius: 20px; min-width: 10px">
+                      <source :src="require(`../assets/${expansionCard.video}`)" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
                 </div>
               </v-card>
             </v-window-item>
@@ -123,7 +134,8 @@
             <v-item-group v-model="content.expansionOnboarding" class="text-center" mandatory @click=stopVideo>
               <v-item v-for="(card, i) in content.expansionCards" :key="`btn-${i}`" v-slot="{ isSelected, toggle }"
                 :value="i">
-                <v-btn color="#97B28A" :variant="isSelected ? 'text' : 'plain'" icon="mdi-record" @click="toggle" size="2" class="dot-button"></v-btn>
+                <v-btn color="#97B28A" :variant="isSelected ? 'text' : 'plain'" icon="mdi-record" @click="toggle"
+                  size="2" class="dot-button"></v-btn>
               </v-item>
             </v-item-group>
             <v-btn icon="mdi-chevron-right" variant="plain" @click="nextCard(content); stopVideo()"></v-btn>
@@ -139,20 +151,20 @@
 
 
 
-    
+
 
 
   </div>
 </template>
 <script>
 import InteractiveComponent from './InteractiveComponent.vue';
-import AudioSpecial from './AudioSpecial.vue';
+// // import AudioSpecial from './AudioSpecial.vue';
 
 export default {
   name: "AudioInfoComponent",
   components: {
     InteractiveComponent,
-    AudioSpecial
+    // AudioSpecial
   },
   data: () => ({
     timeline: {
@@ -229,7 +241,7 @@ export default {
 
   }),
   methods: {
-    stopAudioChild(){
+    stopAudioChild() {
       this.$refs.interactiveComponent?.stopPlayback("weight")
       this.$refs.interactiveComponent?.stopPlayback("temperature")
     },
@@ -443,7 +455,7 @@ export default {
   align-items: center;
 }
 
-.dot-button{
+.dot-button {
   margin-top: -23px
 }
 
